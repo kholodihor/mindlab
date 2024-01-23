@@ -1,0 +1,40 @@
+.about {
+  max-width: 1180px;
+  padding: 6.25rem 0;
+}
+.about_cards {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 6.25rem;
+}
+.about_content {
+  width: 50%;
+  color: var(--White, var(--w, #f9f9fa));
+  line-height: 150%;
+  font-style: normal;
+}
+.about_title {
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.about_subtitle {
+  font-size: 16px;
+  font-weight: 400;
+}
+.description {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  margin-bottom: 2.5rem;
+}
+.description_item {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.description_text {
+  color: #f9f9fa;
+}
