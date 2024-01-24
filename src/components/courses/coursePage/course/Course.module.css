@@ -1,0 +1,26 @@
+.sideBar {
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    
+}
+.sideBar__item {
+width: 200px;
+padding: 10px 0;
+border-radius: 34px;
+border: 1px solid var(--graphite);
+background-color: var(--graphite);
+text-align: center;
+color: var(--white);
+cursor: pointer;
+font-size: 16px;
+font-weight: 500;
+line-height: calc(24 / 16)
+
+}
+
+.active__item {
+    background-color: var(--violet-light);
+    color: var(--black);
+}
