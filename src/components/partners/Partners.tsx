@@ -44,15 +44,17 @@ const Partners = () => {
             slidesPerView={1}
             mousewheel={true}
             loop={true}
-            modules={[Navigation, Mousewheel, Scrollbar]}>
+            modules={[Navigation, Mousewheel, Scrollbar]}
+          >
             {partners.map(({ name, logo, text, color, link }) => (
               <SwiperSlide
                 key={name}
                 className={css.swiperSlide}
-                style={{ background: `${color}` }}>
+                style={{ background: `${color}` }}
+              >
                 <Image
-                  width={100}
-                  height={100}
+                  width={200}
+                  height={200}
                   src={logo}
                   alt="logo"
                   className={css.partners__logo}
