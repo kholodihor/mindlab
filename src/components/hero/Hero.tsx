@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import Lottie from 'lottie-react'
-import heroAnimation from '@/animations/heroAnimation.json'
+import hero from '@/animations/hero.json'
 
 import styles from './Hero.module.css'
 
@@ -44,8 +44,8 @@ const Hero = () => {
         />
         {isHovered ? (
           <Image
-            width={100}
-            height={100}
+            width={85}
+            height={85}
             className={styles.smile}
             src="/svg/hero/smile2.svg"
             alt="smile"
@@ -61,7 +61,7 @@ const Hero = () => {
         )}
       </div>
       <div className={styles.animation_block}>
-        <Lottie animationData={heroAnimation} loop={false} />
+        <Lottie animationData={hero} loop={false} />
       </div>
     </div>
   )
