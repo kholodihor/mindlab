@@ -1,3 +1,9 @@
+.course__container {
+    display: flex;
+    gap: 100px;
+    align-items: flex-start;
+}
+
 .sideBar {
     width: 200px;
     display: flex;
@@ -23,4 +29,37 @@ line-height: calc(24 / 16)
 .active__item {
     background-color: var(--violet-light);
     color: var(--black);
+}
+
+.topic__decsription {
+    font-size: 24px;
+font-weight: 500;
+line-height: calc(34 / 24);
+margin-bottom: 52px;
+}
+
+.topic__text {
+    margin-bottom: 24px;
+    font-size: 16px;
+font-weight: 400;
+line-height: calc(24 / 16);
+}
+
+.topic__list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 80px;
+}
+
+.topic__item {
+    display: flex;
+    gap: 16px;
+    width: 400px;
+    font-size: 16px;
+font-weight: 400;
+line-height: calc(24 / 16);
+}
+
+.topic__item:not(:last-child) {
+    margin-bottom: 16px;
 }

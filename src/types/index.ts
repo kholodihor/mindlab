@@ -5,6 +5,7 @@ export type CoursesList = {
   components: Array<string>;
   color: string;
   classname: string;
+  href: string;
 };
 
 export type Partners = {

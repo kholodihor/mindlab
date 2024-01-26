@@ -14,3 +14,7 @@
 .link:focus {
   color: var(--lime);
 }
+
+.error {
+  text-align: center;
+}
