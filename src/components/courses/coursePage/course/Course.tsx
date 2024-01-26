@@ -45,7 +45,7 @@ const Course = ({ params }: { params: { course: string } }) => {
       <div className={css.topic}>
         <p className={css.topic__decsription}>{currentCourse?.text}</p>
         <p className={css.topic__text}>Лови теми, які будуть в цьому курсі:</p>
-        <ul className={`${currentCourse?.topic.length >= 10 ? css.topic__list : ''}`}>
+        <ul className={`${currentCourse?.name === 'political' ? css.topic__list : ''}`}>
           {currentCourse?.topic.map((item) => (
             <li key={item} className={css.topic__item}>
               <Image
