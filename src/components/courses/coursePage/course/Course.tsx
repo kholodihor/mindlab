@@ -5,14 +5,15 @@ import css from '../course/Course.module.css'
 import { MouseEvent } from 'react'
 import { coursesPage } from '@/data/courses'
 import Image from 'next/image'
+import TeacherCourse from './Teachers'
 
 const Course = ({ params }: { params: { course: string } }) => {
   const currentCourse = coursesPage.find(({ name }) => name === params.course)
   const [sideBarItem, setSideBarItem] = useState('Теми')
 
   const currentItem = (ev: MouseEvent<HTMLLIElement>) => {
-    setSideBarItem(ev.currentTarget.textContent || 'Теми')
-  }
+     setSideBarItem(ev.currentTarget.textContent || 'Теми')
+    }
 
   return (
     <section className={css.course__container}>
@@ -43,7 +44,7 @@ const Course = ({ params }: { params: { course: string } }) => {
         </li>
       </ul>
       <div className={css.topic}>
-        <p className={css.topic__decsription}>{currentCourse?.text}</p>
+        {sideBarItem === 'Теми' &&  <><p className={css.topic__decsription}>{currentCourse?.text}</p>
         <p className={css.topic__text}>Лови теми, які будуть в цьому курсі:</p>
         <ul className={`${currentCourse?.name === 'political' ? css.topic__list : ''}`}>
           {currentCourse?.topic.map((item) => (
@@ -57,7 +58,12 @@ const Course = ({ params }: { params: { course: string } }) => {
               <p>{item}</p>
             </li>
           ))}
-        </ul>
+        </ul></>}
+       
+        {sideBarItem === 'Викладачі' && <TeacherCourse /> }
+        {sideBarItem === 'Для кого' && <p>Для кого цей курс</p> }
+        {sideBarItem === 'Питання' && <p>Часті питання</p> }
+        
       </div>
     </section>
   )
