@@ -5,7 +5,7 @@ import styles from './TeacherCard.module.css'
 
 const TeacherCard = ({ teacher }: { teacher: Teacher }) => {
   return (
-    <>
+    <div className={styles.card}>
       <Image
         width={200}
         height={200}
@@ -16,7 +16,7 @@ const TeacherCard = ({ teacher }: { teacher: Teacher }) => {
       <h3 className={styles.name}>{teacher.name}</h3>
       <p className={styles.speciality}>{teacher.speciality}</p>
       <Image width={200} height={200} src="/teachers/mask.png" alt="mask" className={styles.mask} />
-    </>
+    </div>
   )
 }
 

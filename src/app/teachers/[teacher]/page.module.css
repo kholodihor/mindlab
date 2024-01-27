@@ -1,0 +1,48 @@
+.link {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 32px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: calc(24 / 16);
+  color: var(--white);
+  transition: all 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link:hover,
+.link:focus {
+  color: var(--lime);
+}
+
+.error {
+  text-align: center;
+}
+
+.wrapper {
+  background: url(/stars_bg.png) no-repeat;
+  background-size: cover;
+  background-position: 0 0;
+  min-height: 50vh;
+  display: flex;
+  gap: 3rem;
+
+  .teacher {
+    display: flex;
+
+    gap: 3rem;
+
+    .card {
+      flex: 1;
+    }
+    .icons {
+      background: #232322;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  .tabs {
+    flex: 1;
+  }
+}
