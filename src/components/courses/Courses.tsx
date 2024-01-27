@@ -16,9 +16,9 @@ const Courses = () => {
           <Lottie className={css.eye} animationData={eyeCourses} />
         </div>
         <ul className={css.courses}>
-          {coursesList.map(({ title, description, component, components, classname, color }) => (
+          {coursesList.map(({ title, description, component, components, classname, color, href }) => (
             <li className={css.courses__item} key={title}>
-              <a href="/" className={css.courses__link}>
+              <a href={href} className={css.courses__link}>
                 <div className={css.thumb__title}>
                   <h3 className={` ${css[`title__${classname}`]}`}>{title}</h3>
                   <div className={css.icon__title}>

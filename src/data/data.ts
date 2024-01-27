@@ -9,6 +9,7 @@ export const coursesList: Array<CoursesList> = [
     components: ['#Корпоративна влада', '#Влада лідера'],
     color: '#aaaedf',
     classname: 'violetLight',
+    href: '/courses/leadership'
   },
   {
     title: 'Career counseling / Career guidance ',
@@ -18,6 +19,7 @@ export const coursesList: Array<CoursesList> = [
     components: ['#Зустріч із стартаперами', '#Зустріч з бізнесом'],
     color: '#ffecd0',
     classname: 'roseLight',
+    href: '/courses/career'
   },
   {
     title: 'Business',
@@ -27,6 +29,7 @@ export const coursesList: Array<CoursesList> = [
     components: ['#Запуск Start up', '#Скіли ХХІ ст.'],
     color: '#8d83ff',
     classname: 'violet',
+    href: '/courses/business'
   },
   {
     title: 'Innovative technologies',
@@ -36,6 +39,7 @@ export const coursesList: Array<CoursesList> = [
     components: ['#UI/UX Design', '#FE/BE', '#Digital Marketing'],
     color: '#03aa89',
     classname: 'green',
+    href: '/courses/innovative'
   },
   {
     title: 'ART',
@@ -45,6 +49,7 @@ export const coursesList: Array<CoursesList> = [
     components: ["#Комп'ютерне мистецтво", '#Відео-мистецтво'],
     color: '#2928e3',
     classname: 'blue',
+    href: '/courses/art'
   },
   {
     title: 'Political science-sociology',
@@ -54,6 +59,7 @@ export const coursesList: Array<CoursesList> = [
     components: ['#Теорія соціальних змін', '#Соціологія нації'],
     color: '#fed1ce',
     classname: 'rose',
+    href: '/courses/political'
   },
 ];
 
