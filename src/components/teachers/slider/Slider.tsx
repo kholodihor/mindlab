@@ -1,10 +1,12 @@
 'use client'
 
 import React, { useRef } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
-import { teachers } from './data'
+import { teachers } from '@/data/teachers'
+import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
 
 import styles from './Slider.module.css'
 import 'swiper/css/navigation'
@@ -41,22 +43,9 @@ const Slider = () => {
         >
           {teachers.map((teacher, index) => (
             <SwiperSlide key={index} className={styles.slide}>
-              <Image
-                width={200}
-                height={200}
-                src={teacher.image}
-                alt={teacher.name}
-                className={styles.image}
-              />
-              <h3 className={styles.name}>{teacher.name}</h3>
-              <p className={styles.speciality}>{teacher.speciality}</p>
-              <Image
-                width={200}
-                height={200}
-                src="/teachers/mask.png"
-                alt="mask"
-                className={styles.mask}
-              />
+              <Link href={`teachers/${teacher.key}`}>
+                <TeacherCard teacher={teacher} />
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
