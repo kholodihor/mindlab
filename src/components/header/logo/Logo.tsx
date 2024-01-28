@@ -1,11 +1,12 @@
 'use client'
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import styles from './Logo.module.css';
-import TypingText from '@/components/TypingText';
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import styles from './Logo.module.css'
+import TypingText from '@/components/TypingText'
 const Logo = () => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false)
 
   return (
     <div
@@ -14,20 +15,20 @@ const Logo = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {!isHovered ? (
-        <h1>ML</h1>
+        <Link href="/">
+          <h1>ML</h1>
+        </Link>
       ) : (
-        <motion.div
-          initial="hidden"
-          whileHover="visible"
-          viewport={{ amount: 0.1 }}
-        >
-          <h1 className={styles.title}>
-            <TypingText title="MIND LAB" />
-          </h1>
-        </motion.div>
+        <Link href="/">
+          <motion.div initial="hidden" whileHover="visible" viewport={{ amount: 0.1 }}>
+            <h1 className={styles.title}>
+              <TypingText title="MIND LAB" />
+            </h1>
+          </motion.div>
+        </Link>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

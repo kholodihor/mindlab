@@ -1,14 +1,13 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
 import Lottie from 'lottie-react'
 import hero from '@/animations/hero.json'
+import RotatingStar from '../shared/rotating_star/RotatingStar'
 
 import styles from './Hero.module.css'
 
 const Hero = () => {
-  const [isHovered, setIsHovered] = useState(false)
   return (
     <div className={styles.hero}>
       <div className={styles.title_block}>
@@ -33,32 +32,9 @@ const Hero = () => {
           src="/svg/hero/star_violet.svg"
           alt=""
         />
-        <Image
-          width={100}
-          height={100}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className={styles.rotating_star}
-          src="/svg/hero/rotating_star.svg"
-          alt="Отримати консультацію"
-        />
-        {isHovered ? (
-          <Image
-            width={85}
-            height={85}
-            className={styles.smile}
-            src="/svg/hero/smile2.svg"
-            alt="smile"
-          />
-        ) : (
-          <Image
-            width={85}
-            height={85}
-            className={styles.smile}
-            src="/svg/hero/smile.svg"
-            alt="smile"
-          />
-        )}
+        <div className={styles.rotating_star}>
+          <RotatingStar />
+        </div>
       </div>
       <div className={styles.animation_block}>
         <Lottie animationData={hero} loop={false} />

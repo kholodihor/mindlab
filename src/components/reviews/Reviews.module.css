@@ -38,6 +38,7 @@
 .comments_block_paragraph {
   color: var(--lightgray);
   font-size: 16px;
+  margin-bottom: 40px;
 }
 
 .comet {
