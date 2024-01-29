@@ -1,10 +1,17 @@
-import { FC } from 'react'
+'use client'
+
+import { FC, useState } from 'react'
 import Card from './about_card/Card'
 import styles from './About.module.css'
+import Lottie from 'lottie-react'
+import pulse from '../../animations/puls.json'
+import Wow from '../shared/wow/Wow'
 
 const About: FC = () => {
   const REGISTER_URL = 'https://forms.gle/wxX5LyYEsLupyKg68'
   const ENG_TEST_URL = '/' // should be add later
+  const [isPulseHovered, setIsPulseHovered] = useState(false)
+  const [isWowHovered, setIsWowHovered] = useState(false)
 
   const bonusCardDesc = (
     <ul className={styles.description}>
@@ -40,6 +47,14 @@ const About: FC = () => {
       </span>
     </p>
   )
+
+  const hoverPulseHandler = () => {
+    setIsPulseHovered(!isPulseHovered)
+  }
+
+  const hoverWowHandler = () => {
+    setIsWowHovered(!isWowHovered)
+  }
   return (
     <section className={styles.about}>
       <div className={styles.about_cards}>
@@ -47,12 +62,28 @@ const About: FC = () => {
           title="Отримай бонуси"
           description={bonusCardDesc}
           url={REGISTER_URL}
-          text="Отримати бонуси"></Card>
+          text="Отримати бонуси"
+          hoverHandler={hoverWowHandler}
+        >
+          {isWowHovered ? (
+            <div className={styles.wow}>
+              <Wow />
+            </div>
+          ) : null}
+        </Card>
         <Card
           title="Прокачай англійську"
           description={boostEngCardDesc}
           url={ENG_TEST_URL}
-          text="Визначити рівень англійської"></Card>
+          text="Визначити рівень англійської"
+          hoverHandler={hoverPulseHandler}
+        >
+          {isPulseHovered ? (
+            <div className={styles.pulse}>
+              <Lottie animationData={pulse}></Lottie>
+            </div>
+          ) : null}
+        </Card>
       </div>
       <div className={styles.about_content}>
         <h4 className={styles.about_title}>

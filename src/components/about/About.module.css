@@ -38,3 +38,17 @@
 .description_text {
   color: #f9f9fa;
 }
+.pulse {
+  position: absolute;
+  top: -13px;
+  right: 0;
+  width: 161px;
+  height: 126.344px;
+}
+.wow {
+  position: absolute;
+  top: 35px;
+  right: 38px;
+  width: 142.1px;
+  height: 68.925px;
+}
