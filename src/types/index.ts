@@ -27,3 +27,9 @@ export type Teacher = {
   name: string
   speciality: string
 }
+
+export type FeedBackFormInput = {
+  name: string
+  email: string
+  message: string
+}
