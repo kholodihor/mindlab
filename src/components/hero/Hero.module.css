@@ -56,25 +56,12 @@
 }
 
 .rotating_star {
-  /* width: 180px;
-  height: 180px; */
   position: absolute;
   bottom: 25vh;
   left: 40vw;
   transition: all 0.7s ease-in-out;
   z-index: 51;
 }
-
-/* .rotating_star:hover {
-  transform: rotate(240deg);
-}
-
-.smile {
-  position: absolute;
-  bottom: 33vh;
-  left: 43.5vw;
-  z-index: 52;
-} */
 
 .animation_block {
   width: 100%;
