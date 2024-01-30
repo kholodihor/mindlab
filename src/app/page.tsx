@@ -5,6 +5,7 @@ import Reviews from '@/components/reviews/Reviews'
 import About from '@/components/about/About'
 import styles from './page.module.css'
 import Teachers from '@/components/teachers/Teachers'
+import Parents from '@/components/parents/Parents'
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
       <Partners />
       <Teachers />
       <Reviews />
+      <Parents />
     </div>
   )
 }
