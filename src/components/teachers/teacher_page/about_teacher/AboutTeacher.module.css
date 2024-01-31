@@ -1,0 +1,18 @@
+.about {
+  display: flex;
+  margin-top: 24px;
+  gap: 80px;
+
+  .about_title {
+    font-size: 18px;
+    margin-bottom: 20px;
+    .order {
+      color: var(--violet);
+    }
+  }
+  .about_paragraph {
+    font-size: 16px;
+    font-weight: normal;
+    width: 300px;
+  }
+}
