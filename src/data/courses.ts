@@ -15,6 +15,11 @@ export type CoursesPage = {
   topic: Array<string>
 }
 
+type SkillList = {
+  name: string
+  description: string
+}
+
 export const coursesPage: Array<CoursesPage> = [
   {
     name: 'political',
@@ -178,5 +183,39 @@ export const coursesPage: Array<CoursesPage> = [
       'День ТІНІ. Стажування',
       'Знайомство із найуспішнішими студентами України'
     ]
+  }
+]
+
+export const skillList: Array<SkillList> = [
+  { name: 'Досвід', description: 'потрібно лише бажання й готовність багато працювати' },
+  { name: 'English', description: 'для комфортного читання довгих статей про дизайн' },
+  { name: 'Час', description: '10-12 годин на тиждень для виконання завдань' }
+]
+
+export type QuestionCourse = {
+  question: string
+  answer: string
+}
+
+export const questionCourse: Array<QuestionCourse> = [
+  {
+    question: 'Які навички необхдні для вступу?',
+    answer: 'потрібно лише бажання й готовність багато працювати'
+  },
+  {
+    question: 'А сертифікат буде?',
+    answer: 'потрібно лише бажання й готовність багато працювати'
+  },
+  {
+    question: 'Що, як мені не сподобається?',
+    answer: 'потрібно лише бажання й готовність багато працювати'
+  },
+  {
+    question: 'Чи будуть записуватися вебінари?',
+    answer: 'потрібно лише бажання й готовність багато працювати'
+  },
+  {
+    question: 'Який потрібен софт?',
+    answer: 'потрібно лише бажання й готовність багато працювати'
   }
 ]

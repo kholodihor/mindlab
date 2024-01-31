@@ -6,6 +6,8 @@ import { MouseEvent } from 'react'
 import { coursesPage } from '@/data/courses'
 import Image from 'next/image'
 import TeacherCourse from './Teachers'
+import Audiense from './audience/Audience'
+import QuestionCourse from './question/QuestionCourse'
 
 const Course = ({ params }: { params: { course: string } }) => {
   const currentCourse = coursesPage.find(({ name }) => name === params.course)
@@ -61,8 +63,8 @@ const Course = ({ params }: { params: { course: string } }) => {
         </ul></>}
        
         {sideBarItem === 'Викладачі' && <TeacherCourse /> }
-        {sideBarItem === 'Для кого' && <p>Для кого цей курс</p> }
-        {sideBarItem === 'Питання' && <p>Часті питання</p> }
+        {sideBarItem === 'Для кого' && <Audiense /> }
+        {sideBarItem === 'Питання' && <QuestionCourse /> }
         
       </div>
     </section>
