@@ -1,27 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { aboutData, coursesData } from '@/data/teacherPage'
+import AboutTeacher from '../about_teacher/AboutTeacher'
+import TeacherCourses from '../teacher_courses/TeacherCourses'
+
 import styles from './TeacherTabs.module.css'
 
+type ActiveTab = 'courses' | 'about'
+
+type Tab = {
+  id: ActiveTab
+  name: string
+}
+
+const tabs: Tab[] = [
+  {
+    id: 'about',
+    name: 'Про викладача'
+  },
+  {
+    id: 'courses',
+    name: 'Курси Викладача'
+  }
+]
+
 const TeacherTabs = () => {
-  const tags = ['Формування системи лідерства', 'Корпоративна влада', 'Влада лідера']
+  const [activeTab, setActiveTab] = useState<ActiveTab>('courses')
+
   return (
     <div className={styles.tabs}>
       <div className={styles.tabs_container}>
-        <button className={styles.tab}>Про викладача</button>
-        <button className={`${styles.tab} ${styles.active}`}>Курси Викладача</button>
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            className={`${styles.tab} ${tab.id === activeTab && styles.active}`}
+            onClick={() => {
+              setActiveTab(tab.id)
+            }}
+          >
+            {tab.name}
+          </button>
+        ))}
       </div>
-      <div className={styles.content}>
-        <h1 className={styles.content_title}>Leadership</h1>
-        <p className={styles.content_paragraph}>
-          це курс, який розкриє в тобі здатність впливати на інших, надихати і керувати командою
-        </p>
-        <div className={styles.tags}>
-          {tags.map((tag, index) => (
-            <span className={`${styles.tag} ${index === 0 && styles.first}`} key={index}>
-              {`#${tag}`}
-            </span>
-          ))}
-        </div>
-      </div>
+      {activeTab === 'courses' && <TeacherCourses data={coursesData} />}
+      {activeTab === 'about' && <AboutTeacher data={aboutData} />}
     </div>
   )
 }
