@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { nanoid } from 'nanoid'
+
+'use client'
+
 import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react'
 
 import styles from './TextInput.module.css'
@@ -13,16 +15,14 @@ const TextInput = forwardRef(function TextInput(
   { title, errorText, value = '', ...rest }: TextInputProps,
   _ref: ForwardedRef<HTMLInputElement>
 ) {
-  const id = nanoid()
-
   return (
     <div className={styles.wrapper}>
       {!!title && (
-        <label htmlFor={id} className="">
+        <label htmlFor={title} className="">
           {title}
         </label>
       )}
-      <input {...rest} id={id} value={value} className={styles.input} />
+      <input {...rest} id={title} value={value} className={styles.input} />
       {errorText && <span className={styles.error}>{errorText}</span>}
     </div>
   )
