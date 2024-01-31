@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import css from '../course/Course.module.css'
 import { MouseEvent } from 'react'
-import { coursesPage } from '@/data/courses'
+import { coursesPage, sidebar } from '@/data/courses'
 import Image from 'next/image'
 import TeacherCourse from './Teachers'
 import Audiense from './audience/Audience'
@@ -20,30 +20,12 @@ const Course = ({ params }: { params: { course: string } }) => {
   return (
     <section className={css.course__container}>
       <ul className={css.sideBar}>
-        <li
-          className={`${css.sideBar__item} ${sideBarItem === 'Теми' ? css.active__item : ''}`}
+        {sidebar.map((item, index) => <li key={index}
+          className={`${css.sideBar__item} ${sideBarItem === item ? css.active__item : ''}`}
           onClick={currentItem}
         >
-          Теми
-        </li>
-        <li
-          className={`${css.sideBar__item} ${sideBarItem === 'Викладачі' ? css.active__item : ''}`}
-          onClick={currentItem}
-        >
-          Викладачі
-        </li>
-        <li
-          className={`${css.sideBar__item} ${sideBarItem === 'Для кого' ? css.active__item : ''}`}
-          onClick={currentItem}
-        >
-          Для кого
-        </li>
-        <li
-          className={`${css.sideBar__item} ${sideBarItem === 'Питання' ? css.active__item : ''}`}
-          onClick={currentItem}
-        >
-          Питання
-        </li>
+          {item}
+        </li>)}
       </ul>
       <div className={css.topic}>
         {sideBarItem === 'Теми' &&  <><p className={css.topic__decsription}>{currentCourse?.text}</p>

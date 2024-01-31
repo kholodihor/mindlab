@@ -1,5 +1,5 @@
 import { questionCourse } from '@/data/courses';
-import css from '../audience/Audience.module.css'
+import css from './QuestionCourse.module.css'
 import { useState } from 'react';
 import MinusIcon from '@/components/icons/MinusIcon';
 import PlusIcon from '@/components/icons/PlusIcon';
@@ -23,8 +23,8 @@ const QuestionCourse = () => {
         <div>
 <h2 className={css.title}>Часті питання</h2>
 <ul className={css.question__list}>
-    {questionCourse.map(({question, answer, id}) => <li key={question}>
-        <div>
+    {questionCourse.map(({question, answer, id}) => <li key={question} className={css.question__item}>
+        <div className={css.wrapper}>
         {currentAnswer(id) ? (
                   <button type="button" className={css.btn} onClick={()=>closeAnswer(id)}>
                     <MinusIcon color={'#aaaedf'} />
@@ -34,9 +34,9 @@ const QuestionCourse = () => {
                     <PlusIcon color={'#aaaedf'} />
                   </button>
                 )}
-            <p>{question}</p>
+            <p >{question}</p>
         </div>
-        {currentAnswer(id) &&  <p>{answer}</p>}
+        {currentAnswer(id) &&  <p className={css.answer}>{answer}</p>}
        
     </li>)}
 </ul>

@@ -9,6 +9,7 @@ import Image from 'next/image'
 import RotatingStar from '../shared/rotating_star/RotatingStar'
 import { iconParents, questionList } from '@/data/parents'
 import MinusIcon from '../icons/MinusIcon'
+import PlusIcon from '../icons/PlusIcon'
 
 type Answer = Array<string>
 
@@ -89,13 +90,7 @@ const Parents = () => {
                   </button>
                 ) : (
                   <button type="button" className={css.btn} onClick={()=>showAnswer(color)}>
-                    <Image
-                      src={'/parents/plus.svg'}
-                      alt="plus svg"
-                      width={32}
-                      height={32}
-                      className={css.plusIcon}
-                    />
+                    <PlusIcon color={'#f9f9fa'} />
                   </button>
                 )}
               </li>

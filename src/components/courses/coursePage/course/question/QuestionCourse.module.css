@@ -4,3 +4,32 @@
 font-weight: 500;
 line-height: calc(36 / 24);
 }
+
+.question__list {
+display: flex;
+flex-wrap: wrap;
+gap: 24px;
+}
+
+.question__item {
+    width: 480px;
+    font-size: 18px;
+font-weight: 500;
+line-height: calc(27 / 18);
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn {
+    background-color: inherit;
+   border: none;
+}
+
+.answer {
+    padding-top: 10px;
+    padding-left: 44px;
+}
