@@ -7,6 +7,7 @@ import styles from './page.module.css'
 import Teachers from '@/components/teachers/Teachers'
 import Parents from '@/components/parents/Parents'
 import FeedBack from '@/components/feedback/FeedBack'
+import Certificate from '@/components/certificate/Certificate'
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
       <About />
       <Courses />
       <Partners />
+      <Certificate />
       <Teachers />
       <Reviews />
       <Parents />
