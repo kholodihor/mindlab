@@ -1,11 +1,16 @@
-import styles from './MainButton.module.css';
+import styles from './MainButton.module.css'
 
 interface MainButtonProps {
-  title: string;
+  title: string
+  handleAction?: () => void
 }
 
-const MainButton = ({ title }: MainButtonProps) => {
-  return <button className={styles.button}>{title}</button>;
-};
+const MainButton = ({ title, handleAction }: MainButtonProps) => {
+  return (
+    <button className={styles.button} onClick={handleAction}>
+      {title}
+    </button>
+  )
+}
 
-export default MainButton;
+export default MainButton

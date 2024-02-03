@@ -15,6 +15,7 @@ import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
+import Link from 'next/link'
 
 const Partners = () => {
   return (
@@ -60,12 +61,12 @@ const Partners = () => {
                   className={css.partners__logo}
                 />
                 <p className={css.partners__description}>{text}</p>
-                <a href={link} className={css.swiper__link}>
+                <Link href={link} className={css.swiper__link}>
                   <p className={css.partners__name}>{name}</p>
                   <div className={color === '#f9f9fa' ? `${css.icon}` : ''}>
                     <ArrowSliderPartners />
                   </div>
-                </a>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

@@ -15,6 +15,20 @@ export type CoursesPage = {
   topic: Array<string>
 }
 
+type SkillList = {
+  name: string
+  description: string
+}
+
+
+export type QuestionCourse = {
+  question: string
+  answer: string
+  id: number
+}
+
+export type SidebarCourses = Array<string>
+
 export const coursesPage: Array<CoursesPage> = [
   {
     name: 'political',
@@ -180,3 +194,39 @@ export const coursesPage: Array<CoursesPage> = [
     ]
   }
 ]
+
+export const skillList: Array<SkillList> = [
+  { name: 'Досвід', description: 'потрібно лише бажання й готовність багато працювати' },
+  { name: 'English', description: 'для комфортного читання довгих статей про дизайн' },
+  { name: 'Час', description: '10-12 годин на тиждень для виконання завдань' }
+]
+
+export const questionCourse: Array<QuestionCourse> = [
+  {
+    question: 'Які навички необхдні для вступу?',
+    answer: 'Потрібно лише бажання й готовність багато працювати',
+    id: 1
+  },
+  {
+    question: 'А сертифікат буде?',
+    answer: 'Буде',
+    id: 2
+  },
+  {
+    question: 'Що, як мені не сподобається?',
+    answer: 'Сподобається',
+    id:3
+  },
+  {
+    question: 'Чи будуть записуватися вебінари?',
+    answer: 'Так',
+    id: 4
+  },
+  {
+    question: 'Який потрібен софт?',
+    answer: 'Наполегливість',
+    id: 5
+  }
+];
+
+export const sidebar = ['Теми', 'Викладачі', 'Для кого', 'Питання'];
