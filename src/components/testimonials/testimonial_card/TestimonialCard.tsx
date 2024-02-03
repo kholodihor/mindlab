@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import styles from './ReviewCard.module.css'
+import styles from './TestimonialCard.module.css'
 
-type ReviewCardProps = {
+type TestimonialCardProps = {
   review: {
     image: string
     name: string
@@ -9,7 +9,7 @@ type ReviewCardProps = {
   }
 }
 
-const ReviewCard = ({ review }: ReviewCardProps) => {
+const TestimonialCard = ({ review }: TestimonialCardProps) => {
   return (
     <div className={styles.review_card}>
       <div className={styles.review_card_header}>
@@ -29,4 +29,4 @@ const ReviewCard = ({ review }: ReviewCardProps) => {
   )
 }
 
-export default ReviewCard
+export default TestimonialCard

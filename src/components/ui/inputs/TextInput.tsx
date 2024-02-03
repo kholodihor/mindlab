@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-
 'use client'
 
 import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react'
@@ -22,7 +21,7 @@ const TextInput = forwardRef(function TextInput(
           {title}
         </label>
       )}
-      <input {...rest} id={title} value={value} className={styles.input} />
+      <input {...rest} id={title} value={value} className={styles.input} autoComplete="off" />
       {errorText && <span className={styles.error}>{errorText}</span>}
     </div>
   )

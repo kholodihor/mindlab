@@ -1,16 +1,31 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 import { reviews } from '@/data/reviews'
 
-import ReviewCard from './review_card/ReviewCard'
+import TestimonialCard from './testimonial_card/TestimonialCard'
 import MainButton from '../ui/main_button/MainButton'
 
-import styles from './Reviews.module.css'
+import styles from './Testimonials.module.css'
 
-const Reviews = () => {
+import axios from 'axios'
+
+const Testimonials = () => {
+  const [testimonials, setTestimonials] = useState([])
+
+  useEffect(() => {
+    const getTestimonials = async () => {
+      const response = await axios.get('/api/testimonials')
+      setTestimonials(response.data)
+    }
+    getTestimonials()
+  }, [])
+
+  console.log(testimonials)
+
   return (
     <div className={styles.reviews_container}>
       <h1 className={styles.reviews_title}>
@@ -28,10 +43,11 @@ const Reviews = () => {
           disableOnInteraction: false,
           pauseOnMouseEnter: true
         }}
-        className={styles.swiper}>
+        className={styles.swiper}
+      >
         {reviews.map((review, index) => (
           <SwiperSlide key={index}>
-            <ReviewCard review={review} />
+            <TestimonialCard review={review} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -48,4 +64,4 @@ const Reviews = () => {
   )
 }
 
-export default Reviews
+export default Testimonials
