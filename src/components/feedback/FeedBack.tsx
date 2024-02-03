@@ -9,7 +9,7 @@ import { defaultValues } from './defaultValues'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { feedbackValidation } from './validationSchema'
 
-import TextInput from '@/components/ui/inputs/TextInput'
+import TextInput from '@/components/ui/inputs/text_input/TextInput'
 
 import styles from './FeedBack.module.css'
 
@@ -58,14 +58,24 @@ const FeedBack = () => {
             name="name"
             control={control}
             render={({ field }) => (
-              <TextInput {...field} errorText={errors.name?.message} placeholder="Ім’я" />
+              <TextInput
+                {...field}
+                errorText={errors.name?.message}
+                isWhite={true}
+                placeholder="Ім’я"
+              />
             )}
           />
           <Controller
             name="email"
             control={control}
             render={({ field }) => (
-              <TextInput {...field} errorText={errors.email?.message} placeholder="Email" />
+              <TextInput
+                {...field}
+                errorText={errors.email?.message}
+                isWhite={true}
+                placeholder="Email"
+              />
             )}
           />
           <Controller
@@ -74,6 +84,7 @@ const FeedBack = () => {
             render={({ field }) => (
               <TextInput
                 {...field}
+                isWhite={true}
                 errorText={errors.message?.message}
                 placeholder="Що тебе цікавить?"
               />
