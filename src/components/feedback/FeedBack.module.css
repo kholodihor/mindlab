@@ -67,7 +67,7 @@
   .sun_wrapper {
     position: absolute;
     top: 50%;
-    right: -50%;
+    right: -40%;
     transform: translateY(-50%);
     .sun {
       width: 100%;

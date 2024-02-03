@@ -9,6 +9,8 @@ import Image from 'next/image'
 import RotatingStar from '../shared/rotating_star/RotatingStar'
 import { iconParents, questionList } from '@/data/parents'
 import MinusIcon from '../icons/MinusIcon'
+import PlusIcon from '../icons/PlusIcon'
+import Link from 'next/link'
 
 type Answer = Array<string>
 
@@ -39,14 +41,14 @@ const Parents = () => {
               <ul className={` ${css.contacts}`}>
                 <li className={style.contact__item}>
                   <p className={style.contact__text}>Ми допоможемо:</p>
-                  <a href="mailto:mind.lab.hub@gmail.com" className={style.contact__link}>
+                  <Link href="mailto:mind.lab.hub@gmail.com" className={style.contact__link}>
                     <MailIcon />
                     <p>пошта</p>
-                  </a>
+                  </Link>
                 </li>
                 <li className={style.contact__item}>
                   <p className={style.contact__text}>Ми відповімо:</p>
-                  <a
+                  <Link
                     href="https://t.me/+Q8t3dkMH84hiYmNi"
                     className={style.contact__link}
                     rel="noopener noreferrer"
@@ -54,7 +56,7 @@ const Parents = () => {
                   >
                     <TelegramIcon />
                     <p>телеграм</p>
-                  </a>
+                  </Link>
                 </li>
               </ul>
                 {iconParents.map(({src, width, height, className}) => <Image
@@ -89,13 +91,7 @@ const Parents = () => {
                   </button>
                 ) : (
                   <button type="button" className={css.btn} onClick={()=>showAnswer(color)}>
-                    <Image
-                      src={'/parents/plus.svg'}
-                      alt="plus svg"
-                      width={32}
-                      height={32}
-                      className={css.plusIcon}
-                    />
+                    <PlusIcon color={'#f9f9fa'} />
                   </button>
                 )}
               </li>

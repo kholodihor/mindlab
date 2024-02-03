@@ -6,6 +6,7 @@ import ArrowRight from '../icons/ArrowRight';
 import ArrowTop from '../icons/ArrowTop';
 import eyeCourses from '@/animations/eyesCourses.json';
 import css from '../courses/Courses.module.css';
+import Link from 'next/link';
 
 const Courses = () => {
   return (
@@ -18,7 +19,7 @@ const Courses = () => {
         <ul className={css.courses}>
           {coursesList.map(({ title, description, component, components, classname, color, href }) => (
             <li className={css.courses__item} key={title}>
-              <a href={href} className={css.courses__link}>
+              <Link href={href} className={css.courses__link}>
                 <div className={css.thumb__title}>
                   <h3 className={` ${css[`title__${classname}`]}`}>{title}</h3>
                   <div className={css.icon__title}>
@@ -39,7 +40,7 @@ const Courses = () => {
                     ))}
                   </ul>
                 </div>
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -51,10 +52,10 @@ const Courses = () => {
               пасуватимуть саме тобі
             </p>
 
-            <a href="/" className={css.test__link}>
+            <Link href="/" className={css.test__link}>
               <p>Пройти тест</p>
               <ArrowRight />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

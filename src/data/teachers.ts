@@ -26,7 +26,7 @@ export const teachers = [
   {
     key: 'violetta_gudz',
     image: '/teachers/teacher5.webp',
-    name: 'Віолетта Гудзь',
+    name: 'Віолетта Джонсон',
     speciality: 'Social & sustainable innovation advisor'
   },
   {
@@ -56,7 +56,7 @@ export const teachers = [
   {
     key: 'violetta_gudz',
     image: '/teachers/teacher5.webp',
-    name: 'Віолетта Гудзь',
+    name: 'Віолетта Джонсон',
     speciality: 'Social & sustainable innovation advisor'
   }
 ]

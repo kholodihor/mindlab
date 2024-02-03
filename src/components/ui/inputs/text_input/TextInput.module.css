@@ -1,5 +1,6 @@
 .wrapper {
-  width: 580px;
+  width: 100%;
+  max-width: 580px;
   height: 64px;
 
   .input {
@@ -9,6 +10,11 @@
     background: none;
     border: none;
     outline: none;
+    color: var(--black);
+    border-bottom: 1px solid var(--black);
+  }
+
+  .white {
     color: var(--white);
     border-bottom: 1px solid var(--white);
   }

@@ -1,16 +1,37 @@
 'use client'
 
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 import { reviews } from '@/data/reviews'
+import { useModal } from '@/stores/modalStore'
 
-import ReviewCard from './review_card/ReviewCard'
+import TestimonialCard from './testimonial_card/TestimonialCard'
 import MainButton from '../ui/main_button/MainButton'
 
-import styles from './Reviews.module.css'
+import styles from './Testimonials.module.css'
 
-const Reviews = () => {
+import axios from 'axios'
+import FormModal from '../modals/form_modal/FormModal'
+import TestimonialForm from './testimonial_form/TestimonialForm'
+
+const Testimonials = () => {
+  const { openModal } = useModal()
+  const [testimonials, setTestimonials] = useState([])
+
+  const isModalOpen = useModal((state) => state.isModalOpen)
+
+  useEffect(() => {
+    const getTestimonials = async () => {
+      const response = await axios.get('/api/testimonials')
+      setTestimonials(response.data)
+    }
+    getTestimonials()
+  }, [])
+
+  console.log(testimonials)
+
   return (
     <div className={styles.reviews_container}>
       <h1 className={styles.reviews_title}>
@@ -28,10 +49,11 @@ const Reviews = () => {
           disableOnInteraction: false,
           pauseOnMouseEnter: true
         }}
-        className={styles.swiper}>
+        className={styles.swiper}
+      >
         {reviews.map((review, index) => (
           <SwiperSlide key={index}>
-            <ReviewCard review={review} />
+            <TestimonialCard review={review} />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -41,11 +63,16 @@ const Reviews = () => {
           <br /> Маєш свої коменти?
           <br /> Пиши відгук, не соромся! Ми завжди раді фідбекам!
         </p>
-        <MainButton title="Залишити коментар" />
+        <MainButton title="Залишити коментар" handleAction={openModal} />
       </div>
+      {isModalOpen && (
+        <FormModal>
+          <TestimonialForm />
+        </FormModal>
+      )}
       <Image width={200} height={200} src="/reviews/comet.svg" alt="" className={styles.comet} />
     </div>
   )
 }
 
-export default Reviews
+export default Testimonials
