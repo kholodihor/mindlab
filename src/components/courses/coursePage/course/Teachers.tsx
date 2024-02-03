@@ -1,29 +1,15 @@
 import { teachers } from '@/data/teachers'
-import Image from 'next/image'
 import css from '../course/Course.module.css'
+import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
+import Link from 'next/link'
 
 const TeacherCourse = () => {
   return (
     <ul className={css.teachers__list}>
       {teachers.map((teacher, index) => (
-        <li key={index} className={css.teachers__item}>
-          <Image
-            width={275}
-            height={295}
-            src={teacher.image}
-            alt={teacher.name}
-            className={css.teachers__image}
-          />
-          <h3 className={css.teachers__name}>{teacher.name}</h3>
-          <p className={css.teachers__speciality}>{teacher.speciality}</p>
-          <Image
-            width={281}
-            height={302}
-            src="/teachers/mask.png"
-            alt="mask"
-            className={css.teachers__mask}
-          />
-        </li>
+        <Link href={`teachers/${teacher.key}`} key={index}>
+        <TeacherCard teacher={teacher} />
+      </Link>
       ))}
     </ul>
   )

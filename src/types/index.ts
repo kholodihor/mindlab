@@ -33,3 +33,7 @@ export type FeedBackFormInput = {
   email: string
   message: string
 }
+
+export type PropsIconColor = {
+  color: string
+}
