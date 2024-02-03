@@ -1,6 +1,6 @@
 import { z } from 'zod'
 
-export const feedbackValidation = z.object({
+export const testimonialScheme = z.object({
   name: z
     .string()
     .length(1, 'Поле має бути заповнене')
@@ -24,6 +24,6 @@ export const feedbackValidation = z.object({
   message: z
     .string()
     .length(1, 'Поле має бути заповнене')
-    .min(2, 'Питання має містити мінімум 2 символи')
-    .max(300, 'Питання має містити максимум 300 символів')
+    .min(2, 'Коментар має містити мінімум 2 символи')
+    .max(300, 'Коментар має містити максимум 300 символів')
 })
