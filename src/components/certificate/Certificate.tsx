@@ -23,7 +23,7 @@ const Certificate = () => {
   }
   return (
     <section className={css.certificate}>
-      <div className='container'>
+      <div className="container">
         <h2 className={`title ${css.title} `}>cертифікат з унікальним ID</h2>
         <ul className={css.certificate__list}>
           {certificateList.map(({ question, answer, img, color, className }) => (
@@ -38,19 +38,39 @@ const Certificate = () => {
                 }
               }}
             >
-                <button className={`${css[`question__${className}`]}`} type="button">
-                    <div className={css.btn}>  <ArrowTop color={currentAnswer(color) ? color : 'currentColor'} width={14} height={16}/>
-                    </div>
-                
-                  <p  style={currentAnswer(color) ? {color: color} : undefined}>{question}</p>
-                </button>
+              <button className={`${css[`question__${className}`]}`} type="button">
+                <div className={css.btn}>
+                  {' '}
+                  <ArrowTop
+                    color={currentAnswer(color) ? color : 'currentColor'}
+                    width={14}
+                    height={16}
+                  />
+                </div>
+
+                <p style={currentAnswer(color) ? { color: color } : undefined}>{question}</p>
+              </button>
               {currentAnswer(color) && (
                 <Link href={'/'} className={css.certificate__link}>
                   {answer}
                 </Link>
               )}
-
-              <Image src={img} alt="certificate" width={360} height={262} className={css.img} />
+              {currentAnswer(color) && (
+                <div
+                  className={`${css.img} ${`${currentAnswer(color)} && ${css.acrive__sertificate}`}`}
+                >
+                  <Image src={img} alt="certificate" width={360} height={262} />
+                </div>
+              )}
+              <div className={css.img}>
+                <Image
+                  src={img}
+                  alt="certificate"
+                  width={360}
+                  height={262}
+                  className={css.hoverlabe}
+                />
+              </div>
             </li>
           ))}
         </ul>

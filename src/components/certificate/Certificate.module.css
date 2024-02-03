@@ -1,72 +1,95 @@
 .certificate {
-    color: var(--white);
+  color: var(--white);
+  position: relative;
+}
+
+.certificate__list {
+  position: relative;
 }
 
 .title {
-margin-bottom: 40px;
-color: inherit;
+  margin-bottom: 40px;
+  color: inherit;
 }
 
-
 .wrapper {
-    display: flex;
-    gap: 20px;
-    align-items: baseline;
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
 }
 
 .btn {
-    transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
-
 .img {
-    display: none;
+  position: absolute;
+  right: 100px;
+  top: 50px;
+  opacity: 0;
+  transform: scale(0.5) rotate(45deg);
+  transition: all 0.4s ease;
+  z-index: 111;
+}
+
+.certificate__item:hover .img {
+  opacity: 1;
+  transform: scale(1) rotate(0);
+}
+
+.acrive__sertificate {
+  position: absolute;
+  opacity: 1;
+  right: 100px;
+  z-index: 1;
+  top: 50px;
+  transition: all 0.4s ease;
+  transform: scale(1) rotate(0);
 }
 
 .question__rose,
 .question__roseLight,
 .question__violet,
 .question__green {
-    display: flex;
-    gap: 20px;
-    align-items: baseline;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: calc(36 / 24);
-    background-color: inherit;
-    color: var(--white);
-    border: none;
-    cursor: pointer;
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: calc(36 / 24);
+  background-color: inherit;
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  transform: color 0.3s ease;
 }
 
-.question__rose:hover{
-    color: var(--rose);
+.question__rose:hover {
+  color: var(--rose);
 }
 
 .question__roseLight:hover {
-    color: var(--rose-light);
+  color: var(--rose-light);
 }
 
 .question__violet:hover {
-    color: var(--violet);
+  color: var(--violet);
 }
 
 .question__green:hover {
-    color: var(--aquamarine);
+  color: var(--aquamarine);
 }
 
-
-
 .certificate__item {
-    margin-top: 36px;
-    width: 580px;
-    border-bottom: solid 1px var(--white);
-    padding-top: 20px;
-    padding-bottom: 20px;
+  margin-top: 36px;
+  width: 580px;
+  border-bottom: solid 1px var(--white);
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .certificate__link {
-    padding-left: 40px;
-    font-weight: 400;
-    font-size: 16px;
+  padding-left: 40px;
+  font-weight: 400;
+  font-size: 16px;
 }
