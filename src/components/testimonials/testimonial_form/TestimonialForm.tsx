@@ -1,19 +1,15 @@
 import React, { useState } from 'react'
 import * as z from 'zod'
-// import axios from 'axios'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { defaultValues } from './defaultValues'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { testimonialScheme } from './validationSchema'
-import { useModal } from '@/stores/modalStore'
 import styles from './TestimonialForm.module.css'
 import TextInput from '@/components/ui/inputs/text_input/TextInput'
 import TextArea from '@/components/ui/inputs/text_area/TextArea'
 import Checkbox from '@/components/ui/inputs/checkbox/Checkbox'
-import CloseIcon from '@/components/icons/CloseIcon'
 
 const TestimonialForm = () => {
-  const { closeModal } = useModal()
   const [checked, setChecked] = useState(false)
   const [subscribe, setSubscribe] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
@@ -40,13 +36,8 @@ const TestimonialForm = () => {
     }
   }
 
-  console.log(errors)
-
   return (
     <div className={styles.wrapper}>
-      <div className={styles.close} onClick={closeModal}>
-        <CloseIcon />
-      </div>
       <h1 className={styles.title}>Ми будемо раді вас почути!</h1>
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
         <Controller

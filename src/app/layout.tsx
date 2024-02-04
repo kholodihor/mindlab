@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
+import { SWRProvider } from './swr-provider'
 import Header from '@/components/header/Header'
 import Footer from '@/components/footer/Footer'
 import './globals.css'
@@ -62,15 +63,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk" className={fixelDisplay.className}>
-      <body>
-        <header>
-          <Header />
-        </header>
-        <main>{children}</main>
-        <footer>
-          <Footer />
-        </footer>
-      </body>
+      <SWRProvider>
+        <body>
+          <header>
+            <Header />
+          </header>
+          <main>{children}</main>
+          <footer>
+            <Footer />
+          </footer>
+        </body>
+      </SWRProvider>
     </html>
   )
 }
