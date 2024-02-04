@@ -39,6 +39,7 @@ a {
 
 .title {
   font-family: Oswald;
+  color: var(--white);
   font-size: 40px;
   font-weight: 500;
   line-height: 150%; /* 60px */

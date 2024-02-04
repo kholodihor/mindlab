@@ -23,7 +23,7 @@ const Courses = () => {
                 <div className={css.thumb__title}>
                   <h3 className={` ${css[`title__${classname}`]}`}>{title}</h3>
                   <div className={css.icon__title}>
-                    <ArrowTop color={color} />
+                    <ArrowTop color={color} width={21} height={22}/>
                   </div>
                 </div>
 
