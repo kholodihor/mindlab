@@ -21,6 +21,7 @@ const Certificate = () => {
   const closeAnswer = (color: string) => {
     setAnswer((prev) => prev.filter((item) => item !== color))
   }
+
   return (
     <section className={css.certificate}>
       <div className="container">

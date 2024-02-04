@@ -7,14 +7,7 @@
   flex-direction: column;
   gap: 40px;
   padding: 40px 0;
-  .close {
-    width: 2rem;
-    height: 2rem;
-    position: absolute;
-    top: 0;
-    right: -1rem;
-    cursor: pointer;
-  }
+
   .title {
     color: var(--black);
     font-size: 26px;

@@ -1,34 +1,23 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 import { reviews } from '@/data/reviews'
-import { useModal } from '@/stores/modalStore'
+import { useTestimonials } from '@/hooks/swr/useTestimonials'
 
 import TestimonialCard from './testimonial_card/TestimonialCard'
 import MainButton from '../ui/main_button/MainButton'
-
-import styles from './Testimonials.module.css'
-
-import axios from 'axios'
 import FormModal from '../modals/form_modal/FormModal'
 import TestimonialForm from './testimonial_form/TestimonialForm'
+import styles from './Testimonials.module.css'
 
 const Testimonials = () => {
-  const { openModal } = useModal()
-  const [testimonials, setTestimonials] = useState([])
+  const { GetTestimonials } = useTestimonials()
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const isModalOpen = useModal((state) => state.isModalOpen)
-
-  useEffect(() => {
-    const getTestimonials = async () => {
-      const response = await axios.get('/api/testimonials')
-      setTestimonials(response.data)
-    }
-    getTestimonials()
-  }, [])
+  const { data: testimonials } = GetTestimonials()
 
   console.log(testimonials)
 
@@ -63,10 +52,10 @@ const Testimonials = () => {
           <br /> Маєш свої коменти?
           <br /> Пиши відгук, не соромся! Ми завжди раді фідбекам!
         </p>
-        <MainButton title="Залишити коментар" handleAction={openModal} />
+        <MainButton title="Залишити коментар" handleAction={() => setIsModalOpen(true)} />
       </div>
       {isModalOpen && (
-        <FormModal>
+        <FormModal handleClose={() => setIsModalOpen(false)}>
           <TestimonialForm />
         </FormModal>
       )}

@@ -16,7 +16,7 @@ export const certificateList: Array<CertificateType> = [
     img: '/certificate/cert_art.jpg',
     animation: 'string;',
     href: '/',
-    className:'roseLight'
+    className: 'roseLight'
   },
   {
     question: 'Поділись посиланням в соц мережах',
@@ -25,16 +25,16 @@ export const certificateList: Array<CertificateType> = [
     img: '/certificate/cert_IT.jpg',
     animation: 'string;',
     href: '/',
-    className:'green'
+    className: 'green'
   },
   {
     question: 'Додай до свого резюме',
     answer: 'Підтвердити автентичність за посиланням ',
     color: '#fed1ce',
-    img: '/certificate/cert_Career.jpg',
+    img: '/certificate/cert_business.jpg',
     animation: 'string;',
     href: '/',
-    className:'rose'
+    className: 'rose'
   },
   {
     question: 'Завантаж, відсканувавши QR-код',
@@ -43,6 +43,6 @@ export const certificateList: Array<CertificateType> = [
     img: '/certificate/cert_Leadership.jpg',
     animation: 'string;',
     href: '/',
-    className:'violet'
+    className: 'violet'
   }
 ]
