@@ -27,6 +27,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.49.3",
+    "react-intersection-observer": "^9.7.0",
     "swiper": "^11.0.5",
     "zod": "^3.22.4",
     "zustand": "^4.5.0"

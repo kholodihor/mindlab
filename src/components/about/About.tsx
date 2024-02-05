@@ -1,17 +1,25 @@
 'use client'
 
-import { FC, useState } from 'react'
+import { FC, useRef, useState } from 'react'
 import Card from './about_card/Card'
 import styles from './About.module.css'
 import Lottie from 'lottie-react'
 import pulse from '../../animations/puls.json'
 import Wow from '../shared/wow/Wow'
+import AboutUsAnimation from './AboutUsAnimation'
+import useIntersection from './useIntersection'
 
 const About: FC = () => {
   const REGISTER_URL = 'https://forms.gle/wxX5LyYEsLupyKg68'
   const ENG_TEST_URL = '/' // should be add later
   const [isPulseHovered, setIsPulseHovered] = useState(false)
   const [isWowHovered, setIsWowHovered] = useState(false)
+  const aboutSectionRef = useRef<HTMLDivElement>(null)
+  const isAboutSectionInView = useIntersection(aboutSectionRef, {
+    root: document.getElementById('about')
+  })
+
+  console.log(isAboutSectionInView)
 
   const bonusCardDesc = (
     <ul className={styles.description}>
@@ -55,8 +63,12 @@ const About: FC = () => {
   const hoverWowHandler = () => {
     setIsWowHovered(!isWowHovered)
   }
+
   return (
-    <section className={styles.about}>
+    <section ref={aboutSectionRef} className={styles.about} id="about">
+      <div className={styles.about_content}>
+        <AboutUsAnimation isSectionInView={isAboutSectionInView} />
+      </div>
       <div className={styles.about_cards}>
         <Card
           title="Отримай бонуси"
@@ -84,14 +96,6 @@ const About: FC = () => {
             </div>
           ) : null}
         </Card>
-      </div>
-      <div className={styles.about_content}>
-        <h4 className={styles.about_title}>
-          Наша мета - cтворити для тебе крутий простір для розвитку та пізнання
-        </h4>
-        <p className={styles.about_subtitle}>
-          Не зволікай, ти - нова генерація, і в твоїх руках твоє майбутнє!
-        </p>
       </div>
     </section>
   )

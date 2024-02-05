@@ -9,15 +9,24 @@
   margin-bottom: 6.25rem;
 }
 .about_content {
-  width: 50%;
-  color: var(--White, var(--w, #f9f9fa));
-  line-height: 150%;
-  font-style: normal;
+  margin-left: 0;
 }
-.about_title {
+.main_goals {
+  max-width: 781px;
   font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.secondary_goals {
+  width: 50%;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.text_highlight {
+  color: #beed3b;
 }
 
 .about_subtitle {
