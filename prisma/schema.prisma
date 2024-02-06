@@ -10,6 +10,10 @@ datasource db {
 model Testimonial{
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   name        String
-  content     String
-  createdAt   DateTime  @default(now())  
-}
+  email       String
+  message     String
+  password    String
+  isPublished Boolean
+  createdAt   DateTime  @default(now()) 
+} 
+

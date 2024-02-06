@@ -4,15 +4,15 @@
 import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react'
 import styles from './TextArea.module.css'
 
-interface TextInputProps extends InputHTMLAttributes<HTMLTextAreaElement> {
+interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   title?: string
   isWhite?: boolean
   errorText?: string
 }
 
 const TextArea = forwardRef(function TextInput(
-  { title, errorText, isWhite, value = '', ...rest }: TextInputProps,
-  _ref: ForwardedRef<HTMLInputElement>
+  { title, errorText, isWhite, value = '', ...rest }: TextAreaProps,
+  _ref: ForwardedRef<HTMLTextAreaElement>
 ) {
   return (
     <div className={styles.wrapper}>
