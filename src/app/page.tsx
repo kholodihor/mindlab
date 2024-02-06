@@ -8,6 +8,7 @@ import Teachers from '@/components/teachers/Teachers'
 import Parents from '@/components/parents/Parents'
 import FeedBack from '@/components/feedback/FeedBack'
 import Certificate from '@/components/certificate/Certificate'
+import Contacts from '@/components/contacts/Contacts'
 
 const HomePage = () => {
   return (
@@ -18,9 +19,10 @@ const HomePage = () => {
       <Partners />
       <Certificate />
       <Teachers />
-      <Testimonials />
       <Parents />
       <FeedBack />
+      <Contacts />
+      <Testimonials />
     </div>
   )
 }
