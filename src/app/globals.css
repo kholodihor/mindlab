@@ -40,16 +40,35 @@ a {
 .title {
   font-family: Oswald;
   color: var(--white);
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 500;
   line-height: 150%; /* 60px */
   text-transform: uppercase;
+
+@media screen and (min-width: 768px) {
+  font-size: 40px;
+}
+
 }
 
 .container {
-  width: 1440px;
+  padding: 0px 16px;
   margin: 0 auto;
-  padding: 100px 130px;
+ 
+  @media screen and (min-width: 430px) {
+    width: 430px;
+}
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 0px 40px;
+}
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    padding: 0px 130px;
+}
+ 
 }
 
 p,
