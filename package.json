@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "@prisma/client": "^5.9.1",
     "axios": "^1.6.7",
     "framer-motion": "^10.18.0",
     "lottie-react": "^2.4.0",

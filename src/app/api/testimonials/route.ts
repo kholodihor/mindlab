@@ -9,3 +9,20 @@ export async function GET() {
     return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
   }
 }
+
+export async function POST(request: Request) {
+  try {
+    const { name, email, message } = await request.json()
+    const response = await prisma.testimonial.create({
+      data: {
+        name,
+        email,
+        message,
+        isPublished: false
+      }
+    })
+    return NextResponse.json(response, { status: 200 })
+  } catch (error) {
+    return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
+  }
+}

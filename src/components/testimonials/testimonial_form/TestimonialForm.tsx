@@ -1,9 +1,12 @@
+'use client'
 import React, { useState } from 'react'
 import * as z from 'zod'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { defaultValues } from './defaultValues'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { testimonialScheme } from './validationSchema'
+import { useTestimonials } from '@/hooks/swr/useTestimonials'
+import { useModal } from '@/stores/useModal'
 import styles from './TestimonialForm.module.css'
 import TextInput from '@/components/ui/inputs/text_input/TextInput'
 import TextArea from '@/components/ui/inputs/text_area/TextArea'
@@ -11,8 +14,9 @@ import Checkbox from '@/components/ui/inputs/checkbox/Checkbox'
 
 const TestimonialForm = () => {
   const [checked, setChecked] = useState(false)
-  const [subscribe, setSubscribe] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
+  const { addNewTestimonial } = useTestimonials()
+  const { closeModal } = useModal()
 
   const {
     handleSubmit,
@@ -29,8 +33,11 @@ const TestimonialForm = () => {
   ) => {
     try {
       setIsProcessing(true)
-      console.log(values)
+      await addNewTestimonial(values)
       setIsProcessing(false)
+      setTimeout(() => {
+        closeModal()
+      }, 2000)
     } catch (error: any) {
       console.log(error)
     }
@@ -76,10 +83,6 @@ const TestimonialForm = () => {
           text="Я приймаю умови Публічної оферти та надаю згоду на обробку моїх особистих даних
           відповідно до Політики конфіденційності"
           handleAction={() => setChecked(!checked)}
-        />
-        <Checkbox
-          text="Я хочу отримувати новини від MindLab на мою електронну пошту"
-          handleAction={() => setSubscribe(!subscribe)}
         />
       </div>
     </div>
