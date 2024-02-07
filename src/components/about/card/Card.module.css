@@ -4,6 +4,7 @@
   background: var(--Grey-3, #1d1d1e);
   flex-basis: 50%;
   line-height: 150%;
+  position: relative;
 }
 .card_title {
   color: var(--w, #f9f9fa);

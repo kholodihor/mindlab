@@ -1,23 +1,33 @@
 .about {
   max-width: 1180px;
-  padding: 6.25rem 0;
+  padding: 7.5rem 0 1.25rem;
 }
 .about_cards {
   display: flex;
   justify-content: center;
   gap: 1.25rem;
+  margin-top: 3.75rem;
   margin-bottom: 6.25rem;
 }
 .about_content {
-  width: 50%;
-  color: var(--White, var(--w, #f9f9fa));
-  line-height: 150%;
-  font-style: normal;
+  margin-left: 0;
 }
-.about_title {
+.main_goals {
+  max-width: 781px;
   font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.secondary_goals {
+  width: 50%;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.text_highlight {
+  color: #beed3b;
 }
 
 .about_subtitle {
@@ -37,4 +47,18 @@
 }
 .description_text {
   color: #f9f9fa;
+}
+.pulse {
+  position: absolute;
+  top: -13px;
+  right: 0;
+  width: 161px;
+  height: 126.344px;
+}
+.wow {
+  position: absolute;
+  top: 35px;
+  right: 38px;
+  width: 142.1px;
+  height: 68.925px;
 }

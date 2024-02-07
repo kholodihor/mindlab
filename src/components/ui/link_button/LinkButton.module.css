@@ -11,3 +11,9 @@
   border: none;
   cursor: pointer;
 }
+.button:hover {
+  background: var(--Violet-light, #aaaedf);
+}
+.button:active .button:focus {
+  background: var(--Violet, #8d83ff);
+}
