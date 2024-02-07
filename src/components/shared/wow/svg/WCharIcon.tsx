@@ -1,5 +1,6 @@
 'use client'
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC } from 'react'
+import useColorTransition from './useColorTransition'
 
 interface IconProps {
   width?: number
@@ -7,26 +8,9 @@ interface IconProps {
 }
 
 const WCharIcon: FC<IconProps> = ({ width = 55, height = 69 }) => {
-  const [fillColor, setFillColor] = useState('#8d83ff')
+  const transitionColors: string[] = ['#8d83ff', '#fed1ce', '#03aa89']
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFillColor((prevColor) => {
-        switch (prevColor) {
-          case '#8d83ff':
-            return '#fed1ce'
-          case '#fed1ce':
-            return '#03aa89'
-          case '#03aa89':
-            return '#8d83ff'
-          default:
-            return prevColor
-        }
-      })
-    }, 2000)
-
-    return () => clearInterval(interval)
-  }, [])
+  const fillColor: string = useColorTransition('#8d83ff', transitionColors)
 
   return (
     <svg

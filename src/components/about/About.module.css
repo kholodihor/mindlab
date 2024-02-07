@@ -1,11 +1,12 @@
 .about {
   max-width: 1180px;
-  padding: 6.25rem 0;
+  padding: 7.5rem 0 1.25rem;
 }
 .about_cards {
   display: flex;
   justify-content: center;
   gap: 1.25rem;
+  margin-top: 3.75rem;
   margin-bottom: 6.25rem;
 }
 .about_content {

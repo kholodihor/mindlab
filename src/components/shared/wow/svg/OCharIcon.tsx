@@ -1,4 +1,5 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC } from 'react'
+import useColorTransition from './useColorTransition'
 
 interface IconProps {
   width?: number
@@ -6,26 +7,8 @@ interface IconProps {
 }
 
 const OCharIcon: FC<IconProps> = ({ width = 33, height = 69 }) => {
-  const [fillColor, setFillColor] = useState('#AAAEDF')
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setFillColor((prevColor) => {
-        switch (prevColor) {
-          case '#AAAEDF':
-            return '#FFECD0'
-          case '#FFECD0':
-            return '#BEED3B'
-          case '#BEED3B':
-            return '#AAAEDF'
-          default:
-            return prevColor
-        }
-      })
-    }, 2000)
-
-    return () => clearInterval(interval)
-  }, [])
+  const transitionColors: string[] = ['#AAAEDF', '#FFECD0', '#BEED3B']
+  const fillColor: string = useColorTransition('#AAAEDF', transitionColors)
 
   return (
     <svg

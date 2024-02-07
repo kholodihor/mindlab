@@ -1,11 +1,12 @@
 'use client'
 
-import React, { FC, useEffect } from 'react'
-import { useLottie } from 'lottie-react'
+import React, { FC } from 'react'
+import Lottie from 'lottie-react'
 import aboutUs from '../../animations/about_us.json'
+import { useWindowScrollY } from './useWindowScrollY '
 
 interface AboutUsAnimationProps {
-  isSectionInView: boolean
+  aboutRef: React.RefObject<HTMLDivElement>
 }
 
 const style = {
@@ -13,20 +14,19 @@ const style = {
   height: '120%',
   marginLeft: '-125px'
 }
+const divisionFactor = 4
 
-const options = {
-  animationData: aboutUs,
-  loop: false
-}
-
-const AboutUsAnimation: FC<AboutUsAnimationProps> = ({ isSectionInView }) => {
-  const { View, play } = useLottie(options, style)
-  useEffect(() => {
-    if (isSectionInView) {
-      play()
-    }
-  }, [isSectionInView, play])
-  return <div>{View}</div>
+const AboutUsAnimation: FC<AboutUsAnimationProps> = ({ aboutRef }) => {
+  const { scrollY } = useWindowScrollY()
+  const aboutPosition = aboutRef.current
+  const startPlayPosition = (aboutPosition?.offsetTop ?? 0) / divisionFactor
+  return (
+    <>
+      {scrollY >= startPlayPosition && (
+        <Lottie animationData={aboutUs} style={style} loop={false} />
+      )}
+    </>
+  )
 }
 
 export default AboutUsAnimation
