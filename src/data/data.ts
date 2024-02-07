@@ -6,7 +6,7 @@ export const coursesList: Array<CoursesList> = [
     description:
       'це курс, який розкриє в тобі здатність впливати на інших, надихати і керувати командою',
     component: '# Формування системи лідерства',
-    components: ['#Корпоративна влада', '#Влада лідера'],
+    components: {mob: [], tab: ['#Корпоративна влада', '#Влада лідера']} ,
     color: '#aaaedf',
     classname: 'violetLight',
     href: '/courses/leadership'
@@ -16,7 +16,7 @@ export const coursesList: Array<CoursesList> = [
     description:
       'ця важлива складова обов’язково стане в нагоді при виборі професії, консультант допоможе з’ясувати твої інтереси, цілі, розпланує твою кар’єру, розробить стратегію самовдосконалення, підготує до вступу на ринок праці, навчить управляти кар’єрою',
     component: '# Профорієнтація',
-    components: ['#Зустріч із стартаперами', '#Зустріч з бізнесом'],
+    components: {mob: ['#Зустріч із стартаперами'], tab: ['#Зустріч із стартаперами', '#Зустріч з бізнесом']} ,
     color: '#ffecd0',
     classname: 'roseLight',
     href: '/courses/career'
@@ -26,7 +26,7 @@ export const coursesList: Array<CoursesList> = [
     description:
       'Дасть можливість виокремити в тобі комерційну жиклу, спрямувати потенціал у розвиток та монетизацію власної ідеї з метою отримання прибутку',
     component: '#Менеджмент ',
-    components: ['#Запуск Start up', '#Скіли ХХІ ст.'],
+    components: {mob: ['#Запуск Start up'], tab: ['#Запуск Start up', '#Скіли ХХІ ст.']} ,
     color: '#8d83ff',
     classname: 'violet',
     href: '/courses/business'
@@ -36,7 +36,7 @@ export const coursesList: Array<CoursesList> = [
     description:
       'Дозволяє пізнати нові передові методи, що використовують для вдосконалення чи створення нових продуктів, послуг або процесів, сприяючи технологічному прогресу та покращенню результатів',
     component: '#Project managment in IT ',
-    components: ['#UI/UX Design', '#FE/BE', '#Digital Marketing'],
+    components: {mob: ['#UI/UX Design'], tab: ['#UI/UX Design', '#FE/BE', '#Digital Marketing']},
     color: '#03aa89',
     classname: 'green',
     href: '/courses/innovative'
@@ -46,7 +46,7 @@ export const coursesList: Array<CoursesList> = [
     description:
       'Ти зможеш осягнути надбання людської творчості доторкнутися до прекрасного і створити не менш круте, твої ідею матимуть місце в реалізації',
     component: '#Сучасне мистецтво ',
-    components: ["#Комп'ютерне мистецтво", '#Відео-мистецтво'],
+    components: {mob: ["#Комп'ютерне мистецтво"], tab: ["#Комп'ютерне мистецтво", '#Відео-мистецтво']} ,
     color: '#2928e3',
     classname: 'blue',
     href: '/courses/art'
@@ -56,7 +56,7 @@ export const coursesList: Array<CoursesList> = [
     description:
       'Допоможе тобі поглибити розуміння політичних явищ та суспільних процесів, а також їх взаємодію і вплив на соціум',
     component: '#Конфліктологія ',
-    components: ['#Теорія соціальних змін', '#Соціологія нації'],
+    components: {mob: ['#Теорія соціальних змін'], tab: ['#Теорія соціальних змін', '#Соціологія нації']} ,
     color: '#fed1ce',
     classname: 'rose',
     href: '/courses/political'

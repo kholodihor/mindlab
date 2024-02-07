@@ -2,10 +2,15 @@ export type CoursesList = {
   title: string
   description: string
   component: string
-  components: Array<string>
+  components: ComponentsCourse
   color: string
   classname: string
   href: string
+}
+
+export type ComponentsCourse = {
+  mob: Array<string>;
+  tab: Array<string>;
 }
 
 export type Partners = {

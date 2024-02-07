@@ -1,35 +1,39 @@
 .title {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: calc(36 / 24);
+
+  @media screen and (min-width: 1440px) {
     margin-bottom: 52px;
-    font-size: 24px;
-font-weight: 500;
-line-height: calc(36 / 24);
+  }
 }
 
 .question__list {
-display: flex;
-flex-wrap: wrap;
-gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .question__item {
-    width: 480px;
-    font-size: 18px;
-font-weight: 500;
-line-height: calc(27 / 18);
+  width: 480px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: calc(27 / 18);
 }
 
 .wrapper {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .btn {
-    background-color: inherit;
-   border: none;
+  background-color: inherit;
+  border: none;
 }
 
 .answer {
-    padding-top: 10px;
-    padding-left: 44px;
+  padding-top: 10px;
+  padding-left: 44px;
 }

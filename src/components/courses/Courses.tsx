@@ -7,14 +7,22 @@ import ArrowTop from '../icons/ArrowTop';
 import eyeCourses from '@/animations/eyesCourses.json';
 import css from '../courses/Courses.module.css';
 import Link from 'next/link';
+import { useWidth } from '@/hooks/useWidth';
+import { currentComponentsCourse } from '@/utils/currentComponentsCourse';
+
 
 const Courses = () => {
+  const screenWidth = useWidth();
+ 
   return (
     <section id="courses">
-      <div className="container">
+      <div className={`container ${css.courses__container}`}>
         <div className={css.wrapper}>
           <h2 className={`title ${css.titleCourses}`}>Обирай напрямок, який тобі до душі</h2>
+          <div className={css.animation}>
           <Lottie className={css.eye} animationData={eyeCourses} />
+          </div>
+          
         </div>
         <ul className={css.courses}>
           {coursesList.map(({ title, description, component, components, classname, color, href }) => (
@@ -33,7 +41,7 @@ const Courses = () => {
                     {component}
                   </p>
                   <ul className={css.components__list}>
-                    {components.map((item) => (
+                    {currentComponentsCourse(components, screenWidth).map((item) => (
                       <li key={item} className={css.components__item}>
                         {item}
                       </li>
