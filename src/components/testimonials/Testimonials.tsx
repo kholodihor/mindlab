@@ -1,10 +1,10 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 import { reviews } from '@/data/reviews'
+import { useModal } from '@/stores/useModal'
 import { useTestimonials } from '@/hooks/swr/useTestimonials'
 
 import TestimonialCard from './testimonial_card/TestimonialCard'
@@ -14,10 +14,10 @@ import TestimonialForm from './testimonial_form/TestimonialForm'
 import styles from './Testimonials.module.css'
 
 const Testimonials = () => {
-  const { GetTestimonials } = useTestimonials()
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  const { data: testimonials } = GetTestimonials()
+  const { testimonials } = useTestimonials()
+  const { openModal, closeModal } = useModal()
+  const isModalOpen = useModal((state) => state.isModalOpen)
+  const modalType = useModal((state) => state.modalType)
 
   console.log(testimonials)
 
@@ -52,10 +52,10 @@ const Testimonials = () => {
           <br /> Маєш свої коменти?
           <br /> Пиши відгук, не соромся! Ми завжди раді фідбекам!
         </p>
-        <MainButton title="Залишити коментар" handleAction={() => setIsModalOpen(true)} />
+        <MainButton title="Залишити коментар" handleAction={() => openModal('testimonial')} />
       </div>
-      {isModalOpen && (
-        <FormModal handleClose={() => setIsModalOpen(false)}>
+      {isModalOpen && modalType === 'testimonial' && (
+        <FormModal handleClose={closeModal}>
           <TestimonialForm />
         </FormModal>
       )}
