@@ -1,73 +1,183 @@
-.title{
-margin-bottom: 52px;
-font-size: 24px;
-font-weight: 500;
-line-height: calc(36 / 24);
+.title {
+  margin-bottom: 28px;
+  font-size: 20px;
+  font-weight: 500;
 
+  @media screen and (min-width: 768px) {
+    margin-bottom: 52px;
+    font-size: 24px;
+    line-height: calc(36 / 24);
+  }
+}
+
+.wrapper {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
 }
 
 .list {
-    display: flex;
-    align-items: baseline;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 216px;
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 860px;
+    flex-wrap: nowrap;
     gap: 100px;
     margin-bottom: 52px;
+  }
 }
 
+/* .item {
+    @media screen and (min-width: 768px) {
+       width: 216px;
+       }
+} */
+
 .characteristic {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
 }
 
 .characteristic__number {
-    color: var(--violet-light);
-  
+  color: var(--violet-light);
 }
 
 .characteristic__span {
-    border: solid 1px var(--violet-light);
-    margin-left: 12px; 
-
+  border: solid 1px var(--violet-light);
+  margin-left: 12px;
 }
 
 .characteristic__description {
-    font-size: 18px;
-font-weight: 500;
-line-height: calc(27 / 18);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: calc(27 / 18);
 }
 
 .text {
-    width: 380px;
-    font-size: 16px;
-font-weight: 400;
-line-height: calc(24 / 16);
+  width: 380px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: calc(24 / 16);
+
+  @media screen and (min-width: 768px) {
+    width: 216px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: auto;
+  }
 }
 
 .skills {
-    width: 779px;
-    padding: 20px 40px;
+  position: relative;
+  padding-bottom: 150px;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 16px;
+
+  @media screen and (min-width: 768px) {
+    width: 216px;
+    gap: 40px;
+    padding: 20px 20px;
+    background: var(--graphite);
+  }
+
+  @media screen and (min-width: 1440px) {
+    gap: 20px;
     justify-content: space-between;
-    display: flex;
-    border-radius: 16px;
-background: var(--graphite);
+    width: 779px;
+    flex-wrap: nowrap;
+    background: var(--graphite);
+  }
+}
+
+.skills__item {
+  background: var(--graphite);
+  padding-left: 12px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 199px;
+
+  @media screen and (min-width: 768px) {
+    background: none;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 12px;
+    width: auto;
+  }
+}
+
+.english__skill {
+  position: absolute;
+  bottom: -25px;
+  width: 204px;
+  padding: 20px 12px;
+  border-radius: 16px;
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+    bottom: 0;
+    border-radius: 0;
+    padding: 0 0;
+    padding-bottom: 12px;
+  }
+}
+
+.own__skill {
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+
+  @media screen and (min-width: 768px) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.time__skill {
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  @media screen and (min-width: 768px) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
 }
 
 .skills__item:not(:last-child) {
+  @media screen and (min-width: 768px) {
+    border-bottom: solid 1px var(--gray-light);
+  }
+
+  @media screen and (min-width: 1440px) {
     padding-right: 20px;
+    border-bottom: none;
     border-right: solid 1px var(--gray-light);
+  }
 }
 
 .skills__name {
-    margin-bottom: 16px;
-    font-size: 18px;
-    font-weight: 500;
-    line-height: calc(27 / 18);
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: calc(27 / 18);
 }
 
 .skills__description {
-    width: 180px;
-    font-size: 16px;
-font-weight: 400;
-line-height: calc(24 / 16);
+  width: 180px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: calc(24 / 16);
 }

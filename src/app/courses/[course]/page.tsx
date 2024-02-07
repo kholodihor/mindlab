@@ -9,7 +9,7 @@ const page = ({ params }: { params: { course: string } }) => {
   const currentCourse = coursesPage.find(({ name }) => name === params.course)
 
   return (
-    <div className="container">
+    <div className={`container ${css.course__container}`}>
       <a href="/#courses" className={css.link}>
         <ArrowLeft />
         <p className={css.link__text}>До інших курсів</p>

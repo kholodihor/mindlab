@@ -9,19 +9,11 @@ import css from '../courses/Courses.module.css';
 import Link from 'next/link';
 import { useWidth } from '@/hooks/useWidth';
 import { currentComponentsCourse } from '@/utils/currentComponentsCourse';
-import { useEffect } from 'react';
-
-
-
 
 
 const Courses = () => {
   const screenWidth = useWidth();
-  useEffect(()=> {
-    console.log(screenWidth)
-    console.log()
-  }, [screenWidth])
-
+ 
   return (
     <section id="courses">
       <div className={`container ${css.courses__container}`}>
