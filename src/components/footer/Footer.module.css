@@ -1,19 +1,41 @@
 .footer {
-  padding: 60px 130px;
+  height: 448px;
+  
+  
   color: var(--white);
-}
 
-.footer__logo {
-  margin-bottom: 41px;
+  @media screen and (min-width:768px) {
+    height: auto;
+  }
 }
 
 .footer_container {
+margin: 0 auto;
+padding: 48px 16px;
+  position: relative;
   display: flex;
-  gap: 87px;
+  gap: 35px;
+  align-items: flex-start;
+
+  @media screen and (min-width: 430px) {
+    width: 430px;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 34px 40px 108px 40px;
+    width: 768px;
+    gap: 63px;
+    align-items: flex-end;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+    gap: 87px;
+  }
+  
 }
 
 .footer__wraper {
-  width: 220px;
+  width: 180px;
   display: flex;
   gap: 36px;
   flex-wrap: wrap;
@@ -22,11 +44,21 @@
   font-style: normal;
   font-weight: 400;
   line-height: calc(21 / 14);
+
+  @media screen and (min-width: 768px) {
+    width: 189px;
+   
+  }
 }
 
 .social__list {
+  
   display: flex;
-  gap: 44px;
+  gap: 20px;
+
+  @media screen and (min-width: 1440px) {
+    gap: 44px;
+  }
 }
 
 .social__link {
@@ -62,17 +94,36 @@
 }
 
 .footer__contact {
-  width: 580px;
+  position: absolute;
+  bottom: -105px;
+  width: 380px;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: calc(24 / 16);
+
+  @media screen and (min-width: 768px) {
+    position: relative;
+    bottom: 0;
+    width: auto;
+  }
+
 }
 
 .contact__list {
   display: flex;
-  gap: 64px;
-  margin-bottom: 110px;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 189px;
+ 
+
+  @media screen and (min-width: 1440px) {
+    flex-wrap: nowrap;
+    gap: 64px;
+    margin-bottom: 110px;
+  }
+
+
 }
 
 .contact__item {
@@ -95,7 +146,9 @@
 }
 
 .link__advice {
-  display: inline-block;
+  display: none;
+  @media screen and (min-width: 1440px) {
+    display: inline-block;
   margin-left: 300px;
   margin-right: 0;
   width: 280px;
@@ -107,6 +160,9 @@
   border-radius: 32px;
 
   transition: all 0.3s ease-in-out;
+  }
+
+  
 }
 
 .link__advice:hover,
@@ -116,4 +172,24 @@
 
 .link__advice:active {
     background-color: var(--violet);
+}
+
+.thumb__copyrigh {
+  position: absolute;
+  right: 10px;
+  bottom: -105px;
+  width: 190px;
+  font-size: 12px;
+
+  @media screen and (min-width:768px) {
+    width: 200px;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    
+  }
+}
+
+.copyright {
+  margin-bottom: 10px;
 }
