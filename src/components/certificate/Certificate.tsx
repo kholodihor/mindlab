@@ -7,7 +7,6 @@ import Image from 'next/image'
 import { useState } from 'react'
 import ArrowTop from '../icons/ArrowTop'
 import Lottie from 'lottie-react'
-import phone from '@/animations/phone.json'
 
 type Answer = Array<string>
 
