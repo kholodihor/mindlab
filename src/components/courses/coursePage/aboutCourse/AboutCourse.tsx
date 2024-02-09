@@ -40,7 +40,7 @@ const AboutCourse = ({ params }: { params: { course: string } }) => {
           </div>
         </div>
       </div>
-      <Lottie animationData={racket} />
+      <Lottie animationData={racket} loop={false}/>
     </section>
   )
 }

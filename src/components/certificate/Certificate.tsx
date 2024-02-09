@@ -6,6 +6,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import ArrowTop from '../icons/ArrowTop'
+import Lottie from 'lottie-react'
+import phone from '@/animations/phone.json'
 
 type Answer = Array<string>
 
@@ -27,7 +29,7 @@ const Certificate = () => {
       <div className="container">
         <h2 className={`title ${css.title} `}>cертифікат з унікальним ID</h2>
         <ul className={css.certificate__list}>
-          {certificateList.map(({ question, answer, img, color, className }) => (
+          {certificateList.map(({ question, answer, img, color, className, animationData }) => (
             <li
               key={question}
               className={css.certificate__item}
@@ -60,7 +62,9 @@ const Certificate = () => {
                 <div
                   className={`${css.img} ${`${currentAnswer(color)} && ${css.acrive__sertificate}`}`}
                 >
-                  <Image src={img} alt="certificate" width={360} height={262} />
+                  <Image src={img} alt="certificate" width={360} height={262} />  <div className={css.animation}>
+  <Lottie animationData={animationData} loop={true} />
+</div>
                 </div>
               )}
               <div className={css.img}>
@@ -71,10 +75,14 @@ const Certificate = () => {
                   height={262}
                   className={css.hoverlabe}
                 />
+  <div className={css.animation}>
+  <Lottie animationData={animationData} loop={true} />
+</div>
               </div>
             </li>
           ))}
         </ul>
+      
       </div>
     </section>
   )
