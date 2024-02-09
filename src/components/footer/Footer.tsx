@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import { menuList } from '@/data/data'
 import css from '../footer/Footer.module.css'
-import FacebookIcon from '../icons/FacebookIcon'
-import InstagramIcon from '../icons/InstagramIcon'
 import MailIcon from '../icons/MailIcon'
 import TelegramIcon from '../icons/TelegramIcon'
 import PhoneIcon from '../icons/PhoneIcon'
@@ -11,19 +9,21 @@ import Link from 'next/link'
 const Footer = () => {
   return (
     <footer className={css.footer}>
+      <div className={css.footer_container}>
+        <div className={css.footer__wraper}>
+        <Link href={'/'}>
       <Image
-        src="/svg/logoFullName.svg"
-        width={100}
-        height={100}
+        src="/svg/footer/footer-logo.svg"
+        width={118}
+        height={26}
         alt="logo"
         className={css.footer__logo}
       />
-      <div className={css.footer_container}>
-        <div className={css.footer__wraper}>
+      </Link>
           <ul className={css.social__list}>
             <li>
               <Link href="/" className={css.social__link} rel="noopener noreferrer" target="_blank">
-                <FacebookIcon />
+                <Image src='/svg/footer/instagram.svg' alt='icon instagram' width={40} height={40}/>
               </Link>
             </li>
             <li>
@@ -32,11 +32,12 @@ const Footer = () => {
                 className={css.social__link}
                 rel="noopener noreferrer"
                 target="_blank">
-                <InstagramIcon />
+                <Image src='/svg/footer/facebook.svg' alt='icon facebook' width={40} height={40}/>
               </Link>
             </li>
           </ul>
-          <p>
+          <div className={css.thumb__copyrigh}>
+          <p className={css.copyright}>
             Copyright © 2023-2024 MindLab.{' '}
             <span className={css.spanCopyright}>Усі права захищені</span>
           </p>
@@ -48,6 +49,7 @@ const Footer = () => {
               <Link href="/">Правила користування сайтом</Link>
             </li>
           </ul>
+          </div>
         </div>
         <ul className={css.menu__list}>
           {menuList.map(({ link, menu }) => (
