@@ -6,7 +6,7 @@ import Lottie from 'lottie-react'
 import ArrowPartners from '../icons/ArrowPartners'
 import ArrowSliderPartners from '../icons/ArrowSliderPartners'
 import Fire from '../icons/Fire'
-import { partners } from '@/data/data'
+import { partners, partnersTablet } from '@/data/data'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Mousewheel, Scrollbar } from 'swiper/modules'
 
@@ -16,8 +16,18 @@ import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import Link from 'next/link'
+import ArrowPartnersTablet from '../icons/ArrowPartnersTablet'
+import { useWidth } from '@/hooks/useWidth'
 
 const Partners = () => {
+  const currentWidth = useWidth();
+  const currentList = () => {
+    if(currentWidth >= 768 && currentWidth < 1440) {
+      return partnersTablet
+    } else {
+      return partners
+    }
+  }
   return (
     <section className={css.partners} id="partners">
       <div className={`container`}>
@@ -29,7 +39,9 @@ const Partners = () => {
           <div className={css.icon__arrow}>
             <ArrowPartners />
           </div>
-
+          <div className={css.icon__arrowTablet}>
+           <ArrowPartnersTablet />
+            </div>
           <p className={css.partners__question}>Хочеш познайомитися з ними ближче?</p>
           <div className={css.icon__fire}>
             <Fire />
@@ -41,21 +53,21 @@ const Partners = () => {
         </div>
         <div className={css.part__right}>
           <Swiper
-            spaceBetween={50}
-            slidesPerView={1}
+            spaceBetween={0}
+            slidesPerView={"auto"}
             mousewheel={true}
             loop={true}
             modules={[Navigation, Mousewheel, Scrollbar]}
           >
-            {partners.map(({ name, logo, text, color, link }) => (
+            {currentList().map(({ name, logo, text, color, link }) => (
               <SwiperSlide
                 key={name}
                 className={css.swiperSlide}
                 style={{ background: `${color}` }}
               >
                 <Image
-                  width={200}
-                  height={200}
+                  width={180}
+                  height={180}
                   src={logo}
                   alt="logo"
                   className={css.partners__logo}
@@ -63,7 +75,7 @@ const Partners = () => {
                 <p className={css.partners__description}>{text}</p>
                 <Link href={link} className={css.swiper__link}>
                   <p className={css.partners__name}>{name}</p>
-                  <div className={color === '#f9f9fa' ? `${css.icon}` : ''}>
+                  <div className={`${css.link__icon} ${color === '#f9f9fa' ? `${css.icon}` : ''}`}>
                     <ArrowSliderPartners />
                   </div>
                 </Link>
