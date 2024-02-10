@@ -1,117 +1,254 @@
 .parents {
-    color: var(--white);
+  color: var(--white);
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  @media screen and (min-width: 768px) {
+    padding-top: 100px;
+  padding-bottom: 95px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding-top: 120px;
+  padding-bottom: 120px;
+  }
 }
 
 .parents__title {
+  margin-bottom: 40px;
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    text-align: left;
+  }
+  @media screen and (min-width: 1440px) {
     margin-bottom: 60px;
-}
-
-.contacts {
-    display: flex;
-    margin-bottom: 0;
-    gap: 12px;
+  }
 }
 
 .thumb {
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+
+  @media screen and (min-width: 768px) {
+   justify-content: end;
+  }
+  @media screen and (min-width: 1440px) {
     align-items: flex-start;
     gap: 220px;
+  }
 }
 
 .wrapper {
-    position: relative;
+  position: relative;
+  width: 100%;
+  min-height: 231px;
+  padding: 148px 20px 20px 20px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: calc(24 / 16);
+  border-radius: 12px;
+  background-color: var(--violet-light);
+  color: var(--black);
+
+  @media screen and (min-width: 430px) {
+   width: 398px;
+   
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 688px;
+    min-height: 152px;
+    padding: 80px 36px 20px 36px;
+  }
+
+  @media screen and (min-width: 1440px) {
     width: 480px;
     height: 207px;
-    padding: 20px;
+    padding: 134px 36px 20px 36px;
     margin-bottom: 52px;
-    font-size: 16px;
-font-weight: 400;
-line-height: calc(24 / 16);
-border-radius: 12px;
-    background-color: var(--violet-light);
-    color: var(--black)
+  }
 }
 
 .parents__text {
-   margin-bottom: 32px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 358px;
+  z-index: 1;
+  @media screen and (min-width: 768px) {
+    width: 616px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 440px;
+  }
+  
 }
 
 .contacts {
-    margin-bottom: 0;
-    display: flex;
+  margin-bottom: 0;
+  display: flex;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
     gap: 20px;
+    justify-content: center;
+  }
+  @media screen and (min-width: 1440px) {
+    justify-content: start;
+    gap: 44px;
+  }
 }
- 
+
+.contact__item {
+gap: 12px;
+@media screen and (min-width: 768px) {
+    width: 119px;
+  }
+}
+
+.contact__text {
+    font-size: 14px;
+    padding-bottom: 0;
+}
+
 .lineIcon1 {
-    position: absolute;
-    right: -0px;
-    bottom: 18px;
+  position: absolute;
+  right: 69px;
+  top: 35px;
+  z-index: 0;
+  @media screen and (min-width: 768px) {
+    right: 99px;
+   top: 45px;
+  }
+  @media screen and (min-width: 1440px) {
+    right: 5px;
+    top: 75px;
+  }
 }
 
 .lineIcon2 {
-    position: absolute;
+  position: absolute;
+  top: 95px;
+  left: -0px;
+
+  @media screen and (min-width: 1440px) {
     top: 75px;
     left: -0px;
+  }
 }
 
 .star1 {
-    position: absolute;
+  position: absolute;
+  top: 115px;
+  left: 157px;
+  @media screen and (min-width: 768px) {
+    top: 120px;
+    left: 157px;
+  }
+  @media screen and (min-width: 1440px) {
     top: 100px;
     left: 167px;
+  }
 }
 
 .star2 {
-    position: absolute;
+  position: absolute;
+  right: 185px;
+  top: 38px;
+  z-index: 0;
+  @media screen and (min-width: 768px) {
+    right: 230px;
+  top: 53px;
+  }
+  @media screen and (min-width: 1440px) {
     right: 125px;
     top: 80px;
+  }
 }
 
 .star3 {
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
     position: absolute;
-    right: 80px;
-    bottom: 40px;
+    left: 50px;
+    top: 70px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    position: absolute;
+    left: 370px;
+    top: 150px;
+    
+  }
 }
 
 .question__list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-bottom: 220px;
+  @media screen and (min-width: 768px) {
+   width: 452px;
+   padding-bottom: 0;
+  }
 }
 
 .question__text {
+  font-size: 20px;
+  font-weight: 500;
+  @media screen and (min-width: 1440px) {
     font-size: 24px;
-font-weight: 500;
-line-height: calc(36 / 24);
+    line-height: calc(36 / 24);
+  }
 }
 
 .answer {
-    padding-top: 10px;
-    font-size: 16px;
-font-weight: 400;
-line-height: calc(24 / 16);
+  padding-top: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: calc(24 / 16);
 }
 
 .ansver__text {
-    padding-top: 20px;
+  padding-top: 20px;
 }
-
 
 .question__item {
-    position: relative;
+  position: relative;
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: solid 1px var(--white);
+
+  @media screen and (min-width: 1440px) {
     width: 480px;
-    padding-bottom: 20px;
-    border-bottom: solid 1px var(--white)
-   
+  }
 }
 
-
 .btn {
-    position: absolute;
-    right: 0;
-    top: 10px;
-    border: none;
-    background-color: inherit;
-    cursor: pointer;
-  
+  position: absolute;
+  right: 0;
+  top: 10px;
+  border: none;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.wrapper__rotatingStar {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  @media screen and (min-width: 768px) {
+    left: 40px;
+    transform: translateX(0);
+  }
+
+  @media screen and (min-width: 1440px) {
+    position: relative;
+    left: 0;
+    bottom: 0;
+  }
 }
