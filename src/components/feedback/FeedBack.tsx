@@ -47,7 +47,7 @@ const FeedBack = () => {
   }
 
   return (
-    <section className="container">
+    <section className={styles.container}>
       <div className={`${styles.wrapper}`}>
         <div className={styles.title_wrapper}>
           <h1 className={styles.title}>Хей, маєш питанько?</h1>
@@ -112,6 +112,9 @@ const FeedBack = () => {
         </div>
         <div className={styles.sun_wrapper}>
           <Image src="/svg/sun.svg" width={500} height={500} alt="sun" className={styles.sun} />
+        </div>
+        <div className={styles.stars_wrapper}>
+          <Image src="/stars.png" width={500} height={500} alt="sun" className={styles.stars} />
         </div>
       </div>
     </section>
