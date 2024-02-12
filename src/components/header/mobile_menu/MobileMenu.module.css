@@ -3,12 +3,15 @@
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 100svh;
   background: var(--graphite);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   padding: 1rem;
+  z-index: 9999;
+
   .menu_header {
     width: 100%;
     display: flex;
@@ -19,9 +22,54 @@
     color: var(--lime);
   }
   .menu_nav {
-    border: 2px solid red;
     width: 100%;
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
+    margin-top: 2rem;
+
+    .header_nav_item {
+      margin: 1rem 0;
+      font-size: 18px;
+      display: flex;
+      .lottie {
+        width: 2rem;
+        height: 2rem;
+      }
+      .header_nav_item_button {
+        background: none;
+        border: none;
+        outline: none;
+        color: var(--white);
+        margin-left: 1rem;
+        font-size: 18px;
+      }
+    }
+  }
+  .social {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2rem;
+  }
+  .image:nth-of-type(1) {
+    transform: rotate(10deg);
+  }
+  .image:nth-of-type(2) {
+    transform: rotate(-10deg);
+  }
+  .contacts {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 2rem;
+    .contacts_item {
+      margin: 1rem 0;
+      .contacts_item_link {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-size: 16px;
+      }
+    }
   }
 }
