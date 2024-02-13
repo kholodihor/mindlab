@@ -5,8 +5,9 @@
 }
 
 .image {
-  width: 260px;
-  height: 280px;
+  width: 100%;
+  min-width: 260px;
+  min-height: 280px;
   object-fit: cover;
   border-radius: 1rem;
   z-index: -1;

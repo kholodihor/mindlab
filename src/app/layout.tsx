@@ -61,9 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="uk" className={fixelDisplay.className}>
       <SWRProvider>
         <body>
-          <header>
-            <Header />
-          </header>
+          <Header />
           <main>{children}</main>
           <footer>
             <Footer />

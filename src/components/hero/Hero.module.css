@@ -1,81 +1,36 @@
 .hero {
-  width: 100%;
-  height: calc(100vh - 80px);
-  display: flex;
-}
-
-.title_block {
   position: relative;
   width: 100%;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-direction: column;
+  }
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+    min-height: 80vh;
+    height: calc(100vh - 80px);
+  }
 }
 
-.title_block_title {
+.paragraph {
   position: absolute;
-  top: 20%;
-  left: 20%;
-  transform: translate(-15%, -20%);
-  width: 40vw;
-  font-size: 80px;
-  line-height: 80px;
-  font-weight: 600;
-  font-family: 'Oswald', sans-serif;
+  bottom: 0;
+  left: 5%;
   color: var(--white);
-  text-transform: uppercase;
-  z-index: 50;
-}
-
-.title_block_paragraph {
-  position: absolute;
-  bottom: 10%;
-  left: 20%;
-  transform: translate(-15%, 10%);
-  color: var(--white);
-  font-size: 24px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
-}
-
-.star_green {
-  position: absolute;
-  top: 0;
-  left: 31%;
-  transform: translate(-24%, 0);
-  animation: spin 5s linear infinite;
-}
-
-.star_violet {
-  position: absolute;
-  bottom: 25%;
-  left: 9%;
-  transform: translate(-9.5%, 25%);
-  animation: spin 5s linear infinite;
-}
-
-.rotating_star {
-  position: absolute;
-  bottom: 25vh;
-  left: 40vw;
-  transition: all 0.7s ease-in-out;
-  z-index: 51;
-}
-
-.animation_block {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 2rem;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    bottom: 0%;
+    left: 5%;
   }
-  to {
-    transform: rotate(-240deg);
+  @media screen and (min-width: 1280px) {
+    font-size: 24px;
+    bottom: 15%;
+    left: 3%;
   }
 }

@@ -8,7 +8,7 @@ import Slider from './slider/Slider'
 
 const Teachers = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={`${styles.wrapper} container`}>
       <Search />
       <Tabs />
       <Slider />

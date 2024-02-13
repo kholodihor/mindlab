@@ -1,0 +1,32 @@
+.animation_block {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+  min-height: calc(100vh - 80px);
+  @media screen and (min-width: 768px) {
+    justify-content: flex-end;
+  }
+  @media screen and (min-width: 1280px) {
+    justify-content: center;
+  }
+}
+
+.rotating_star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: all 0.7s ease-in-out;
+  z-index: 51;
+  @media screen and (min-width: 768px) {
+    top: 55%;
+    left: 10%;
+  }
+  @media screen and (min-width: 1280px) {
+    top: 50%;
+    left: -13%;
+    transform: translate(0, -50%);
+  }
+}

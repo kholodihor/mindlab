@@ -22,11 +22,13 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   overflow-x: hidden;
 }
 
 body {
+  width: 100%;
   font-weight: 200;
   font-size: 1.4rem;
   color: var(--white);
@@ -45,30 +47,19 @@ a {
   line-height: 150%; /* 60px */
   text-transform: uppercase;
 
-@media screen and (min-width: 768px) {
-  font-size: 40px;
-}
-
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+  }
 }
 
 .container {
+  position: relative;
+  width: 100%;
+  max-width: 1440px;
+  min-width: 320px;
   padding: 0px 16px;
   margin: 0 auto;
- 
-  @media screen and (min-width: 430px) {
-    width: 430px;
-}
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-    padding: 0px 40px;
-}
-
-  @media screen and (min-width: 1440px) {
-    width: 1440px;
-    padding: 0px 130px;
-}
- 
+  background: #232323;
 }
 
 p,
