@@ -22,11 +22,10 @@
       position: relative;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       flex-direction: column;
       gap: 20px;
       overflow: hidden;
-      min-width: 33%;
     }
   }
 
