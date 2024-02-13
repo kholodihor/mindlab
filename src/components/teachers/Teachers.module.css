@@ -5,5 +5,15 @@
   align-items: center;
   flex-direction: column;
   gap: 52px;
-  padding: 130px;
+  padding: 50px;
+  border: 2px solid red;
+  @media screen and (min-width: 1280px) {
+    padding: 130px;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 100px;
+  }
+  @media screen and (min-width: 430px) {
+    padding: 60px;
+  }
 }
