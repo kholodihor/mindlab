@@ -1,6 +1,12 @@
 .certificate {
   color: var(--white);
   position: relative;
+  padding-top: 100px;
+  padding-bottom: 252px;
+  @media screen and (min-width: 768px) {
+    padding-top: 100px;
+  padding-bottom: 95px;
+  }
 }
 
 .certificate__list {
@@ -8,8 +14,13 @@
 }
 
 .title {
-  margin-bottom: 40px;
   color: inherit;
+  margin-bottom: 62px;
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 40px;
+    
+  }
+  
 }
 
 .wrapper {
@@ -54,7 +65,7 @@
   display: flex;
   gap: 20px;
   align-items: baseline;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
   line-height: calc(36 / 24);
   background-color: inherit;
@@ -62,6 +73,12 @@
   border: none;
   cursor: pointer;
   transform: color 0.3s ease;
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+    line-height: calc(36 / 24);
+    
+  }
+  
 }
 
 .question__rose:hover {
@@ -81,11 +98,16 @@
 }
 
 .certificate__item {
-  margin-top: 36px;
-  width: 580px;
+  margin-top: 24px;
   border-bottom: solid 1px var(--white);
-  padding-top: 20px;
-  padding-bottom: 20px;
+ padding: 13px 0;
+  @media screen and (min-width: 1440px) {
+    width: 580px;
+    margin-top: 36px;
+    padding: 20px 0;
+    
+  }
+  
 }
 
 .certificate__link {

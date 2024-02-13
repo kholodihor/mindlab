@@ -36,7 +36,18 @@ const Footer = () => {
               </Link>
             </li>
           </ul>
-          <div className={css.thumb__copyrigh}>
+        </div>
+        <div className={css.thumb}>
+        <ul className={css.menu__list}>
+          {menuList.map(({ link, menu }) => (
+            <li key={menu} className={css.menu__item}>
+              <Link href={link} className={css.menu__link}>
+                {menu}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className={css.thumb__copyrigh}>
           <p className={css.copyright}>
             Copyright © 2023-2024 MindLab.{' '}
             <span className={css.spanCopyright}>Усі права захищені</span>
@@ -51,15 +62,6 @@ const Footer = () => {
           </ul>
           </div>
         </div>
-        <ul className={css.menu__list}>
-          {menuList.map(({ link, menu }) => (
-            <li key={menu} className={css.menu__item}>
-              <Link href={link} className={css.menu__link}>
-                {menu}
-              </Link>
-            </li>
-          ))}
-        </ul>
         <div className={css.footer__contact}>
           <ul className={css.contact__list}>
             <li className={css.contact__item}>

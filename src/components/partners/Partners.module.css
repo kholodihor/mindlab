@@ -1,9 +1,9 @@
 .partners {
   position: relative;
-  height: 1100px;
+  /* min-height: 1100px; */
 
   @media screen and (min-width: 768px) {
-    height: 1130px;
+    /* height: 1130px; */
     padding-bottom: 80px;
   }
 
@@ -94,10 +94,16 @@
   text-align: center;
   font-size: 16px;
   line-height: calc(24 / 16);
-
+  
+  margin-bottom: 460px;
   @media screen and (min-width: 768px) {
     width: 480px;
-    margin: 0 auto;
+    margin: 0 auto 460px auto;
+    
+  }
+
+  @media screen and (min-width: 1440px) {
+    
   }
 }
 
@@ -115,12 +121,16 @@
 }
 
 .part__right {
-  width: 430px;
+  width: 100vw;
   height: 400px;
   position: absolute;
   bottom: 38px;
   left: -0px;
   text-align: center;
+
+  @media screen and (min-width: 430px) {
+    width: 430px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 768px;
@@ -137,13 +147,18 @@
 }
 
 .swiperSlide {
-  width: 370px;
+  width: 80%;
   height: 400px;
-  padding: 45px 40px 45px 30px;
+  padding: 20px 10px;
   color: var(--black);
   margin: 0 auto;
   border: none;
 
+  @media screen and (min-width: 430px) {
+    width: 90%;
+    padding: 45px 40px 45px 30px;
+  }
+ 
   @media screen and (min-width: 768px) {
     width: 400px;
   }
@@ -163,11 +178,15 @@
 }
 
 .partners__description {
-  width: 288px;
+  
   font-size: 12px;
   font-weight: 400;
   margin-bottom: 9px;
   text-align: center;
+  @media screen and (min-width: 1440px) {
+    width: 288px;
+   
+  }
   @media screen and (min-width: 1440px) {
     width: 509px;
     margin-bottom: 62px;
@@ -226,16 +245,16 @@
 
 .icon {
   position: absolute;
-  right: 60px;
-  bottom: 4px;
+  right: 30px;
+  bottom: 3px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 430px) {
     right: 105px;
   bottom: 3px;
   }
 
-  @media screen and (min-width: 768px) {
+  /* @media screen and (min-width: 768px) {
     right: 105px;
   bottom: 5px;
-  }
+  } */
 }

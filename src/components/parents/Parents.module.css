@@ -40,8 +40,8 @@
 }
 
 .wrapper {
+  width: 90vw;
   position: relative;
-  width: 100%;
   min-height: 231px;
   padding: 148px 20px 20px 20px;
   font-size: 16px;
@@ -74,8 +74,10 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  width: 358px;
   z-index: 1;
+  @media screen and (min-width: 430px) {
+    width: 358px;
+  }
   @media screen and (min-width: 768px) {
     width: 616px;
   }
