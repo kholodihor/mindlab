@@ -33,7 +33,6 @@ const BoostEngCard = () => {
       url={ENG_TEST_URL}
       text="Визначити рівень англійської"
       hoverHandler={hoverPulseHandler}
-      className="boost_eng_card"
     >
       {isPulseHovered ? (
         <div className={styles.pulse}>
