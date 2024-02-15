@@ -16,10 +16,14 @@
 
 .rotating_star {
   position: absolute;
-  top: 0;
+  top: 5%;
   left: 0;
   transition: all 0.7s ease-in-out;
   z-index: 51;
+  @media screen and (min-width: 450px) {
+    top: 30%;
+    left: 5%;
+  }
   @media screen and (min-width: 768px) {
     top: 55%;
     left: 10%;

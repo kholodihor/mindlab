@@ -19,8 +19,8 @@ const Slider = () => {
 
   const isLargeScreen = useMediaQuery('(min-width: 1281px)')
   const isMediumScreen = useMediaQuery('(max-width: 1280px)')
-  const isSmallScreen = useMediaQuery('(max-width: 991px)')
-  const isExtraSmallScreen = useMediaQuery('(max-width: 678px)')
+  const isSmallScreen = useMediaQuery('(max-width: 678px)')
+  const isExtraSmallScreen = useMediaQuery('(max-width: 430px)')
 
   useEffect(() => {
     const getAmountOfSlides = () => {
@@ -53,9 +53,6 @@ const Slider = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.slider_title}>
-        <h1>Провідні викладачі</h1>
-      </div>
       <div className={styles.swiper}>
         <Swiper
           spaceBetween={10}

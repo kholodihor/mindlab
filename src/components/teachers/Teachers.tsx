@@ -8,11 +8,14 @@ import Slider from './slider/Slider'
 
 const Teachers = () => {
   return (
-    <div className={`${styles.wrapper} container`}>
+    <section className={`${styles.wrapper} container`}>
+      <div className={styles.section_title}>
+        <h1>Провідні викладачі</h1>
+      </div>
       <Search />
       <Tabs />
       <Slider />
-    </div>
+    </section>
   )
 }
 
