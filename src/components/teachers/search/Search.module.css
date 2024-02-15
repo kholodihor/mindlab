@@ -5,12 +5,16 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  @media screen and (max-width: 450px) {
+    gap: 0.5rem;
+  }
 
   .input {
     flex: 1;
     height: 60px;
     border-radius: 2rem;
-    padding: 0 3rem;
+    padding-left: 3rem;
+    padding-right: 1rem;
     border: 1px solid var(--white);
     color: var(--white);
     display: flex;
@@ -20,6 +24,7 @@
     font-size: 16px;
     transition: all 0.5s ease-in-out;
   }
+
   .input::placeholder {
     color: var(--white);
   }
@@ -28,5 +33,25 @@
     top: 50%;
     left: 1rem;
     transform: translateY(-50%);
+  }
+
+  .button {
+    width: 380px;
+    min-width: 60px;
+    height: 60px;
+    color: var(--black);
+    border-radius: 2rem;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--lime);
+    font-size: 16px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background: var(--violet);
   }
 }

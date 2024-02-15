@@ -55,8 +55,8 @@
 
 .star_violet {
   position: absolute;
-  top: 80%;
-  left: 10%;
+  top: 70%;
+  left: 5%;
   animation: spin 5s linear infinite;
   @media screen and (min-width: 1280px) {
     top: 60%;

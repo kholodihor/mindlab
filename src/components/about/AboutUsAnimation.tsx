@@ -2,7 +2,7 @@
 
 import React, { FC } from 'react'
 import Lottie from 'lottie-react'
-import aboutUs from '../../animations/about_us.json'
+import aboutUs from '@/animations/about_us.json'
 import { useWindowScrollY } from './useWindowScrollY'
 
 interface AboutUsAnimationProps {
