@@ -12,8 +12,8 @@ const BoostEngCard = () => {
   const boostEngCardDesc = (
     <p className={styles.description}>
       <span className={styles.description_text}>
-        Ми щиро хочемо, щоб ти щораз покращував свій інгліш, тож подбали, щоб ти міг розвиватися у
-        цьому напрямку. <br /> Лови від нас плюшку -{' '}
+        Ми щиро хочемо, щоб ти щораз покращував свій інгліш, тож подбали, щоб ти міг розвиватися.{' '}
+        Лови від нас плюшку -{' '}
       </span>
       безкоштовний speaking club{' '}
       <span className={styles.description_text}>

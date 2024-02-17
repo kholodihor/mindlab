@@ -1,17 +1,44 @@
 .card {
+  box-sizing: border-box;
   padding: 2.5rem;
   border-radius: 16px;
   background: var(--Grey-3, #1d1d1e);
   flex-basis: 50%;
   line-height: 150%;
   position: relative;
+  @media screen and (max-width: 768px) {
+    padding: 1.25rem;
+  }
+  @media screen and (max-width: 620px) {
+    width: 100%;
+    padding: 1.25rem 1.25rem 2.5rem 1.25rem;
+  }
 }
 .card_title {
   color: var(--w, #f9f9fa);
   font-family: Oswald;
-  font-size: 40px;
+  font-size: 36px;
   font-style: normal;
   font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 1rem;
+  line-height: 150%;
+  @media screen and (max-width: 1023px) {
+    font-size: 30px;
+    text-align: center;
+  }
+  @media screen and (max-width: 844px) {
+    height: 112px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @media screen and (max-width: 620px) {
+    height: 45px;
+  }
 }
+.card_title_container {
+  width: 100%;
+}
+
+

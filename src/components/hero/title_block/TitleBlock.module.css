@@ -1,0 +1,74 @@
+.title_block {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  @media screen and (min-width: 768px) {
+    height: 308px;
+  }
+  @media screen and (min-width: 1280px) {
+    height: 449px;
+  }
+}
+
+.title_block_title {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  width: 40vw;
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 600;
+  font-family: 'Oswald', sans-serif;
+  color: var(--white);
+  text-transform: uppercase;
+  z-index: 50;
+  @media screen and (min-width: 430px) {
+    font-size: 50px;
+    line-height: 50px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 60px;
+    line-height: 60px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 80px;
+    line-height: 80px;
+    top: 10%;
+    left: 5%;
+  }
+}
+
+.star_green {
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  animation: spin 5s linear infinite;
+  @media screen and (min-width: 1280px) {
+    top: 5%;
+    left: 30%;
+  }
+}
+
+.star_violet {
+  position: absolute;
+  top: 70%;
+  left: 5%;
+  animation: spin 5s linear infinite;
+  @media screen and (min-width: 1280px) {
+    top: 60%;
+    left: 5%;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-240deg);
+  }
+}

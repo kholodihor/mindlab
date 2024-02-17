@@ -14,7 +14,9 @@ interface CardProps {
 const Card: FC<CardProps> = ({ title, description, url, text, children, hoverHandler }) => {
   return (
     <div className={styles.card} onMouseEnter={hoverHandler} onMouseLeave={hoverHandler}>
-      <h2 className={styles.card_title}>{title}</h2>
+      <div className={styles.card_title_container}>
+        <h2 className={styles.card_title}>{title}</h2>
+      </div>
       {description}
       <ButtonLink url={url} text={text} />
       {children}

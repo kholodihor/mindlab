@@ -1,0 +1,31 @@
+import Image from 'next/image'
+import styles from './TitleBlock.module.css'
+
+const TitleBlock = () => {
+  return (
+    <div className={styles.title_block}>
+      <h1 className={styles.title_block_title}>
+        Платформа <br /> твого <br />
+        безмежного
+        <br />
+        розвитку
+      </h1>
+      <Image
+        width={200}
+        height={200}
+        className={styles.star_green}
+        src="/svg/hero/star_green.svg"
+        alt=""
+      />
+      <Image
+        width={120}
+        height={120}
+        className={styles.star_violet}
+        src="/svg/hero/star_violet.svg"
+        alt=""
+      />
+    </div>
+  )
+}
+
+export default TitleBlock

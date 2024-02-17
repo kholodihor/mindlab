@@ -1,21 +1,35 @@
 .header {
-  width: 100%;
+  position: relative;
   height: 80px;
   display: flex;
   justify-content: space-between;
-  padding: 0 130px;
+  align-items: center;
+  padding: 0 2rem;
 }
 .header_nav {
+  width: 100%;
   display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  .header_burger {
+    display: block;
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
 }
 
 .header_nav ul {
   flex: 1;
-  display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
   width: 100%;
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: flex;
+  }
 }
 
 .header_nav_item {
@@ -24,6 +38,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
+  white-space: nowrap;
 }
 
 .header_nav_item:hover {
@@ -38,4 +53,7 @@
   color: var(--lime);
   cursor: pointer;
   transition: all 0.5s ease-in-out;
+}
+.lottie {
+  margin-right: 1rem;
 }

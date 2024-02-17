@@ -2,8 +2,8 @@
 
 import React, { FC } from 'react'
 import Lottie from 'lottie-react'
-import aboutUs from '../../animations/about_us.json'
-import { useWindowScrollY } from './useWindowScrollY '
+import aboutUs from '@/animations/about_us.json'
+import { useWindowScrollY } from './useWindowScrollY'
 
 interface AboutUsAnimationProps {
   aboutRef: React.RefObject<HTMLDivElement>
@@ -12,7 +12,7 @@ interface AboutUsAnimationProps {
 const style = {
   width: '120%',
   height: '120%',
-  marginLeft: '-125px'
+  marginLeft: '-120px'
 }
 const divisionFactor = 4
 
