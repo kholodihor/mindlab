@@ -13,16 +13,16 @@ import Contacts from '@/components/contacts/Contacts'
 const HomePage = () => {
   return (
     <div className={styles.page}>
-      <Hero />
-      <About />
+      {/* <Hero />
+      <About /> */}
       <Courses />
       <Partners />
       <Certificate />
-      <Teachers />
+      {/* <Teachers /> */}
       <Parents />
-      <FeedBack />
+      {/* <FeedBack />
       <Contacts />
-      <Testimonials />
+      <Testimonials /> */}
     </div>
   )
 }

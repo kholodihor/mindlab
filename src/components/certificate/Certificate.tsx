@@ -8,19 +8,10 @@ import { useState } from 'react'
 import ArrowTop from '../icons/ArrowTop'
 import Lottie from 'lottie-react'
 
-type Answer = Array<string>
-
 const Certificate = () => {
-  const [answer, setAnswer] = useState<Answer>([])
-
-  const currentAnswer = (color: string) => answer.find((item) => item === color)
-
+  const [currentAnswer, setCurrentAnswer] = useState('')
   const showAnswer = (color: string) => {
-    setAnswer((prev) => [...prev, color])
-  }
-
-  const closeAnswer = (color: string) => {
-    setAnswer((prev) => prev.filter((item) => item !== color))
+    setCurrentAnswer(color)
   }
 
   return (
@@ -33,8 +24,8 @@ const Certificate = () => {
               key={question}
               className={css.certificate__item}
               onClick={() => {
-                if (currentAnswer(color)) {
-                  closeAnswer(color)
+                if (currentAnswer === color) {
+                  setCurrentAnswer('')
                 } else {
                   showAnswer(color)
                 }
@@ -44,47 +35,33 @@ const Certificate = () => {
                 <div className={css.btn}>
                   {' '}
                   <ArrowTop
-                    color={currentAnswer(color) ? color : 'currentColor'}
+                    color={currentAnswer === color ? color : 'currentColor'}
                     width={14}
                     height={16}
                   />
                 </div>
-
-                <p style={currentAnswer(color) ? { color: color } : undefined}>{question}</p>
+                <p style={currentAnswer === color ? { color: color } : undefined}>{question}</p>
               </button>
-              {currentAnswer(color) && (
+              {currentAnswer === color && (
                 <Link href={'/'} className={css.certificate__link}>
                   {answer}
                 </Link>
               )}
-              {currentAnswer(color) && (
-                <div
-                  className={`${css.img} ${`${currentAnswer(color)} && ${css.acrive__sertificate}`}`}
-                >
-                  <Image src={img} alt="certificate" width={360} height={262} />  <div className={css.animation}>
-  <Lottie animationData={animationData} loop={true} />
-</div>
+              <div
+                className={`${css[`img__${className}`]} ${currentAnswer === color ? css.acrive__sertificate : ''}`}
+              >
+                <Image src={img} alt="certificate" width={360} height={262} />{' '}
+                <div className={css.animation}>
+                  <Lottie animationData={animationData} loop={true} />
                 </div>
-              )}
-              <div className={css.img}>
-                <Image
-                  src={img}
-                  alt="certificate"
-                  width={360}
-                  height={262}
-                  className={css.hoverlabe}
-                />
-  <div className={css.animation}>
-  <Lottie animationData={animationData} loop={true} />
-</div>
               </div>
             </li>
           ))}
         </ul>
-      
       </div>
     </section>
   )
 }
 
-export default Certificate
+export default Certificate;
+

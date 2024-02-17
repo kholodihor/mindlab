@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <SWRProvider>
         <body>
           <header>
-            <Header />
+            {/* <Header /> */}
           </header>
           <main>{children}</main>
           <footer>
