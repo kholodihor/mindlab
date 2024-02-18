@@ -11,6 +11,7 @@ export type CoursesList = {
 export type ComponentsCourse = {
   mob: Array<string>;
   tab: Array<string>;
+  desk: Array<string>;
 }
 
 export type Partners = {

@@ -9,20 +9,19 @@ import css from '../courses/Courses.module.css';
 import Link from 'next/link';
 import { useWidth } from '@/hooks/useWidth';
 import { currentComponentsCourse } from '@/utils/currentComponentsCourse';
+import Image from 'next/image';
 
 
 const Courses = () => {
   const screenWidth = useWidth();
- 
+
   return (
-    <section id="courses">
-      <div className={`container ${css.courses__container}`}>
+    <section id="courses" className={`container ${css.courses__container}`}>
         <div className={css.wrapper}>
           <h2 className={`title ${css.titleCourses}`}>Обирай напрямок, який тобі до душі</h2>
           <div className={css.animation}>
           <Lottie className={css.eye} animationData={eyeCourses} />
           </div>
-          
         </div>
         <ul className={css.courses}>
           {coursesList.map(({ title, description, component, components, classname, color, href }) => (
@@ -34,7 +33,6 @@ const Courses = () => {
                     <ArrowTop color={color} width={21} height={22}/>
                   </div>
                 </div>
-
                 <p className={css.courses__description}>{description}</p>
                 <div className={css.components}>
                   <p className={`${css.components__element} ${css[`components__${classname}`]}`}>
@@ -59,14 +57,17 @@ const Courses = () => {
               Пройди наш спеціальний тест та дізнайся, які напрямки професійного розвитку
               пасуватимуть саме тобі
             </p>
-
             <Link href="/" className={css.test__link}>
               <p>Пройти тест</p>
               <ArrowRight />
             </Link>
           </div>
+         <Image src= '/parents/linelcon-3.svg' width={124} height={74} alt={'svg'} className={css.icon__line1}/>
+         <Image src='/parents/lineIcon-1.svg' width={50} height={70} alt={'svg'} className={css.icon__line2}/>
+         <Image src='/parents/starIcon.svg' width={19} height={19} alt={'svg'} className={css.icon__star1}/>
+         <Image src='/parents/starIcon.svg' width={26} height={26} alt={'svg'} className={css.icon__star2}/>
+         <Image src='/parents/starIcon.svg' width={19} height={19} alt={'svg'} className={css.icon__star3}/>
         </div>
-      </div>
     </section>
   );
 };

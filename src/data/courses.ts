@@ -198,8 +198,8 @@ export const coursesPage: Array<CoursesPage> = [
 
 export const skillList: Array<SkillList> = [
   { name: 'Досвід', description: 'потрібно лише бажання й готовність багато працювати', className: 'own__skill' },
-  { name: 'English', description: 'для комфортного читання довгих статей про дизайн', className: 'english__skill' },
-  { name: 'Час', description: '10-12 годин на тиждень для виконання завдань', className: 'time__skill' }
+  { name: 'Час', description: '10-12 годин на тиждень для виконання завдань', className: 'time__skill' },
+  { name: 'English', description: 'для комфортного читання довгих статей про дизайн', className: 'english__skill' }
 ]
 
 export const questionCourse: Array<QuestionCourse> = [

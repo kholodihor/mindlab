@@ -13,16 +13,16 @@ import styles from './page.module.css'
 const HomePage = () => {
   return (
     <div className={styles.page}>
-      {/* <Hero />
-      <About /> */}
+      <Hero />
+      <About />
       <Courses />
       <Teachers />
       <Partners />
       <Certificate />
       <Parents />
-      {/* <FeedBack />
+      <FeedBack />
       <Contacts />
-      <Testimonials /> */}
+      <Testimonials />
     </div>
   )
 }

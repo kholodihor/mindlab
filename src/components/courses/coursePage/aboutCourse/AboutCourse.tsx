@@ -28,7 +28,7 @@ const AboutCourse = ({ params }: { params: { course: string } }) => {
             <p className={css.timeText}>Курс триває {currentCourse?.time.duration}</p>
             <p>Відео та онлайн лекції</p>
           </div>
-          <div className={css.about__wrapper}>
+          <div className={`${css.about__wrapper} ${css.wrapper__price}`}>
           <PriceIcon />
             <p className={`${css.text} ${css.seattext}`}>{currentCourse?.price.monthly} грн/міс.</p>
             <p className={css.timeText}>1200 грн при полвній оплаті курсу</p>
@@ -36,7 +36,7 @@ const AboutCourse = ({ params }: { params: { course: string } }) => {
           </div>
           <div className={`${css.about__wrapper} ${css.wrapper__seat}`}>
           <SeatIcon  />
-            <p className={`${css.text} ${css.seattext}`}>{currentCourse?.seat} місць</p>
+            <p className={css.text__seat}>{currentCourse?.seat} місць</p>
           </div>
         </div>
       </div>
