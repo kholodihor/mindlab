@@ -236,4 +236,9 @@
     right: 105px;
     bottom: 3px;
   }
+
+  @media screen and (min-width: 768px) {
+    right: 35px;
+    bottom: 3px;
+  }
 }

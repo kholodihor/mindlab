@@ -15,8 +15,7 @@ const Certificate = () => {
   }
 
   return (
-    <section className={css.certificate}>
-      <div className="container">
+    <section className={`${css.certificate} container`}>
         <h2 className={`title ${css.title} `}>cертифікат з унікальним ID</h2>
         <ul className={css.certificate__list}>
           {certificateList.map(({ question, answer, img, color, className, animationData }) => (
@@ -33,14 +32,13 @@ const Certificate = () => {
             >
               <button className={`${css[`question__${className}`]}`} type="button">
                 <div className={css.btn}>
-                  {' '}
                   <ArrowTop
                     color={currentAnswer === color ? color : 'currentColor'}
                     width={14}
                     height={16}
                   />
                 </div>
-                <p style={currentAnswer === color ? { color: color } : undefined}>{question}</p>
+                <p style={currentAnswer === color ? { color: color } : undefined}className={css.question__text}>{question}</p>
               </button>
               {currentAnswer === color && (
                 <Link href={'/'} className={css.certificate__link}>
@@ -48,9 +46,9 @@ const Certificate = () => {
                 </Link>
               )}
               <div
-                className={`${css[`img__${className}`]} ${currentAnswer === color ? css.acrive__sertificate : ''}`}
+                className={`${css[`img__${className}`]} ${currentAnswer === color ? css[`active__${className}`] : ''}`}
               >
-                <Image src={img} alt="certificate" width={360} height={262} />{' '}
+                <Image src={img} alt="certificate" width={240} height={200} className={css.img}/>{' '}
                 <div className={css.animation}>
                   <Lottie animationData={animationData} loop={true} />
                 </div>
@@ -58,7 +56,6 @@ const Certificate = () => {
             </li>
           ))}
         </ul>
-      </div>
     </section>
   )
 }
