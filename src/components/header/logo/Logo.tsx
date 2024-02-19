@@ -11,15 +11,15 @@ const Logo = () => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <div
-      className={styles.logo}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <Link href="/">
+    <Link href="/">
+      <div
+        className={styles.logo}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <Lottie animationData={isHovered ? logo_open : logo_close} loop={false} />
-      </Link>
-    </div>
+      </div>
+    </Link>
   )
 }
 
