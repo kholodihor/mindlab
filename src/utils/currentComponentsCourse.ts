@@ -1,9 +1,9 @@
 import {ComponentsCourse} from '@/types/index'
 
 export const currentComponentsCourse = (list: ComponentsCourse, screenWidth: number) => {
-    if(screenWidth < 768) {
+    if(screenWidth < 430) {
  return list.mob
-    } else {
-      return list.tab
-    }
+    } else if(screenWidth >= 625){
+      return list.desk
+    } else { return list.tab}
   }

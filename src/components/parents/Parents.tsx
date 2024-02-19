@@ -39,15 +39,15 @@ const Parents = () => {
                 MindLab пішіть нам в чат або на пошту.
               </p>
               <ul className={` ${css.contacts}`}>
-                <li className={style.contact__item}>
-                  <p className={style.contact__text}>Ми допоможемо:</p>
+                <li className={`${css.contact__item}`}>
+                  <p className={css.contact__text}>Ми допоможемо:</p>
                   <Link href="mailto:mind.lab.hub@gmail.com" className={style.contact__link}>
                     <MailIcon />
                     <p>пошта</p>
                   </Link>
                 </li>
-                <li className={style.contact__item}>
-                  <p className={style.contact__text}>Ми відповімо:</p>
+                <li className={css.contact__item}>
+                  <p className={css.contact__text}>Ми відповімо:</p>
                   <Link
                     href="https://t.me/+Q8t3dkMH84hiYmNi"
                     className={style.contact__link}
@@ -69,7 +69,9 @@ const Parents = () => {
                 
               />)}
             </div>
+            <div className={css.wrapper__rotatingStar}>
             <RotatingStar />
+            </div>
           </div>
           <ul className={css.question__list}>
             {questionList.map(({ color, question, answer }) => (

@@ -31,19 +31,13 @@
     margin-bottom: 0;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 860px;
     flex-wrap: nowrap;
     gap: 100px;
     margin-bottom: 52px;
   }
 }
-
-/* .item {
-    @media screen and (min-width: 768px) {
-       width: 216px;
-       }
-} */
 
 .characteristic {
   display: flex;
@@ -68,16 +62,15 @@
 }
 
 .text {
-  width: 380px;
   font-size: 16px;
   font-weight: 400;
   line-height: calc(24 / 16);
 
-  @media screen and (min-width: 768px) {
-    width: 216px;
+  @media screen and (min-width: 430px) {
+    max-width: 300px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: auto;
   }
 }
@@ -87,16 +80,23 @@
   padding-bottom: 150px;
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
   border-radius: 16px;
+
+  @media screen and (min-width: 430px) {
+    column-gap: 0;
+    row-gap: 20px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 216px;
     gap: 40px;
     padding: 20px 20px;
     background: var(--graphite);
+    /* border-radius: 0; */
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     gap: 20px;
     justify-content: space-between;
     width: 779px;
@@ -110,7 +110,13 @@
   padding-left: 12px;
   padding-top: 20px;
   padding-bottom: 20px;
-  width: 199px;
+  width: 100%;
+  border-radius: 16px;
+
+  @media screen and (min-width: 430px) {
+    width: 50%;
+    border-radius: none;
+  }
 
   @media screen and (min-width: 768px) {
     background: none;
@@ -121,26 +127,11 @@
   }
 }
 
-.english__skill {
-  position: absolute;
-  bottom: -25px;
-  width: 204px;
-  padding: 20px 12px;
-  border-radius: 16px;
-
-  @media screen and (min-width: 768px) {
-    position: relative;
-    bottom: 0;
-    border-radius: 0;
-    padding: 0 0;
-    padding-bottom: 12px;
-  }
-}
-
 .own__skill {
-  border-top-left-radius: 16px;
-  border-bottom-left-radius: 16px;
-
+  @media screen and (min-width: 430px) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
   @media screen and (min-width: 768px) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -148,8 +139,10 @@
 }
 
 .time__skill {
-  border-top-right-radius: 16px;
-  border-bottom-right-radius: 16px;
+  @media screen and (min-width: 430px) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
   @media screen and (min-width: 768px) {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -161,7 +154,7 @@
     border-bottom: solid 1px var(--gray-light);
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding-right: 20px;
     border-bottom: none;
     border-right: solid 1px var(--gray-light);

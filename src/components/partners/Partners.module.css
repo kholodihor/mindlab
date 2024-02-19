@@ -1,16 +1,12 @@
 .partners {
   position: relative;
-  height: 1100px;
-
   @media screen and (min-width: 768px) {
-    height: 1130px;
     padding-bottom: 80px;
   }
 
-  @media screen and (min-width: 1440px) {
-    height: auto;
-    padding-top: 121px;
-    padding-bottom: 121px;
+  @media screen and (min-width: 1280px) {
+    padding-top: 120px;
+    padding-bottom: 120px;
   }
 }
 
@@ -20,27 +16,13 @@
   margin: 0 auto 25px auto;
 }
 
-.partners__title {
-  margin-bottom: 24px;
-
-  @media screen and (min-width: 768px) {
-    width: 480px;
-    margin: 0 auto 25px auto;
-  }
-  @media screen and (min-width: 1440px) {
-    max-width: 450px;
-    margin: 0 auto 25px auto;
-  }
-}
-
 .icon__arrow {
   display: none;
-  @media screen and (min-width: 768px) {
-  }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
+    display: block;
     position: absolute;
-    right: 95px;
-    top: 300px;
+    right: 30px;
+    top: 260px;
   }
 }
 
@@ -48,14 +30,28 @@
   display: none;
   @media screen and (min-width: 768px) {
     position: absolute;
-    right: 90px;
+    left: 86%;
+    transform: translateX(-86%);
     top: 510px;
     display: flex;
     align-items: center;
     display: block;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     display: none;
+  }
+}
+
+.partners__title {
+  margin: 0 auto 24px auto;
+  max-width: 480px;
+
+  @media screen and (min-width: 768px) {
+    margin: 0 auto 25px auto;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 450px;
+    margin: 0 auto 25px auto;
   }
 }
 
@@ -66,7 +62,7 @@
   @media screen and (min-width: 768px) {
     margin-bottom: 36px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     font-size: 24px;
     line-height: calc(36 / 24);
   }
@@ -85,7 +81,7 @@
     width: 480px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: auto;
   }
 }
@@ -94,9 +90,12 @@
   text-align: center;
   font-size: 16px;
   line-height: calc(24 / 16);
-
+  max-width: 480px;
+  margin: 0 auto 430px auto;
   @media screen and (min-width: 768px) {
-    width: 480px;
+    margin: 0 auto 380px auto;
+  }
+  @media screen and (min-width: 1280px) {
     margin: 0 auto;
   }
 }
@@ -105,57 +104,61 @@
   text-align: center;
   color: var(--white);
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     position: relative;
     width: 570px;
     height: 706px;
-    padding: 45px 31px 45px 0 ;
+    padding: 45px 31px 45px 0;
   }
-
 }
 
 .part__right {
-  width: 430px;
+  width: 100vw;
   height: 400px;
   position: absolute;
-  bottom: 38px;
-  left: -0px;
+  right: 50%;
+  bottom: 0px;
+  transform: translateX(50%);
   text-align: center;
 
-  @media screen and (min-width: 768px) {
-    width: 768px;
-    bottom: 80px;
-    left: 0px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 710px;
-    height: 706px;
-    left: 730px;
-    top: 121px;
+  @media screen and (min-width: 1280px) {
+    width: 700px;
+    height: 708px;
+    right: 0px;
+    transform: translateX(0);
+    bottom: 120px;
+
     color: var(--black);
   }
 }
 
 .swiperSlide {
-  width: 370px;
+  width: 80%;
   height: 400px;
-  padding: 45px 40px 45px 30px;
+  padding: 20px 10px;
   color: var(--black);
   margin: 0 auto;
   border: none;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 430px) {
     width: 400px;
+    padding: 45px 40px 45px 30px;
   }
-  @media screen and (min-width: 1440px) {
+
+  @media screen and (min-width: 768px) {
+    width: 45%;
+    max-width: 450px;
+  }
+  @media screen and (min-width: 1280px) {
     width: 710px;
-    height: 706px;
+    max-width: 710px;
+    height: 708px;
     padding: 80px 98px;
   }
 }
 
 .partners__logo {
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 320px;
     height: 320px;
     margin-bottom: 40px;
@@ -163,12 +166,12 @@
 }
 
 .partners__description {
-  width: 288px;
   font-size: 12px;
   font-weight: 400;
   margin-bottom: 9px;
   text-align: center;
-  @media screen and (min-width: 1440px) {
+
+  @media screen and (min-width: 1280px) {
     width: 509px;
     margin-bottom: 62px;
     font-size: 16px;
@@ -181,7 +184,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: calc(36 / 24);
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     font-size: 24px;
     font-style: normal;
     font-weight: 500;
@@ -197,7 +200,7 @@
   gap: 8px;
   color: var(--black);
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     align-items: flex-start;
   }
 }
@@ -212,7 +215,7 @@
   width: 17px;
   height: 17px;
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 30px;
     height: 30px;
   }
@@ -226,16 +229,11 @@
 
 .icon {
   position: absolute;
-  right: 60px;
-  bottom: 4px;
-
-  @media screen and (min-width: 768px) {
-    right: 105px;
+  right: 30px;
   bottom: 3px;
-  }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 430px) {
     right: 105px;
-  bottom: 5px;
+    bottom: 3px;
   }
 }

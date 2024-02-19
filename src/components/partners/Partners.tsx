@@ -6,7 +6,7 @@ import Lottie from 'lottie-react'
 import ArrowPartners from '../icons/ArrowPartners'
 import ArrowSliderPartners from '../icons/ArrowSliderPartners'
 import Fire from '../icons/Fire'
-import { partners, partnersTablet } from '@/data/data'
+import { partners } from '@/data/data'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Mousewheel, Scrollbar } from 'swiper/modules'
 
@@ -17,20 +17,11 @@ import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 import Link from 'next/link'
 import ArrowPartnersTablet from '../icons/ArrowPartnersTablet'
-import { useWidth } from '@/hooks/useWidth'
 
 const Partners = () => {
-  const currentWidth = useWidth();
-  const currentList = () => {
-    if(currentWidth >= 768 && currentWidth < 1440) {
-      return partnersTablet
-    } else {
-      return partners
-    }
-  }
   return (
-    <section className={css.partners} id="partners">
-      <div className={`container`}>
+    <section className={`${css.partners} container`} id="partners" >
+    
         <div className={css.part__left}>
           <Lottie className={css.icon__eye} animationData={eye} />
           <h2 className={`title ${css.partners__title}`}>
@@ -59,7 +50,7 @@ const Partners = () => {
             loop={true}
             modules={[Navigation, Mousewheel, Scrollbar]}
           >
-            {currentList().map(({ name, logo, text, color, link }) => (
+            {partners.map(({ name, logo, text, color, link }) => (
               <SwiperSlide
                 key={name}
                 className={css.swiperSlide}
@@ -83,7 +74,6 @@ const Partners = () => {
             ))}
           </Swiper>
         </div>
-      </div>
     </section>
   )
 }

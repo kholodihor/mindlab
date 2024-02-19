@@ -1,6 +1,12 @@
 .certificate {
   color: var(--white);
   position: relative;
+  padding-top: 100px;
+  padding-bottom: 252px;
+  @media screen and (min-width: 768px) {
+    padding-top: 100px;
+    padding-bottom: 95px;
+  }
 }
 
 .certificate__list {
@@ -8,8 +14,11 @@
 }
 
 .title {
-  margin-bottom: 40px;
   color: inherit;
+  margin-bottom: 62px;
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 40px;
+  }
 }
 
 .wrapper {
@@ -22,31 +31,6 @@
   transform: rotate(90deg);
 }
 
-.img {
-  position: absolute;
-  right: 100px;
-  top: 50px;
-  opacity: 0;
-  transform: scale(0.5) rotate(45deg);
-  transition: all 0.4s ease;
-  z-index: 111;
-}
-
-.certificate__item:hover .img {
-  opacity: 1;
-  transform: scale(1) rotate(0);
-}
-
-.acrive__sertificate {
-  position: absolute;
-  opacity: 1;
-  right: 100px;
-  z-index: 1;
-  top: 50px;
-  transition: all 0.4s ease;
-  transform: scale(1) rotate(0);
-}
-
 .question__rose,
 .question__roseLight,
 .question__violet,
@@ -54,7 +38,7 @@
   display: flex;
   gap: 20px;
   align-items: baseline;
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 500;
   line-height: calc(36 / 24);
   background-color: inherit;
@@ -62,6 +46,10 @@
   border: none;
   cursor: pointer;
   transform: color 0.3s ease;
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+    line-height: calc(36 / 24);
+  }
 }
 
 .question__rose:hover {
@@ -81,11 +69,14 @@
 }
 
 .certificate__item {
-  margin-top: 36px;
-  width: 580px;
+  margin-top: 24px;
   border-bottom: solid 1px var(--white);
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 13px 0;
+  @media screen and (min-width: 1440px) {
+    width: 580px;
+    margin-top: 36px;
+    padding: 20px 0;
+  }
 }
 
 .certificate__link {
@@ -98,4 +89,85 @@
   position: absolute;
   right: 0;
   bottom: 0;
+}
+
+.certificate__item:hover .img {
+  @media screen and (min-width: 1440px) {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.img__green {
+  position: absolute;
+  right: 100px;
+  top: 50px;
+  opacity: 0;
+  transform: scale(0.5) rotate(-55deg);
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.img__rose {
+  position: absolute;
+  right: 100px;
+  top: 50px;
+  opacity: 0;
+  transform: scale(0.5) rotate(-55deg);
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.img__roseLight {
+  position: absolute;
+  right: 100px;
+  top: 50px;
+  opacity: 0;
+  transform: scale(0.5) rotate(-55deg);
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+.img__violet {
+  position: absolute;
+  right: 100px;
+  top: 50px;
+  opacity: 0;
+  transform: scale(0.5) rotate(-55deg);
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.certificate__item:hover .img__green {
+  @media screen and (min-width: 1440px) {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.certificate__item:hover .img__rose {
+  @media screen and (min-width: 1440px) {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.certificate__item:hover .img__roseLight {
+  @media screen and (min-width: 1440px) {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.certificate__item:hover .img__violet {
+  @media screen and (min-width: 1440px) {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+.acrive__sertificate {
+  opacity: 1;
+  z-index: 1;
+  transition: all 0.4s ease;
+  transform: scale(1) rotate(0);
 }
