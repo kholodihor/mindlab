@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
-import { Teacher } from '@/types'
 import styles from './TeacherCard.module.css'
+import { Teacher } from '@/types'
 
 const TeacherCard = ({ teacher }: { teacher: Teacher }) => {
   return (

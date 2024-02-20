@@ -1,8 +1,10 @@
 .hero {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: 70vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   @media screen and (min-width: 768px) {
     flex-direction: column;
@@ -30,7 +32,7 @@
   }
   @media screen and (min-width: 1280px) {
     font-size: 24px;
-    bottom: 15%;
-    left: 3%;
+    bottom: 10%;
+    left: 5%;
   }
 }

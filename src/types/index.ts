@@ -9,9 +9,9 @@ export type CoursesList = {
 }
 
 export type ComponentsCourse = {
-  mob: Array<string>;
-  tab: Array<string>;
-  desk: Array<string>;
+  mob: Array<string>
+  tab: Array<string>
+  desk: Array<string>
 }
 
 export type Partners = {
@@ -28,10 +28,10 @@ export type MenuList = {
 }
 
 export type Teacher = {
-  key: string
-  image: string
-  name: string
-  speciality: string
+  key?: string
+  image?: string
+  name?: string
+  speciality?: string
 }
 
 export type FeedBackFormInput = {

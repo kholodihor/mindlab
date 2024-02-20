@@ -3,60 +3,36 @@ export const teachers = [
     key: 'marco_fedorenco',
     image: '/teachers/teacher1.png',
     name: 'Марко Федоренко',
-    speciality: 'Social & sustainable innovation advisor'
+    speciality: 'Leadership'
   },
   {
     key: 'nicol_ivanova',
     image: '/teachers/teacher2.png',
     name: 'Ніколь Іванова',
-    speciality: 'Social & sustainable innovation advisor'
+    speciality: 'Business'
   },
   {
     key: 'las_jakobs',
     image: '/teachers/teacher3.png',
     name: 'Лесь Джейкобс',
-    speciality: 'Social & sustainable innovation advisor'
+    speciality: 'Political science-sociology'
   },
   {
     key: 'marta_kaz',
     image: '/teachers/teacher4.png',
     name: 'Марта Кац',
-    speciality: 'Social & sustainable innovation advisor'
+    speciality: 'Innovative techologies'
   },
   {
-    key: 'violetta_gudz',
+    key: 'violetta_johnson',
     image: '/teachers/teacher5.webp',
     name: 'Віолетта Джонсон',
-    speciality: 'Social & sustainable innovation advisor'
+    speciality: 'Art'
   },
   {
     key: 'marco_fedorenco',
     image: '/teachers/teacher1.png',
     name: 'Марко Федоренко',
-    speciality: 'Social & sustainable innovation advisor'
-  },
-  {
-    key: 'nicol_ivanova',
-    image: '/teachers/teacher2.png',
-    name: 'Ніколь Іванова',
-    speciality: 'Social & sustainable innovation advisor'
-  },
-  {
-    key: 'las_jakobs',
-    image: '/teachers/teacher3.png',
-    name: 'Лесь Джейкобс',
-    speciality: 'Social & sustainable innovation advisor'
-  },
-  {
-    key: 'marta_kaz',
-    image: '/teachers/teacher4.png',
-    name: 'Марта Кац',
-    speciality: 'Social & sustainable innovation advisor'
-  },
-  {
-    key: 'violetta_gudz',
-    image: '/teachers/teacher5.webp',
-    name: 'Віолетта Джонсон',
-    speciality: 'Social & sustainable innovation advisor'
+    speciality: 'Carrier counselling / carrer guidance'
   }
 ]

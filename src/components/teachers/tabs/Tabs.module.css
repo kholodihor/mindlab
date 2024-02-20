@@ -22,15 +22,21 @@
     align-items: center;
     text-align: center;
     padding: 0 1rem;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.1s ease-in-out;
     cursor: pointer;
   }
   .tab:hover {
     background: var(--black);
     border: 1px solid var(--white);
+    color: var(--white);
   }
   .active {
     background: var(--violet-light);
     color: var(--black);
+  }
+  .active:hover {
+    background: var(--lime);
+    color: var(--black);
+    border: 1px solid var(--black);
   }
 }

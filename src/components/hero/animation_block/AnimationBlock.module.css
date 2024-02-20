@@ -2,16 +2,20 @@
   position: relative;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   padding-bottom: 2rem;
-  min-height: calc(100vh - 80px);
   @media screen and (min-width: 768px) {
     justify-content: flex-end;
   }
   @media screen and (min-width: 1280px) {
     justify-content: center;
+    height: 449px;
   }
+}
+
+.lottie {
+  width: 60%;
 }
 
 .rotating_star {
@@ -20,9 +24,10 @@
   left: 0;
   transition: all 0.7s ease-in-out;
   z-index: 51;
-  @media screen and (min-width: 450px) {
+
+  @media screen and (min-width: 430px) {
     top: 30%;
-    left: 5%;
+    left: 0;
   }
   @media screen and (min-width: 768px) {
     top: 55%;

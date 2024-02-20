@@ -1,26 +1,27 @@
 'use client'
 import React from 'react'
-import { teachers } from '@/data/teachers'
+import { useTeachers } from '@/hooks/swr/useTeachers'
 import ArrowLeft from '@/components/icons/ArrowLeft'
-import { Teacher } from '@/types'
 import styles from './TeacherPage.module.css'
 import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
 import LinkedinIconXL from '@/components/icons/LinkedinIconXL'
 import FacebokIconXL from '@/components/icons/FacebokIconXL'
 import TelegramIconXL from '@/components/icons/TelegramIconXL'
 import TeacherTabs from './teacher_tabs/TeacherTabs'
+import { TTeacherResponse } from '@/types/teachers'
 
-const TeacherPage = ({ nameKey }: { nameKey: string }) => {
-  const teacher = teachers.find((teacher) => teacher.key === nameKey) as Teacher
+const TeacherPage = ({ id }: { id: string }) => {
+  const { teachers } = useTeachers()
+  const teacher = teachers.find((teacher) => teacher.id === id) as TTeacherResponse
 
   return (
-    <div className={`${styles.page}`}>
-      <a href="/#courses" className={styles.link}>
+    <div className={styles.page}>
+      <a href="/#teachers" className={styles.link}>
         <ArrowLeft />
         <p>До інших викладачів</p>
       </a>
       {!teacher ? (
-        <p className={styles.error}>Такого курсу не знайдено. Спробуйте знову.</p>
+        <p className={styles.error}>Такого викладача не знайдено. Спробуйте знову.</p>
       ) : (
         <div className={styles.wrapper}>
           <div className={styles.teacher}>
