@@ -14,7 +14,14 @@ model Testimonial{
   message     String
   isPublished Boolean
   createdAt   DateTime  @default(now()) 
-} 
+}
+
+model Teacher{
+ id          String    @id @default(auto()) @map("_id") @db.ObjectId
+ name        String
+ speciality  String
+ image       String
+}
 
 model Account {
   id                 String  @id @default(auto()) @map("_id") @db.ObjectId

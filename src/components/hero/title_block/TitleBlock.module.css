@@ -31,8 +31,8 @@
     line-height: 50px;
   }
   @media screen and (min-width: 768px) {
-    font-size: 60px;
-    line-height: 60px;
+    font-size: 80px;
+    line-height: 80px;
   }
   @media screen and (min-width: 1280px) {
     font-size: 80px;
@@ -47,17 +47,19 @@
   top: 5%;
   left: 20%;
   animation: spin 5s linear infinite;
+  width: 50%;
   @media screen and (min-width: 1280px) {
-    top: 5%;
-    left: 30%;
+    top: 0;
+    left: 25%;
   }
 }
 
 .star_violet {
   position: absolute;
-  top: 70%;
+  top: 60%;
   left: 5%;
   animation: spin 5s linear infinite;
+  width: 30%;
   @media screen and (min-width: 1280px) {
     top: 60%;
     left: 5%;

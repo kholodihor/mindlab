@@ -6,7 +6,7 @@ import styles from './AnimationBlock.module.css'
 const AnimationBlock = () => {
   return (
     <div className={styles.animation_block}>
-      <Lottie animationData={hero} loop={false} />
+      <Lottie animationData={hero} loop={false} className={styles.lottie} />
       <div className={styles.rotating_star}>
         <RotatingStar />
       </div>
