@@ -8,7 +8,7 @@
     padding-top: 100px;
   padding-bottom: 95px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     padding-top: 120px;
   padding-bottom: 120px;
   }
@@ -20,7 +20,7 @@
   @media screen and (min-width: 768px) {
     text-align: left;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 60px;
   }
 }
@@ -28,21 +28,21 @@
 .thumb {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 40px;
 
   @media screen and (min-width: 768px) {
    justify-content: end;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     align-items: flex-start;
     gap: 220px;
   }
 }
 
 .wrapper {
-  width: 90vw;
+  width: 95vw;
   position: relative;
-  min-height: 231px;
   padding: 148px 20px 20px 20px;
   font-size: 16px;
   font-weight: 400;
@@ -52,18 +52,19 @@
   color: var(--black);
 
   @media screen and (min-width: 430px) {
-   width: 398px;
+    padding: 100px 20px 20px 20px;
    
   }
 
   @media screen and (min-width: 768px) {
-    width: 688px;
+    max-width: 550px;
+    
     min-height: 152px;
     padding: 80px 36px 20px 36px;
   }
 
-  @media screen and (min-width: 1440px) {
-    width: 480px;
+  @media screen and (min-width: 1280px) {
+    max-width: 480px;
     height: 207px;
     padding: 134px 36px 20px 36px;
     margin-bottom: 52px;
@@ -75,28 +76,29 @@
   top: 20px;
   left: 20px;
   z-index: 1;
-  @media screen and (min-width: 430px) {
+  /* @media screen and (min-width: 430px) {
     width: 358px;
   }
   @media screen and (min-width: 768px) {
     width: 616px;
-  }
-  @media screen and (min-width: 1440px) {
-    width: 440px;
+  } */
+  @media screen and (min-width: 1280px) {
+    max-width: 440px;
   }
   
 }
 
 .contacts {
-  margin-bottom: 0;
+  max-width: 400px;
+  margin: 0 auto;
   display: flex;
+  justify-content: space-between;
   gap: 20px;
-
+  
   @media screen and (min-width: 768px) {
-    gap: 20px;
     justify-content: center;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     justify-content: start;
     gap: 44px;
   }
@@ -104,7 +106,7 @@
 
 .contact__item {
 gap: 12px;
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
     width: 119px;
   }
 }
@@ -119,11 +121,15 @@ gap: 12px;
   right: 69px;
   top: 35px;
   z-index: 0;
+  @media screen and (min-width: 430px) {
+    right: 49px;
+   top: 0px;
+  }
   @media screen and (min-width: 768px) {
     right: 99px;
    top: 45px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     right: 5px;
     top: 75px;
   }
@@ -133,8 +139,12 @@ gap: 12px;
   position: absolute;
   top: 95px;
   left: -0px;
+  @media screen and (min-width: 430px) {
+    
+   top: 60px;
+  }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     top: 75px;
     left: -0px;
   }
@@ -144,11 +154,14 @@ gap: 12px;
   position: absolute;
   top: 115px;
   left: 157px;
+  @media screen and (min-width: 430px) {
+    top: 80px;
+  }
   @media screen and (min-width: 768px) {
     top: 120px;
     left: 157px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     top: 100px;
     left: 167px;
   }
@@ -163,7 +176,7 @@ gap: 12px;
     right: 230px;
   top: 53px;
   }
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     right: 125px;
     top: 80px;
   }
@@ -178,7 +191,7 @@ gap: 12px;
     top: 70px;
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     position: absolute;
     left: 370px;
     top: 150px;
@@ -187,12 +200,13 @@ gap: 12px;
 }
 
 .question__list {
+  max-width: 452px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   padding-bottom: 220px;
   @media screen and (min-width: 768px) {
-   width: 452px;
+   
    padding-bottom: 0;
   }
 }
@@ -200,7 +214,7 @@ gap: 12px;
 .question__text {
   font-size: 20px;
   font-weight: 500;
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     font-size: 24px;
     line-height: calc(36 / 24);
   }
@@ -223,7 +237,7 @@ gap: 12px;
   padding-bottom: 20px;
   border-bottom: solid 1px var(--white);
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     width: 480px;
   }
 }
@@ -239,7 +253,7 @@ gap: 12px;
 
 .wrapper__rotatingStar {
   position: absolute;
-  bottom: 60px;
+  bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -248,7 +262,7 @@ gap: 12px;
     transform: translateX(0);
   }
 
-  @media screen and (min-width: 1440px) {
+  @media screen and (min-width: 1280px) {
     position: relative;
     left: 0;
     bottom: 0;

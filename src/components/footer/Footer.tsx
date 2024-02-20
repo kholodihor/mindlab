@@ -9,9 +9,9 @@ import Link from 'next/link'
 const Footer = () => {
   return (
     <footer className={css.footer}>
-      <div className={css.footer_container}>
+      <div className={`container ${css.footer_container} `}>
         <div className={css.footer__wraper}>
-        <Link href={'/'}>
+        <Link href={'/'} className={css.logo}>
       <Image
         src="/svg/footer/footer-logo.svg"
         width={118}
@@ -22,13 +22,13 @@ const Footer = () => {
       </Link>
           <ul className={css.social__list}>
             <li>
-              <Link href="/" className={css.social__link} rel="noopener noreferrer" target="_blank">
+              <Link href="https://www.instagram.com/mind.lab_hub?igsh=bWl3dGt5Njdwd3Fk&utm_source=qr" className={css.social__link} rel="noopener noreferrer" target="_blank">
                 <Image src='/svg/footer/instagram.svg' alt='icon instagram' width={40} height={40}/>
               </Link>
             </li>
             <li>
               <Link
-                href="https://www.instagram.com/mind.lab_hub?igsh=bWl3dGt5Njdwd3Fk&utm_source=qr"
+                href="/"
                 className={css.social__link}
                 rel="noopener noreferrer"
                 target="_blank">
@@ -36,33 +36,7 @@ const Footer = () => {
               </Link>
             </li>
           </ul>
-        </div>
-        <div className={css.thumb}>
-        <ul className={css.menu__list}>
-          {menuList.map(({ link, menu }) => (
-            <li key={menu} className={css.menu__item}>
-              <Link href={link} className={css.menu__link}>
-                {menu}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <div className={css.thumb__copyrigh}>
-          <p className={css.copyright}>
-            Copyright © 2023-2024 MindLab.{' '}
-            <span className={css.spanCopyright}>Усі права захищені</span>
-          </p>
-          <ul>
-            <li>
-              <Link href="/">Політика конфіденційності </Link>
-            </li>
-            <li>
-              <Link href="/">Правила користування сайтом</Link>
-            </li>
-          </ul>
-          </div>
-        </div>
-        <div className={css.footer__contact}>
+          <div className={css.wrapper__contacts}>
           <ul className={css.contact__list}>
             <li className={css.contact__item}>
               <p className={css.contact__text}>Ми допоможемо:</p>
@@ -93,6 +67,31 @@ const Footer = () => {
           <Link href="/" className={css.link__advice}>
             Отримати консультацію
           </Link>
+          </div>
+        </div>
+        <div className={css.thumb}>
+        <ul className={css.menu__list}>
+          {menuList.map(({ link, menu }) => (
+            <li key={menu} className={css.menu__item}>
+              <Link href={link} className={css.menu__link}>
+                {menu}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <div className={css.thumb__copyright}>
+          <p className={css.copyright}>
+            Copyright © 2023-2024 MindLab.{' '}
+            <span className={css.spanCopyright}>Усі права захищені</span>
+          </p>
+          <div className={css.rules__site}>
+              <Link href="/" className={css.rule__item}>Політика конфіденційності </Link>
+              <Link href="/" className={css.rule__item}>Правила користування сайтом</Link>
+          </div>
+          </div>
+        </div>
+        <div className={css.footer__contact}>
+        
         </div>
       </div>
     </footer>
