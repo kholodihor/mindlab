@@ -36,7 +36,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
-  width: 40%;
+  width: 47%;
 
   @media screen and (min-width: 768px) {
     display: block;
@@ -199,10 +199,11 @@ margin-left: 270px;
 }
 
 .thumb__copyright {
+  max-width: 185px;
   font-size: 12px;
   @media screen and (min-width: 768px) {
     position: absolute;
-    width: 185px;
+    
     left: 40px;
     bottom: 0;
   }
