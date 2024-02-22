@@ -11,10 +11,12 @@ import styles from './Teachers.module.css'
 const Teachers = () => {
   const { teachers } = useTeachers()
   const [query, setQuery] = useState('')
+  const [selectedQuery, setSelectedQuery] = useState('')
   const [speciality, setSpeciality] = useState('')
   const [filteredTeachers, setFilteredTeachers] = useState([])
 
   useEffect(() => {
+    setSelectedQuery('')
     if (speciality === '') {
       setFilteredTeachers(teachers)
     } else {
@@ -26,7 +28,9 @@ const Teachers = () => {
     }
   }, [speciality, teachers])
 
-  useEffect(() => {
+  const filterByQuery = () => {
+    setSpeciality('')
+    setSelectedQuery(query)
     if (query === '') {
       setFilteredTeachers(teachers)
     } else {
@@ -38,7 +42,7 @@ const Teachers = () => {
         )
       )
     }
-  }, [query, teachers])
+  }
 
   return (
     <section className={`${styles.wrapper} container`} id="teachers">
@@ -51,8 +55,13 @@ const Teachers = () => {
       >
         <h1>Провідні викладачі</h1>
       </motion.div>
-      <Search setQuery={setQuery} />
-      <Tabs teachers={teachers} setSpeciality={setSpeciality} speciality={speciality} />
+      <Search setQuery={setQuery} handleClick={filterByQuery} />
+      <Tabs
+        teachers={teachers}
+        setSpeciality={setSpeciality}
+        speciality={speciality}
+        query={selectedQuery}
+      />
       <Slider teachers={filteredTeachers} />
     </section>
   )
