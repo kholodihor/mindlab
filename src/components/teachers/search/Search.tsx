@@ -8,9 +8,10 @@ import styles from './Search.module.css'
 
 interface SearchProps {
   setQuery: Dispatch<SetStateAction<string>>
+  handleClick: () => void
 }
 
-const Search = ({ setQuery }: SearchProps) => {
+const Search = ({ setQuery, handleClick }: SearchProps) => {
   const isExtraSmallScreen = useMediaQuery('(max-width: 430px)')
   return (
     <div className={styles.wrapper}>
@@ -22,7 +23,7 @@ const Search = ({ setQuery }: SearchProps) => {
       />
       <Image src="/svg/search.svg" width={20} height={20} alt="search" className={styles.search} />
       {!isExtraSmallScreen ? (
-        <MainButton title="Шукати" />
+        <MainButton title="Шукати" handleAction={handleClick} />
       ) : (
         <button className={styles.button}>
           <Image src="/svg/search_dark.svg" width={20} height={20} alt="search" />

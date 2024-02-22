@@ -1,8 +1,10 @@
 import prisma from '@/lib/prisma'
+import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
+    await prismaConnect()
     const teachers = await prisma.teacher.findMany()
     return NextResponse.json(teachers, { status: 200 })
   } catch (error) {
@@ -12,6 +14,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
+    await prismaConnect()
     const { name, image, speciality } = await request.json()
     const response = await prisma.teacher.create({
       data: {

@@ -17,10 +17,24 @@ model Testimonial{
 }
 
 model Teacher{
- id          String    @id @default(auto()) @map("_id") @db.ObjectId
- name        String
- speciality  String
- image       String
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  speciality  String
+  image       String
+  about       String[]
+  courseIds   String[]  @db.ObjectId 
+  courses     Course[]  @relation(fields: [courseIds], references: [id])
+  
+}
+
+model Course{
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  description String
+  tags        String[]
+  teacherIds  String[]  @db.ObjectId 
+  teachers    Teacher[] @relation(fields: [teacherIds], references: [id])
+
 }
 
 model Account {

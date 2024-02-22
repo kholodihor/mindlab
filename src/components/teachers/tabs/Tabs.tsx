@@ -1,5 +1,4 @@
 'use client'
-// import { Teacher } from '@/types'
 import styles from './Tabs.module.css'
 import { Dispatch, SetStateAction } from 'react'
 import { TTeacherResponse } from '@/types/teachers'
@@ -7,14 +6,15 @@ import { TTeacherResponse } from '@/types/teachers'
 interface TabsProps {
   teachers: TTeacherResponse[]
   speciality: string
+  query: string
   setSpeciality: Dispatch<SetStateAction<string>>
 }
 
-const Tabs = ({ teachers, speciality, setSpeciality }: TabsProps) => {
+const Tabs = ({ teachers, query, speciality, setSpeciality }: TabsProps) => {
   return (
     <div className={styles.wrapper}>
       <div
-        className={`${styles.tab} ${speciality === '' && styles.active}`}
+        className={`${styles.tab} ${speciality === '' && !query && styles.active}`}
         onClick={() => setSpeciality('')}
       >
         Провідні викладачі
@@ -24,7 +24,7 @@ const Tabs = ({ teachers, speciality, setSpeciality }: TabsProps) => {
         teachers.map((teacher, index) => (
           <div
             key={index}
-            className={`${styles.tab} ${teacher.speciality === speciality && styles.active}`}
+            className={`${styles.tab} ${teacher.speciality === speciality && styles.active} ${teacher.speciality?.toLowerCase() === query.toLowerCase() && styles.active}`}
             onClick={() => setSpeciality(teacher.speciality)}
           >
             {teacher.speciality}

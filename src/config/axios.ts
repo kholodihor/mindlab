@@ -1,13 +1,7 @@
-import axios from 'axios';
+import axios from 'axios'
 
 const instance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
-});
+  baseURL: process.env.NEXT_PUBLIC_API_URL
+})
 
-// instance.interceptors.request.use((config) => {
-//   const token = window.localStorage.getItem('access_token');
-//   config.headers.Authorization = `Bearer ${token}`;
-//   return config;
-// });
-
-export default instance;
+export default instance
