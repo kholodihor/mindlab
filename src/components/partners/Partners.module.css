@@ -1,6 +1,9 @@
 .partners {
   position: relative;
+  padding-top: 60px;
+  /* padding-bottom: 38px; */
   @media screen and (min-width: 768px) {
+    padding-top: 80px;
     padding-bottom: 80px;
   }
 
@@ -24,6 +27,10 @@
     right: 30px;
     top: 260px;
   }
+
+  @media screen and (min-width: 1440px) {
+    right: 0px;
+  }
 }
 
 .icon__arrowTablet {
@@ -32,7 +39,7 @@
     position: absolute;
     left: 86%;
     transform: translateX(-86%);
-    top: 510px;
+    top: 590px;
     display: flex;
     align-items: center;
     display: block;
@@ -234,6 +241,11 @@
 
   @media screen and (min-width: 430px) {
     right: 105px;
+    bottom: 3px;
+  }
+
+  @media screen and (min-width: 768px) {
+    right: 35px;
     bottom: 3px;
   }
 }
