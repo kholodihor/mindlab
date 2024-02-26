@@ -132,9 +132,9 @@ export const partnersTablet: Array<Partners> = [
 ]
 
 export const menuList: Array<MenuList> = [
-  { link: '#courses', menu: 'Наші курси' },
-  { link: '#teachers', menu: 'Викладачі' },
-  { link: '#partners', menu: 'Партнери' },
-  { link: '#testimonials', menu: 'Відгуки' },
-  { link: '#parents', menu: 'Для батьків' }
+  { link: '/#courses', menu: 'Наші курси' },
+  { link: '/#teachers', menu: 'Викладачі' },
+  { link: '/#partners', menu: 'Партнери' },
+  { link: '/#testimonials', menu: 'Відгуки' },
+  { link: '/#parents', menu: 'Для батьків' }
 ]

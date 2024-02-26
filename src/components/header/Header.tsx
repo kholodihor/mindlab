@@ -24,19 +24,19 @@ const Header = () => {
       <nav className={styles.header_nav}>
         <ul>
           <li className={styles.header_nav_item}>
-            <a href="#courses">Курси</a>
+            <a href="/#courses">Курси</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#teachers">Викладачі</a>
+            <a href="/#teachers">Викладачі</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#partners">Партнери</a>
+            <a href="/#partners">Партнери</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#parents">Для батьків</a>
+            <a href="/#parents">Для батьків</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#contacts">Контакти</a>
+            <a href="/#contacts">Контакти</a>
           </li>
         </ul>
         <Lottie
