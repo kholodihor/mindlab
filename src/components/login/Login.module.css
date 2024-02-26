@@ -1,6 +1,6 @@
 .container {
   position: relative;
-  min-width: 100vw;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -12,7 +12,7 @@
   flex-direction: column;
   gap: 60px;
   color: var(--white);
-  margin-top: 10vh;
+  margin-top: 25vh;
 
   .title_wrapper {
     display: flex;
