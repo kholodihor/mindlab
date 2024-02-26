@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { useWidth } from '@/hooks/useWidth';
 import { currentComponentsCourse } from '@/utils/currentComponentsCourse';
 import Image from 'next/image';
+import { motion } from 'framer-motion'
 
 
 const Courses = () => {
@@ -18,7 +19,16 @@ const Courses = () => {
   return (
     <section id="courses" className={`container ${css.courses__container}`}>
         <div className={css.wrapper}>
-          <h2 className={`title ${css.titleCourses}`}>Обирай напрямок, який тобі до душі</h2>
+        <motion.h2
+        viewport={{ once: true }}
+        initial={{ translateY: 150, opacity: 0 }}
+        whileInView={{ translateY: 0, opacity: 1 }}
+        transition={{ ease: 'easeOut', duration: 0.75 }}
+        className={`title ${css.titleCourses}`}
+      >
+      Обирай напрямок, який тобі до душі
+      </motion.h2>
+         
           <div className={css.animation}>
           <Lottie className={css.eye} animationData={eyeCourses} />
           </div>

@@ -1,7 +1,6 @@
 .partners {
   position: relative;
   padding-top: 60px;
-  /* padding-bottom: 38px; */
   @media screen and (min-width: 768px) {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -155,18 +154,24 @@
   @media screen and (min-width: 768px) {
     width: 45%;
     max-width: 450px;
+    padding: 45px 25px 45px 25px;
   }
   @media screen and (min-width: 1280px) {
     width: 710px;
     max-width: 710px;
     height: 708px;
-    padding: 80px 98px;
+    /* padding: 80px 98px; */
   }
 }
 
 .partners__logo {
+  @media screen and (min-width: 430px) {
+    
+    height: 180px;
+   
+  }
   @media screen and (min-width: 1280px) {
-    width: 320px;
+    width: 460px;
     height: 320px;
     margin-bottom: 40px;
   }
@@ -180,7 +185,7 @@
 
   @media screen and (min-width: 1280px) {
     width: 509px;
-    margin-bottom: 62px;
+    margin: 0 auto 62px auto;
     font-size: 16px;
     line-height: calc(24 / 16);
   }
@@ -190,11 +195,8 @@
   font-size: 13.56px;
   font-style: normal;
   font-weight: 500;
-  line-height: calc(36 / 24);
   @media screen and (min-width: 1280px) {
     font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
     line-height: calc(36 / 24);
   }
 }
@@ -232,20 +234,4 @@
   fill: currentColor;
   width: 30px;
   height: 30px;
-}
-
-.icon {
-  position: absolute;
-  right: 30px;
-  bottom: 3px;
-
-  @media screen and (min-width: 430px) {
-    right: 105px;
-    bottom: 3px;
-  }
-
-  @media screen and (min-width: 768px) {
-    right: 35px;
-    bottom: 3px;
-  }
 }

@@ -11,11 +11,15 @@ import { iconParents, questionList } from '@/data/parents'
 import MinusIcon from '../icons/MinusIcon'
 import PlusIcon from '../icons/PlusIcon'
 import Link from 'next/link'
+import { motion } from "framer-motion";
+import { useWidth } from '@/hooks/useWidth'
+
 
 type Answer = Array<string>
 
 const Parents = () => {
   const [answer, setAnswer] = useState<Answer>([])
+  const  currentWidth = useWidth()
 
   const currentAnswer = (color: string) => answer.find((item) => item === color)
 
@@ -30,7 +34,16 @@ const Parents = () => {
   return (
     <section className={css.parents}>
       <div className="container">
-        <h2 className={`title ${css.parents__title}`}>Інформація для батьків</h2>
+      <motion.h2
+        viewport={{ once: true }}
+        initial={{ translateY: 100, opacity: 0 }}
+        whileInView={{ translateY: 0, opacity: 1 }}
+        transition={{ ease: 'easeOut', duration: 0.75 }}
+        className={`title ${css.parents__title}`}
+      >
+     Інформація для батьків
+      </motion.h2>
+       
         <div className={css.thumb}>
           <div>
             <div className={css.wrapper}>
@@ -69,9 +82,7 @@ const Parents = () => {
                 
               />)}
             </div>
-            <div className={css.wrapper__rotatingStar}>
-            <RotatingStar />
-            </div>
+     
           </div>
           <ul className={css.question__list}>
             {questionList.map(({ color, question, answer }) => (
@@ -101,6 +112,13 @@ const Parents = () => {
           </ul>
         </div>
       </div>
+      <motion.div  viewport={{ once: true }}
+       initial={{ translateX:'-96%', rotate: -360, opacity: 0 }}
+       whileInView={{ translateX: currentWidth >= 768 ? '5%' : '-50%', rotate: 0, opacity:1 }}
+        transition={{ type: 'spring', stiffness: 120, damping: 60 }}
+        className={css.wrapper__rotatingStar} >
+        <RotatingStar />
+     </motion.div>
     </section>
   )
 }
