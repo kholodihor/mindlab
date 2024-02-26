@@ -12,7 +12,7 @@ interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const TextInput = forwardRef(function TextInput(
-  { title, errorText, isWhite, value = '', ...rest }: TextInputProps,
+  { title, errorText, isWhite, value, ...rest }: TextInputProps,
   _ref: ForwardedRef<HTMLInputElement>
 ) {
   return (
@@ -27,9 +27,9 @@ const TextInput = forwardRef(function TextInput(
         id={title}
         value={value}
         className={`${styles.input} ${isWhite && styles.white}`}
-        autoComplete="off"
+        autoComplete="new-off"
       />
-      {errorText && <span className={styles.error}>{errorText}</span>}
+      {errorText && errorText !== undefined && <span className={styles.error}>{errorText}</span>}
     </div>
   )
 })

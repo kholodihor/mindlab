@@ -2,6 +2,8 @@
 
 import css from './Parents.module.css'
 import { useState } from 'react'
+import { useModal } from '@/stores/useModal'
+import { useAlert } from '@/stores/useAlert'
 import MailIcon from '../icons/MailIcon'
 import TelegramIcon from '../icons/TelegramIcon'
 import style from '../footer/Footer.module.css'
@@ -14,10 +16,13 @@ import Link from 'next/link'
 import { motion } from "framer-motion";
 import { useWidth } from '@/hooks/useWidth'
 
+import SuccessAlert from '../alerts/success_alert/SuccessAlert'
 
 type Answer = Array<string>
 
 const Parents = () => {
+  const { openModal } = useModal()
+  const isAlertOpen = useAlert((state) => state.isAlertOpen)
   const [answer, setAnswer] = useState<Answer>([])
   const  currentWidth = useWidth()
 
@@ -32,7 +37,7 @@ const Parents = () => {
   }
 
   return (
-    <section className={css.parents}>
+    <section className={css.parents} id="parents">
       <div className="container">
       <motion.h2
         viewport={{ once: true }}
@@ -72,17 +77,20 @@ const Parents = () => {
                   </Link>
                 </li>
               </ul>
-                {iconParents.map(({src, width, height, className}) => <Image
-                key={className}
-                src={src}
-                width={width}
-                height={height}
-                alt={'svg'}
-                className={`${css[`${className}`]}`}
-                
-              />)}
+              {iconParents.map(({ src, width, height, className }) => (
+                <Image
+                  key={className}
+                  src={src}
+                  width={width}
+                  height={height}
+                  alt={'svg'}
+                  className={`${css[`${className}`]}`}
+                />
+              ))}
             </div>
-     
+            <div className={css.wrapper__rotatingStar} onClick={() => openModal('feedback')}>
+              <RotatingStar />
+            </div>
           </div>
           <ul className={css.question__list}>
             {questionList.map(({ color, question, answer }) => (
@@ -96,14 +104,27 @@ const Parents = () => {
                 }}
                 className={css.question__item}
               >
-                <p className={css.question__text} style={currentAnswer(color) ? {color: color} : undefined}>{question}</p>
-                {currentAnswer(color) && <div className={css.answer}>{answer.map((item, index ) => <p key={index} className={css.ansver__text}>{item}</p>)}</div>}
+                <p
+                  className={css.question__text}
+                  style={currentAnswer(color) ? { color: color } : undefined}
+                >
+                  {question}
+                </p>
+                {currentAnswer(color) && (
+                  <div className={css.answer}>
+                    {answer.map((item, index) => (
+                      <p key={index} className={css.ansver__text}>
+                        {item}
+                      </p>
+                    ))}
+                  </div>
+                )}
                 {currentAnswer(color) ? (
-                  <button type="button" className={css.btn} onClick={()=>closeAnswer(color)}>
+                  <button type="button" className={css.btn} onClick={() => closeAnswer(color)}>
                     <MinusIcon color={color} />
                   </button>
                 ) : (
-                  <button type="button" className={css.btn} onClick={()=>showAnswer(color)}>
+                  <button type="button" className={css.btn} onClick={() => showAnswer(color)}>
                     <PlusIcon color={'#f9f9fa'} />
                   </button>
                 )}
@@ -119,6 +140,7 @@ const Parents = () => {
         className={css.wrapper__rotatingStar} >
         <RotatingStar />
      </motion.div>
+      {isAlertOpen && <SuccessAlert />}
     </section>
   )
 }

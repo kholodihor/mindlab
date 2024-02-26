@@ -9,7 +9,6 @@
     justify-content: flex-end;
   }
   @media screen and (min-width: 1280px) {
-    justify-content: center;
     height: 449px;
   }
 }
@@ -24,6 +23,7 @@
   left: 0;
   transition: all 0.7s ease-in-out;
   z-index: 51;
+  cursor: pointer;
 
   @media screen and (min-width: 430px) {
     top: 30%;

@@ -1,43 +1,26 @@
-.container {
-  position: relative;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
 .wrapper {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 60px;
-  color: var(--white);
-  margin-top: 25vh;
+  gap: 40px;
+  padding: 40px 0;
 
-  .title_wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    .title {
-      font-size: 32px;
-      font-weight: 500;
-    }
-    .subtitle {
-      font-size: 18px;
-      font-weight: 500;
-    }
+  .title {
+    color: var(--black);
+    font-size: 26px;
   }
-
   .form {
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 16px;
+    width: 90%;
     margin: 0 auto;
-
+    overflow: hidden;
     .button_wrapper {
       margin-top: 60px;
 
@@ -49,9 +32,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: var(--graphite);
+        background: var(--lime);
         font-size: 16px;
-        color: var(--gray);
+        color: var(--black);
         transition: all 0.5s ease-in-out;
         cursor: pointer;
       }
@@ -60,11 +43,11 @@
         color: var(--black);
       }
       .button:disabled {
+        background: var(--gray);
         cursor: not-allowed;
       }
       .button:disabled:hover {
-        background: var(--graphite);
-        color: var(--gray);
+        background: var(--gray);
         cursor: not-allowed;
       }
     }

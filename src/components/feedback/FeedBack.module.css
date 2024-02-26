@@ -37,12 +37,14 @@
     flex-direction: column;
     gap: 16px;
     margin: 0 auto;
+    padding: 0.5rem;
 
     .button_wrapper {
       margin-top: 60px;
 
       .button {
-        width: 380px;
+        width: 80vw;
+        max-width: 380px;
         height: 60px;
         border-radius: 2rem;
         border: none;
@@ -52,7 +54,6 @@
         background: var(--graphite);
         font-size: 16px;
         color: var(--gray);
-        transition: all 0.5s ease-in-out;
         cursor: pointer;
       }
       .button:hover {
@@ -118,6 +119,8 @@
     font-size: 14px;
     display: flex;
     gap: 12px;
+    padding: 0.5rem;
+
     .check_paragraph {
       text-align: center;
     }
@@ -143,11 +146,13 @@
     .checkmark {
       position: absolute;
       top: 0;
-      left: 0;
+      left: 15%;
       height: 24px;
       width: 24px;
+      cursor: pointer;
       background-color: transparent;
       border: 1px solid var(--white);
+      z-index: 9999;
     }
 
     .checkbox_container:hover .check_checkbox ~ .checkmark {
@@ -173,7 +178,7 @@
       top: 5%;
       width: 5px;
       height: 15px;
-      border: solid white;
+      border: 1px solid white;
       border-width: 0 3px 3px 0;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);

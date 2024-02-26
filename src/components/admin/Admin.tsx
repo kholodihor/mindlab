@@ -10,7 +10,7 @@ const Admin = () => {
   console.log(session)
 
   useEffect(() => {
-    if (!session && !session.user) {
+    if (!session && !session?.user) {
       router.replace('/login')
     }
   }, [session, router])

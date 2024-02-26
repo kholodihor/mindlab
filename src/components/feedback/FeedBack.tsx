@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import axios from 'axios'
+import { useAlert } from '@/stores/useAlert'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { FeedBackFormInput } from '@/types'
 import { defaultValues } from './defaultValues'
@@ -12,16 +13,20 @@ import { feedbackValidation } from './validationSchema'
 import TextInput from '@/components/ui/inputs/text_input/TextInput'
 
 import styles from './FeedBack.module.css'
+import SuccessAlert from '../alerts/success_alert/SuccessAlert'
 
 const FeedBack = () => {
+  const { openAlert } = useAlert()
   const [checked, setChecked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
+  const isAlertOpen = useAlert((state) => state.isAlertOpen)
 
   const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLESHEETS_URL!
 
   const {
     handleSubmit,
     control,
+    reset,
     formState: { errors }
   } = useForm<FeedBackFormInput>({
     resolver: zodResolver(feedbackValidation),
@@ -40,9 +45,13 @@ const FeedBack = () => {
       if (response.status === 200 && response.data === 'Success') {
         console.log(response)
       }
-      setIsProcessing(false)
+      openAlert()
+      setChecked(false)
+      reset()
     } catch (error: any) {
       console.log(error)
+    } finally {
+      setIsProcessing(false)
     }
   }
 
@@ -53,7 +62,7 @@ const FeedBack = () => {
           <h1 className={styles.title}>Хей, маєш питанько?</h1>
           <p className={styles.subtitle}>Пиши, не соромся, наш адмін допоможе у всьому</p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
+        <form onSubmit={handleSubmit(onSubmit)} autoComplete="new-off" className={styles.form}>
           <Controller
             name="name"
             control={control}
@@ -102,6 +111,7 @@ const FeedBack = () => {
               type="checkbox"
               className={styles.check_checkbox}
               onChange={() => setChecked(!checked)}
+              checked={checked}
             />
             <span className={styles.checkmark}></span>
           </label>
@@ -117,6 +127,7 @@ const FeedBack = () => {
           <Image src="/stars.png" width={500} height={500} alt="sun" className={styles.stars} />
         </div>
       </div>
+      {isAlertOpen && <SuccessAlert />}
     </section>
   )
 }

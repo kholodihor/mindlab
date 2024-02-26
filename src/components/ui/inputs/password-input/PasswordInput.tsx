@@ -32,7 +32,7 @@ const PasswordInput = forwardRef(function PasswordInput(
         id={title}
         value={value}
         className={`${styles.input} ${isWhite && styles.white}`}
-        autoComplete="off"
+        autoComplete="new-password"
         type={showPassword ? 'text' : 'password'}
       />
       <div onClick={() => setShowPassword(!showPassword)} className={styles.eye}>

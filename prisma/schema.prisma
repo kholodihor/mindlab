@@ -21,9 +21,11 @@ model Teacher{
   name        String
   speciality  String
   image       String
-  about       String[]
+  about_me    String
+  about_help  String
   courseIds   String[]  @db.ObjectId 
   courses     Course[]  @relation(fields: [courseIds], references: [id])
+  createdAt   DateTime  @default(now()) 
   
 }
 
@@ -34,6 +36,7 @@ model Course{
   tags        String[]
   teacherIds  String[]  @db.ObjectId 
   teachers    Teacher[] @relation(fields: [teacherIds], references: [id])
+  createdAt   DateTime  @default(now()) 
 
 }
 
