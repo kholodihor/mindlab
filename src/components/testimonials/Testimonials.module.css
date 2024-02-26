@@ -27,6 +27,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .comments_block {
@@ -53,7 +58,7 @@
     right: -10rem;
   }
   to {
-    top: 100%;
-    right: 80%;
+    top: 80%;
+    right: 100%;
   }
 }

@@ -1,7 +1,8 @@
 .review_card {
   position: relative;
   background: var(--white);
-  width: 16rem;
+  width: 100%;
+  min-width: 16rem;
   height: 16rem;
   display: flex;
   justify-content: center;

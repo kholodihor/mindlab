@@ -29,7 +29,7 @@ const TextArea = forwardRef(function TextInput(
         cols={30}
         style={{ overflow: 'hidden' }}
         className={`${styles.input} ${isWhite && styles.white}`}
-        autoComplete="off"
+        autoComplete="new-off"
       />
       {errorText && <span className={styles.error}>{errorText}</span>}
     </div>

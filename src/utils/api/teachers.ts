@@ -1,5 +1,5 @@
 import axios from '@/config/axios'
-import { TTeacher, TTeacherResponse } from '@/types/teachers'
+import { ITeacher, ITeacherResponse } from '@/types/teachers'
 
 export const getTeachers = async () => {
   try {
@@ -10,9 +10,9 @@ export const getTeachers = async () => {
   }
 }
 
-export const createTeacher = async (teacher: TTeacher) => {
+export const createTeacher = async (teacher: ITeacher) => {
   try {
-    const response = await axios.post<TTeacherResponse>('/teachers', teacher, {
+    const response = await axios.post<ITeacherResponse>('/teachers', teacher, {
       headers: { 'Content-Type': 'application/json' }
     })
     return response.data

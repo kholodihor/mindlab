@@ -13,14 +13,23 @@
   .modal {
     position: relative;
     width: 580px;
-    max-height: 600px;
+    max-height: 300px;
+    padding: 80px;
     background: var(--white);
+    color: var(--black);
     border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem 2rem;
+    flex-direction: column;
+    text-align: center;
     overflow: hidden;
+    .second_title {
+      font-size: 24px;
+    }
+    .paragraph {
+      font-size: 18px;
+    }
     .close {
       width: 2rem;
       height: 2rem;

@@ -8,11 +8,11 @@ import LinkedinIconXL from '@/components/icons/LinkedinIconXL'
 import FacebokIconXL from '@/components/icons/FacebokIconXL'
 import TelegramIconXL from '@/components/icons/TelegramIconXL'
 import TeacherTabs from './teacher_tabs/TeacherTabs'
-import { TTeacherResponse } from '@/types/teachers'
+import { ITeacherResponse } from '@/types/teachers'
 
 const TeacherPage = ({ id }: { id: string }) => {
   const { teachers } = useTeachers()
-  const teacher = teachers.find((teacher) => teacher.id === id) as TTeacherResponse
+  const teacher = teachers?.find((teacher) => teacher.id === id) as ITeacherResponse
 
   return (
     <div className={styles.page}>
@@ -34,7 +34,7 @@ const TeacherPage = ({ id }: { id: string }) => {
               <LinkedinIconXL />
             </div>
           </div>
-          <TeacherTabs />
+          <TeacherTabs teacher={teacher} />
         </div>
       )}
     </div>

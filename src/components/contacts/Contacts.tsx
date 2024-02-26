@@ -15,7 +15,7 @@ const Contacts = () => {
           width={50}
           height={50}
         />
-        , додавайся в друзі в{' '}
+        додавайся в друзі в{' '}
         <Image
           className={styles.image}
           src="/contacts/facebook.svg"

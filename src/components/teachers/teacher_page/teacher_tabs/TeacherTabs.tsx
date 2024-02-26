@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { aboutData, coursesData } from '@/data/teacherPage'
+import { useCourses } from '@/hooks/swr/useCourses'
 import AboutTeacher from '../about_teacher/AboutTeacher'
 import TeacherCourses from '../teacher_courses/TeacherCourses'
 
 import styles from './TeacherTabs.module.css'
+import { ITeacherResponse } from '@/types/teachers'
 
 type ActiveTab = 'courses' | 'about'
 
@@ -23,8 +24,11 @@ const tabs: Tab[] = [
   }
 ]
 
-const TeacherTabs = () => {
+const TeacherTabs = ({ teacher }: { teacher: ITeacherResponse }) => {
+  const { courses } = useCourses()
   const [activeTab, setActiveTab] = useState<ActiveTab>('courses')
+
+  const teacherCourses = courses?.filter((course) => teacher.courseIds.includes(course.id))
 
   return (
     <div className={styles.tabs}>
@@ -41,8 +45,8 @@ const TeacherTabs = () => {
           </button>
         ))}
       </div>
-      {activeTab === 'courses' && <TeacherCourses data={coursesData} />}
-      {activeTab === 'about' && <AboutTeacher data={aboutData} />}
+      {activeTab === 'courses' && <TeacherCourses data={teacherCourses} />}
+      {activeTab === 'about' && <AboutTeacher data={teacher} />}
     </div>
   )
 }
