@@ -14,7 +14,6 @@ import MinusIcon from '../icons/MinusIcon'
 import PlusIcon from '../icons/PlusIcon'
 import Link from 'next/link'
 import { motion } from "framer-motion";
-import { useWidth } from '@/hooks/useWidth'
 
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
 
@@ -24,7 +23,6 @@ const Parents = () => {
   const { openModal } = useModal()
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
   const [answer, setAnswer] = useState<Answer>([])
-  const  currentWidth = useWidth()
 
   const currentAnswer = (color: string) => answer.find((item) => item === color)
 
@@ -88,9 +86,6 @@ const Parents = () => {
                 />
               ))}
             </div>
-            <div className={css.wrapper__rotatingStar} onClick={() => openModal('feedback')}>
-              <RotatingStar />
-            </div>
           </div>
           <ul className={css.question__list}>
             {questionList.map(({ color, question, answer }) => (
@@ -134,10 +129,10 @@ const Parents = () => {
         </div>
       </div>
       <motion.div  viewport={{ once: true }}
-       initial={{ translateX:'-96%', rotate: -360, opacity: 0 }}
-       whileInView={{ translateX: currentWidth >= 768 ? '5%' : '-50%', rotate: 0, opacity:1 }}
+       initial={{ translateX:'-146%', rotate: -360, opacity: 0 }}
+       whileInView={{ translateX: '-50%', rotate: 0, opacity:1 }}
         transition={{ type: 'spring', stiffness: 120, damping: 60 }}
-        className={css.wrapper__rotatingStar} >
+        className={css.wrapper__rotatingStar} onClick={() => openModal('feedback')}>
         <RotatingStar />
      </motion.div>
       {isAlertOpen && <SuccessAlert />}
