@@ -27,6 +27,7 @@
 }
 
 .thumb {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -57,7 +58,7 @@
   }
 
   @media screen and (min-width: 768px) {
-    max-width: 550px;
+    /* max-width: 550px; */
 
     min-height: 152px;
     padding: 80px 36px 20px 36px;
@@ -67,7 +68,6 @@
     max-width: 480px;
     height: 207px;
     padding: 134px 36px 20px 36px;
-    margin-bottom: 52px;
   }
 }
 
@@ -76,12 +76,6 @@
   top: 20px;
   left: 20px;
   z-index: 1;
-  /* @media screen and (min-width: 430px) {
-    width: 358px;
-  }
-  @media screen and (min-width: 768px) {
-    width: 616px;
-  } */
   @media screen and (min-width: 1280px) {
     max-width: 440px;
   }
@@ -248,20 +242,22 @@
 }
 
 .wrapper__rotatingStar {
-  position: absolute;
-  bottom: 0px;
+ position: absolute;
+  bottom: 20px;
   left: 50%;
-  transform: translateX(-50%);
   cursor: pointer;
 
   @media screen and (min-width: 768px) {
-    left: 40px;
-    transform: translateX(0);
+    bottom: 80px;
+    left: 15%;
+    
   }
 
   @media screen and (min-width: 1280px) {
-    position: relative;
-    left: 0;
-    bottom: 0;
+    left: 10%;
+  }
+
+  @media screen and (min-width: 1440px) {
+    left: 15%;
   }
 }

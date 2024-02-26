@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import ArrowTop from '../icons/ArrowTop'
 import Lottie from 'lottie-react'
+import { motion } from 'framer-motion'
 
 const Certificate = () => {
   const [currentAnswer, setCurrentAnswer] = useState('')
@@ -16,7 +17,15 @@ const Certificate = () => {
 
   return (
     <section className={`${css.certificate} container`}>
-        <h2 className={`title ${css.title} `}>cертифікат з унікальним ID</h2>
+       <motion.div
+        viewport={{ once: true }}
+        initial={{ translateY: 100, opacity: 0 }}
+        whileInView={{ translateY: 0, opacity: 1 }}
+        transition={{ ease: 'easeOut', duration: 0.75 }}
+       
+      >
+        <h2 className={`${css.title} title`}>cертифікат з унікальним ID</h2>
+      </motion.div>
         <ul className={css.certificate__list}>
           {certificateList.map(({ question, answer, img, color, className, animationData }) => (
             <li

@@ -13,6 +13,8 @@ import { iconParents, questionList } from '@/data/parents'
 import MinusIcon from '../icons/MinusIcon'
 import PlusIcon from '../icons/PlusIcon'
 import Link from 'next/link'
+import { motion } from "framer-motion";
+
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
 
 type Answer = Array<string>
@@ -35,7 +37,16 @@ const Parents = () => {
   return (
     <section className={css.parents} id="parents">
       <div className="container">
-        <h2 className={`title ${css.parents__title}`}>Інформація для батьків</h2>
+      <motion.h2
+        viewport={{ once: true }}
+        initial={{ translateY: 100, opacity: 0 }}
+        whileInView={{ translateY: 0, opacity: 1 }}
+        transition={{ ease: 'easeOut', duration: 0.75 }}
+        className={`title ${css.parents__title}`}
+      >
+     Інформація для батьків
+      </motion.h2>
+       
         <div className={css.thumb}>
           <div>
             <div className={css.wrapper}>
@@ -74,9 +85,6 @@ const Parents = () => {
                   className={`${css[`${className}`]}`}
                 />
               ))}
-            </div>
-            <div className={css.wrapper__rotatingStar} onClick={() => openModal('feedback')}>
-              <RotatingStar />
             </div>
           </div>
           <ul className={css.question__list}>
@@ -120,6 +128,13 @@ const Parents = () => {
           </ul>
         </div>
       </div>
+      <motion.div  viewport={{ once: true }}
+       initial={{ translateX:'-146%', rotate: -360, opacity: 0 }}
+       whileInView={{ translateX: '-50%', rotate: 0, opacity:1 }}
+        transition={{ type: 'spring', stiffness: 120, damping: 60 }}
+        className={css.wrapper__rotatingStar} onClick={() => openModal('feedback')}>
+        <RotatingStar />
+     </motion.div>
       {isAlertOpen && <SuccessAlert />}
     </section>
   )
