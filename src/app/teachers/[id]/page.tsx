@@ -1,6 +1,6 @@
 import TeacherPage from '@/components/teachers/teacher_page/TeacherPage'
 
-const page = ({ params }: { params: { id: string } }) => {
+const Teacher = ({ params }: { params: { id: string } }) => {
   return (
     <div className="container">
       <TeacherPage id={params.id} />
@@ -8,4 +8,4 @@ const page = ({ params }: { params: { id: string } }) => {
   )
 }
 
-export default page
+export default Teacher

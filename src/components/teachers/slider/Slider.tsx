@@ -11,10 +11,10 @@ import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
 import styles from './Slider.module.css'
 import 'swiper/css/navigation'
 import 'swiper/css'
-import { TTeacherResponse } from '@/types/teachers'
+import { ITeacherResponse } from '@/types/teachers'
 
 interface SliderProps {
-  teachers: TTeacherResponse[]
+  teachers: ITeacherResponse[]
 }
 
 const Slider = ({ teachers }: SliderProps) => {
@@ -24,7 +24,7 @@ const Slider = ({ teachers }: SliderProps) => {
   const isLargeScreen = useMediaQuery('(min-width: 1281px)')
   const isMediumScreen = useMediaQuery('(max-width: 1280px)')
   const isSmallScreen = useMediaQuery('(max-width: 768px)')
-  const isExtraSmallScreen = useMediaQuery('(max-width: 430px)')
+  const isExtraSmallScreen = useMediaQuery('(max-width: 450px)')
 
   useEffect(() => {
     const getAmountOfSlides = () => {

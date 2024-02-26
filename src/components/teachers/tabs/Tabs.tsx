@@ -1,10 +1,10 @@
 'use client'
 import styles from './Tabs.module.css'
 import { Dispatch, SetStateAction } from 'react'
-import { TTeacherResponse } from '@/types/teachers'
+import { ITeacherResponse } from '@/types/teachers'
 
 interface TabsProps {
-  teachers: TTeacherResponse[]
+  teachers: ITeacherResponse[]
   speciality: string
   query: string
   setSpeciality: Dispatch<SetStateAction<string>>
