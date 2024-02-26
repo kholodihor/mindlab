@@ -49,7 +49,7 @@ const Testimonials = () => {
   }, [isMediumScreen, isSmallScreen, isLargeScreen, isExtraSmallScreen])
 
   return (
-    <section id="testimonials" className={styles.reviews_container}>
+    <section id="testimonials" className={`${styles.reviews_container} container`}>
       <h1 className={styles.reviews_title}>
         Гайс, подивіться, <Image width={50} height={50} src="/reviews/look.svg" alt="eyes" /> що про
         нас пишуть:

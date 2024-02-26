@@ -1,6 +1,6 @@
 .page {
   min-height: calc(100vh - 80px);
-  margin-top: 10vh;
+  margin-top: 25vh;
 }
 .link {
   display: flex;
