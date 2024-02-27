@@ -6,7 +6,7 @@ import Lottie from 'lottie-react'
 import pulse from '@/animations/puls.json'
 
 const BoostEngCard = () => {
-  const ENG_TEST_URL = '/' // should be add later
+  const ENG_TEST_URL = 'https://forms.gle/HSFhoc82HunVTQxZ8' 
   const [isPulseHovered, setIsPulseHovered] = useState(false)
 
   const boostEngCardDesc = (
