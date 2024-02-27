@@ -116,8 +116,24 @@ const FeedBack = () => {
             <span className={styles.checkmark}></span>
           </label>
           <p className={styles.check_paragraph}>
-            Я приймаю умови Публічної оферти та надаю згоду на обробку моїх особистих <br /> даних
-            відповідно до Політики конфіденційності
+            Я приймаю умови{' '}
+            <a
+              className={styles.check_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="/documents/правила_користування_сайтом.pdf"
+            >
+              Публічної оферти
+            </a>{' '}
+            та надаю згоду на обробку моїх особистих <br /> даних відповідно до{' '}
+            <a
+              className={styles.check_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              href="/documents/політика_конфіденційності.pdf"
+            >
+              Політики конфіденційності
+            </a>
           </p>
         </div>
         <div className={styles.sun_wrapper}>

@@ -1,7 +1,6 @@
 .parents {
   position: relative;
   color: var(--white);
-  position: relative;
   padding-top: 60px;
   padding-bottom: 60px;
 
@@ -242,7 +241,7 @@
 }
 
 .wrapper__rotatingStar {
- position: absolute;
+  position: absolute;
   bottom: 20px;
   left: 50%;
   cursor: pointer;
@@ -250,7 +249,6 @@
   @media screen and (min-width: 768px) {
     bottom: 80px;
     left: 15%;
-    
   }
 
   @media screen and (min-width: 1280px) {

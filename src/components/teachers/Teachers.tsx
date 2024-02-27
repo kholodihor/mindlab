@@ -16,6 +16,7 @@ const Teachers = () => {
   const [filteredTeachers, setFilteredTeachers] = useState([])
 
   useEffect(() => {
+    setQuery('')
     setSelectedQuery('')
     if (speciality === '') {
       setFilteredTeachers(teachers)
@@ -45,24 +46,31 @@ const Teachers = () => {
   }
 
   return (
-    <section className={`${styles.wrapper} container`} id="teachers">
-      <motion.div
-        viewport={{ once: true }}
-        initial={{ translateY: 100, opacity: 0 }}
-        whileInView={{ translateY: 0, opacity: 1 }}
-        transition={{ ease: 'easeOut', duration: 0.75 }}
-        className={styles.section_title}
-      >
-        <h1>Провідні викладачі</h1>
-      </motion.div>
-      <Search setQuery={setQuery} handleClick={filterByQuery} />
+    <section className={`${styles.wrapper} container`} >
+      <div className={`${styles.section_title} title`}>
+        <motion.h1
+          viewport={{ once: true }}
+          initial={{ translateY: 100, opacity: 0 }}
+          whileInView={{ translateY: 0, opacity: 1 }}
+          transition={{ ease: 'easeOut', duration: 0.75 }}
+        >
+          Провідні викладачі
+        </motion.h1>
+      </div>
+      <Search setQuery={setQuery} query={query} handleClick={filterByQuery} />
       <Tabs
         teachers={teachers}
         setSpeciality={setSpeciality}
         speciality={speciality}
         query={selectedQuery}
       />
-      <Slider teachers={filteredTeachers} />
+      {filteredTeachers && filteredTeachers.length ? (
+        <Slider teachers={filteredTeachers} />
+      ) : (
+        <p className={styles.not_found}>
+          Ми не знайшли зареєстрованих викладачів за вашим запитом...
+        </p>
+      )}
     </section>
   )
 }

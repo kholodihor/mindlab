@@ -123,6 +123,9 @@
 
     .check_paragraph {
       text-align: center;
+      .check_link:hover {
+        color: var(--violet);
+      }
     }
     .checkbox_container {
       display: block;
