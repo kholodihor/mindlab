@@ -1,14 +1,14 @@
 .wrapper {
+  position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 52px;
-  margin-top: 100px;
-  padding: 50px;
+  padding: 60px;
   @media screen and (max-width: 991px) {
-    padding: 1rem;
+    padding: 120px;
   }
 
   .section_title {
@@ -16,7 +16,13 @@
     font-size: 24px;
     font-weight: 500;
     color: var(--white);
-    margin-bottom: 32px;
-    text-align-last: left;
+    /* margin-bottom: 32px; */
+    margin-top: 2.5rem;
+    text-align: left;
+  }
+  .not_found {
+    color: var(--white);
+    font-size: 24px;
+    padding: 80px 0;
   }
 }

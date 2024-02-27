@@ -8,17 +8,20 @@ import styles from './Search.module.css'
 
 interface SearchProps {
   setQuery: Dispatch<SetStateAction<string>>
+  query: string
   handleClick: () => void
 }
 
-const Search = ({ setQuery, handleClick }: SearchProps) => {
+const Search = ({ setQuery, query, handleClick }: SearchProps) => {
   const isExtraSmallScreen = useMediaQuery('(max-width: 430px)')
+
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id="teachers">
       <input
         className={styles.input}
         type="text"
         placeholder="Запит, напрямок, ім’я, тема"
+        value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
       <Image src="/svg/search.svg" width={20} height={20} alt="search" className={styles.search} />

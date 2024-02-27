@@ -11,6 +11,8 @@ interface TabsProps {
 }
 
 const Tabs = ({ teachers, query, speciality, setSpeciality }: TabsProps) => {
+  const specialities = Array.from(new Set(teachers?.map((teacher) => teacher.speciality)))
+
   return (
     <div className={styles.wrapper}>
       <div
@@ -19,15 +21,15 @@ const Tabs = ({ teachers, query, speciality, setSpeciality }: TabsProps) => {
       >
         Провідні викладачі
       </div>
-      {teachers &&
-        Array.isArray(teachers) &&
-        teachers.map((teacher, index) => (
+      {specialities &&
+        Array.isArray(specialities) &&
+        specialities.map((item, index) => (
           <div
             key={index}
-            className={`${styles.tab} ${teacher.speciality === speciality && styles.active} ${teacher.speciality?.toLowerCase() === query.toLowerCase() && styles.active}`}
-            onClick={() => setSpeciality(teacher.speciality)}
+            className={`${styles.tab} ${item === speciality && styles.active} ${item?.toLowerCase() === query.toLowerCase() && styles.active}`}
+            onClick={() => setSpeciality(item)}
           >
-            {teacher.speciality}
+            {item}
           </div>
         ))}
     </div>
