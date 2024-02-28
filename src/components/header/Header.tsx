@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 
+import Link from 'next/link'
 import Burger from '../icons/Burger'
 import styles from './Header.module.css'
 import Lottie from 'lottie-react'
@@ -25,28 +26,31 @@ const Header = () => {
         <nav className={styles.header_nav}>
           <ul>
             <li className={styles.header_nav_item}>
-              <a href="/#courses">Курси</a>
+              <Link href="/#courses">Курси</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <a href="/#teachers">Викладачі</a>
+              <Link href="/#teachers">Викладачі</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <a href="/#partners">Партнери</a>
+              <Link href="/#partners">Партнери</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <a href="/#parents">Для батьків</a>
+              <Link href="/#parents">Для батьків</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <a href="/#contacts">Контакти</a>
+              <Link href="/#contacts">Контакти</Link>
             </li>
           </ul>
-          <Lottie
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            animationData={isHovered ? chatbot_hover : chatbot_default}
-            loop={true}
-            className={styles.lottie}
-          />
+          <a href="https://t.me/honeyhell_bot" target="_blank">
+            <Lottie
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              animationData={isHovered ? chatbot_hover : chatbot_default}
+              loop={true}
+              className={styles.lottie}
+            />
+          </a>
+
           <div
             className={styles.header_burger}
             onClick={() => {
