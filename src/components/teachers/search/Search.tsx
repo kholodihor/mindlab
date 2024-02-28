@@ -16,7 +16,7 @@ const Search = ({ setQuery, query, handleClick }: SearchProps) => {
   const isExtraSmallScreen = useMediaQuery('(max-width: 430px)')
 
   return (
-    <div className={styles.wrapper} id="teachers">
+    <div className={styles.wrapper}>
       <input
         className={styles.input}
         type="text"
