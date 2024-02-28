@@ -12,7 +12,7 @@ const About: FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section className={styles.about} ref={aboutRef}>
+    <section className={`${styles.about} container`} ref={aboutRef}>
       <div className={styles.about_content}>
         <AboutUsAnimation aboutRef={aboutRef} />
       </div>
