@@ -17,7 +17,7 @@
 .title_block_title {
   position: absolute;
   top: 30%;
-  left: 5%;
+  left: 0;
   width: 40vw;
   font-size: 40px;
   line-height: 40px;
@@ -38,7 +38,8 @@
     font-size: 80px;
     line-height: 80px;
     top: 10%;
-    left: 5%;
+    /*left: 5%;*/
+    left: -1%;
   }
 }
 

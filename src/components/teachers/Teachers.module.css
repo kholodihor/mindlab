@@ -1,12 +1,13 @@
 .wrapper {
   position: relative;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 52px;
-  padding: 60px;
+  padding: 60px 0;
+  max-width: 1180px;
+
   @media screen and (max-width: 991px) {
     padding: 120px;
   }

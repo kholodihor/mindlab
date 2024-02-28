@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer className={css.footer}>
       <div className={`container ${css.footer_container} `}>
-        <div className={css.footer__wraper}>
+        <div className={css.footer__wrapper}>
           <Link href={'/'} className={css.logo}>
             <Image
               src="/svg/footer/footer-logo.svg"

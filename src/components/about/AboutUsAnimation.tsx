@@ -12,7 +12,7 @@ interface AboutUsAnimationProps {
 const style = {
   width: '120%',
   height: '120%',
-  marginLeft: '-120px'
+  marginLeft: '-118px'
 }
 const divisionFactor = 4
 

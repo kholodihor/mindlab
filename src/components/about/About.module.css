@@ -1,18 +1,17 @@
 .about {
   box-sizing: border-box;
   @media screen and (min-width: 1440px) {
-    width: 1180px;
-    padding: 7.5rem 0 0 0;
+    /*width: 1180px;*/
+    padding-top: 7.5rem;
   }
   @media (min-width: 1025px) and (max-width: 1339px) {
-    padding: 6.5rem 4rem 0 4rem;
+    padding-top: 6.5rem;
   }
   @media (min-width: 501px) and (max-width: 1024px) {
-    padding: 6.5rem 2.5rem 0 2.5rem;
+    padding-top: 6.5rem;
   }
   @media screen and (max-width: 500px) {
-    width: 398px;
-    padding: 3.75rem 0 0 0;
+    padding-top: 3.75rem;
   }
 }
 

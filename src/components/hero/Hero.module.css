@@ -20,7 +20,7 @@
 .paragraph {
   position: absolute;
   bottom: 0;
-  left: 5%;
+  left: 9%;
   color: var(--white);
   font-size: 14px;
   font-style: normal;
@@ -29,11 +29,11 @@
   @media screen and (min-width: 768px) {
     font-size: 16px;
     bottom: 0%;
-    left: 5%;
+    /*left: 5%;*/
   }
   @media screen and (min-width: 1280px) {
     font-size: 24px;
     bottom: 10%;
-    left: 5%;
+    /* left: 5%; */
   }
 }
