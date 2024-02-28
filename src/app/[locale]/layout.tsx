@@ -5,7 +5,13 @@ import { getServerSession } from 'next-auth'
 import SessionWrapper from '../session-provider'
 import Header from '@/components/header/Header'
 import Footer from '@/components/footer/Footer'
+import { NextIntlClientProvider } from 'next-intl'
+import { notFound } from 'next/navigation'
 import './globals.css'
+
+export function generateStaticParams() {
+  return [{ locale: 'ua' }, { locale: 'en' }]
+}
 
 const fixelDisplay = localFont({
   src: [
@@ -58,18 +64,36 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest'
 }
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+const locales = ['ua', 'en']
+
+export default async function RootLayout({
+  children,
+  params: { locale }
+}: {
+  children: React.ReactNode
+  params: { locale: string }
+}) {
   const session = await getServerSession()
+  let messages: any
+  try {
+    messages = (await import(`../../../messages/${locale}.json`)).default
+  } catch (error) {
+    notFound()
+  }
+  const isValidLocale = locales.some((cur) => cur === locale)
+  if (!isValidLocale) notFound()
   return (
     <html lang="uk" className={fixelDisplay.className}>
       <SessionWrapper session={session}>
         <SWRProvider>
           <body>
-            <Header />
-            <main>{children}</main>
-            <footer>
-              <Footer />
-            </footer>
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              <Header />
+              <main>{children}</main>
+              <footer>
+                <Footer />
+              </footer>
+            </NextIntlClientProvider>
           </body>
         </SWRProvider>
       </SessionWrapper>
