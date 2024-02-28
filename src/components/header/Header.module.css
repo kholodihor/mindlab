@@ -50,6 +50,7 @@
 
 .header_nav_item:hover {
   color: var(--lime);
+  cursor: pointer;
 }
 
 .header_logo {

@@ -46,13 +46,13 @@ const Teachers = () => {
   }
 
   return (
-    <section className={`${styles.wrapper} container`} >
+    <section id="teachers" className={`${styles.wrapper} container`}>
       <div className={`${styles.section_title} title`}>
         <motion.h1
           viewport={{ once: true }}
           initial={{ translateY: 100, opacity: 0 }}
           whileInView={{ translateY: 0, opacity: 1 }}
-          transition={{ ease: 'easeOut', duration: 0.75 }}
+          transition={{ ease: 'easeIn', duration: 0.75 }}
         >
           Провідні викладачі
         </motion.h1>
