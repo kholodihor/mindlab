@@ -81,7 +81,7 @@ const FeedBackForm = () => {
         <div className={styles.button_wrapper}>
           <button
             type="submit"
-            className={styles.button}
+            className={styles.btn}
             disabled={!checked || !!Object.keys(errors).length}
           >
             {isProcessing ? 'Обробка запиту...' : 'Отримати консультацію'}

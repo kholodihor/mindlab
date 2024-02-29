@@ -39,6 +39,7 @@
 
     .navbtn:nth-of-type(1) {
       transform: rotate(180deg);
+      margin-bottom: 3px;
     }
 
     .arrow {

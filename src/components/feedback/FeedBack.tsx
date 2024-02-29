@@ -101,7 +101,11 @@ const FeedBack = () => {
             )}
           />
           <div className={styles.button_wrapper}>
-            <button type="submit" className={styles.button} disabled={!checked}>
+            <button
+              type="submit"
+              className={`${styles.button} ${checked && !Object.keys(errors).length && styles.active}`}
+              disabled={!checked}
+            >
               {isProcessing ? t('form.loading') : t('form.btn')}
             </button>
           </div>

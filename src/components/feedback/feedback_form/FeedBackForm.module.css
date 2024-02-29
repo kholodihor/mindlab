@@ -9,7 +9,7 @@
   padding: 40px 0;
 
   .title {
-    color: var(--black);
+    color: var(--lime);
     font-size: 26px;
   }
   .form {
@@ -21,11 +21,12 @@
     width: 90%;
     margin: 0 auto;
     overflow: hidden;
+
     .button_wrapper {
       margin-top: 60px;
 
-      .button {
-        width: 380px;
+      .btn {
+        width: 80px;
         height: 60px;
         border-radius: 2rem;
         border: none;
@@ -38,15 +39,15 @@
         transition: all 0.5s ease-in-out;
         cursor: pointer;
       }
-      .button:hover {
+      .btn:hover {
         background: var(--violet);
         color: var(--black);
       }
-      .button:disabled {
-        background: var(--gray);
+      .btn:disabled {
+        background: var(--lime);
         cursor: not-allowed;
       }
-      .button:disabled:hover {
+      .btn:disabled:hover {
         background: var(--gray);
         cursor: not-allowed;
       }
