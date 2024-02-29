@@ -10,7 +10,7 @@
   }
 
   .tab {
-    min-width: 200px;
+    min-width: 100px;
     height: 48px;
     color: var(--white);
     border-radius: 2rem;
@@ -24,6 +24,9 @@
     padding: 0 1rem;
     transition: all 0.1s ease-in-out;
     cursor: pointer;
+    @media screen and (min-width: 450px) {
+      min-width: 200px;
+    }
   }
   .tab:hover {
     background: var(--black);

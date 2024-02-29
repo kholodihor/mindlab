@@ -14,7 +14,7 @@ export const testimonialScheme = z.object({
           value
         ),
       {
-        message: 'Некоректно введена адреса електронної пошти'
+        message: 'Некоректно введений email'
       }
     ),
 

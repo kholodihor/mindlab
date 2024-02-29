@@ -19,7 +19,7 @@
 
 .rotating_star {
   position: absolute;
-  top: 5%;
+  top: 10%;
   left: 0;
   border-radius: 100%;
   transition: all 0.7s ease-in-out;
@@ -30,11 +30,11 @@
     left: 0;
   }
   @media screen and (min-width: 768px) {
-    top: 55%;
+    top: 70%;
     left: 10%;
   }
   @media screen and (min-width: 1280px) {
-    top: 50%;
+    top: 70%;
     left: -13%;
     transform: translate(0, -50%);
   }

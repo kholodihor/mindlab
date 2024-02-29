@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  padding: 20px;
 }
 
 .wrapper {
@@ -22,6 +23,7 @@
     .title {
       font-size: 32px;
       font-weight: 500;
+      margin-right: 0.7rem;
     }
     .subtitle {
       font-size: 18px;
@@ -122,7 +124,7 @@
     padding: 0.5rem;
 
     .check_paragraph {
-      text-align: center;
+      text-align: left;
       .check_link:hover {
         color: var(--violet);
       }
