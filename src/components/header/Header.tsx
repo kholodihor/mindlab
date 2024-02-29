@@ -11,7 +11,6 @@ import chatbot_default from '@/animations/сhatbot_default.json'
 import chatbot_hover from '@/animations/chatbot_hover.json'
 import MobileMenu from './mobile_menu/MobileMenu'
 import Logo from './logo/Logo'
-import LanguageSwitcher from './LocalSwitcher'
 import { useTranslations } from 'next-intl'
 
 
@@ -46,7 +45,7 @@ const Header = () => {
               <Link href="/#contacts">{t("contacts")}</Link>
             </li>
           </ul>
-       <LanguageSwitcher />
+       {/* <LanguageSwitcher /> */}
           <a href="https://t.me/honeyhell_bot" target="_blank">
             <Lottie
               onMouseEnter={() => setIsHovered(true)}
