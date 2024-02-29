@@ -38,8 +38,8 @@
     font-size: 80px;
     line-height: 80px;
     top: 10%;
-    /*left: 5%;*/
-    left: -1%;
+    left: 5%;
+    /* left: -1%; */
   }
 }
 

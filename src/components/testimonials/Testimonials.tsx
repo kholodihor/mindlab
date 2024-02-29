@@ -42,7 +42,7 @@ const Testimonials = () => {
         setAmount(2)
       }
       if (isExtraSmallScreen) {
-        setAmount(1)
+        setAmount(1.5)
       }
     }
     getAmountOfSlides()

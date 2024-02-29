@@ -83,7 +83,7 @@ export default async function RootLayout({
   const isValidLocale = locales.some((cur) => cur === locale)
   if (!isValidLocale) notFound()
   return (
-    <html lang="uk" className={fixelDisplay.className}>
+    <html lang={locale} className={fixelDisplay.className}>
       <SessionWrapper session={session}>
         <SWRProvider>
           <body>
