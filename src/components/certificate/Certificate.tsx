@@ -8,13 +8,15 @@ import { useState } from 'react'
 import ArrowTop from '../icons/ArrowTop'
 import Lottie from 'lottie-react'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
+
 
 const Certificate = () => {
   const [currentAnswer, setCurrentAnswer] = useState('')
   const showAnswer = (color: string) => {
     setCurrentAnswer(color)
   }
-
+const t = useTranslations("Certificate");
   return (
     <section className={`${css.certificate} container`}>
        <motion.div
@@ -24,7 +26,7 @@ const Certificate = () => {
         transition={{ ease: 'easeOut', duration: 0.75 }}
        
       >
-        <h2 className={`${css.title} title`}>cертифікат з унікальним ID</h2>
+        <h2 className={`${css.title} title`}>{t("title")}</h2>
       </motion.div>
         <ul className={css.certificate__list}>
           {certificateList.map(({ question, answer, img, color, className, animationData }) => (
@@ -47,11 +49,11 @@ const Certificate = () => {
                     height={16}
                   />
                 </div>
-                <p style={currentAnswer === color ? { color: color } : undefined}className={css.question__text}>{question}</p>
+                <p style={currentAnswer === color ? { color: color } : undefined}className={css.question__text}>{t(question)}</p>
               </button>
               {currentAnswer === color && (
                 <Link href={'/'} className={css.certificate__link}>
-                  {answer}
+                  {t(answer)}
                 </Link>
               )}
               <div

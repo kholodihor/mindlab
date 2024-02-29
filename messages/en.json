@@ -1,5 +1,191 @@
 {
-  "Index": {
-    "hello": "Hello"
+  "Menu": {
+    "courses": "Courses",
+    "speakers": "Speakers",
+    "partners": "Partners",
+    "parents": "For parents",
+    "contacts": "Contacts",
+    "reviews": "Reviews"
+  },
+  "Hero": {
+"title": "platform ",
+"title1": "of your",
+"title2": "unlimited ",
+"title3": "development",
+    "subtitle": "Enjoy what benefits you",
+    "btn": "Get a consultation"
+  },
+  "About": {
+    "bonuses": {
+      "title": "Get bonuses",
+      "btn": "Get bonuses",
+      "discount": "Up to 10% discount",
+      "preRegistration": "on the course upon pre-registration",
+      "freelesson": "Free lesson",
+      "choice": "on one of the courses of your choice upon pre-registration",
+      "support": "Full support",
+      "portfolio": " when writing a portfolio/resume upon pre-registration"
+    },
+    "english": {
+      "title": "Improve your English",
+      "improve": "Friend, we really want you to improve your English every day, so make sure that you can develop in this business too!",
+      "bonus": "Here is a bonus from us - ",
+      "free": "free speaking club",
+      "course": "in every course! And also - a free test to determine the level of your English",
+      "btn": "Determine the level of English"
+    }
+  },
+  "Spiekers": {
+"title": "Leading teachers",
+"placeholder": "Request, direction, name, topic",
+"notFound": "We did not find any registered teachers for your request...",
+"btn": "Search",
+"otherpiekers": "To other teachers",
+"notFoundTeatcher": "No such teacher was found. Try again."
+  },
+  "Courses": {
+    "title": "Choose the direction you like",
+      "leadership": {
+        "description": "This is a course that will reveal your ability to influence others, inspire and lead a team",
+        "component": "#formation of the leadership system",
+        "power": "#Corporate power",
+        "leade": "#Power of the leader"
+      },
+     "business": {
+      "description": "Will give you the opportunity to highlight the commercial spirit in you, direct potential into the development and monetization of your own idea for the purpose of making a profit",
+      "component": "#Management",
+      "startUp": "#Launch Start up",
+      "skills": "#Skills ХХІst century"
+    },
+     "politicalScienceSociology": {
+      "description": "Will help you deepen your understanding of political phenomena and social processes, as well as their interaction and impact on society",
+      "component": "#Conflictology",
+      "change": "#Theory of social change",
+      "sociology": "#Sociology of the nation"
+    },
+     "innovativeTechnologies": {
+      "description": "Allows you to learn about new advanced methods used to improve or create new products, services or processes, contributing to technological progress and improved results",
+      "component": "#Project managment in IT ",
+      "ui": "#UI/UX Design",
+      "fe": "#FE/BE",
+      "marketing": "#Digital Marketing"
+    },
+     "art": {
+      "description": "You will be able to understand the heritage of human creativity, connect with the beautiful and create something even greater, your ideas will have a place in implementation",
+      "component": "#Modern Art",
+      "computer": "#Computer art",
+      "video": "#Video art"
+    },
+    "careerCounselin": {
+      "description": "This important component will definitely come in handy when choosing a profession, the consultant will help you find out your interests and goals, plan your career, develop a strategy for self-improvement, prepare you for entering the labor market, teach you how to manage your career",
+      "component": "# Career guidance",
+      "startUp": "#Meeting with startups",
+      "business": "#Meeting with business"
+    },
+    "profTest": {
+      "question": "Is it difficult to decide on a course?",
+    "answer": "Take our special test and find out which areas of professional development will suit you",
+    "test" : "Pass a test"
+  }
+  },
+  "Partners": {
+    "title": "Guys, look at what cool partners cooperate with MindLab, if you want to get to know them better, go ahead!",
+    "question": "Do you want to get to know them better?",
+    "text": "We have something to be proud of, because our partners have become:",
+      "patrners1": {
+        "title": "Mushroom Academy",
+        "description": "Mushroom Academy is a Western Ukrainian IT school. For more than 19 years, he has been helping Ukrainians to build a successful career in the digital economy: he educates the next generation of IT citizens, develops the IT cluster, and helps those who need it."
+      },
+      "patrners2": {
+        "title": "Kyiv metropolitan educational institution named",
+        "description": "The mission of our institution is to help everyone in integral development and leadership formation, to serve the person, community, and society. Quality training, innovative curricula and high-level research are our priorities."
+      },
+      "patrners3": {
+        "title": "Kyiv Children's Academy",
+        "description": "The Kyiv Children's Academy is a leader in extracurricular education in Ukraine, a platform for testing and implementing innovations, and contributes to the development of scientific education in the Eastern European region. We teach you to make discoveries and create your future!"
+      },
+      "patrners4": {
+        "title": "Ukranian Cosmic Education",
+        "description": "Ukranian Cosmic Education is an educational space that influences changes in Ukrainian society. Helps students find their place in the world by inspiring them to personal growth, academic achievement and leadership for the common good. Ukranian Cosmic Education is an educational space that influences changes in Ukrainian society."
+    }
+  },
+  "Certificate": {
+    "title": "certificate with a unique ID",
+    "authenticity": "Confirm authenticity with the link",
+    "social": "Share the link on social networks",
+    "resume": "Add to your resume",
+    "qrCode": "Download by scanning the QR code"
+    },
+    "Parents": {
+      "title": "Information for parents",
+      "information": "Dear parents, if you have any questions about the courses, the platform, MindLab activities, contact us in the chat or by mail.",
+        "platform": {
+          "name": "Platform",
+          "description": "The educational and social platform MindLab Hub for teenagers and young adults is an innovative and safe center created for development, learning and interaction. We strive to provide the young and gifted generation with the opportunity to gain knowledge, gather inspiration, find their own path in life and plan their career. These components will allow to support motivated young people - future leaders who will contribute to the development of Ukraine.",
+         "inforvation":  "We introduce young people to the following areas: Leadership, business, political science and sociology, modern technologies, art, career counseling, career support, which help students expand their knowledge and skills."
+        },
+        "spiker": {
+          "name": "Speakers and mentors",
+          "description": "The platform provides an opportunity to listen to lectures and receive advice from well-known specialists in various fields. Interactive webinars and interviews with successful personalities inspire and help students understand their capabilities.",
+          "inforvation":  "We introduce young people to the following areas: Leadership, business, political science and sociology, modern technologies, art, career counseling, career support, which help students expand their knowledge and skills."
+        },
+        "guidanc": {
+          "name": "Career guidanc",
+          "description": "The offered career guidance tools help to determine one's own strengths and weaknesses, reveal possible career paths and help in choosing a future profession.",
+          "inforvation": ""
+        },
+        "counseling": {
+          "name": "Career Counseling",
+          "description": "On the platform, there is an opportunity to receive advice from professional career consultants who will help determine a career development strategy and draw up a plan to achieve the set goals. Consultants represent a galaxy of successful businessmen, politicians, well-known personalities in various spheres of activity.",
+          "inforvation": ""
+        },
+        "comunication": {
+          "name": "Communication",
+          "description": "The platform can become a platform for communication between teenagers, students, teachers, mentors, MindLab Hub creates a space for virtual communication, exchange of ideas and experiences between participants. This helps to form friendships, exchange knowledge and support.",
+          "inforvation": "We help students build a network of connections, in particular with university representatives. With the help of our platform, users will be able to make educational choices, discuss study details and get advice from students and graduates. Our platform aims to be a virtual partner in development and self-improvement for every teenager, providing tools and resources for their future success."
+        }
+    },
+    "Testimonials": {
+      "title": "Гайс, подивіться,",
+      "spanTitle": "що пронас пишуть:",
+      "text": "Are you excited about our platform?",
+      "comenth": "Do you have your comments?",
+      "feedback": "Write a review, don't be shy! We always welcome feedback!",
+      "btn": "Add a review"
+    },
+    "Contacts": {
+      "title": "Let's keep in touch",
+      "follow": "Follow us in",
+      "join": "join as friends in",
+      "and": "and",
+      "answer": "we will definitely answer"
+    },
+    "Feedback": {
+      "title": "Hey, do you have a question?",
+      "subtitle": "Write, don't be shy, our admin will help in everything",
+      "form": {
+        "name": "name",
+        "question": "That you are interested in?",
+        "btn": "Get a consultation"
+      },
+      "chakbox": {
+        "accept": "I accept the terms of",
+        "public": "the Public Offer",
+        "consent": "and give my consent to the processing",
+        "data": "of my personal data in accordance with",
+        "policy": "the Privacy Policy"
+      }
+    },
+    "Footer": {
+      "rights": "All rights reserved",
+      "policy":"Privacy Policy",
+      "terms":"Terms of use of the site",
+     "help": "We will help:",
+     "answer":"We will answer:",
+     "talk": "We will talk:",
+     "mail":"mail",
+     "telegram":"telegram",
+     "phone":"phone",
+     "btn": "Get a consultation"
   }
 }

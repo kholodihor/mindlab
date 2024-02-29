@@ -56,7 +56,7 @@ const FeedBack = () => {
   }
 
   return (
-    <section className={styles.container}>
+    <section id='feedback' className={styles.container}>
       <div className={`${styles.wrapper}`}>
         <div className={styles.title_wrapper}>
           <h1 className={styles.title}>Хей, маєш питанько?</h1>

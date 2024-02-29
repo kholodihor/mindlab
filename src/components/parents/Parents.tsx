@@ -15,7 +15,9 @@ import PlusIcon from '../icons/PlusIcon'
 import Link from 'next/link'
 import { motion } from "framer-motion";
 
+
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
+import { useTranslations } from 'next-intl'
 
 type Answer = Array<string>
 
@@ -23,6 +25,7 @@ const Parents = () => {
   const { openModal } = useModal()
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
   const [answer, setAnswer] = useState<Answer>([])
+const t = useTranslations()
 
   const currentAnswer = (color: string) => answer.find((item) => item === color)
 
@@ -44,26 +47,25 @@ const Parents = () => {
         transition={{ ease: 'easeOut', duration: 0.75 }}
         className={`title ${css.parents__title}`}
       >
-     Інформація для батьків
+     {t("Parents.title")}
       </motion.h2>
        
         <div className={css.thumb}>
           <div>
             <div className={css.wrapper}>
               <p className={css.parents__text}>
-                Шановні батьки, якщо у Вас виникли запитання щодо курсів, платформи, діяльності
-                MindLab пішіть нам в чат або на пошту.
+               {t("Parents.information")}
               </p>
               <ul className={` ${css.contacts}`}>
                 <li className={`${css.contact__item}`}>
-                  <p className={css.contact__text}>Ми допоможемо:</p>
+                  <p className={css.contact__text}>{t("Footer.help")}</p>
                   <Link href="mailto:mind.lab.hub@gmail.com" className={style.contact__link}>
                     <MailIcon />
-                    <p>пошта</p>
+                    <p>{t("Footer.mail")}</p>
                   </Link>
                 </li>
                 <li className={css.contact__item}>
-                  <p className={css.contact__text}>Ми відповімо:</p>
+                  <p className={css.contact__text}>{t("Footer.answer")}</p>
                   <Link
                     href="https://t.me/+Q8t3dkMH84hiYmNi"
                     className={style.contact__link}
@@ -71,7 +73,7 @@ const Parents = () => {
                     target="_blank"
                   >
                     <TelegramIcon />
-                    <p>телеграм</p>
+                    <p>{t("Footer.telegram")}</p>
                   </Link>
                 </li>
               </ul>
@@ -103,13 +105,13 @@ const Parents = () => {
                   className={css.question__text}
                   style={currentAnswer(color) ? { color: color } : undefined}
                 >
-                  {question}
+                  {t(question)}
                 </p>
                 {currentAnswer(color) && (
                   <div className={css.answer}>
                     {answer.map((item, index) => (
                       <p key={index} className={css.ansver__text}>
-                        {item}
+                        {t(item)}
                       </p>
                     ))}
                   </div>

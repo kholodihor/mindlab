@@ -1,12 +1,13 @@
 import { CoursesList, MenuList, Partners } from '@/types'
 
+
 export const coursesList: Array<CoursesList> = [
   {
     title: 'Leadership',
     description:
-      'Це курс, який розкриє в тобі здатність впливати на інших, надихати і керувати командою',
-    component: '# Формування системи лідерства',
-    components: { mob: [], tab: [], desk: ['#Корпоративна влада', '#Влада лідера'] },
+      'leadership.description',
+    component: 'leadership.component',
+    components: { mob: [], tab: [], desk: ['leadership.power', 'leadership.power'] },
     color: '#aaaedf',
     classname: 'violetLight',
     href: '/courses/leadership'
@@ -14,12 +15,12 @@ export const coursesList: Array<CoursesList> = [
   {
     title: 'Career counseling / Career guidance ',
     description:
-      'Ця важлива складова обов’язково стане в нагоді при виборі професії, консультант допоможе з’ясувати твої інтереси, цілі, розпланує твою кар’єру, розробить стратегію самовдосконалення, підготує до вступу на ринок праці, навчить управляти кар’єрою',
-    component: '# Профорієнтація',
+      'careerCounselin.description',
+    component: 'careerCounselin.component',
     components: {
       mob: [],
-      tab: ['#Зустріч із стартаперами'],
-      desk: ['#Зустріч із стартаперами', '#Зустріч з бізнесом']
+      tab: ['careerCounselin.startUp'],
+      desk: ['careerCounselin.startUp', 'careerCounselin.business']
     },
     color: '#ffecd0',
     classname: 'roseLight',
@@ -28,12 +29,12 @@ export const coursesList: Array<CoursesList> = [
   {
     title: 'Business',
     description:
-      'Дасть можливість виокремити в тобі комерційну жиклу, спрямувати потенціал у розвиток та монетизацію власної ідеї з метою отримання прибутку',
-    component: '#Менеджмент ',
+      'business.description',
+    component: 'business.component',
     components: {
-      mob: ['#Запуск Start up'],
-      tab: ['#Запуск Start up'],
-      desk: ['#Запуск Start up', '#Скіли ХХІ ст.']
+      mob: ['business.startUp'],
+      tab: ['business.startUp'],
+      desk: ['business.startUp', 'business.skills']
     },
     color: '#8d83ff',
     classname: 'violet',
@@ -42,12 +43,12 @@ export const coursesList: Array<CoursesList> = [
   {
     title: 'Innovative technologies',
     description:
-      'Дозволяє пізнати нові передові методи, що використовують для вдосконалення чи створення нових продуктів, послуг або процесів, сприяючи технологічному прогресу та покращенню результатів',
-    component: '#Project managment in IT ',
+      'innovativeTechnologies.description',
+    component: 'innovativeTechnologies.component',
     components: {
       mob: [],
-      tab: ['#UI/UX Design'],
-      desk: ['#UI/UX Design', '#FE/BE', '#Digital Marketing']
+      tab: ['innovativeTechnologies.ui'],
+      desk: ['innovativeTechnologies.ui', 'innovativeTechnologies.fe', 'innovativeTechnologies.marketing']
     },
     color: '#03aa89',
     classname: 'green',
@@ -56,12 +57,12 @@ export const coursesList: Array<CoursesList> = [
   {
     title: 'ART',
     description:
-      'Ти зможеш осягнути надбання людської творчості доторкнутися до прекрасного і створити не менш круте, твої ідею матимуть місце в реалізації',
-    component: '#Сучасне мистецтво ',
+      'art.description',
+    component: 'art.component',
     components: {
       mob: [],
-      tab: ["#Комп'ютерне мистецтво"],
-      desk: ["#Комп'ютерне мистецтво", '#Відео-мистецтво']
+      tab: ["art.computer"],
+      desk: ["art.computer", 'art.video']
     },
     color: '#2928e3',
     classname: 'blue',
@@ -70,12 +71,12 @@ export const coursesList: Array<CoursesList> = [
   {
     title: 'Political science-sociology',
     description:
-      'Допоможе тобі поглибити розуміння політичних явищ та суспільних процесів, а також їх взаємодію і вплив на соціум',
-    component: '#Конфліктологія ',
+      'politicalScienceSociology.description',
+    component: 'politicalScienceSociology.component',
     components: {
       mob: [],
-      tab: ['#Теорія соціальних змін'],
-      desk: ['#Теорія соціальних змін', '#Соціологія нації']
+      tab: ['politicalScienceSociology.change'],
+      desk: ['politicalScienceSociology.change', 'politicalScienceSociology.sociology']
     },
     color: '#fed1ce',
     classname: 'rose',
@@ -85,30 +86,30 @@ export const coursesList: Array<CoursesList> = [
 
 export const partners: Array<Partners> = [
   {
-    name: 'Mushroom Academy',
+    name: 'patrners1.title',
     logo: '/partners/newPartnersLogo/logo-1.svg',
-    text: 'Mushroom Academy — західно-українська ІТ-школа. Понад 19 років сприяє українцям будувати успішну кар’єру у цифровій економіці: виховує наступне покоління айтівців, розвиває ІТ-кластер, допомає тим, кто цього потребує.',
+    text: 'patrners1.description',
     link: '/',
     color: '#ffecd0',
   },
   {
-    name: 'Київський столичний учбовий заклад імені',
+    name: 'patrners2.title',
     logo: 'partners/newPartnersLogo/logo-2.svg',
-    text: ' Місія нашого закладу —  сприяти кожному в цілісному розвитку і лідерському становленні, служити людині, громаді, суспільству. Якісна підготовка, інноваційні навчальні програми та дослідження високого рівня є нашими пріоритетами.',
+    text: 'patrners2.description',
     link: '/',
     color: '#E6EAFF',
   },
   {
-    name: 'Київська дитяча академія',
+    name: 'patrners3.title',
     logo: 'partners/newPartnersLogo/logo-3.svg',
-    text: 'Київська дитяча академія —  лідер позашкільної освіти в Україні, майданчик для апробування та впровадження новацій, сприяє розвитку наукової освіти в Східноєвропейському регіоні. Ми вчимо робити відкриття та творити своє майбутнє!',
+    text: 'patrners3.description',
     link: '/',
     color: '#aaaedf',
   },
   {
-    name: 'Ukranian Cosmic Education',
+    name: 'patrners4.title',
     logo: '/partners/newPartnersLogo/logo-4.svg',
-    text: 'Ukranian Cosmic Education —  освітній простір, що впливає на зміни в українському суспільстві. Допомагає учням знайти своє місце в світі, надихаючи їх до особистісного зростання, академічних досягнень та лідерства заради спільного блага. Ukranian Cosmic Education —  освітній простір, що впливає на зміни в українському суспільстві.',
+    text: 'patrners4.description',
     link: '/',
     color: '#f9f9fa',
   },

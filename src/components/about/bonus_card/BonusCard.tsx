@@ -3,29 +3,32 @@ import React, { useState } from 'react'
 import Card from '../card/Card'
 import Wow from '@/components/shared/wow/Wow'
 import styles from '../About.module.css'
+import { useTranslations } from 'next-intl'
 
 const BonusCard = () => {
   const [isWowHovered, setIsWowHovered] = useState(false)
   const REGISTER_URL = 'https://forms.gle/wxX5LyYEsLupyKg68'
 
+  const t = useTranslations("About");
+
   const bonusCardDesc = (
     <ul className={styles.description}>
       <li className={styles.description_item}>
-        Знижка до 10%{' '}
-        <span className={styles.description_text}>на курс при попередній реєстрації</span>
+        {t("bonuses.discount")}{' '}
+        <span className={styles.description_text}>{t("bonuses.preRegistration")}</span>
       </li>
       <li className={styles.description_item}>
-        Безкоштовне заняття
+      {t("bonuses.freelesson")}
         <span className={styles.description_text}>
           {' '}
-          по одному з курсів на вибір при попердній реєстрації
+          {t("bonuses.choice")}
         </span>
       </li>
       <li className={styles.description_item}>
-        Повний супровід
+      {t("bonuses.support")}
         <span className={styles.description_text}>
           {' '}
-          при написанні портфоліо/резюме при попередній реєстрації
+          {t("bonuses.portfolio")}
         </span>
       </li>
     </ul>
@@ -37,10 +40,10 @@ const BonusCard = () => {
 
   return (
     <Card
-      title="Отримай бонуси"
+      title={t("bonuses.title")}
       description={bonusCardDesc}
       url={REGISTER_URL}
-      text="Отримати бонуси"
+      text={t("bonuses.btn")}
       hoverHandler={hoverWowHandler}
     >
       {isWowHovered ? (
