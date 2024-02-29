@@ -5,11 +5,13 @@ import MailIcon from '../icons/MailIcon'
 import TelegramIcon from '../icons/TelegramIcon'
 import PhoneIcon from '../icons/PhoneIcon'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 const Footer = () => {
+  const t = useTranslations()
   return (
     <footer className={css.footer}>
-      <div className={`container ${css.footer_container} `}>
+      <div className={`${css.footer_container} `}>
         <div className={css.footer__wrapper}>
           <Link href={'/'} className={css.logo}>
             <Image
@@ -45,14 +47,14 @@ const Footer = () => {
           <div className={css.wrapper__contacts}>
             <ul className={css.contact__list}>
               <li className={css.contact__item}>
-                <p className={css.contact__text}>Ми допоможемо:</p>
+                <p className={css.contact__text}>{t("Footer.help")}</p>
                 <Link href="mailto:mind.lab.hub@gmail.com" className={css.contact__link}>
                   <MailIcon />
-                  <p>пошта</p>
+                  <p>{t("Footer.mail")}</p>
                 </Link>
               </li>
               <li className={css.contact__item}>
-                <p className={css.contact__text}>Ми відповімо:</p>
+                <p className={css.contact__text}>{t("Footer.answer")}</p>
                 <Link
                   href="https://t.me/+Q8t3dkMH84hiYmNi"
                   className={css.contact__link}
@@ -60,19 +62,19 @@ const Footer = () => {
                   target="_blank"
                 >
                   <TelegramIcon />
-                  <p>телеграм</p>
+                  <p>{t("Footer.telegram")}</p>
                 </Link>
               </li>
               <li className={css.contact__item}>
-                <p className={css.contact__text}>Ми поговоримо:</p>
+                <p className={css.contact__text}>{t("Footer.talk")}</p>
                 <Link href="/" className={css.contact__link}>
                   <PhoneIcon />
-                  <p>телефон</p>
+                  <p>{t("Footer.phone")}</p>
                 </Link>
               </li>
             </ul>
             <Link href="#feedback" className={css.link__advice}>
-              Отримати консультацію
+              {t("Footer.btn")}
             </Link>
           </div>
         </div>
@@ -81,7 +83,7 @@ const Footer = () => {
             {menuList.map(({ link, menu }) => (
               <li key={menu} className={css.menu__item}>
                 <Link href={link} className={css.menu__link}>
-                  {menu}
+                  {t(menu)}
                 </Link>
               </li>
             ))}
@@ -89,7 +91,7 @@ const Footer = () => {
           <div className={css.thumb__copyright}>
             <p className={css.copyright}>
               Copyright © 2023-2024 MindLab.{' '}
-              <span className={css.spanCopyright}>Усі права захищені</span>
+              <span className={css.spanCopyright}>{t("Footer.rights")}</span>
             </p>
             <div className={css.rules__site}>
               <a
@@ -98,7 +100,7 @@ const Footer = () => {
                 href="/documents/політика_конфіденційності.pdf"
                 className={css.rule__item}
               >
-                Політика конфіденційності{' '}
+                {t("Footer.policy")}{' '}
               </a>
               <a
                 target="_blank"
@@ -106,7 +108,7 @@ const Footer = () => {
                 href="/documents/правила_користування_сайтом.pdf"
                 className={css.rule__item}
               >
-                Правила користування сайтом
+                {t("Footer.terms")}
               </a>
             </div>
           </div>

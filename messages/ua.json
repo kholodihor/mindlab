@@ -5,7 +5,8 @@
     "partners": "Партнери",
     "parents": "Для батьків",
     "contacts": "Контакти",
-    "reviews": "Відгуки"
+    "reviews": "Відгуки",
+    "ourCourses": "Наші курси"
   },
   "Hero": {
     "title": "Платформа",
@@ -91,6 +92,7 @@
   "Partners": {
     "title": "Гайс, подивіться, які круті партнери співпрацюють з MindLab!",
     "question": "Хочеш познайомитися з ними ближче?",
+    "partnersList": "Mushroom Academy, Київський столичний учбовий заклад імені, Київська дитяча академія, Ukranian Cosmic Education.",
     "text": "Ми маємо чим пишатися, бо нашими партнерами стали:",
       "patrners1": {
         "title": "Mushroom Academy",
@@ -149,45 +151,46 @@
     "Testimonials": {
       "title": "Гайс, подивіться,",
       "spanTitle": "що пронас пишуть:",
-      "text": "Are you excited about our platform?",
-      "comenth": "Do you have your comments?",
-      "feedback": "Write a review, don't be shy! We always welcome feedback!",
-      "btn": "Add a review"
+      "text": "Ти в захваті від нашої платформи?",
+      "comenth": "Маєш свої коменти?",
+      "feedback": "Пиши відгук, не соромся! Ми завжди раді фідбекам!",
+      "btn": "Залишити коментар"
     },
     "Contacts": {
-      "title": "Let's keep in touch",
-      "follow": "Follow us in",
-      "join": "join as friends in",
-      "and": "and",
-      "answer": "we will definitely answer"
+      "title": "Давай залишатись на зв’язку",
+      "follow": "Слідкуй за нами в",
+      "join": "додавайся в друзі в",
+      "write": "Пиши нам в",
+      "and": "та",
+      "answer": " - ми обов’язково відповімо."
     },
     "Feedback": {
-      "title": "Hey, do you have a question?",
-      "subtitle": "Write, don't be shy, our admin will help in everything",
+      "title": "Хей, маєш питанько?",
+      "subtitle": "Пиши, не соромся, наш адмін допоможе у всьому",
       "form": {
-        "name": "name",
-        "question": "That you are interested in?",
-        "btn": "Get a consultation"
+        "name": "Ім’я",
+        "question": "Що тебе цікавить?",
+        "btn": "Отримати консультацію",
+        "loading": "Обробка запиту..."
       },
       "chakbox": {
-        "accept": "I accept the terms of",
-        "public": "the Public Offer",
-        "consent": "and give my consent to the processing",
-        "data": "of my personal data in accordance with",
-        "policy": "the Privacy Policy"
+        "accept": "Я приймаю умови",
+        "public": "Публічної оферти",
+        "consent": "та надаю згоду на обробку моїх особистих",
+        "data": "даних відповідно до",
+        "policy": "Політики конфіденційності"
       }
     },
     "Footer": {
-      "rights": "All rights reserved",
-      "policy":"Privacy Policy",
-      "terms":"Terms of use of the site",
-     "menu": ["Our courses", "Speakers", "Partners", "Reviews", "For parents"],
-     "help": "We will help:",
-     "answer":"We will answer:",
-     "talk": "We will talk:",
-     "mail":"mail",
-     "telegram":"telegram",
-     "phone":"phone",
-     "btn": "Get a consultation"
+      "rights": "Усі права захищені",
+      "policy":"Політика конфіденційності",
+      "terms":"Правила користування сайтом",
+     "help": "Ми допоможемо:",
+     "answer":"Ми відповімо:",
+     "talk": "Ми поговоримо:",
+     "mail":"пошта",
+     "telegram":"телеграм",
+     "phone":"телефон",
+     "btn": "Отримати консультацію"
   }
 }

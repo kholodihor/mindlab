@@ -14,13 +14,14 @@ import TextInput from '@/components/ui/inputs/text_input/TextInput'
 
 import styles from './FeedBack.module.css'
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
+import { useTranslations } from 'next-intl'
 
 const FeedBack = () => {
   const { openAlert } = useAlert()
   const [checked, setChecked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
-
+const t = useTranslations("Feedback")
   const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLESHEETS_URL!
 
   const {
@@ -59,8 +60,8 @@ const FeedBack = () => {
     <section id='feedback' className={styles.container}>
       <div className={`${styles.wrapper}`}>
         <div className={styles.title_wrapper}>
-          <h1 className={styles.title}>Хей, маєш питанько?</h1>
-          <p className={styles.subtitle}>Пиши, не соромся, наш адмін допоможе у всьому</p>
+          <h1 className={styles.title}>{t("title")}</h1>
+          <p className={styles.subtitle}>{t("subtitle")}</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} autoComplete="new-off" className={styles.form}>
           <Controller
@@ -71,7 +72,7 @@ const FeedBack = () => {
                 {...field}
                 errorText={errors.name?.message}
                 isWhite={true}
-                placeholder="Ім’я"
+                placeholder={t("form.name")}
               />
             )}
           />
@@ -95,13 +96,13 @@ const FeedBack = () => {
                 {...field}
                 isWhite={true}
                 errorText={errors.message?.message}
-                placeholder="Що тебе цікавить?"
+                placeholder={t("form.question")}
               />
             )}
           />
           <div className={styles.button_wrapper}>
             <button type="submit" className={styles.button} disabled={!checked}>
-              {isProcessing ? 'Обробка запиту...' : 'Отримати консультацію'}
+              {isProcessing ? t("form.loading") : t("form.btn")}
             </button>
           </div>
         </form>
@@ -116,23 +117,23 @@ const FeedBack = () => {
             <span className={styles.checkmark}></span>
           </label>
           <p className={styles.check_paragraph}>
-            Я приймаю умови{' '}
+            {t("chakbox.accept")}{' '}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/правила_користування_сайтом.pdf"
             >
-              Публічної оферти
+              {t("chakbox.public")}
             </a>{' '}
-            та надаю згоду на обробку моїх особистих <br /> даних відповідно до{' '}
+            {t("chakbox.consent")} <br /> {t("chakbox.data")}{' '}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/політика_конфіденційності.pdf"
             >
-              Політики конфіденційності
+              {t("chakbox.policy")}
             </a>
           </p>
         </div>

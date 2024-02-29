@@ -54,7 +54,7 @@ const Partners = () => {
           <Fire />
         </div>
         <p className={css.partners__text}>{t("text")}</p>
-        <p className={css.partners__list}>{partners.map(({ name }) => `${name}, `)}</p>
+        <p className={css.partners__list}>{t("partnersList")}</p>
       </div>
       <div className={css.part__right}>
         <Swiper

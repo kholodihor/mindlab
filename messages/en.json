@@ -5,7 +5,8 @@
     "partners": "Partners",
     "parents": "For parents",
     "contacts": "Contacts",
-    "reviews": "Reviews"
+    "reviews": "Reviews",
+    "ourCourses": "Our courses"
   },
   "Hero": {
 "title": "platform ",
@@ -91,6 +92,7 @@
   "Partners": {
     "title": "Guys, look at what cool partners cooperate with MindLab, if you want to get to know them better, go ahead!",
     "question": "Do you want to get to know them better?",
+    "partnersList": "Mushroom Academy, Kyiv metropolitan educational institution named, Kyiv Children's Academy, Ukranian Cosmic Education.",
     "text": "We have something to be proud of, because our partners have become:",
       "patrners1": {
         "title": "Mushroom Academy",
@@ -146,27 +148,29 @@
         }
     },
     "Testimonials": {
-      "title": "Гайс, подивіться,",
-      "spanTitle": "що пронас пишуть:",
+      "title": "Guys, look",
+      "spanTitle": "what they write about us:",
       "text": "Are you excited about our platform?",
       "comenth": "Do you have your comments?",
       "feedback": "Write a review, don't be shy! We always welcome feedback!",
-      "btn": "Add a review"
+      "btn": "Leave a review"
     },
     "Contacts": {
       "title": "Let's keep in touch",
       "follow": "Follow us in",
       "join": "join as friends in",
+      "write": "Write to us in",
       "and": "and",
-      "answer": "we will definitely answer"
+      "answer": " - we will definitely answer"
     },
     "Feedback": {
       "title": "Hey, do you have a question?",
       "subtitle": "Write, don't be shy, our admin will help in everything",
       "form": {
-        "name": "name",
+        "name": "Name",
         "question": "That you are interested in?",
-        "btn": "Get a consultation"
+        "btn": "Get a consultation",
+        "loading": "Processing request..."
       },
       "chakbox": {
         "accept": "I accept the terms of",
