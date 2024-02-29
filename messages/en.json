@@ -1,12 +1,14 @@
 {
   "Menu": {
+    "menu": "Menu",
     "courses": "Courses",
     "speakers": "Speakers",
     "partners": "Partners",
     "parents": "For parents",
     "contacts": "Contacts",
     "reviews": "Reviews",
-    "ourCourses": "Our courses"
+    "ourCourses": "Our courses",
+    "chat": "Chat bot"
   },
   "Hero": {
 "title": "platform ",

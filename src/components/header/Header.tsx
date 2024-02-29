@@ -12,12 +12,15 @@ import chatbot_hover from '@/animations/chatbot_hover.json'
 import MobileMenu from './mobile_menu/MobileMenu'
 import Logo from './logo/Logo'
 import { useTranslations } from 'next-intl'
+import { useWidth } from '@/hooks/useWidth'
+import LanguageSwitcher from './LocalSwitcher'
 
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const isSmallScreen = useMediaQuery('(max-width: 768px)')
+  const currentWidth = useWidth();
 
   const t = useTranslations("Menu");
 
@@ -45,7 +48,9 @@ const Header = () => {
               <Link href="/#contacts">{t("contacts")}</Link>
             </li>
           </ul>
-       {/* <LanguageSwitcher /> */}
+          <div className={styles.switch}>
+          {currentWidth >= 1024 &&  <LanguageSwitcher />}
+          </div>
           <a href="https://t.me/honeyhell_bot" target="_blank">
             <Lottie
               onMouseEnter={() => setIsHovered(true)}

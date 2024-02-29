@@ -1,12 +1,14 @@
 {
   "Menu": {
+    "menu": "Меню",
     "courses": "Курси",
     "speakers": "Викладачі",
     "partners": "Партнери",
     "parents": "Для батьків",
     "contacts": "Контакти",
     "reviews": "Відгуки",
-    "ourCourses": "Наші курси"
+    "ourCourses": "Наші курси",
+    "chat": "Чат-бот"
   },
   "Hero": {
     "title": "Платформа",
