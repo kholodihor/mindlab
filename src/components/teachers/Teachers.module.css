@@ -7,9 +7,12 @@
   gap: 52px;
   padding: 60px 0;
   max-width: 1250px;
-
+  
   @media screen and (max-width: 991px) {
-    padding: 20px;
+    padding: 40px;
+  }
+  @media screen and (min-width: 991px) {
+    padding: 40px;
   }
 
   .section_title {
