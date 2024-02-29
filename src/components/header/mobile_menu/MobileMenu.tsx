@@ -10,6 +10,7 @@ import CloseIconXL from '@/components/icons/CloseIconXL'
 import MailIcon from '@/components/icons/MailIcon'
 import PhoneIcon from '@/components/icons/PhoneIcon'
 import TelegramIcon from '@/components/icons/TelegramIcon'
+import LanguageSwitcher from '../LocalSwitcher'
 
 type MobileMenuProps = {
   onClose: () => void
@@ -41,6 +42,9 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           </li>
           <li className={styles.header_nav_item}>
             <a href="#courses">Контакти</a>
+          </li>
+          <li className={styles.header_nav_item}>
+          <LanguageSwitcher />
           </li>
           <li className={styles.header_nav_item}>
             <Lottie
