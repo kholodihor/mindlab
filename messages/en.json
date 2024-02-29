@@ -191,5 +191,9 @@
      "telegram":"telegram",
      "phone":"phone",
      "btn": "Get a consultation"
+  },
+  "Langs": {
+    "ua": "UA",
+    "en": "EN"
   }
 }
