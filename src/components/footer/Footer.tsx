@@ -47,14 +47,14 @@ const Footer = () => {
           <div className={css.wrapper__contacts}>
             <ul className={css.contact__list}>
               <li className={css.contact__item}>
-                <p className={css.contact__text}>{t("Footer.help")}</p>
+                <p className={css.contact__text}>{t('Footer.help')}</p>
                 <Link href="mailto:mind.lab.hub@gmail.com" className={css.contact__link}>
                   <MailIcon />
-                  <p>{t("Footer.mail")}</p>
+                  <p>{t('Footer.mail')}</p>
                 </Link>
               </li>
               <li className={css.contact__item}>
-                <p className={css.contact__text}>{t("Footer.answer")}</p>
+                <p className={css.contact__text}>{t('Footer.answer')}</p>
                 <Link
                   href="https://t.me/+Q8t3dkMH84hiYmNi"
                   className={css.contact__link}
@@ -62,19 +62,19 @@ const Footer = () => {
                   target="_blank"
                 >
                   <TelegramIcon />
-                  <p>{t("Footer.telegram")}</p>
+                  <p>{t('Footer.telegram')}</p>
                 </Link>
               </li>
               <li className={css.contact__item}>
-                <p className={css.contact__text}>{t("Footer.talk")}</p>
+                <p className={css.contact__text}>{t('Footer.talk')}</p>
                 <Link href="/" className={css.contact__link}>
                   <PhoneIcon />
-                  <p>{t("Footer.phone")}</p>
+                  <p>{t('Footer.phone')}</p>
                 </Link>
               </li>
             </ul>
             <Link href="#feedback" className={css.link__advice}>
-              {t("Footer.btn")}
+              {t('Footer.btn')}
             </Link>
           </div>
         </div>
@@ -91,7 +91,7 @@ const Footer = () => {
           <div className={css.thumb__copyright}>
             <p className={css.copyright}>
               Copyright © 2023-2024 MindLab.{' '}
-              <span className={css.spanCopyright}>{t("Footer.rights")}</span>
+              <span className={css.spanCopyright}>{t('Footer.rights')}</span>
             </p>
             <div className={css.rules__site}>
               <a
@@ -100,7 +100,7 @@ const Footer = () => {
                 href="/documents/політика_конфіденційності.pdf"
                 className={css.rule__item}
               >
-                {t("Footer.policy")}{' '}
+                {t('Footer.policy')}{' '}
               </a>
               <a
                 target="_blank"
@@ -108,7 +108,7 @@ const Footer = () => {
                 href="/documents/правила_користування_сайтом.pdf"
                 className={css.rule__item}
               >
-                {t("Footer.terms")}
+                {t('Footer.terms')}
               </a>
             </div>
           </div>
