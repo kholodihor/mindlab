@@ -31,13 +31,12 @@ const AboutUsAnimation: FC<AboutUsAnimationProps> = ({ aboutRef }) => {
 
   return (
     <>
-      {scrollY >= startPlayPosition && (
-        <Lottie
-          animationData={currentLanguage === DEFAULT_LANGUAGE ? aboutUsUa : aboutUsEng}
-          style={currentLanguage === DEFAULT_LANGUAGE ? style : styleEn}
-          loop={false}
-        />
-      )}
+      {scrollY >= startPlayPosition &&
+        (currentLanguage === DEFAULT_LANGUAGE ? (
+          <Lottie animationData={aboutUsUa} style={style} loop={false} />
+        ) : (
+          <Lottie animationData={aboutUsEng} style={styleEn} loop={false} />
+        ))}
     </>
   )
 }
