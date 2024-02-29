@@ -17,8 +17,8 @@ type CertificateType = {
 
 export const certificateList: Array<CertificateType> = [
   {
-    question: 'Підтвердити автентичність за посиланням ',
-    answer: 'Підтвердити автентичність за посиланням ',
+    question: 'authenticity',
+    answer: 'authenticity',
     color: '#ffecd0',
     img: '/certificate/cert_art.jpg',
     animation: 'string;',
@@ -27,8 +27,8 @@ export const certificateList: Array<CertificateType> = [
     animationData: verified
   },
   {
-    question: 'Поділись посиланням в соц мережах',
-    answer: 'Підтвердити автентичність за посиланням ',
+    question: 'social',
+    answer: 'authenticity',
     color: '#03aa89',
     img: '/certificate/cert_IT.jpg',
     animation: 'string;',
@@ -37,8 +37,8 @@ export const certificateList: Array<CertificateType> = [
     animationData: phone
   },
   {
-    question: 'Додай до свого резюме',
-    answer: 'Підтвердити автентичність за посиланням ',
+    question: 'resume',
+    answer: 'authenticity',
     color: '#fed1ce',
     img: '/certificate/cert_business.jpg',
     animation: 'string;',
@@ -47,8 +47,8 @@ export const certificateList: Array<CertificateType> = [
     animationData: certificate
   },
   {
-    question: 'Завантаж, відсканувавши QR-код',
-    answer: 'Підтвердити автентичність за посиланням ',
+    question: 'qrCode',
+    answer: 'authenticity',
     color: '#8d83ff',
     img: '/certificate/cert_Leadership.jpg',
     animation: 'string;',

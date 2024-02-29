@@ -7,6 +7,7 @@ import FormModal from '../modals/form_modal/FormModal'
 import FeedBackForm from '../feedback/feedback_form/FeedBackForm'
 import styles from './Hero.module.css'
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
+import { useTranslations } from 'next-intl'
 
 const Hero = () => {
   const { closeModal } = useModal()
@@ -14,11 +15,13 @@ const Hero = () => {
   const modalType = useModal((state) => state.modalType)
   const isModalOpen = useModal((state) => state.isModalOpen)
 
+  const t = useTranslations("Hero")
+
   return (
     <section className={`${styles.hero} container`}>
       <TitleBlock />
       <AnimationBlock />
-      <p className={styles.paragraph}>Кайфуй від того, що приносить тобі користь</p>
+      <p className={styles.paragraph}>{t("subtitle")}</p>
       {isModalOpen && modalType === 'feedback' && (
         <FormModal handleClose={closeModal}>
           <FeedBackForm />

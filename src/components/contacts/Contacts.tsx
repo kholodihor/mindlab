@@ -1,13 +1,15 @@
 import React from 'react'
 import styles from './Contacts.module.css'
 import Image from 'next/image'
+import { useTranslations } from 'next-intl'
 
 const Contacts = () => {
+  const t = useTranslations("Contacts")
   return (
     <section id="contacts" className={styles.wrapper}>
-      <h2 className={styles.title}>Давай залишатись на зв’язку</h2>
+      <h2 className={styles.title}>{t("title")}</h2>
       <p className={styles.paragraph}>
-        Слідкуй за нами в{' '}
+        {t("follow")}{' '}
         <a
           href="https://www.instagram.com/mind.lab_hub?igsh=bWl3dGt5Njdwd3Fk&utm_source=qr"
           rel="noopener noreferrer"
@@ -21,7 +23,7 @@ const Contacts = () => {
             height={50}
           />
         </a>
-        додавайся в друзі в{' '}
+        {t("join")}{' '}
         <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
           <Image
             className={styles.image}
@@ -33,7 +35,7 @@ const Contacts = () => {
         </a>
       </p>
       <p className={styles.paragraph}>
-        Пиши нам в{' '}
+        {t("write")}{' '}
         <a href="https://t.me/+Q8t3dkMH84hiYmNi" rel="noopener noreferrer" target="_blank">
           {' '}
           <Image
@@ -44,7 +46,7 @@ const Contacts = () => {
             height={50}
           />
         </a>
-        та{' '}
+        {t("and")}{' '}
         <a href="mailto:mind.lab.hub@gmail.com">
           {' '}
           <Image
@@ -55,7 +57,7 @@ const Contacts = () => {
             height={50}
           />
         </a>{' '}
-        - ми обов’язково відповімо.
+       {t("answer")}
       </p>
     </section>
   )

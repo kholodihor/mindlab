@@ -13,6 +13,7 @@ import Link from 'next/link'
 import ArrowPartnersTablet from '../icons/ArrowPartnersTablet'
 import { motion } from 'framer-motion'
 import { useWidth } from '@/hooks/useWidth'
+import { useTranslations } from 'next-intl'
 
 import css from '../partners/Partners.module.css'
 import 'swiper/css'
@@ -23,6 +24,7 @@ import 'swiper/css/thumbs'
 
 const Partners = () => {
   const currentWidth = useWidth()
+  const t = useTranslations("Partners");
   return (
     <section className={`${css.partners} container`} id="partners">
       <div className={css.part__left}>
@@ -34,7 +36,7 @@ const Partners = () => {
           transition={{ ease: 'easeOut', duration: 0.75 }}
           className={`title ${css.partners__title}`}
         >
-          Гайс, подивіться, які круті партнери співпрацюють з MindLab
+          {t("title")}
         </motion.h2>
         {currentWidth < 1280 ? (
           <div className={css.icon__arrowTablet}>
@@ -45,14 +47,14 @@ const Partners = () => {
             <ArrowPartners />
           </div>
         )}
-        <p className={css.partners__question}>Хочеш познайомитися з ними ближче?</p>
+        <p className={css.partners__question}>{t("question")}</p>
         <div className={css.icon__fire}>
           <Fire />
           <Fire />
           <Fire />
         </div>
-        <p className={css.partners__text}>Ми маємо чим пишатися, бо нашими партнерами стали:</p>
-        <p className={css.partners__list}>{partners.map(({ name }) => `${name}, `)}</p>
+        <p className={css.partners__text}>{t("text")}</p>
+        <p className={css.partners__list}>{t("partnersList")}</p>
       </div>
       <div className={css.part__right}>
         <Swiper
@@ -71,9 +73,9 @@ const Partners = () => {
                 alt="logo"
                 className={css.partners__logo}
               />
-              <p className={css.partners__description}>{text}</p>
+              <p className={css.partners__description}>{t(text)}</p>
               <Link href={link} className={css.swiper__link}>
-                <p className={css.partners__name}>{name}</p>
+                <p className={css.partners__name}>{t(name)}</p>
                 <div className={css.link__icon}>
                   <ArrowSliderPartners />
                 </div>

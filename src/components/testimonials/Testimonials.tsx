@@ -14,6 +14,7 @@ import MainButton from '../ui/main_button/MainButton'
 import FormModal from '../modals/form_modal/FormModal'
 import TestimonialForm from './testimonial_form/TestimonialForm'
 import styles from './Testimonials.module.css'
+import { useTranslations } from 'next-intl'
 
 const Testimonials = () => {
   const [amount, setAmount] = useState(0)
@@ -22,7 +23,7 @@ const Testimonials = () => {
 
   const isModalOpen = useModal((state) => state.isModalOpen)
   const modalType = useModal((state) => state.modalType)
-
+const t = useTranslations("Testimonials")
   const isLargeScreen = useMediaQuery('(min-width: 1281px)')
   const isMediumScreen = useMediaQuery('(max-width: 1280px)')
   const isSmallScreen = useMediaQuery('(max-width: 768px)')
@@ -51,8 +52,8 @@ const Testimonials = () => {
   return (
     <section id="testimonials" className={`${styles.reviews_container} container`}>
       <h1 className={styles.reviews_title}>
-        Гайс, подивіться, <Image width={50} height={50} src="/reviews/look.svg" alt="eyes" /> що про
-        нас пишуть:
+        {t("title")} <Image width={50} height={50} src="/reviews/look.svg" alt="eyes" />
+        {t("spanTitle")}
       </h1>
       <Swiper
         speed={4000}
@@ -75,11 +76,11 @@ const Testimonials = () => {
       </Swiper>
       <div className={styles.comments_block}>
         <p className={styles.comments_block_paragraph}>
-          Ти в захваті від нашої платформи?
-          <br /> Маєш свої коменти?
-          <br /> Пиши відгук, не соромся! Ми завжди раді фідбекам!
+         {t("text")}
+          <br /> {t("comenth")}
+          <br /> {t("feedback")}
         </p>
-        <MainButton title="Залишити коментар" handleAction={() => openModal('testimonial')} />
+        <MainButton title={t("btn")} handleAction={() => openModal('testimonial')} />
       </div>
       {isModalOpen && modalType === 'testimonial' && (
         <FormModal handleClose={closeModal}>

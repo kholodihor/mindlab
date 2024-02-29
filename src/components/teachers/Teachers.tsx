@@ -7,6 +7,7 @@ import Search from './search/Search'
 import Tabs from './tabs/Tabs'
 import Slider from './slider/Slider'
 import styles from './Teachers.module.css'
+import { useTranslations } from 'next-intl'
 
 const Teachers = () => {
   const { teachers } = useTeachers()
@@ -14,6 +15,8 @@ const Teachers = () => {
   const [selectedQuery, setSelectedQuery] = useState('')
   const [speciality, setSpeciality] = useState('')
   const [filteredTeachers, setFilteredTeachers] = useState([])
+
+  const t = useTranslations("Spiekers");
 
   useEffect(() => {
     setQuery('')
@@ -54,7 +57,7 @@ const Teachers = () => {
           whileInView={{ translateY: 0, opacity: 1 }}
           transition={{ ease: 'easeIn', duration: 0.75 }}
         >
-          Провідні викладачі
+          {t("title")}
         </motion.h1>
       </div>
       <Search setQuery={setQuery} query={query} handleClick={filterByQuery} />
@@ -68,7 +71,7 @@ const Teachers = () => {
         <Slider teachers={filteredTeachers} />
       ) : (
         <p className={styles.not_found}>
-          Ми не знайшли зареєстрованих викладачів за вашим запитом...
+         {t("notFound")}
         </p>
       )}
     </section>

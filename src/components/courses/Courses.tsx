@@ -11,9 +11,11 @@ import { useWidth } from '@/hooks/useWidth'
 import { currentComponentsCourse } from '@/utils/currentComponentsCourse'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 const Courses = () => {
   const screenWidth = useWidth()
+  const t = useTranslations("Courses")
 
   return (
     <section id="courses" className={`container ${css.courses__container}`}>
@@ -25,7 +27,7 @@ const Courses = () => {
           transition={{ ease: 'easeOut', duration: 0.75 }}
           className={`title ${css.titleCourses}`}
         >
-          Обирай напрямок, який тобі до душі
+         {t("title")}
         </motion.h2>
 
         <div className={css.animation}>
@@ -43,15 +45,15 @@ const Courses = () => {
                     <ArrowTop color={color} width={21} height={22} />
                   </div>
                 </div>
-                <p className={css.courses__description}>{description}</p>
+                <p className={css.courses__description}>{t(description)}</p>
                 <div className={css.components}>
                   <p className={`${css.components__element} ${css[`components__${classname}`]}`}>
-                    {component}
+                    {t(component)}
                   </p>
                   <ul className={css.components__list}>
                     {currentComponentsCourse(components, screenWidth).map((item) => (
                       <li key={item} className={css.components__item}>
-                        {item}
+                        {t(item)}
                       </li>
                     ))}
                   </ul>
@@ -62,14 +64,11 @@ const Courses = () => {
         )}
       </ul>
       <div className={css.thumb}>
-        <h4 className={css.test}>Складно визначитись з курсом?</h4>
+        <h4 className={css.test}>{t("profTest.question")}</h4>
         <div className={css.wrapper__test}>
-          <p className={css.text}>
-            Пройди наш спеціальний тест та дізнайся, які напрямки професійного розвитку пасуватимуть
-            саме тобі
-          </p>
+          <p className={css.text}>{t("profTest.answer")}</p>
           <Link href="/" className={css.test__link}>
-            <p>Пройти тест</p>
+            <p>{t("profTest.test")}</p>
             <ArrowRight />
           </Link>
         </div>

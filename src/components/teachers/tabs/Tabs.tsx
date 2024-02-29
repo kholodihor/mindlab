@@ -2,6 +2,7 @@
 import styles from './Tabs.module.css'
 import { Dispatch, SetStateAction } from 'react'
 import { ITeacherResponse } from '@/types/teachers'
+import { useTranslations } from 'next-intl'
 
 interface TabsProps {
   teachers: ITeacherResponse[]
@@ -12,14 +13,14 @@ interface TabsProps {
 
 const Tabs = ({ teachers, query, speciality, setSpeciality }: TabsProps) => {
   const specialities = Array.from(new Set(teachers?.map((teacher) => teacher.speciality)))
-
+const t = useTranslations("Spiekers");
   return (
     <div className={styles.wrapper}>
       <div
         className={`${styles.tab} ${speciality === '' && !query && styles.active}`}
         onClick={() => setSpeciality('')}
       >
-        Провідні викладачі
+        {t("title")}
       </div>
       {specialities &&
         Array.isArray(specialities) &&
