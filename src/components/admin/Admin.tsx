@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
+import styles from './Admin.module.css'
 
 const Admin = () => {
   const router = useRouter()
@@ -15,7 +16,12 @@ const Admin = () => {
     }
   }, [session, router])
 
-  return <div>{session && session.user?.email}</div>
+  return (
+    <div className={styles.page}>
+      <h1>Admin</h1>
+      {session && session.user?.email}
+    </div>
+  )
 }
 
 export default Admin
