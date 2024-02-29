@@ -16,7 +16,7 @@
   width: 100%;
   display: flex;
   /*justify-content: flex-end;  TODO: should be ua/en btn */
-  justify-content: center;
+  justify-content:end;
   align-items: center;
   flex: 1;
   .header_burger {
@@ -89,4 +89,8 @@
   padding: 0 3px;
   font-size: 17px;
   color: var(--gray);
+}
+
+.switch {
+  width:100px;
 }

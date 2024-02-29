@@ -11,6 +11,7 @@ import MailIcon from '@/components/icons/MailIcon'
 import PhoneIcon from '@/components/icons/PhoneIcon'
 import TelegramIcon from '@/components/icons/TelegramIcon'
 import LanguageSwitcher from '../LocalSwitcher'
+import { useTranslations } from 'next-intl'
 
 type MobileMenuProps = {
   onClose: () => void
@@ -18,10 +19,11 @@ type MobileMenuProps = {
 
 const MobileMenu = ({ onClose }: MobileMenuProps) => {
   const [isHovered, setIsHovered] = useState(false)
+  const t = useTranslations("Menu")
   return (
     <div className={styles.wrapper}>
       <div className={styles.menu_header}>
-        <h2 className={styles.menu_title}>Меню</h2>
+        <h2 className={styles.menu_title}>{t("menu")}</h2>
         <div onClick={onClose}>
           <CloseIconXL />
         </div>
@@ -29,19 +31,19 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       <nav className={styles.menu_nav}>
         <ul>
           <li className={styles.header_nav_item}>
-            <a href="#courses">Курси</a>
+            <a href="#courses">{t("courses")}</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#courses">Викладачі</a>
+            <a href="#courses">{t("speakers")}</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#courses">Партнери</a>
+            <a href="#courses">{t("partners")}</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#courses">Для батьків</a>
+            <a href="#courses">{t("parents")}</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#courses">Контакти</a>
+            <a href="#courses">{t("contacts")}</a>
           </li>
           <li className={styles.header_nav_item}>
           <LanguageSwitcher />
@@ -59,7 +61,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
               onMouseLeave={() => setIsHovered(false)}
               className={styles.header_nav_item_button}
             >
-              Чат-бот
+              {t("chat")}
             </button>
           </li>
         </ul>
