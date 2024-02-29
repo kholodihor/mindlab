@@ -70,6 +70,10 @@
         color: var(--gray);
         cursor: not-allowed;
       }
+      .active {
+        background: var(--lime);
+        color: var(--black);
+      }
     }
   }
   .sun_wrapper {
