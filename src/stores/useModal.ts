@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { create } from 'zustand'
 
-type ModalType = 'testimonial' | 'feedback' | ''
+type ModalType = 'testimonial' | 'feedback' | 'register' | ''
 
 interface ModalState {
   isModalOpen: boolean

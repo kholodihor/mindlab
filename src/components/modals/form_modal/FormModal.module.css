@@ -12,15 +12,20 @@
 
   .modal {
     position: relative;
-    width: 580px;
-    /* max-height: 600px; */
+    width: 95vw;
+    max-height: 95vh;
     background: var(--white);
     border-radius: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-    overflow: hidden;
+    padding: 0.5rem;
+    overflow: auto;
+
+    @media screen and (min-width: 450px) {
+      padding: 2rem;
+      width: 580px;
+    }
     .close {
       width: 2rem;
       height: 2rem;
@@ -29,5 +34,14 @@
       right: 0.5rem;
       cursor: pointer;
     }
+  }
+
+  .modal::-webkit-scrollbar {
+    display: none;
+  }
+
+  .modal {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }

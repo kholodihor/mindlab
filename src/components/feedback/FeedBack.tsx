@@ -21,7 +21,7 @@ const FeedBack = () => {
   const [checked, setChecked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
-const t = useTranslations("Feedback")
+  const t = useTranslations('Feedback')
   const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLESHEETS_URL!
 
   const {
@@ -57,11 +57,11 @@ const t = useTranslations("Feedback")
   }
 
   return (
-    <section id='feedback' className={styles.container}>
+    <section id="feedback" className={styles.container}>
       <div className={`${styles.wrapper}`}>
         <div className={styles.title_wrapper}>
-          <h1 className={styles.title}>{t("title")}</h1>
-          <p className={styles.subtitle}>{t("subtitle")}</p>
+          <h1 className={styles.title}>{t('title')}</h1>
+          <p className={styles.subtitle}>{t('subtitle')}</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} autoComplete="new-off" className={styles.form}>
           <Controller
@@ -72,7 +72,7 @@ const t = useTranslations("Feedback")
                 {...field}
                 errorText={errors.name?.message}
                 isWhite={true}
-                placeholder={t("form.name")}
+                placeholder={t('form.name')}
               />
             )}
           />
@@ -96,13 +96,13 @@ const t = useTranslations("Feedback")
                 {...field}
                 isWhite={true}
                 errorText={errors.message?.message}
-                placeholder={t("form.question")}
+                placeholder={t('form.question')}
               />
             )}
           />
           <div className={styles.button_wrapper}>
             <button type="submit" className={styles.button} disabled={!checked}>
-              {isProcessing ? t("form.loading") : t("form.btn")}
+              {isProcessing ? t('form.loading') : t('form.btn')}
             </button>
           </div>
         </form>
@@ -117,23 +117,23 @@ const t = useTranslations("Feedback")
             <span className={styles.checkmark}></span>
           </label>
           <p className={styles.check_paragraph}>
-            {t("chakbox.accept")}{' '}
+            {t('chakbox.accept')}{' '}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/правила_користування_сайтом.pdf"
             >
-              {t("chakbox.public")}
+              {t('chakbox.public')}
             </a>{' '}
-            {t("chakbox.consent")} <br /> {t("chakbox.data")}{' '}
+            {t('chakbox.consent')} <br /> {t('chakbox.data')}{' '}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/політика_конфіденційності.pdf"
             >
-              {t("chakbox.policy")}
+              {t('chakbox.policy')}
             </a>
           </p>
         </div>
