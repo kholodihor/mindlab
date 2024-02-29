@@ -7,7 +7,7 @@
   background: url(/reviews/reviews_bg.png) no-repeat;
   background-size: contain;
   background-position: center;
-  padding: 100px 0;
+  padding: 100px 20px;
   overflow: hidden;
 }
 
@@ -17,7 +17,9 @@
   font-size: 40px;
   text-transform: uppercase;
   margin-bottom: 2rem;
-  margin-left: 8rem;
+  @media screen and (min-width: 430px) {
+    margin-left: 8rem;
+  }
 }
 
 .swiper {
@@ -36,8 +38,12 @@
 
 .comments_block {
   margin-top: 60px;
-  margin-left: 8rem;
-  width: 480px;
+  /* margin-left: 8rem;
+  width: 480px; */
+  @media screen and (min-width: 450px) {
+    margin-left: 8rem;
+    width: 480px;
+  }
 }
 
 .comments_block_paragraph {

@@ -6,12 +6,12 @@ import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import { useMediaQuery } from '@react-hook/media-query'
+import { ITeacherResponse } from '@/types/teachers'
 import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
 
 import styles from './Slider.module.css'
 import 'swiper/css/navigation'
 import 'swiper/css'
-import { ITeacherResponse } from '@/types/teachers'
 
 interface SliderProps {
   teachers: ITeacherResponse[]
