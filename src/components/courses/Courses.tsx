@@ -51,8 +51,8 @@ const Courses = () => {
                     {t(component)}
                   </p>
                   <ul className={css.components__list}>
-                    {currentComponentsCourse(components, screenWidth).map((item) => (
-                      <li key={item} className={css.components__item}>
+                    {currentComponentsCourse(components, screenWidth).map((item, index) => (
+                      <li key={index} className={css.components__item}>
                         {t(item)}
                       </li>
                     ))}
@@ -67,7 +67,8 @@ const Courses = () => {
         <h4 className={css.test}>{t("profTest.question")}</h4>
         <div className={css.wrapper__test}>
           <p className={css.text}>{t("profTest.answer")}</p>
-          <Link href="/" className={css.test__link}>
+          <Link href="https://www.16personalities.com/free-personality-test" rel="noopener noreferrer"
+                  target="_blank" className={css.test__link}>
             <p>{t("profTest.test")}</p>
             <ArrowRight />
           </Link>

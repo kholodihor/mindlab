@@ -35,163 +35,161 @@ export const coursesPage: Array<CoursesPage> = [
     name: 'political',
     title: 'Political science-sociology',
     description:
-      'Гайс, ви переймаєтесь тим, що вібувається в політиці? Думаєте, як поліпшити соціальне становище в своїй державі та мрієте про економічне зростання для України? Тоді тобі необхідно заглибитися і отримати сталі знання в галузі Рolitical science-sociology. В стоїх руках - реальні зміни!',
+      'politicalScienceSociology.about',
     time: {
-      date: 'Квітень 2024',
-      duration: '2 місяці'
+      date: 'politicalScienceSociology.time.date',
+      duration: 'politicalScienceSociology.time.duration'
     },
     price: {
       full: 1200,
       monthly: 700
     },
     seat: 15,
-    text: 'Ми готові запускати новий напрямок Рolitical science-sociology, цікавишся цим напрямком?',
+    text: 'politicalScienceSociology.text',
     topic: [
-      'Що таке політика',
-      'Політика і політичне життя суспілсьтва',
-      'Влада і політичні режими',
-      'Демократія: поняття, теорія, модель',
-      'Політична еліта та лідерство, Держава в політичній системі',
-      'Громадянське суспільство та правова держава',
-      'Політичні партії та системи',
-      'Політична культура та етика',
-      'Соціально-політичні ідеології і течії у сучасному світі',
-      'Політика Європейських держав',
-      'Діяльність Міжнародних інфституцій',
-      'Соціологія нації',
-      'Соціологія особистості',
-      'Альтернативна соціологія',
-      'Функції соціології та її роль у розвитку суспільства',
-      'Конфліктологія',
-      'Теорія соціальних змін'
+    "politicalScienceSociology.topic.topic1",
+    "politicalScienceSociology.topic.topic2",
+    "politicalScienceSociology.topic.topic3",
+    "politicalScienceSociology.topic.topic4",
+    "politicalScienceSociology.topic.topic5",
+    "politicalScienceSociology.topic.topic6",
+    "politicalScienceSociology.topic.topic7",
+    "politicalScienceSociology.topic.topic8",
+    "politicalScienceSociology.topic.topic9",
+    "politicalScienceSociology.topic.topic10",
+    "politicalScienceSociology.topic.topic11",
+    "politicalScienceSociology.topic.topic12",
+    "politicalScienceSociology.topic.topic13",
+    "politicalScienceSociology.topic.topic14",
+    "politicalScienceSociology.topic.topic15",
+    "politicalScienceSociology.topic.topic16",
+    "politicalScienceSociology.topic.topic17",  
     ]
   },
   {
     name: 'leadership',
     title: 'Leadership',
     description:
-      'Ти відчуваєш свій вплив на оточення, маєш здорові амбіції, а головне тобі не все рівно, що відбувається довкола і ти готовий брати відповідальність на себе? Опа, тоді курс “Leadership” точно допоможе тобі освоїти перші кроки на шляху до розвитку лідерських навичок. Вивчення лідерства може сприяти формуванню всебічно розвиненої особистості, та підготовці до викликів сучасного світу. Ти точно можеш стати ТОП-лідером, лише розпочни свій шлях!',
-    time: {
-      date: 'Квітень 2024',
-      duration: '2 місяці'
-    },
-    price: {
-      full: 1200,
-      monthly: 700
-    },
-    seat: 15,
-    text: 'Хей, Хей, ну що, ви готові? Ми запускаємо новий курс, будемо досліджувати тему “Leadership” і не просто так, а розкриваючи важливі питання, долучайтеся до нас буде дууууже цікаво!',
-    topic: [
-      'Поняття та стилі лідерства. Ретроспектива і сьогодення',
-      'Розвиток лідерства в сучасних реаліях',
-      'Формування системи лідерства',
-      'Корпоративна влада',
-      'Влада лідера',
-      'Відповідальність',
-      'Лідерська поведінка',
-      'Інтелектуальний лідер. Хто він?',
-      'Лідерство і менедмент: спільне чи відмінне?'
-    ]
+    'leadership.about',
+  time: {
+    date: 'leadership.time.date',
+    duration: 'leadership.time.duration'
+  },
+  price: {
+    full: 1200,
+    monthly: 700
+  },
+  seat: 15,
+  text: 'leadership.text',
+  topic: [
+    "leadership.topic.topic1",
+    "leadership.topic.topic2",
+    "leadership.topic.topic3",
+    "leadership.topic.topic4",
+    "leadership.topic.topic5",
+    "leadership.topic.topic6",
+    "leadership.topic.topic7",
+    "leadership.topic.topic8",
+    "leadership.topic.topic9"
+  ]
   },
   {
     name: 'business',
     title: 'Business',
     description:
-      'Кожен з нас хоча б раз у житті замислювався над тим, якою б справою займатися, щоб не залежити від когось, отримувати дохід і самостійно управляти бізнесом. Правда такі думки приходили і до тебе теж? Ти маєш ідею, але не знаєш з чого почати? Ну що ж, ми можемо підказати, як монетизувати навіть крейзі ідею! Business - це ризик, але якщо він продуманий, то може бути точно вигідним. А спершу, ми навчимо розуміти економічні процеси, навчимо фінансовій грамотності, простимулюємо твою підприємницьку діяльність. А ще ти матимеш змогу зустрітися і поспілкуватися з бізнесменами що створили себе з нуля. Як вони самі про все розкажуть!',
-    time: {
-      date: 'Квітень 2024',
-      duration: '2 місяці'
-    },
+    'business.about',
+  time: {
+    date: 'business.time.date',
+    duration: 'business.time.duration'
+  },
     price: {
       full: 1200,
       monthly: 700
     },
     seat: 15,
-    text: 'Зачекалися на наші новини? Цікавить який курс вийде в широкі маси наступним? Поспішаємо стартанути!!!!!!!!!! Раз, два, три лови! Business - нові заняття за темами:',
+    text: 'business.text',
     topic: [
-      'Соціальні навички та підприємницьке мислення',
-      'Основи економічної грамотності',
-      'Менеджмент ',
-      'Запуск Start up',
-      'Скіли ХХІ ст.',
-      'Бізнес мислення та ініціативи',
-      'Школа професій. Знайомство і мотивація'
+      "business.topic.topic1",
+    "business.topic.topic2",
+    "business.topic.topic3",
+    "business.topic.topic4",
+    "business.topic.topic5",
+    "business.topic.topic6",
+    "business.topic.topic7",
     ]
   },
   {
     name: 'innovative',
     title: 'Іnnovative technologies',
     description:
-      'Поспішаєш, щоб не пропустити нові тренди інноваційних технологій? Хочеш познайомитися і освоїти нові навички, які дуже швидко зможуть приносити тобі дохід, а іншим користь, тоді час познайомитися з Іnnovative technologies включно з (Game Dev, UI/UX Design, QA, AI).',
-    time: {
-      date: 'Квітень 2024',
-      duration: '2 місяці'
-    },
+      'innovativeTechnologies.about',
+      time: {
+        date: 'innovativeTechnologies.time.date',
+        duration: 'innovativeTechnologies.time.duration'
+      },
     price: {
       full: 1200,
       monthly: 700
     },
     seat: 15,
-    text: 'Агоу гайс, що там далі? Готові до наших нивин? Ми запускаємо ще один напрямок і в ньому хочемо представити наших крутих друзів і партнерів Beetroot Academy, які точно знають все про ІТ і найкраще познайомлять тебе з цією професією. Вони організовують і проводять навчання з:',
+    text: 'innovativeTechnologies.text',
     topic: [
-      'Project managment in IT',
-      'UI/UX Design',
-      'FE/BE',
-      'Digital Marketing',
-      'AI',
-      'IT-професії. Знайомство'
+      "innovativeTechnologies.topic.topic1",
+    "innovativeTechnologies.topic.topic2",
+    "innovativeTechnologies.topic.topic3",
+    "innovativeTechnologies.topic.topic4",
+    "innovativeTechnologies.topic.topic5",
+    "innovativeTechnologies.topic.topic6"
     ]
   },
   {
     name: 'art',
     title: 'ART',
     description:
-      'Творчий, креативний, вмієш створювати круті речі власними руками? А як часто ти роздивляєшся картини відомих художників, слідкуєш за модними трендами, і новими віяннями в дизайні? Якщо тебе цікавить творчість, ти кайфуєш від мистецтва, любиш малювати, маєш власне бачення і вмієш його виражати, спробуй себе в напрямку ART (Moldern ART, Design). Кваліфіковані спеціалісти зможуть підтримати тебе у творчому пориві.',
-    time: {
-      date: 'Квітень 2024',
-      duration: '2 місяці'
-    },
+      'art.about',
+      time: {
+        date: 'art.time.date',
+        duration: 'art.time.duration'
+      },
     price: {
       full: 1200,
       monthly: 700
     },
     seat: 15,
-    text: 'Питання в студію, ти коли небудь цікавився мистецтвом? Так, круто! Бо саме для тебе ми підготували кльовий курс, що знайомить тебе з різними напрямами та стилями мистецтва, а також навчить створювати щось власне - унікальне! Важко уявити собі, що це можливо у ХХІ ст, в епоху АІ, ми впевнені, що рука людини і інтелект завжди буде в ціні! Тож, не зволікай, долучайся! На тебе чекають такі цікавинки:',
+    text: 'art.text',
     topic: [
-      'Сучасне мистецтво',
-      "Комп'ютерне мистецтво",
-      'Відео-мистецтво',
-      'Оп-арт',
-      'Мінімалізм в мистецтві або мистецтво мінімалізму',
-      'Медіа-арт',
-      'Сучасна архітектура та дизайн'
+      "art.topic.topic1",
+      "art.topic.topic2",
+      "art.topic.topic3",
+      "art.topic.topic4",
+      "art.topic.topic5",
+      "art.topic.topic6",
+      "art.topic.topic7"
     ]
   },
   {
     name: 'career',
     title: ' Career counseling/Career guidance',
     description:
-      " У тебе виникають питання, що робити далі у житті, як зробити вірний вибір, і реалізуватися? Ми думаємо, що це доволі важливий єтап і тобі може бути складно, тож пропонуємо тобі фахову допомогу висококваліфікованих фахівців. Кар'єрне консультування допомагає їм зрозуміти свої інтереси, навички та цілі, щоб прийняти інформовані рішення щодо вибору кар'єрного шляху. Консультанти можуть допомагати учням і студентам у визначенні сфер діяльності, вивчення університетів, а також надавати поради з проходження вступних випробувань та складання документів. Консультанти допоможуть  розробити конкретний кар'єрний план, визначити короткострокові та довгострокові цілі, а також шляхи до їх досягнення. Career counseling/Career guidance - це важливий етап в процесі твого становленні, тож не прогав свій шанс.",
-    time: {
-      date: 'Квітень 2024',
-      duration: '2 місяці'
-    },
+      "careerCounselin.about",
+      time: {
+        date: 'careerCounselin.time.date',
+        duration: 'careerCounselin.time.duration'
+      },
     price: {
       full: 1200,
       monthly: 700
     },
     seat: 15,
-    text: 'Не можеш визначитися з майбутньою професією? Питання “Ким ти хочеш стати коли виростеш?”  вже тебе наздогнало… Батьки кажуть одне, а ти хочеш іншого ми допоможемо! Приєднуйся до курсу Career counseling/Career guidance і ми прокачаємо твої скіли, щоб вибір був 100% вдалим! ',
+    text: 'careerCounselin.text',
     topic: [
-      'Профорієнтація',
-      'Зустріч із стартаперами',
-      'Зустріч з бізнесом',
-      'Зустріч з політиком',
-      'Кар’єрне консультування',
-      'Кар’єрний супровід',
-      'Портфоліо, резюме, інтерв’ю, що це?',
-      'День ТІНІ. Стажування',
-      'Знайомство із найуспішнішими студентами України'
+      "careerCounselin.topic.topic1",
+      "careerCounselin.topic.topic2",
+      "careerCounselin.topic.topic3",
+      "careerCounselin.topic.topic4",
+      "careerCounselin.topic.topic5",
+      "careerCounselin.topic.topic6",
+      "careerCounselin.topic.topic7"
     ]
   }
 ]
@@ -230,4 +228,4 @@ export const questionCourse: Array<QuestionCourse> = [
   }
 ];
 
-export const sidebar = ['Теми', 'Викладачі', 'Для кого', 'Питання'];
+export const sidebar = ['sideBar.topic', 'sideBar.teatcher', 'sideBar.forWhom', 'sideBar.questions'];

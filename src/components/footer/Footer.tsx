@@ -73,7 +73,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-            <Link href="#feedback" className={css.link__advice}>
+            <Link href="/#feedback" className={css.link__advice}>
               {t('Footer.btn')}
             </Link>
           </div>
