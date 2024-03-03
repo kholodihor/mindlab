@@ -34,6 +34,20 @@
       "free": "free speaking club",
       "course": "in every course! And also - a free test to determine the level of your English",
       "btn": "Determine the level of English"
+    },
+    "goals": {
+      "innovation": {
+        "boldText": "Наша мета",
+        "text": "- створення інноваційного і безпечного осередку для розвитку, навчання та взаємодії."
+      }, 
+      "career": {
+        "boldText": "Ми прагнемо",
+        "text": "надати молоді та обдарованій генерації можливість здобувати знання, збирати натхнення, знаходити власний шлях у житті та планувати свою кар&lsquo;єру."
+      }, 
+      "potential": {
+        "boldText": "Ми допоможемо",
+        "text": "тобі розширити свої інтереси і відкрити власний потенціал."
+      }
     }
   },
   "Spiekers": {

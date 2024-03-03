@@ -11,15 +11,6 @@ interface AboutUsAnimationProps {
   aboutRef: React.RefObject<HTMLDivElement>
 }
 
-const style = {
-  width: '120%',
-  height: '120%',
-  marginLeft: '-118px'
-}
-const styleEn = {
-  width: '120%',
-  height: '120%'
-}
 const divisionFactor = 4
 
 const AboutUsAnimation: FC<AboutUsAnimationProps> = ({ aboutRef }) => {
@@ -33,9 +24,9 @@ const AboutUsAnimation: FC<AboutUsAnimationProps> = ({ aboutRef }) => {
     <>
       {scrollY >= startPlayPosition &&
         (currentLanguage === DEFAULT_LANGUAGE ? (
-          <Lottie animationData={aboutUsUa} style={style} loop={false} />
+          <Lottie animationData={aboutUsUa} loop={false} />
         ) : (
-          <Lottie animationData={aboutUsEng} style={styleEn} loop={false} />
+          <Lottie animationData={aboutUsEng} loop={false} />
         ))}
     </>
   )
