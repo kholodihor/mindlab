@@ -36,6 +36,29 @@
       "free": "free speaking club",
       "course": "in every course! And also - a free test to determine the level of your English",
       "btn": "Determine the level of English"
+    },
+    "goals": {
+      "innovation": {
+        "boldText": "Our goal",
+        "text": " is to create an innovative and safe center for development, learning, and interaction."
+      },
+      "career": {
+        "boldText": "We aim ",
+        "text": " to offer young individuals the chance to acquire knowledge and inspiration, as well as plan their career paths."
+      },
+      "potential": {
+        "boldText": "We will help",
+        "text": "you expand your interests and discover your own potential"
+      }
+    },
+    "mainText": {
+      "message": "No time to wait,",
+      "hands": " the future is",
+      "future": "in your hands!"
+    },
+    "secondaryGoals": {
+      "firstGoal": "Here you will 100% find friends, get indoor experience and new knowledge that you can immediately try in real life! No time to wait, you are our new generation, and the future is in your hands!",
+      "secondGoal": "Learning and development should bring you pleasure"
     }
   },
   "Spiekers": {

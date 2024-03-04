@@ -1,47 +1,43 @@
 import Hands from '@/components/icons/Hands'
 import React, { FC } from 'react'
 import styles from '../About.module.css'
+import { useTranslations } from 'next-intl'
 
 const AboutUs: FC = () => {
+  const t = useTranslations('About')
+
   return (
     <div className={styles.about_us}>
       <div className={styles.main_goals}>
         <p>
-          <span className={styles.text_highlight}>Наша мета</span> - створення інноваційного і
-          безпечного осередку для розвитку, навчання та взаємодії.
+          <span className={styles.text_highlight}>{t('goals.innovation.boldText')}</span>{' '}
+          {t('goals.innovation.text')}
         </p>
         <p>
-          <span className={styles.text_highlight}>Ми прагнемо</span> надати молоді та обдарованій
-          генерації можливість здобувати знання, збирати натхнення, знаходити власний шлях у житті
-          та планувати свою кар&lsquo;єру.
+          <span className={styles.text_highlight}>{t('goals.career.boldText')}</span>{' '}
+          {t('goals.career.text')}
         </p>
         <p>
-          <span className={styles.text_highlight}>Ми допоможемо</span> тобі розширити свої інтереси
-          і відкрити власний потенціал.
+          <span className={styles.text_highlight}>{t('goals.potential.boldText')}</span>{' '}
+          {t('goals.potential.text')}
         </p>
       </div>
       <p className={styles.main_text}>
         <span>
-          Не зволікай,
-          <br /> в твоїх руках
+          {t('mainText.message')}
+          <br /> {t('mainText.hands')}
         </span>
         <span className={styles.hands_middle}>
           <Hands />
         </span>
-        <span> твоє майбутнє!</span>
+        <span> {t('mainText.future')}</span>
         <span className={styles.hands_end}>
           <Hands />
         </span>
       </p>
       <div className={styles.secondary_goals}>
-        <p>
-          Тут ти 100 % знайдеш друзів, отримаєш крутий експірієнс і нові знання, які зможеш одразу
-          випробувати в реальному житті!
-        </p>
-        <p>
-          Навчання і розвиток мають приносити тобі задоволення - ми не змушуємо, а надаємо
-          можливість розвиватися.
-        </p>
+        <p>{t('secondaryGoals.firstGoal')}</p>
+        <p>{t('secondaryGoals.secondGoal')}</p>
       </div>
     </div>
   )
