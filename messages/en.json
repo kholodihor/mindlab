@@ -213,7 +213,49 @@
       "question": "Is it difficult to decide on a course?",
     "answer": "Take our special test and find out which areas of professional development will suit you",
     "test" : "Pass a test"
-  }
+  },
+  "audience": {
+    "title": "The course is for you if you",
+    "description": "Not a designer yet",
+    "text": "Let's study the basic tools for creating UI design sites and the basic principles of working with them."
+  },
+  "skills": {
+    "skill1": {
+    "name": "Experience",
+    "description": "all you need is the desire and willingness to work hard"
+    },
+    "skill2": {
+      "name": "Time",
+      "description": "10-12 hours a week for assignments"
+      }, 
+      "skill3": {
+        "name": "English",
+        "description": "for comfortable reading of long articles about design"
+        }
+  },
+  "question": {
+    "title": "Frequently asked questions",
+    "question1": {
+     "question": "What skills are required for entry?",
+     "answer": "All you need is the desire and willingness to work hard" 
+    },
+    "question2": {
+      "question": "Will there be a certificate?",
+      "answer": "It will be" 
+     },
+     "question3": {
+      "question": "What do I not like?",
+      "answer": "Will like it" 
+     },
+     "question4": {
+      "question": "Will the webinars be recorded?",
+      "answer": "So" 
+     },
+     "question5": {
+      "question": "What software is needed?",
+      "answer": "Persistence" 
+     }
+      }
   },
   "Partners": {
     "title": "Hey folks, look at the incredible partners working with Mindlab!",

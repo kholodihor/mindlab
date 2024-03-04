@@ -195,35 +195,35 @@ export const coursesPage: Array<CoursesPage> = [
 ]
 
 export const skillList: Array<SkillList> = [
-  { name: 'Досвід', description: 'потрібно лише бажання й готовність багато працювати', className: 'own__skill' },
-  { name: 'Час', description: '10-12 годин на тиждень для виконання завдань', className: 'time__skill' },
-  { name: 'English', description: 'для комфортного читання довгих статей про дизайн', className: 'english__skill' }
+  { name: 'skills.skill1.name', description: 'skills.skill1.description', className: 'own__skill' },
+  { name: 'skills.skill2.name', description: 'skills.skill2.description', className: 'time__skill' },
+  { name: 'skills.skill3.name', description: 'skills.skill3.description', className: 'english__skill' }
 ]
 
 export const questionCourse: Array<QuestionCourse> = [
   {
-    question: 'Які навички необхдні для вступу?',
-    answer: 'Потрібно лише бажання й готовність багато працювати',
+    question: 'question.question1.question',
+    answer: 'question.question1.answer',
     id: 1
   },
   {
-    question: 'А сертифікат буде?',
-    answer: 'Буде',
+    question: 'question.question2.question',
+    answer: 'question.question2.answer',
     id: 2
   },
   {
-    question: 'Що, як мені не сподобається?',
-    answer: 'Сподобається',
+    question: 'question.question3.question',
+    answer: 'question.question3.answer',
     id:3
   },
   {
-    question: 'Чи будуть записуватися вебінари?',
-    answer: 'Так',
+    question: 'question.question4.question',
+    answer: 'question.question4.answer',
     id: 4
   },
   {
-    question: 'Який потрібен софт?',
-    answer: 'Наполегливість',
+    question: 'question.question5.question',
+    answer: 'question.question5.answer',
     id: 5
   }
 ];

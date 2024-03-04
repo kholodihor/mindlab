@@ -11,15 +11,16 @@ import { useWidth } from '@/hooks/useWidth'
 import { currentComponentsCourse } from '@/utils/currentComponentsCourse'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 const Courses = () => {
   const screenWidth = useWidth()
   const t = useTranslations("Courses")
+  const locale = useLocale();
 
   return (
     <section id="courses" className={`container ${css.courses__container}`}>
-      <div className={css.wrapper}>
+      <div className={css.wrapper} id="course">
         <motion.h2
           viewport={{ once: true }}
           initial={{ translateY: 150, opacity: 0 }}
@@ -38,7 +39,7 @@ const Courses = () => {
         {coursesList.map(
           ({ title, description, component, components, classname, color, href }) => (
             <li className={css.courses__item} key={title}>
-              <Link href={href} className={css.courses__link}>
+              <Link href={`/${locale}${href}`} className={css.courses__link}>
                 <div className={css.thumb__title}>
                   <h3 className={` ${css[`title__${classname}`]}`}>{title}</h3>
                   <div className={css.icon__title}>

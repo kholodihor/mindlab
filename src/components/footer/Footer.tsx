@@ -5,15 +5,16 @@ import MailIcon from '../icons/MailIcon'
 import TelegramIcon from '../icons/TelegramIcon'
 import PhoneIcon from '../icons/PhoneIcon'
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 const Footer = () => {
   const t = useTranslations()
+  const locale = useLocale()
   return (
     <footer className={css.footer}>
       <div className={`${css.footer_container} `}>
         <div className={css.footer__wrapper}>
-          <Link href={'/'} className={css.logo}>
+          <Link href={`/${locale}`} className={css.logo}>
             <Image
               src="/svg/footer/footer-logo.svg"
               width={118}
@@ -73,7 +74,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-            <Link href="/#feedback" className={css.link__advice}>
+            <Link href={`/${locale}#feedback`} className={css.link__advice}>
               {t('Footer.btn')}
             </Link>
           </div>
@@ -82,7 +83,7 @@ const Footer = () => {
           <ul className={css.menu__list}>
             {menuList.map(({ link, menu }) => (
               <li key={menu} className={css.menu__item}>
-                <Link href={link} className={css.menu__link}>
+                <Link href={`/${locale}${link}`} className={css.menu__link}>
                   {t(menu)}
                 </Link>
               </li>
