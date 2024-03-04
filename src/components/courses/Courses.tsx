@@ -11,15 +11,16 @@ import { useWidth } from '@/hooks/useWidth'
 import { currentComponentsCourse } from '@/utils/currentComponentsCourse'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 const Courses = () => {
   const screenWidth = useWidth()
   const t = useTranslations("Courses")
+  const locale = useLocale();
 
   return (
     <section id="courses" className={`container ${css.courses__container}`}>
-      <div className={css.wrapper}>
+      <div className={css.wrapper} id="course">
         <motion.h2
           viewport={{ once: true }}
           initial={{ translateY: 150, opacity: 0 }}
@@ -38,7 +39,7 @@ const Courses = () => {
         {coursesList.map(
           ({ title, description, component, components, classname, color, href }) => (
             <li className={css.courses__item} key={title}>
-              <Link href={href} className={css.courses__link}>
+              <Link href={`/${locale}${href}`} className={css.courses__link}>
                 <div className={css.thumb__title}>
                   <h3 className={` ${css[`title__${classname}`]}`}>{title}</h3>
                   <div className={css.icon__title}>
@@ -51,8 +52,8 @@ const Courses = () => {
                     {t(component)}
                   </p>
                   <ul className={css.components__list}>
-                    {currentComponentsCourse(components, screenWidth).map((item) => (
-                      <li key={item} className={css.components__item}>
+                    {currentComponentsCourse(components, screenWidth).map((item, index) => (
+                      <li key={index} className={css.components__item}>
                         {t(item)}
                       </li>
                     ))}
@@ -67,7 +68,8 @@ const Courses = () => {
         <h4 className={css.test}>{t("profTest.question")}</h4>
         <div className={css.wrapper__test}>
           <p className={css.text}>{t("profTest.answer")}</p>
-          <Link href="/" className={css.test__link}>
+          <Link href="https://www.16personalities.com/free-personality-test" rel="noopener noreferrer"
+                  target="_blank" className={css.test__link}>
             <p>{t("profTest.test")}</p>
             <ArrowRight />
           </Link>

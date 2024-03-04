@@ -3,13 +3,14 @@ import css from './QuestionCourse.module.css'
 import { useState } from 'react';
 import MinusIcon from '@/components/icons/MinusIcon';
 import PlusIcon from '@/components/icons/PlusIcon';
+import { useTranslations } from 'next-intl';
 
 
 type Answer = Array<number>
 
 const QuestionCourse = () => {
     const [answer, setAnswer] = useState<Answer>([])
-
+const t = useTranslations("Courses")
     const currentAnswer = (id: number) => answer.find((item) => item === id)
   
     const showAnswer = (id: number) => {
@@ -21,7 +22,7 @@ const QuestionCourse = () => {
     }
     return (
         <div>
-<h2 className={css.title}>Часті питання</h2>
+<h2 className={css.title}>{t("question.title")}</h2>
 <ul className={css.question__list}>
     {questionCourse.map(({question, answer, id}) => <li key={question} className={css.question__item}>
         <div className={css.wrapper}>
@@ -34,9 +35,9 @@ const QuestionCourse = () => {
                     <PlusIcon color={'#aaaedf'} />
                   </button>
                 )}
-            <p >{question}</p>
+            <p >{t(question)}</p>
         </div>
-        {currentAnswer(id) &&  <p className={css.answer}>{answer}</p>}
+        {currentAnswer(id) &&  <p className={css.answer}>{t(answer)}</p>}
        
     </li>)}
 </ul>

@@ -19,11 +19,11 @@ type MobileMenuProps = {
 
 const MobileMenu = ({ onClose }: MobileMenuProps) => {
   const [isHovered, setIsHovered] = useState(false)
-  const t = useTranslations("Menu")
+  const t = useTranslations()
   return (
     <div className={styles.wrapper}>
       <div className={styles.menu_header}>
-        <h2 className={styles.menu_title}>{t("menu")}</h2>
+        <h2 className={styles.menu_title}>{t("Menu.menu")}</h2>
         <div onClick={onClose}>
           <CloseIconXL />
         </div>
@@ -31,19 +31,19 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       <nav className={styles.menu_nav}>
         <ul>
           <li className={styles.header_nav_item}>
-            <a href="#courses">{t("courses")}</a>
+            <a href="#courses">{t("Menu.courses")}</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#courses">{t("speakers")}</a>
+            <a href="#courses">{t("Menu.speakers")}</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#courses">{t("partners")}</a>
+            <a href="#courses">{t("Menu.partners")}</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#courses">{t("parents")}</a>
+            <a href="#courses">{t("Menu.parents")}</a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href="#courses">{t("contacts")}</a>
+            <a href="#courses">{t("Menu.contacts")}</a>
           </li>
           <li className={styles.header_nav_item}>
           <LanguageSwitcher />
@@ -61,7 +61,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
               onMouseLeave={() => setIsHovered(false)}
               className={styles.header_nav_item_button}
             >
-              {t("chat")}
+              {t("Menu.chat")}
             </button>
           </li>
         </ul>
@@ -85,24 +85,24 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       <div className={styles.contacts}>
         <ul>
           <li className={styles.contacts_item}>
-            <h4>Ми допоможемо</h4>
+            <h4>{t('Footer.help')}</h4>
             <a className={styles.contacts_item_link} href="mailto:mind.lab.hub@gmail.com">
               <MailIcon />
-              <span>пошта</span>
+              <span>{t("Footer.mail")}</span>
             </a>
           </li>
           <li className={styles.contacts_item}>
-            <h4>Ми відповімо</h4>
+            <h4>{t("Footer.answer")}</h4>
             <a className={styles.contacts_item_link} href="https://t.me/+Q8t3dkMH84hiYmNi">
               <TelegramIcon />
-              <span>телеграм</span>
+              <span>{t("Footer.telegram")}</span>
             </a>
           </li>
           <li className={styles.contacts_item}>
-            <h4>Ми поговоримо</h4>
+            <h4>{t("Footer.talk")}</h4>
             <a className={styles.contacts_item_link} href="/">
               <PhoneIcon />
-              <span>телефон</span>
+              <span>{t("Footer.phone")}</span>
             </a>
           </li>
         </ul>

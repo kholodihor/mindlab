@@ -38,8 +38,8 @@ const t = useTranslations()
   }
 
   return (
-    <section className={css.parents} id="parents">
-      <div className="container">
+    <section className={`container ${css.parents} `} id="parents">
+      <div >
       <motion.h2
         viewport={{ once: true }}
         initial={{ translateY: 100, opacity: 0 }}
@@ -51,7 +51,7 @@ const t = useTranslations()
       </motion.h2>
        
         <div className={css.thumb}>
-          <div>
+         
             <div className={css.wrapper}>
               <p className={css.parents__text}>
                {t("Parents.information")}
@@ -87,7 +87,7 @@ const t = useTranslations()
                   className={`${css[`${className}`]}`}
                 />
               ))}
-            </div>
+           
           </div>
           <ul className={css.question__list}>
             {questionList.map(({ color, question, answer }) => (

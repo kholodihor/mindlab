@@ -247,12 +247,17 @@
   cursor: pointer;
 
   @media screen and (min-width: 768px) {
-    bottom: 80px;
+    bottom: 90px;
+    position: relative;
+    position: absolute;
+    top: 560px;
     left: 15%;
   }
 
   @media screen and (min-width: 1280px) {
     left: 10%;
+    top: 520px;
+    bottom: 35px;
   }
 
   @media screen and (min-width: 1440px) {

@@ -11,7 +11,7 @@ import chatbot_default from '@/animations/сhatbot_default.json'
 import chatbot_hover from '@/animations/chatbot_hover.json'
 import MobileMenu from './mobile_menu/MobileMenu'
 import Logo from './logo/Logo'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useWidth } from '@/hooks/useWidth'
 import LanguageSwitcher from './LocalSwitcher'
 
@@ -21,6 +21,7 @@ const Header = () => {
   const [isHovered, setIsHovered] = useState(false)
   const isSmallScreen = useMediaQuery('(max-width: 768px)')
   const currentWidth = useWidth();
+  const locale = useLocale()
 
   const t = useTranslations("Menu");
 
@@ -33,19 +34,19 @@ const Header = () => {
         <nav className={styles.header_nav}>
           <ul>
             <li className={styles.header_nav_item}>
-              <Link href="/#courses">{t("courses")}</Link>
+              <Link href={`/${locale}#courses`}>{t("courses")}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href="/#teachers">{t("speakers")}</Link>
+              <Link href={`/${locale}#teachers`}>{t("speakers")}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href="/#partners">{t("partners")}</Link>
+              <Link href={`/${locale}#partners`}>{t("partners")}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href="/#parents">{t("parents")}</Link>
+              <Link href={`/${locale}#parents`}>{t("parents")}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href="/#contacts">{t("contacts")}</Link>
+              <Link href={`/${locale}#contacts`}>{t("contacts")}</Link>
             </li>
           </ul>
           <div className={styles.switch}>
