@@ -24,8 +24,7 @@ const AboutUs: FC = () => {
       </div>
       <p className={styles.main_text}>
         <span>
-          {t('mainText.message')}
-          <br /> {t('mainText.hands')}
+          {t('mainText.message')} {t('mainText.hands')}
         </span>
         <span className={styles.hands_middle}>
           <Hands />
