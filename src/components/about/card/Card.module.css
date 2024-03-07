@@ -14,6 +14,7 @@
     padding: 1.25rem 1.25rem 2.5rem 1.25rem;
   }
 }
+
 .card_title {
   color: var(--w, #f9f9fa);
   font-family: Oswald;
@@ -23,6 +24,7 @@
   text-transform: uppercase;
   margin-bottom: 1rem;
   line-height: 150%;
+  
   @media screen and (max-width: 1023px) {
     font-size: 30px;
     text-align: center;
@@ -36,9 +38,19 @@
   @media screen and (max-width: 620px) {
     height: 45px;
   }
+  @media screen and (max-width: 320px) {
+    font-size: 26px;
+    width: 268px;
+  }
 }
+
+.card:nth-child(2) .card_title {
+  @media screen and (max-width: 320px) {
+    justify-content: start;
+    align-items: start;
+  }
+}
+
 .card_title_container {
   width: 100%;
 }
-
-

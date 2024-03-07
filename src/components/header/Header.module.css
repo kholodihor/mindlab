@@ -25,7 +25,7 @@
   width: 100%;
   display: flex;
   /*justify-content: flex-end;  TODO: should be ua/en btn */
-  justify-content:end;
+  justify-content: flex-end;
   align-items: center;
   flex: 1;
   .header_burger {
@@ -101,5 +101,5 @@
 }
 
 .switch {
-  width:100px;
+  width: 100px;
 }

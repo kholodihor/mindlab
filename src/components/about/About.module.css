@@ -18,6 +18,7 @@
 .about_cards {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 1.25rem;
   margin-top: 3.75rem;
   margin-bottom: 6.25rem;
@@ -55,6 +56,7 @@
   .about_us {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     color: #fff;
     max-width: 100%;
   }
@@ -66,23 +68,37 @@
   font-size: 40px;
   text-transform: uppercase;
   margin: 3.75rem 0;
-  @media screen and (min-width: 768px) {
-    width: 632px;
+  width: 1000px;
+  letter-spacing: 0;
+  @media screen and (max-width: 920px) {
+    width: 640px;
   }
   @media screen and (max-width: 620px) {
+    text-align: center;
+    width: 470px;
+  }
+  @media screen and (max-width: 431px) {
+    text-align: center;
+    width: 394px;
     font-size: 30px;
+  }
+
+  @media screen and (max-width: 321px) {
+    width: 300px;
+    font-size: 25px;
   }
 }
 
 .hands_middle {
-  display: none;
-  @media (min-width: 621px) {
-    display: block;
+  display: inline-block;
+  padding-left: 0.5rem;
+  @media screen and (max-width: 620px) {
+    display: none;
   }
 }
 .hands_end {
   display: none;
-  @media (max-width: 620px) {
+  @media screen and (max-width: 620px) {
     display: block;
     text-align: center;
   }
@@ -113,6 +129,7 @@
   font-weight: 400;
   line-height: 150%;
   margin-bottom: 2.5rem;
+
   @media (min-width: 1246px) {
     height: 120px;
   }
@@ -130,7 +147,12 @@
   }
   @media (max-width: 620px) {
     height: 140px;
-    font-size: 18px;
+  }
+  @media (max-width: 430px) {
+    height: 168px;
+  }
+  @media (max-width: 320px) {
+    font-size: 14px;
   }
 }
 .description_item {
