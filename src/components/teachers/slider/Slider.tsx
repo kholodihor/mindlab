@@ -12,6 +12,7 @@ import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
 import styles from './Slider.module.css'
 import 'swiper/css/navigation'
 import 'swiper/css'
+import { useLocale } from 'next-intl'
 
 interface SliderProps {
   teachers: ITeacherResponse[]
@@ -25,6 +26,8 @@ const Slider = ({ teachers }: SliderProps) => {
   const isMediumScreen = useMediaQuery('(max-width: 1280px)')
   const isSmallScreen = useMediaQuery('(max-width: 768px)')
   const isExtraSmallScreen = useMediaQuery('(max-width: 450px)')
+
+  const locale = useLocale()
 
   useEffect(() => {
     const getAmountOfSlides = () => {
@@ -71,7 +74,7 @@ const Slider = ({ teachers }: SliderProps) => {
             Array.isArray(teachers) &&
             teachers.map((teacher, index) => (
               <SwiperSlide key={index} className={styles.slide}>
-                <Link href={`teachers/${teacher.id}`}>
+                <Link href={`${locale}/teachers/${teacher.id}`}>
                   <TeacherCard teacher={teacher} />
                 </Link>
               </SwiperSlide>

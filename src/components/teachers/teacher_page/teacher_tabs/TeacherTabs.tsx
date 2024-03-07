@@ -5,6 +5,7 @@ import TeacherCourses from '../teacher_courses/TeacherCourses'
 
 import styles from './TeacherTabs.module.css'
 import { ITeacherResponse } from '@/types/teachers'
+import { useTranslations } from 'next-intl'
 
 type ActiveTab = 'courses' | 'about'
 
@@ -16,17 +17,18 @@ type Tab = {
 const tabs: Tab[] = [
   {
     id: 'about',
-    name: 'Про викладача'
+    name: 'aboutSpeaker.title'
   },
   {
     id: 'courses',
-    name: 'Курси Викладача'
+    name: 'coursesSpeaker.title'
   }
 ]
 
 const TeacherTabs = ({ teacher }: { teacher: ITeacherResponse }) => {
   const { courses } = useCourses()
   const [activeTab, setActiveTab] = useState<ActiveTab>('courses')
+  const t = useTranslations("Speakers")
 
   const teacherCourses = courses?.filter((course) => teacher.courseIds.includes(course.id))
 
@@ -41,7 +43,7 @@ const TeacherTabs = ({ teacher }: { teacher: ITeacherResponse }) => {
               setActiveTab(tab.id)
             }}
           >
-            {tab.name}
+            {t(tab.name)}
           </button>
         ))}
       </div>

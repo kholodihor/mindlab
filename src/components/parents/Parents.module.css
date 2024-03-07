@@ -14,6 +14,13 @@
   }
 }
 
+.parents__container {
+  padding: 0 16px;
+  @media screen and (min-width: 430px) {
+    padding: 0;
+  }
+}
+
 .parents__title {
   margin-bottom: 40px;
   text-align: center;
@@ -32,11 +39,12 @@
   justify-content: center;
   gap: 40px;
 
+
   @media screen and (min-width: 768px) {
     justify-content: end;
   }
   @media screen and (min-width: 1280px) {
-    align-items: flex-start;
+    justify-content: start;
     gap: 220px;
   }
 }
@@ -44,7 +52,7 @@
 .wrapper {
   width: 95vw;
   position: relative;
-  padding: 148px 20px 20px 20px;
+  padding: 20px;
   font-size: 16px;
   font-weight: 400;
   line-height: calc(24 / 16);
@@ -53,12 +61,11 @@
   color: var(--black);
 
   @media screen and (min-width: 430px) {
-    padding: 100px 20px 20px 20px;
+    padding-top: 148px;
+    min-height: 231px;
   }
 
   @media screen and (min-width: 768px) {
-    /* max-width: 550px; */
-
     min-height: 152px;
     padding: 80px 36px 20px 36px;
   }
@@ -66,15 +73,22 @@
   @media screen and (min-width: 1280px) {
     max-width: 480px;
     height: 207px;
-    padding: 134px 36px 20px 36px;
+    padding: 124px 20px 20px 20px;
   }
 }
 
 .parents__text {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 1;
+  font-weight: 400;
+  margin-bottom: 24px;
+  @media screen and (min-width: 430px) {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    margin-bottom: 0;
+  }
   @media screen and (min-width: 1280px) {
     max-width: 440px;
   }
@@ -85,41 +99,61 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 5px;
+
+  @media screen and (min-width: 430px) {
+    gap: 12px;
+  }
 
   @media screen and (min-width: 768px) {
+    gap: 15px;
     justify-content: center;
   }
   @media screen and (min-width: 1280px) {
     justify-content: start;
-    gap: 44px;
+    gap: 55px;
+    margin: 0;
   }
 }
 
 .contact__item {
   gap: 12px;
-  @media screen and (min-width: 1280px) {
-    width: 119px;
-  }
 }
 
 .contact__text {
-  font-size: 14px;
-  padding-bottom: 0;
+  font-size: 12px;
+  margin-bottom: 5px;
+  @media screen and (min-width: 430px) {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 16px;
+  }
+}
+
+.contact__link {
+  font-size: 16px;
+  display: flex;
+  gap: 5px;
+  @media screen and (min-width: 430px) {
+    font-size: 18px;
+    gap: 10px;
+  }
 }
 
 .lineIcon1 {
-  position: absolute;
-  right: 69px;
-  top: 35px;
-  z-index: 0;
+  display: none;
   @media screen and (min-width: 430px) {
-    right: 49px;
-    top: 0px;
+    display: block;
+    position: absolute;
+    right: 72px;
+    top: 29px;
+    z-index: 0;
   }
   @media screen and (min-width: 768px) {
     right: 99px;
-    top: 45px;
+    top: 50px;
   }
   @media screen and (min-width: 1280px) {
     right: 5px;
@@ -129,27 +163,31 @@
 
 .lineIcon2 {
   position: absolute;
-  top: 95px;
+  bottom: 50px;
   left: -0px;
   @media screen and (min-width: 430px) {
-    top: 60px;
+    bottom: 65px;
+  }
+  @media screen and (min-width: 768px) {
+    bottom: -15px;
+    left: 5px;
   }
 
   @media screen and (min-width: 1280px) {
-    top: 75px;
+    bottom: 65px;
     left: -0px;
   }
 }
 
 .star1 {
   position: absolute;
-  top: 115px;
-  left: 157px;
+  top: 135px;
+  left: 160px;
   @media screen and (min-width: 430px) {
-    top: 80px;
+    top: 120px;
   }
   @media screen and (min-width: 768px) {
-    top: 120px;
+    top: 125px;
     left: 157px;
   }
   @media screen and (min-width: 1280px) {
@@ -160,11 +198,14 @@
 
 .star2 {
   position: absolute;
-  right: 185px;
-  top: 38px;
+  right: 25px;
+  top: 37px;
   z-index: 0;
+  @media screen and (min-width: 430px) {
+    right: 185px;
+  }
   @media screen and (min-width: 768px) {
-    right: 230px;
+    right: 210px;
     top: 53px;
   }
   @media screen and (min-width: 1280px) {
@@ -178,7 +219,7 @@
   @media screen and (min-width: 768px) {
     display: block;
     position: absolute;
-    left: 50px;
+    left: 55px;
     top: 70px;
   }
 
@@ -194,15 +235,24 @@
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-  padding-bottom: 220px;
+  padding-bottom: 180px;
+  @media screen and (min-width: 430px) {
+    padding-bottom: 220px;
+  }
   @media screen and (min-width: 768px) {
     padding-bottom: 0;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-bottom: 79px;
   }
 }
 
 .question__text {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 16px;
+  @media screen and (min-width: 430px) {
+    font-size: 20px;
+    font-weight: 500;
+  }
   @media screen and (min-width: 1280px) {
     font-size: 24px;
     line-height: calc(36 / 24);
@@ -223,18 +273,27 @@
 .question__item {
   position: relative;
   width: 100%;
-  padding-bottom: 20px;
+  padding: 16px 0;
   border-bottom: solid 1px var(--white);
-
+  @media screen and (min-width: 768px) {
+    padding: 20px 0;
+  }
   @media screen and (min-width: 1280px) {
+    padding: 0px 0 19px 0;
     width: 480px;
   }
+}
+.question__item:first-child {
+  @media screen and (min-width: 1280px) {
+    padding-top: 0;
+  }
+  
 }
 
 .btn {
   position: absolute;
   right: 0;
-  top: 10px;
+ top: 10px;
   border: none;
   background-color: inherit;
   cursor: pointer;
@@ -242,7 +301,7 @@
 
 .wrapper__rotatingStar {
   position: absolute;
-  bottom: 20px;
+  bottom: 60px;
   left: 50%;
   cursor: pointer;
 
@@ -250,14 +309,14 @@
     bottom: 90px;
     position: relative;
     position: absolute;
-    top: 560px;
+    top: 650px;
     left: 15%;
   }
 
   @media screen and (min-width: 1280px) {
-    left: 10%;
-    top: 520px;
-    bottom: 35px;
+    left: 11%;
+    top: 500px;
+    bottom: 120px;
   }
 
   @media screen and (min-width: 1440px) {

@@ -9,17 +9,18 @@ import FacebokIconXL from '@/components/icons/FacebokIconXL'
 import TelegramIconXL from '@/components/icons/TelegramIconXL'
 import TeacherTabs from './teacher_tabs/TeacherTabs'
 import { ITeacherResponse } from '@/types/teachers'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 const TeacherPage = ({ id }: { id: string }) => {
   const { teachers } = useTeachers()
   const teacher = teachers?.find((teacher) => teacher.id === id) as ITeacherResponse
-const t = useTranslations("Spiekers")
+const t = useTranslations("Speakers")
+const locale = useLocale()
   return (
     <div className={styles.page}>
-      <a href="/#teachers" className={styles.link}>
+      <a href={`/${locale}#teachers`} className={styles.link}>
         <ArrowLeft />
-        <p>{t("otherpiekers")}</p>
+        <p>{t("otherpeakers")}</p>
       </a>
       {!teacher ? (
         <p className={styles.error}>{t("notFoundTeatcher")}</p>

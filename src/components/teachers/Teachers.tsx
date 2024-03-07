@@ -16,7 +16,7 @@ const Teachers = () => {
   const [speciality, setSpeciality] = useState('')
   const [filteredTeachers, setFilteredTeachers] = useState([])
 
-  const t = useTranslations("Spiekers");
+  const t = useTranslations("Speakers");
 
   useEffect(() => {
     setQuery('')
