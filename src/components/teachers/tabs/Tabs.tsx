@@ -13,7 +13,7 @@ interface TabsProps {
 
 const Tabs = ({ teachers, query, speciality, setSpeciality }: TabsProps) => {
   const specialities = Array.from(new Set(teachers?.map((teacher) => teacher.speciality)))
-const t = useTranslations("Spiekers");
+const t = useTranslations("Speakers");
   return (
     <div className={styles.wrapper}>
       <div

@@ -6,7 +6,6 @@ import { useModal } from '@/stores/useModal'
 import { useAlert } from '@/stores/useAlert'
 import MailIcon from '../icons/MailIcon'
 import TelegramIcon from '../icons/TelegramIcon'
-import style from '../footer/Footer.module.css'
 import Image from 'next/image'
 import RotatingStar from '../shared/rotating_star/RotatingStar'
 import { iconParents, questionList } from '@/data/parents'
@@ -39,7 +38,7 @@ const t = useTranslations()
 
   return (
     <section className={`container ${css.parents} `} id="parents">
-      <div >
+     
       <motion.h2
         viewport={{ once: true }}
         initial={{ translateY: 100, opacity: 0 }}
@@ -49,7 +48,7 @@ const t = useTranslations()
       >
      {t("Parents.title")}
       </motion.h2>
-       
+      <div className={css.parents__container}>
         <div className={css.thumb}>
          
             <div className={css.wrapper}>
@@ -59,7 +58,7 @@ const t = useTranslations()
               <ul className={` ${css.contacts}`}>
                 <li className={`${css.contact__item}`}>
                   <p className={css.contact__text}>{t("Footer.help")}</p>
-                  <Link href="mailto:mind.lab.hub@gmail.com" className={style.contact__link}>
+                  <Link href="mailto:mind.lab.hub@gmail.com" className={css.contact__link}>
                     <MailIcon />
                     <p>{t("Footer.mail")}</p>
                   </Link>
@@ -68,7 +67,7 @@ const t = useTranslations()
                   <p className={css.contact__text}>{t("Footer.answer")}</p>
                   <Link
                     href="https://t.me/+Q8t3dkMH84hiYmNi"
-                    className={style.contact__link}
+                    className={css.contact__link}
                     rel="noopener noreferrer"
                     target="_blank"
                   >

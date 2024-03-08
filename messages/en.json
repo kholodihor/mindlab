@@ -61,13 +61,22 @@
       "secondGoal": "Learning and development should bring you pleasure"
     }
   },
-  "Spiekers": {
+  "Speakers": {
     "title": "Leading teachers",
     "placeholder": "Request, direction, name, topic",
     "notFound": "We did not find any registered teachers for your request...",
     "btn": "Search",
-    "otherpiekers": "To other teachers",
-    "notFoundTeatcher": "No such teacher was found. Try again."
+    "otherpeakers": "To other teachers",
+    "notFoundTeatcher": "No such teacher was found. Try again.",
+    "aboutSpeaker": {
+      "title": "About the teacher",
+      "aboutMe": "About me",
+      "hobby": "I like design and programming. I'm not very good at managing, but I'm good at doing things with my hands. I help people as a mentor in my spare time.",
+      "help": "What can I help with?",
+      "about": "I will teach you to write texts for different channels and audiences. Orients on what to focus on in career development."
+    },
+    "coursesSpeaker": {
+      "title": "Speaker's courses"}
   },
   "Courses": {
     "title": "Choose the direction you like",
@@ -315,26 +324,26 @@
     "platform": {
       "name": "Platform",
       "description": "The educational and social platform MindLab Hub for teenagers and young adults is an innovative and safe center created for development, learning and interaction. We strive to provide the young and gifted generation with the opportunity to gain knowledge, gather inspiration, find their own path in life and plan their career. These components will allow to support motivated young people - future leaders who will contribute to the development of Ukraine.",
-      "inforvation": "We introduce young people to the following areas: Leadership, business, political science and sociology, modern technologies, art, career counseling, career support, which help students expand their knowledge and skills."
+      "inforvation": "We introduce young people to the following areas: Leadership, business, political science and sociology, modern technologies, art, career counseling and career support, which help students expand their knowledge and skills."
     },
     "spiker": {
       "name": "Speakers and mentors",
       "description": "The platform provides an opportunity to listen to lectures and receive advice from well-known specialists in various fields. Interactive webinars and interviews with successful personalities inspire and help students understand their capabilities.",
-      "inforvation": "We introduce young people to the following areas: Leadership, business, political science and sociology, modern technologies, art, career counseling, career support, which help students expand their knowledge and skills."
+      "inforvation": "We introduce young people to the following areas: Leadership, business, political science and sociology, modern technologies, art, career counseling and career support, which help students expand their knowledge and skills."
     },
     "guidanc": {
-      "name": "Career guidanc",
+      "name": "Career guidance",
       "description": "The offered career guidance tools help to determine one's own strengths and weaknesses, reveal possible career paths and help in choosing a future profession.",
       "inforvation": ""
     },
     "counseling": {
       "name": "Career Counseling",
-      "description": "On the platform, there is an opportunity to receive advice from professional career consultants who will help determine a career development strategy and draw up a plan to achieve the set goals. Consultants represent a galaxy of successful businessmen, politicians, well-known personalities in various spheres of activity.",
+      "description": "On the platform, there is an opportunity to receive advice from professional career consultants who will help determine a career development strategy and draw up a plan to achieve the set goals. Consultants represent a galaxy of successful businessmen, politicians and well-known personalities in various spheres of activity.",
       "inforvation": ""
     },
     "comunication": {
       "name": "Communication",
-      "description": "The platform can become a platform for communication between teenagers, students, teachers, mentors, MindLab Hub creates a space for virtual communication, exchange of ideas and experiences between participants. This helps to form friendships, exchange knowledge and support.",
+      "description": "This platform can help with communication between teenagers, students, teachers, mentors, MindLab Hub creates a space for virtual communication, exchange of ideas and experiences between participants. This helps to form friendships, exchange knowledge and support.",
       "inforvation": "We help students build a network of connections, in particular with university representatives. With the help of our platform, users will be able to make educational choices, discuss study details and get advice from students and graduates. Our platform aims to be a virtual partner in development and self-improvement for every teenager, providing tools and resources for their future success."
     }
   },
