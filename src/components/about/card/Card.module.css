@@ -18,13 +18,13 @@
 .card_title {
   color: var(--w, #f9f9fa);
   font-family: Oswald;
-  font-size: 36px;
+  font-size: 40px;
   font-style: normal;
   font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 1rem;
   line-height: 150%;
-  
+
   @media screen and (max-width: 1023px) {
     font-size: 30px;
     text-align: center;
