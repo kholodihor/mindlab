@@ -22,6 +22,7 @@
   gap: 1.25rem;
   margin-top: 3.75rem;
   margin-bottom: 6.25rem;
+
   @media screen and (max-width: 620px) {
     flex-wrap: wrap;
     flex-direction: column;
@@ -29,29 +30,33 @@
     gap: 3.75rem;
   }
 }
+
 .about_content {
   margin-left: 0;
   display: none;
-}
-@media (min-width: 1290px) {
-  .about_content {
+
+  @media (min-width: 1290px) {
     display: flex;
   }
 }
+
 .main_goals {
   max-width: 781px;
   font-size: 24px;
   display: flex;
   flex-direction: column;
   gap: 3rem;
+
   @media screen and (max-width: 500px) {
     font-size: 20px;
     gap: 2.25rem;
   }
 }
+
 .about_us {
   display: none;
 }
+
 @media (max-width: 1290px) {
   .about_us {
     display: flex;
@@ -70,6 +75,7 @@
   margin: 3.75rem 0;
   width: 1000px;
   letter-spacing: 0;
+
   @media screen and (max-width: 920px) {
     width: 640px;
   }
@@ -92,12 +98,14 @@
 .hands_middle {
   display: inline-block;
   padding-left: 0.5rem;
+
   @media screen and (max-width: 620px) {
     display: none;
   }
 }
 .hands_end {
   display: none;
+
   @media screen and (max-width: 620px) {
     display: block;
     text-align: center;
@@ -110,6 +118,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
   @media (max-width: 1023px) {
     width: 100%;
   }
@@ -155,13 +164,16 @@
     font-size: 14px;
   }
 }
+
 .description_item {
   list-style-type: disc;
   list-style-position: inside;
 }
+
 .description_text {
   color: #f9f9fa;
 }
+
 .pulse {
   position: absolute;
   top: -13px;
@@ -169,11 +181,13 @@
   width: 161px;
   height: 126.344px;
 }
-@media (max-width: 1023px) {
+
+@media (max-width: 1280px) {
   .pulse {
     display: none;
   }
 }
+
 .wow {
   position: absolute;
   top: 35px;
@@ -181,7 +195,8 @@
   width: 142.1px;
   height: 68.925px;
 }
-@media (max-width: 1023px) {
+
+@media (max-width: 1280px) {
   .wow {
     display: none;
   }
