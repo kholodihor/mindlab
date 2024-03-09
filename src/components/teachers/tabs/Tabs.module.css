@@ -5,9 +5,6 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  @media screen and (max-width: 430px) {
-    justify-content: center;
-  }
 
   .tab {
     min-width: 100px;

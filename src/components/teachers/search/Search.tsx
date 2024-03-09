@@ -15,21 +15,26 @@ interface SearchProps {
 
 const Search = ({ setQuery, query, handleClick }: SearchProps) => {
   const isExtraSmallScreen = useMediaQuery('(max-width: 430px)')
-const t = useTranslations("Speakers");
+  const t = useTranslations('Speakers')
   return (
     <div className={styles.wrapper}>
       <input
         className={styles.input}
         type="text"
-        placeholder={t("placeholder")}
+        placeholder={t('placeholder')}
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            handleClick()
+          }
+        }}
       />
       <Image src="/svg/search.svg" width={20} height={20} alt="search" className={styles.search} />
       {!isExtraSmallScreen ? (
-        <MainButton title={t("btn")} handleAction={handleClick} />
+        <MainButton title={t('btn')} handleAction={handleClick} />
       ) : (
-        <button className={styles.button}>
+        <button className={styles.button} onClick={handleClick}>
           <Image src="/svg/search_dark.svg" width={20} height={20} alt="search" />
         </button>
       )}

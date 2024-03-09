@@ -7,10 +7,10 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { testimonialScheme } from './validationSchema'
 import { useTestimonials } from '@/hooks/swr/useTestimonials'
 import { useModal } from '@/stores/useModal'
-import styles from './TestimonialForm.module.css'
 import TextInput from '@/components/ui/inputs/text_input/TextInput'
 import TextArea from '@/components/ui/inputs/text_area/TextArea'
 import Checkbox from '@/components/ui/inputs/checkbox/Checkbox'
+import styles from './TestimonialForm.module.css'
 
 const TestimonialForm = () => {
   const [checked, setChecked] = useState(false)

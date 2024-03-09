@@ -36,7 +36,7 @@
   }
 
   .button {
-    width: 380px;
+    width: 66px;
     min-width: 60px;
     height: 60px;
     color: var(--black);
@@ -49,6 +49,12 @@
     font-size: 16px;
     transition: all 0.5s ease-in-out;
     cursor: pointer;
+    @media screen and (min-width: 768px) {
+      width: 216px;
+    }
+    @media screen and (min-width: 1280px) {
+      width: 380px;
+    }
   }
 
   .button:hover {
