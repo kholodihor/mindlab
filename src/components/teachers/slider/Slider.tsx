@@ -41,7 +41,7 @@ const Slider = ({ teachers }: SliderProps) => {
         setAmount(4)
       }
       if (isExtraSmallScreen) {
-        setAmount(1)
+        setAmount(1.5)
       }
     }
     getAmountOfSlides()
@@ -65,6 +65,7 @@ const Slider = ({ teachers }: SliderProps) => {
           spaceBetween={20}
           slidesPerView={amount}
           loop={true}
+          // centeredSlides={true}
           modules={[Navigation]}
           onSwiper={(swiper) => {
             ;(sliderRef.current as any) = swiper

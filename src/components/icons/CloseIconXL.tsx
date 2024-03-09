@@ -9,7 +9,7 @@ const CloseIconXL = () => {
         x2="33.4346"
         y2="5.86026"
         stroke="#F9F9FA"
-        stroke-linecap="round"
+        strokeLinecap="round"
       />
       <line x1="20" y1="19.5" x2="20" y2="19.5" stroke="#F9F9FA" strokeLinecap="round" />
       <line
