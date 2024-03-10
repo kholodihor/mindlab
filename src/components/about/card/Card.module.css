@@ -24,13 +24,12 @@
   text-transform: uppercase;
   margin-bottom: 1rem;
   line-height: 150%;
-  
+
   @media screen and (max-width: 1023px) {
     font-size: 30px;
     text-align: center;
   }
   @media screen and (max-width: 844px) {
-    height: 112px;
     display: flex;
     justify-content: center;
     align-items: center;
