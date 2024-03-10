@@ -51,14 +51,15 @@
     font-size: 20px;
     gap: 2.25rem;
   }
+
+  @media screen and (max-width: 321px) {
+    font-size: 18px;
+  }
 }
 
 .about_us {
   display: none;
-}
-
-@media (max-width: 1290px) {
-  .about_us {
+  @media screen and (max-width: 1290px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -122,6 +123,9 @@
   @media (max-width: 1023px) {
     width: 100%;
   }
+  @media screen and (max-width: 321px) {
+    font-size: 16px;
+  }
 }
 
 .text_highlight {
@@ -162,6 +166,8 @@
   }
   @media (max-width: 320px) {
     font-size: 14px;
+    margin-bottom: 1.25rem;
+    padding-left: 0.5rem;
   }
 }
 
