@@ -72,6 +72,7 @@
         color: var(--black);
       }
       .button:disabled {
+        background: var(--graphite);
         cursor: not-allowed;
       }
       .button:disabled:hover {
@@ -98,7 +99,7 @@
     }
     @media screen and (min-width: 768px) {
       display: block;
-      right: -60%;
+      right: -45%;
     }
     @media screen and (min-width: 850px) {
       display: block;
@@ -119,14 +120,25 @@
   }
   .stars_wrapper {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
-    width: 30%;
     height: 100%;
+    width: 28%;
+    overflow: hidden;
+    z-index: -1;
+    transform: rotate(90deg) translateY(25%) translateX(-28%);
+    transform-origin: bottom right;
+    @media screen and (min-width: 1024px) {
+      transform: none;
+    }
     .stars {
-      width: 100%;
-      height: 100%;
+      width: 80%;
+      height: 80%;
       object-fit: contain;
+      display: none;
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
     }
   }
   .check_wrapper {
@@ -170,7 +182,7 @@
       cursor: pointer;
       background-color: transparent;
       border: 1px solid var(--white);
-      z-index: 9999;
+      z-index: 5;
     }
 
     .checkbox_container:hover .check_checkbox ~ .checkmark {

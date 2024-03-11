@@ -8,6 +8,9 @@
   .check_paragraph {
     text-align: left;
     color: var(--black);
+    .check_link:hover {
+      color: var(--lime);
+    }
   }
   .checkbox_container {
     display: block;

@@ -23,7 +23,7 @@ const Testimonials = () => {
 
   const isModalOpen = useModal((state) => state.isModalOpen)
   const modalType = useModal((state) => state.modalType)
-const t = useTranslations("Testimonials")
+  const t = useTranslations('Testimonials')
   const isLargeScreen = useMediaQuery('(min-width: 1281px)')
   const isMediumScreen = useMediaQuery('(max-width: 1280px)')
   const isSmallScreen = useMediaQuery('(max-width: 768px)')
@@ -43,7 +43,7 @@ const t = useTranslations("Testimonials")
         setAmount(2)
       }
       if (isExtraSmallScreen) {
-        setAmount(1.5)
+        setAmount(1)
       }
     }
     getAmountOfSlides()
@@ -52,8 +52,8 @@ const t = useTranslations("Testimonials")
   return (
     <section id="testimonials" className={`${styles.reviews_container} container`}>
       <h1 className={styles.reviews_title}>
-        {t("title")} <Image width={50} height={50} src="/reviews/look.svg" alt="eyes" />
-        {t("spanTitle")}
+        {t('title')} <Image width={50} height={50} src="/reviews/look.svg" alt="eyes" />
+        {t('spanTitle')}
       </h1>
       <Swiper
         speed={4000}
@@ -76,11 +76,11 @@ const t = useTranslations("Testimonials")
       </Swiper>
       <div className={styles.comments_block}>
         <p className={styles.comments_block_paragraph}>
-         {t("text")}
-          <br /> {t("comenth")}
-          <br /> {t("feedback")}
+          {t('text')}
+          <br /> {t('comenth')}
+          <br /> {t('feedback')}
         </p>
-        <MainButton title={t("btn")} handleAction={() => openModal('testimonial')} />
+        <MainButton title={t('btn')} handleAction={() => openModal('testimonial')} />
       </div>
       {isModalOpen && modalType === 'testimonial' && (
         <FormModal handleClose={closeModal}>

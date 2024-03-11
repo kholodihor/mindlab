@@ -28,7 +28,7 @@ const FeedBack = () => {
     handleSubmit,
     control,
     reset,
-    formState: { errors }
+    formState: { errors, isDirty }
   } = useForm<FeedBackFormInput>({
     resolver: zodResolver(feedbackValidation),
     mode: 'onChange',
@@ -104,7 +104,7 @@ const FeedBack = () => {
             <button
               type="submit"
               className={`${styles.button} ${checked && !Object.keys(errors).length && styles.active}`}
-              disabled={!checked}
+              disabled={!checked || !isDirty || !!Object.keys(errors).length}
             >
               {isProcessing ? t('form.loading') : t('form.btn')}
             </button>

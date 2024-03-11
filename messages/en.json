@@ -76,7 +76,8 @@
       "about": "I will teach you to write texts for different channels and audiences. Orients on what to focus on in career development."
     },
     "coursesSpeaker": {
-      "title": "Speaker's courses"}
+      "title": "Speaker's courses"
+    }
   },
   "Courses": {
     "title": "Choose the direction you like",
@@ -84,7 +85,7 @@
       "fullprice": "UAH 1,200 upon full payment of the course",
       "monthlyprice": "UAH/month when paying in installments",
       "price": "UAH/month"
-    }, 
+    },
     "time": {
       "text": "The course continues",
       "lecture": "Videos and online lecture"
@@ -97,52 +98,51 @@
       "teatcher": "Teachers",
       "forWhom": "For whom",
       "questions": "Questions"
-    }, 
+    },
     "topicList": "Catch topics that will be in this course:",
     "leadership": {
-        "description": "This is a course that will reveal your ability to influence others, inspire and lead a team",
-        "component": "#formation of the leadership system",
-        "power": "#Corporate power",
-        "leade": "#Power of the leader",
-        "about": "Do you feel your influence on the environment, do you have healthy ambitions, and most importantly, you do care about what is happening around you and are you ready to take responsibility for yourself? Well, then the 'Leadership' course will definitely help you master the first steps on ways to develop leadership skills. Studying leadership can contribute to the formation of a comprehensively developed personality and preparation for the challenges of the modern world. You can definitely become a TOP leader, just start your journey!",
-        "time": {
-          "date": "April 2024",
-          "duration": "2 months"
-        },
-      
-        "text": "Hey, hey, what, are you ready? We are launching a new course, we will explore the topic of 'Leadership' and not just for a reason, but by revealing important questions, join us it will be very interesting!",
-        "topic": {
-          "topic1": "Concepts and styles of leadership. Retrospective and present",
-          "topic2":"Development of leadership in modern realities",
-          "topic3":"Formation of the leadership system",
-          "topic4":"Corporate power",
-          "topic5":"Power of the leader",
-          "topic6": "Responsibility",
-          "topic7":"Leadership behavior",
-          "topic8":"An intellectual leader. Who is he?",
-          "topic9":"Leadership and management: common and different?"
-         }
-       
+      "description": "This is a course that will reveal your ability to influence others, inspire and lead a team",
+      "component": "#formation of the leadership system",
+      "power": "#Corporate power",
+      "leade": "#Power of the leader",
+      "about": "Do you feel your influence on the environment, do you have healthy ambitions, and most importantly, you do care about what is happening around you and are you ready to take responsibility for yourself? Well, then the 'Leadership' course will definitely help you master the first steps on ways to develop leadership skills. Studying leadership can contribute to the formation of a comprehensively developed personality and preparation for the challenges of the modern world. You can definitely become a TOP leader, just start your journey!",
+      "time": {
+        "date": "April 2024",
+        "duration": "2 months"
       },
-     "business": {
+
+      "text": "Hey, hey, what, are you ready? We are launching a new course, we will explore the topic of 'Leadership' and not just for a reason, but by revealing important questions, join us it will be very interesting!",
+      "topic": {
+        "topic1": "Concepts and styles of leadership. Retrospective and present",
+        "topic2": "Development of leadership in modern realities",
+        "topic3": "Formation of the leadership system",
+        "topic4": "Corporate power",
+        "topic5": "Power of the leader",
+        "topic6": "Responsibility",
+        "topic7": "Leadership behavior",
+        "topic8": "An intellectual leader. Who is he?",
+        "topic9": "Leadership and management: common and different?"
+      }
+    },
+    "business": {
       "description": "Will give you the opportunity to highlight the commercial spirit in you, direct potential into the development and monetization of your own idea for the purpose of making a profit",
       "component": "#Management",
       "startUp": "#Launch Start up",
       "skills": "#Skills ХХІst century",
-      "about":"Each of us at least once in our life has thought about what kind of work to do in order not to depend on someone, to receive income and manage the business independently. Did such thoughts come to you too? Do you have an idea but don't know where to start? Well, we can tell you how to monetize even a crazy idea! Business is a risk, but if it is well-developed, it can definitely be profitable. And first, we will teach you to understand economic processes, teach you financial literacy, and stimulate your entrepreneurial activity. And you will have the opportunity to meet and talk with businessmen who created themselves from scratch. They will tell you how they gained a  success!",
+      "about": "Each of us at least once in our life has thought about what kind of work to do in order not to depend on someone, to receive income and manage the business independently. Did such thoughts come to you too? Do you have an idea but don't know where to start? Well, we can tell you how to monetize even a crazy idea! Business is a risk, but if it is well-developed, it can definitely be profitable. And first, we will teach you to understand economic processes, teach you financial literacy, and stimulate your entrepreneurial activity. And you will have the opportunity to meet and talk with businessmen who created themselves from scratch. They will tell you how they gained a  success!",
       "time": {
         "date": "April 2024",
         "duration": "2 months"
       },
       "text": "Did you wait for our news? Are you interested in which course will hit the masses next? Let's hurry to start!!!!!!!!!! One, two, three catches! Business - new classes on the following topics:",
       "topic": {
-       "topic1": "Social skills and entrepreneurial thinking",
-       "topic2":"Basics of economic literacy",
-       "topic3":"Management",
-       "topic4":"Launch Start up",
-       "topic5":"Skills ХХІst century",
-       "topic6": "Business thinking and initiatives",
-       "topic7":"School of professions. Familiarity and motivation"
+        "topic1": "Social skills and entrepreneurial thinking",
+        "topic2": "Basics of economic literacy",
+        "topic3": "Management",
+        "topic4": "Launch Start up",
+        "topic5": "Skills ХХІst century",
+        "topic6": "Business thinking and initiatives",
+        "topic7": "School of professions. Familiarity and motivation"
       }
     },
     "politicalScienceSociology": {
@@ -150,7 +150,7 @@
       "component": "#Conflictology",
       "change": "#Theory of social change",
       "sociology": "#Sociology of the nation",
-      "about":"Hey, are you worried about what is happening in politics? Thinking about how to improve the social situation in your country and dreaming of economic growth of Ukraine? Then you need to dig deeper and gain solid knowledge in the field of political science-sociology. Real changes are in your hands!",
+      "about": "Hey, are you worried about what is happening in politics? Thinking about how to improve the social situation in your country and dreaming of economic growth of Ukraine? Then you need to dig deeper and gain solid knowledge in the field of political science-sociology. Real changes are in your hands!",
       "time": {
         "date": "April 2024",
         "duration": "2 months"
@@ -158,14 +158,14 @@
       "text": "We are ready to launch a new direction of Political science-sociology, are you interested in this direction?",
       "topic": {
         "topic1": "What is politics?",
-        "topic2":"Politics and political life of society",
-        "topic3":"Power and political regimes",
-        "topic4":"Democracy: concept, theory, model",
-        "topic5":"Political elite and leadership, State in the political system",
+        "topic2": "Politics and political life of society",
+        "topic3": "Power and political regimes",
+        "topic4": "Democracy: concept, theory, model",
+        "topic5": "Political elite and leadership, State in the political system",
         "topic6": "Civil society and the rule of law",
-        "topic7":"Political parties and systems",
-        "topic8":"Political culture and ethics",
-        "topic9":"Socio-political ideologies and currents in the modern world",
+        "topic7": "Political parties and systems",
+        "topic8": "Political culture and ethics",
+        "topic9": "Socio-political ideologies and currents in the modern world",
         "topic10": "Policy of European states",
         "topic11": "Activities of International Institutions",
         "topic12": "Sociology of the nation",
@@ -174,7 +174,7 @@
         "topic15": "Functions of sociology and its role in the development of society",
         "topic16": "Conflictology",
         "topic17": "Theory of social change"
-       }
+      }
     },
     "innovativeTechnologies": {
       "description": "Allows you to learn about new advanced methods used to improve or create new products, services or processes, contributing to technological progress and improved results",
@@ -182,7 +182,7 @@
       "ui": "#UI/UX Design",
       "fe": "#FE/BE",
       "marketing": "#Digital Marketing",
-      "about":"Are you in a hurry so as not to miss new trends in innovative technologies? If you want to get to know and master new skills that can very quickly bring you income and benefit others, then it's time to get acquainted with Innovative technologies, including (Game Dev, UI/UX Design, QA, AI)",
+      "about": "Are you in a hurry so as not to miss new trends in innovative technologies? If you want to get to know and master new skills that can very quickly bring you income and benefit others, then it's time to get acquainted with Innovative technologies, including (Game Dev, UI/UX Design, QA, AI)",
       "time": {
         "date": "April 2024",
         "duration": "2 months"
@@ -190,19 +190,19 @@
       "text": "Hey guys, what's next? Are you ready for our news? We are launching another direction and in it we want to introduce our cool friends and partners Beetroot Academy, who know exactly everything about IT and will best introduce you to this profession. They organize and conduct training on:",
       "topic": {
         "topic1": "Project managment in IT",
-        "topic2":"UI/UX Design",
-        "topic3":"FE/BE",
-        "topic4":"Digital Marketing",
-        "topic5":"AI",
+        "topic2": "UI/UX Design",
+        "topic3": "FE/BE",
+        "topic4": "Digital Marketing",
+        "topic5": "AI",
         "topic6": "IT professions. Acquaintance"
-       }
+      }
     },
     "art": {
       "description": "You will be able to understand the heritage of human creativity, connect with the beautiful and create something even greater, your ideas will have a place in implementation",
       "component": "#Modern Art",
       "computer": "#Computer art",
       "video": "#Video art",
-      "about":"Artistic, innovative, can you create cool things with your own hands? And how often do you look at the paintings of famous artists, follow fashion trends, and new trends in design? If you are interested in creativity, you enjoy art, you like to draw, you have your own vision and know how to express it, try yourself in the direction of ART (Moldern ART, Design). Qualified specialists will be able to support you in your creative impulse.",
+      "about": "Artistic, innovative, can you create cool things with your own hands? And how often do you look at the paintings of famous artists, follow fashion trends, and new trends in design? If you are interested in creativity, you enjoy art, you like to draw, you have your own vision and know how to express it, try yourself in the direction of ART (Moldern ART, Design). Qualified specialists will be able to support you in your creative impulse.",
       "time": {
         "date": "April 2024",
         "duration": "2 months"
@@ -210,20 +210,20 @@
       "text": "A question for the studio, have you ever been interested in art? Yes, cool! Because we have prepared a great course for you, which will introduce you to different directions and styles of art, as well as teach you how to create something of your own - unique! It is hard to imagine that this is possible in the 21st century, in the era of AI, we are sure that the human hand and intelligence will always be valued! So, don't delay, get involved! The following curiosities await you:",
       "topic": {
         "topic1": "Modern Art",
-        "topic2":"Computer art",
-        "topic3":"Video art",
-        "topic4":"Op-art",
-        "topic5":"Minimalism in art or the art of minimalism",
+        "topic2": "Computer art",
+        "topic3": "Video art",
+        "topic4": "Op-art",
+        "topic5": "Minimalism in art or the art of minimalism",
         "topic6": "Media art",
         "topic7": "Modern architecture and design"
-       }
+      }
     },
     "careerCounselin": {
       "description": "This important component will definitely come in handy when choosing a profession, the consultant will help you find out your interests and goals, plan your career, develop a strategy for self-improvement, prepare you for entering the labor market, teach you how to manage your career",
       "component": "# Career guidance",
       "startUp": "#Meeting with startups",
       "business": "#Meeting with business",
-      "about":" Do you have questions about what to do next in life, how to make the right choice and realize yourself? We think that this is a rather important stage and it can be difficult for you, so we offer you the professional help of highly qualified specialists. Career counseling helps them understand their interests, skills and goals in order to make informed decisions about choosing a career path. Consultants can help pupils and students in determining fields of activity, studying universities, as well as providing advice on passing entrance exams and preparing documents. Consultants will help develop a specific career plan, determine short-term and long-term goals, as well as ways to achieve them. Career counseling/Career guidance is an important stage in your development, so don't miss your chance.",
+      "about": " Do you have questions about what to do next in life, how to make the right choice and realize yourself? We think that this is a rather important stage and it can be difficult for you, so we offer you the professional help of highly qualified specialists. Career counseling helps them understand their interests, skills and goals in order to make informed decisions about choosing a career path. Consultants can help pupils and students in determining fields of activity, studying universities, as well as providing advice on passing entrance exams and preparing documents. Consultants will help develop a specific career plan, determine short-term and long-term goals, as well as ways to achieve them. Career counseling/Career guidance is an important stage in your development, so don't miss your chance.",
       "time": {
         "date": "April 2024",
         "duration": "2 months"
@@ -231,63 +231,63 @@
       "text": "Can't decide on your future profession? The question 'What do you want to be when you grow up?' already caught up with you... Parents say one thing, but you want another, we will help! Join the Career counseling/Career guidance course and we will improve your skills so that the choice is 100% successful!",
       "topic": {
         "topic1": "Career orientation",
-        "topic2":"Meeting with startups",
-        "topic3":"Meeting with business",
-        "topic4":"A meeting with a politician",
-        "topic5":"Career counseling",
+        "topic2": "Meeting with startups",
+        "topic3": "Meeting with business",
+        "topic4": "A meeting with a politician",
+        "topic5": "Career counseling",
         "topic6": "Career support",
         "topic7": "Portfolio, resume, interview, what is it?",
         "topic8": "Internship",
         "topic9": "Getting to know the most successful students of Ukraine"
-       }
+      }
     },
     "profTest": {
       "question": "Is it difficult to decide on a course?",
-    "answer": "Take our special test and find out which areas of professional development will suit you",
-    "test" : "Pass a test"
-  },
-  "audience": {
-    "title": "The course is for you if you",
-    "description": "Not a designer yet",
-    "text": "Let's study the basic tools for creating UI design sites and the basic principles of working with them."
-  },
-  "skills": {
-    "skill1": {
-    "name": "Experience",
-    "description": "all you need is the desire and willingness to work hard"
+      "answer": "Take our special test and find out which areas of professional development will suit you",
+      "test": "Pass a test"
     },
-    "skill2": {
-      "name": "Time",
-      "description": "10-12 hours a week for assignments"
-      }, 
+    "audience": {
+      "title": "The course is for you if you",
+      "description": "Not a designer yet",
+      "text": "Let's study the basic tools for creating UI design sites and the basic principles of working with them."
+    },
+    "skills": {
+      "skill1": {
+        "name": "Experience",
+        "description": "all you need is the desire and willingness to work hard"
+      },
+      "skill2": {
+        "name": "Time",
+        "description": "10-12 hours a week for assignments"
+      },
       "skill3": {
         "name": "English",
         "description": "for comfortable reading of long articles about design"
-        }
-  },
-  "question": {
-    "title": "Frequently asked questions",
-    "question1": {
-     "question": "What skills are required for entry?",
-     "answer": "All you need is the desire and willingness to work hard" 
-    },
-    "question2": {
-      "question": "Will there be a certificate?",
-      "answer": "It will be" 
-     },
-     "question3": {
-      "question": "What do I not like?",
-      "answer": "Will like it" 
-     },
-     "question4": {
-      "question": "Will the webinars be recorded?",
-      "answer": "So" 
-     },
-     "question5": {
-      "question": "What software is needed?",
-      "answer": "Persistence" 
-     }
       }
+    },
+    "question": {
+      "title": "Frequently asked questions",
+      "question1": {
+        "question": "What skills are required for entry?",
+        "answer": "All you need is the desire and willingness to work hard"
+      },
+      "question2": {
+        "question": "Will there be a certificate?",
+        "answer": "It will be"
+      },
+      "question3": {
+        "question": "What do I not like?",
+        "answer": "Will like it"
+      },
+      "question4": {
+        "question": "Will the webinars be recorded?",
+        "answer": "So"
+      },
+      "question5": {
+        "question": "What software is needed?",
+        "answer": "Persistence"
+      }
+    }
   },
   "Partners": {
     "title": "Hey folks, look at the incredible partners working with Mindlab!",
@@ -356,7 +356,7 @@
     "btn": "Leave a review"
   },
   "Contacts": {
-    "title": "Let's keep in touch",
+    "title": "Let's keep in touch!",
     "follow": "Follow us in",
     "join": "join as friends in",
     "write": "Write to us in",

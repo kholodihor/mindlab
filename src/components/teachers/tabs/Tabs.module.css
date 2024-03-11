@@ -20,6 +20,9 @@
     text-align: center;
     padding: 0 1rem;
     transition: all 0.1s ease-in-out;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     cursor: pointer;
     @media screen and (min-width: 450px) {
       min-width: 200px;
