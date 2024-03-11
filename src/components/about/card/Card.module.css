@@ -13,6 +13,9 @@
     width: 100%;
     padding: 1.25rem 1.25rem 2.5rem 1.25rem;
   }
+  @media screen and (max-width: 321px) {
+    padding: 1.25rem 0.5rem;
+  }
 }
 
 .card_title {
@@ -30,7 +33,6 @@
     text-align: center;
   }
   @media screen and (max-width: 844px) {
-    height: 112px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,6 +43,8 @@
   @media screen and (max-width: 320px) {
     font-size: 26px;
     width: 268px;
+    height: 39px;
+    margin-bottom: 0.75rem;
   }
 }
 
@@ -48,6 +52,7 @@
   @media screen and (max-width: 320px) {
     justify-content: start;
     align-items: start;
+    padding-left: 0.5rem;
   }
 }
 

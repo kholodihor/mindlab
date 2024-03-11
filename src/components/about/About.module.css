@@ -29,6 +29,11 @@
     margin-top: 5.2rem;
     gap: 3.75rem;
   }
+  @media screen and (max-width: 321px) {
+    margin-top: 2.5rem;
+    gap: 1.5rem;
+    margin-bottom: 0;
+  }
 }
 
 .about_content {
@@ -51,14 +56,15 @@
     font-size: 20px;
     gap: 2.25rem;
   }
+
+  @media screen and (max-width: 321px) {
+    font-size: 18px;
+  }
 }
 
 .about_us {
   display: none;
-}
-
-@media (max-width: 1290px) {
-  .about_us {
+  @media screen and (max-width: 1290px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -122,6 +128,9 @@
   @media (max-width: 1023px) {
     width: 100%;
   }
+  @media screen and (max-width: 321px) {
+    font-size: 16px;
+  }
 }
 
 .text_highlight {
@@ -157,11 +166,13 @@
   @media (max-width: 620px) {
     height: 140px;
   }
-  @media (max-width: 430px) {
+  @media (max-width: 431px) {
     height: 168px;
   }
   @media (max-width: 320px) {
     font-size: 14px;
+    margin-bottom: 1.25rem;
+    padding-left: 0.5rem;
   }
 }
 
