@@ -24,9 +24,7 @@
 }
 
 .wrapper {
-  background: url(/stars_bg.png) no-repeat;
-  background-size: cover;
-  background-position: 0 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -36,6 +34,37 @@
   }
   @media screen and (min-width: 850px) {
     gap: 100px;
+  }
+
+  .star_small {
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+  .star_large {
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    transform: translateY(-50%);
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+  .star_medium {
+    position: absolute;
+    top: 5%;
+    right: 20%;
+    transform: translateY(-50%);
+    display: none;
+    @media screen and (min-width: 1024px) {
+      display: block;
+    }
   }
 
   .teacher {
