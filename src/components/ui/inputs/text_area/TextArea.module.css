@@ -11,6 +11,7 @@
     background: none;
     border: none;
     outline: none;
+    resize: none;
     font-family: sans-serif;
     color: var(--black);
     border-bottom: 1px solid var(--black);

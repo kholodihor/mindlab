@@ -19,9 +19,9 @@ const FormModal = ({ children, handleClose }: FormModalProps) => {
   const ModalLayout = () => (
     <div className={styles.wrapper}>
       <div className={styles.modal}>
-        <div className={styles.close} onClick={handleClose}>
+        <button className={styles.close} onClick={handleClose}>
           <CloseIcon />
-        </div>
+        </button>
         {children}
       </div>
     </div>

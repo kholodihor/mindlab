@@ -1,6 +1,4 @@
 .wrapper {
-  position: relative;
-  min-width: 100%;
   min-height: 100vh;
   background: var(--graphite);
   color: var(--white);
@@ -9,37 +7,39 @@
   align-items: center;
   flex-direction: column;
 
-  .lottie {
-    margin-top: 120px;
-    @media screen and (min-width: 430px) {
-      margin-top: 60px;
+  .lottie_wrapper {
+    position: relative;
+    width: fit-content;
+    min-height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+    .lottie {
+      @media screen and (min-width: 768px) {
+        width: 70%;
+        height: 60%;
+      }
     }
-    @media screen and (min-width: 1280px) {
-      margin-top: 40px;
-      width: 70%;
-      height: 60%;
-    }
-  }
 
-  .title {
-    position: absolute;
-    bottom: 17%;
-    left: 0;
-    width: 100%;
-    text-transform: uppercase;
-    text-align: center;
-    font-family: 'Oswald', sans-serif;
-    font-size: 26px;
-    font-weight: 500;
-    @media screen and (min-width: 1280px) {
-      white-space: nowrap;
+    .title {
+      position: absolute;
+      bottom: 7%;
+      left: 0;
+      width: 100%;
+      text-transform: uppercase;
+      text-align: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 26px;
+      font-weight: 500;
     }
-  }
 
-  .button {
-    position: absolute;
-    bottom: 3%;
-    left: 50%;
-    transform: translateX(-50%);
+    .button {
+      position: absolute;
+      bottom: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 }

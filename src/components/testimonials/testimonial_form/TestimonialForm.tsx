@@ -79,11 +79,7 @@ const TestimonialForm = () => {
         </div>
       </form>
       <div>
-        <Checkbox
-          text="Я приймаю умови Публічної оферти та надаю згоду на обробку моїх особистих даних
-          відповідно до Політики конфіденційності"
-          handleAction={() => setChecked(!checked)}
-        />
+        <Checkbox handleAction={() => setChecked(!checked)} />
       </div>
     </div>
   )

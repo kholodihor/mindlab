@@ -22,12 +22,18 @@
     align-items: center;
     background: transparent;
     font-size: 16px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     transition: all 0.5s ease-in-out;
   }
 
   .input::placeholder {
     color: var(--white);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
+
   .search {
     position: absolute;
     top: 50%;

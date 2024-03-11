@@ -1,32 +1,31 @@
 'use client'
 
-import {  useState } from 'react'
+import { useState } from 'react'
 
 import Link from 'next/link'
 import Burger from '../icons/Burger'
 import styles from './Header.module.css'
 import Lottie from 'lottie-react'
 import { useMediaQuery } from '@react-hook/media-query'
+import { useLocale, useTranslations } from 'next-intl'
+import { useWidth } from '@/hooks/useWidth'
 import chatbot_default from '@/animations/сhatbot_default.json'
 import chatbot_hover from '@/animations/chatbot_hover.json'
 import MobileMenu from './mobile_menu/MobileMenu'
 import Logo from './logo/Logo'
-import { useLocale, useTranslations } from 'next-intl'
-import { useWidth } from '@/hooks/useWidth'
 import LanguageSwitcher from './LocalSwitcher'
-
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const isSmallScreen = useMediaQuery('(max-width: 768px)')
-  const currentWidth = useWidth();
+  const currentWidth = useWidth()
   const locale = useLocale()
 
-  const t = useTranslations("Menu");
+  const t = useTranslations('Menu')
 
   return (
-    <header className={`${styles.header} container`}>
+    <header className={`${styles.header}`}>
       <div className={styles.container}>
         <div className={styles.header_logo}>
           <Logo />
@@ -34,24 +33,22 @@ const Header = () => {
         <nav className={styles.header_nav}>
           <ul>
             <li className={styles.header_nav_item}>
-              <Link href={`/${locale}#courses`}>{t("courses")}</Link>
+              <Link href={`/${locale}#courses`}>{t('courses')}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href={`/${locale}#teachers`}>{t("speakers")}</Link>
+              <Link href={`/${locale}#teachers`}>{t('speakers')}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href={`/${locale}#partners`}>{t("partners")}</Link>
+              <Link href={`/${locale}#partners`}>{t('partners')}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href={`/${locale}#parents`}>{t("parents")}</Link>
+              <Link href={`/${locale}#parents`}>{t('parents')}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href={`/${locale}#contacts`}>{t("contacts")}</Link>
+              <Link href={`/${locale}#contacts`}>{t('contacts')}</Link>
             </li>
           </ul>
-          <div className={styles.switch}>
-          {currentWidth >= 1024 &&  <LanguageSwitcher />}
-          </div>
+          <div className={styles.switch}>{currentWidth >= 1024 && <LanguageSwitcher />}</div>
           <a href="https://t.me/honeyhell_bot" target="_blank">
             <Lottie
               onMouseEnter={() => setIsHovered(true)}

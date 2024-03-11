@@ -24,12 +24,14 @@ const FeedBackForm = () => {
   const {
     handleSubmit,
     control,
-    formState: { errors }
+    formState: { errors, isDirty }
   } = useForm<z.infer<typeof feedbackValidation>>({
     resolver: zodResolver(feedbackValidation),
     mode: 'onChange',
     defaultValues: defaultValues
   })
+
+  console.log(isDirty)
 
   const onSubmit: SubmitHandler<z.infer<typeof feedbackValidation>> = async (
     values: z.infer<typeof feedbackValidation>
@@ -81,19 +83,15 @@ const FeedBackForm = () => {
         <div className={styles.button_wrapper}>
           <button
             type="submit"
-            className={styles.btn}
-            disabled={!checked || !!Object.keys(errors).length}
+            className={`${styles.btn} ${checked && !Object.keys(errors).length && styles.active}`}
+            disabled={!checked || !isDirty || !!Object.keys(errors).length}
           >
             {isProcessing ? 'Обробка запиту...' : 'Отримати консультацію'}
           </button>
         </div>
       </form>
       <div>
-        <Checkbox
-          text="Я приймаю умови Публічної оферти та надаю згоду на обробку моїх особистих даних
-          відповідно до Політики конфіденційності"
-          handleAction={() => setChecked(!checked)}
-        />
+        <Checkbox handleAction={() => setChecked(!checked)} />
       </div>
     </div>
   )

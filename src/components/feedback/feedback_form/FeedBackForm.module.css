@@ -6,11 +6,12 @@
   align-items: center;
   flex-direction: column;
   gap: 40px;
-  padding: 40px 0;
+  /* padding: 40px 0; */
 
   .title {
-    color: var(--lime);
+    color: var(--black);
     font-size: 26px;
+    margin-top: 4rem;
   }
   .form {
     display: flex;
@@ -26,7 +27,7 @@
       margin-top: 60px;
 
       .btn {
-        width: 80px;
+        width: 380px;
         height: 60px;
         border-radius: 2rem;
         border: none;
@@ -44,12 +45,16 @@
         color: var(--black);
       }
       .btn:disabled {
-        background: var(--lime);
+        background: var(--gray);
         cursor: not-allowed;
       }
       .btn:disabled:hover {
         background: var(--gray);
         cursor: not-allowed;
+      }
+      .active {
+        background: var(--lime);
+        color: var(--black);
       }
     }
   }
