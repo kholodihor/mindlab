@@ -96,8 +96,11 @@
   }
 
   @media screen and (max-width: 321px) {
+    display: block;
     width: 300px;
     font-size: 25px;
+    margin: 2.5rem 0;
+    margin-left: -6px;
   }
 }
 
@@ -188,6 +191,9 @@
   display: none;
   @media (max-width: 768px) {
     display: block;
+  }
+  @media (max-width: 321px) {
+    display: none;
   }
 }
 .pulse {
