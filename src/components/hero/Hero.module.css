@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   width: 100%;
   min-height: 70vh;
   display: flex;

@@ -68,7 +68,7 @@ const Footer = () => {
               </li>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.talk')}</p>
-                <Link href="/" className={css.contact__link}>
+                <Link href="tel:6031112298" className={css.contact__link}>
                   <PhoneIcon />
                   <p>{t('Footer.phone')}</p>
                 </Link>
