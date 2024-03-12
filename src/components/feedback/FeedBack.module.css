@@ -26,13 +26,13 @@
 
   .title_wrapper {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: column;
     .title {
       font-size: 32px;
       font-weight: 500;
-      margin-right: 0.7rem;
+      margin-right: 1.1rem;
     }
     .subtitle {
       font-size: 18px;
@@ -73,6 +73,7 @@
       }
       .button:disabled {
         background: var(--graphite);
+        color: var(--gray);
         cursor: not-allowed;
       }
       .button:disabled:hover {
@@ -150,6 +151,7 @@
 
     .check_paragraph {
       text-align: left;
+      color: #dbdbdc;
       .check_link:hover {
         color: var(--violet);
       }
@@ -204,12 +206,12 @@
     }
 
     .checkbox_container .checkmark:after {
-      left: 35%;
+      left: 20%;
       top: 5%;
-      width: 5px;
-      height: 15px;
+      width: 12.34px;
+      height: 9.77px;
       border: 1px solid white;
-      border-width: 0 3px 3px 0;
+      border-width: 0 2px 2px 0;
       -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);

@@ -12,13 +12,14 @@
     font-size: 18px;
     margin-bottom: 20px;
     .order {
-      color: var(--violet);
+      color: #aaaedf;
     }
   }
   .about_paragraph {
     font-size: 16px;
     font-weight: normal;
     width: 100%;
+    color: #ffffff;
     @media screen and (min-width: 768px) {
       width: 300px;
     }

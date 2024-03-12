@@ -10,13 +10,13 @@ import styles from './Teachers.module.css'
 import { useTranslations } from 'next-intl'
 
 const Teachers = () => {
-  const { teachers } = useTeachers()
+  const { teachers, isLoading } = useTeachers()
   const [query, setQuery] = useState('')
   const [selectedQuery, setSelectedQuery] = useState('')
   const [speciality, setSpeciality] = useState('')
   const [filteredTeachers, setFilteredTeachers] = useState([])
 
-  const t = useTranslations("Speakers");
+  const t = useTranslations('Speakers')
 
   useEffect(() => {
     setQuery('')
@@ -57,7 +57,7 @@ const Teachers = () => {
           whileInView={{ translateY: 0, opacity: 1 }}
           transition={{ ease: 'easeIn', duration: 0.75 }}
         >
-          {t("title")}
+          {t('title')}
         </motion.h1>
       </div>
       <Search setQuery={setQuery} query={query} handleClick={filterByQuery} />
@@ -70,9 +70,7 @@ const Teachers = () => {
       {filteredTeachers && filteredTeachers.length ? (
         <Slider teachers={filteredTeachers} />
       ) : (
-        <p className={styles.not_found}>
-         {t("notFound")}
-        </p>
+        <p className={styles.not_found}>{isLoading ? t('loading') : t('notFound')}</p>
       )}
     </section>
   )

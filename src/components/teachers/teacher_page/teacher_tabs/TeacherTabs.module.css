@@ -15,7 +15,7 @@
       width: 169px;
       height: 48px;
       border-radius: 2rem;
-      background: var(--graphite);
+      background: #161618;
       border: 1px solid transparent;
       outline: none;
       color: var(--white);
@@ -29,7 +29,7 @@
       border: 1px solid var(--graphite);
     }
     .active {
-      background: var(--violet);
+      background: var(--violet-light);
       color: var(--black);
       transition: all 0.3s ease;
     }

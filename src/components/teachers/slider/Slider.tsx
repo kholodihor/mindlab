@@ -65,7 +65,6 @@ const Slider = ({ teachers }: SliderProps) => {
           spaceBetween={20}
           slidesPerView={amount}
           loop={true}
-          // centeredSlides={true}
           modules={[Navigation]}
           onSwiper={(swiper) => {
             ;(sliderRef.current as any) = swiper
