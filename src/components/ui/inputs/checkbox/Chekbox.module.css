@@ -8,8 +8,8 @@
   .check_paragraph {
     text-align: left;
     color: var(--black);
-    .check_link:hover {
-      color: var(--lime);
+    .check_link {
+      text-decoration: underline;
     }
   }
   .checkbox_container {

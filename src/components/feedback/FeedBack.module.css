@@ -152,8 +152,8 @@
     .check_paragraph {
       text-align: left;
       color: #dbdbdc;
-      .check_link:hover {
-        color: var(--violet);
+      .check_link {
+        text-decoration: underline;
       }
     }
     .checkbox_container {

@@ -396,5 +396,9 @@
   "Langs": {
     "ua": "UA",
     "en": "EN"
+  },
+  "404": {
+    "message": "please, go to the main page",
+    "button": "Main page"
   }
 }
