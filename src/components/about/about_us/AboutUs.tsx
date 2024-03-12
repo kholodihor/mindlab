@@ -2,6 +2,7 @@ import Hands from '@/components/icons/Hands'
 import React, { FC } from 'react'
 import styles from '../About.module.css'
 import { useTranslations } from 'next-intl'
+import Image from 'next/image'
 
 const AboutUs: FC = () => {
   const t = useTranslations('About')
@@ -24,14 +25,16 @@ const AboutUs: FC = () => {
       </div>
       <p className={styles.main_text}>
         <span>
-          {t('mainText.message')} {t('mainText.hands')}
+          {t('mainText.message')}
+          <br className={styles.text_breaker} />
+          {t('mainText.hands')}
         </span>
         <span className={styles.hands_middle}>
           <Hands />
         </span>
         <span> {t('mainText.future')}</span>
         <span className={styles.hands_end}>
-          <Hands />
+          <Image src={'/hands.png'} alt="hands" width={61} height={49} />
         </span>
       </p>
       <div className={styles.secondary_goals}>

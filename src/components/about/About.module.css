@@ -184,7 +184,12 @@
 .description_text {
   color: #f9f9fa;
 }
-
+.text_breaker {
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
 .pulse {
   position: absolute;
   top: -13px;
