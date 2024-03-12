@@ -46,7 +46,7 @@ const t = useTranslations("Courses")
           ))}
         </ul></>}
        
-        {sideBarItem === 1 && <TeacherCourse /> }
+        {sideBarItem === 1 && <TeacherCourse course={currentCourse.title}/> }
         {sideBarItem === 2 && <Audiense /> }
         {sideBarItem === 3 && <QuestionCourse /> }
         

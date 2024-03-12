@@ -120,7 +120,7 @@ export const coursesPage: Array<CoursesPage> = [
   },
   {
     name: 'innovative',
-    title: 'Іnnovative technologies',
+    title: 'Innovative technologies',
     description:
       'innovativeTechnologies.about',
       time: {
@@ -144,7 +144,7 @@ export const coursesPage: Array<CoursesPage> = [
   },
   {
     name: 'art',
-    title: 'ART',
+    title: 'Art',
     description:
       'art.about',
       time: {
@@ -169,7 +169,7 @@ export const coursesPage: Array<CoursesPage> = [
   },
   {
     name: 'career',
-    title: ' Career counseling/Career guidance',
+    title: 'Career counselling/career guidance',
     description:
       "careerCounselin.about",
       time: {

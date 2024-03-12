@@ -243,7 +243,7 @@
     padding-bottom: 0;
   }
   @media screen and (min-width: 1280px) {
-    padding-bottom: 79px;
+    padding-bottom: 80px;
   }
 }
 
@@ -275,9 +275,10 @@
   width: 100%;
   padding: 16px 0;
   border-bottom: solid 1px var(--white);
-  @media screen and (min-width: 768px) {
-    padding: 20px 0;
+  @media screen and (min-width: 430px) {
+    padding: 14px 0;
   }
+ 
   @media screen and (min-width: 1280px) {
     padding: 0px 0 19px 0;
     width: 480px;
@@ -309,8 +310,8 @@
     bottom: 90px;
     position: relative;
     position: absolute;
-    top: 650px;
-    left: 15%;
+    top: 590px;
+    left: 16%;
   }
 
   @media screen and (min-width: 1280px) {

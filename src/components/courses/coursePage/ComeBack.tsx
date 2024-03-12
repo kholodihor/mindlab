@@ -7,7 +7,7 @@ const ComeBackLink = ()=> {
     const t = useTranslations("Courses")
     const locale = useLocale()
     return (
-<Link href={`/${locale}/#course`} className={css.link}>
+<Link href={`/${locale}/#courses`} className={css.link}>
 <ArrowLeft />
 <p className={css.link__text}>{t("comeBack")}</p>
 </Link>
