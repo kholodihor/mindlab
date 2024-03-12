@@ -34,12 +34,14 @@
       border: 1px solid var(--lime);
       border-radius: 100%;
       color: var(--lime);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
     }
 
     .navbtn:nth-of-type(1) {
       transform: rotate(180deg);
-      margin-bottom: 3px;
     }
 
     .arrow {

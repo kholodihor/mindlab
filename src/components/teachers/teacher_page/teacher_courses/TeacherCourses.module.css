@@ -10,6 +10,15 @@
   .content_title {
     font-size: 24px;
     font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .content_title_desktop {
+    font-size: 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
   }
 
   .content_paragraph {
@@ -38,7 +47,7 @@
     }
     .first {
       border: 1px solid transparent;
-      background: var(--graphite);
+      background: #161618;
     }
   }
 }
