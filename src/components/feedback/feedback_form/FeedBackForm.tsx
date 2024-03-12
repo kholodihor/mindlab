@@ -77,7 +77,11 @@ const FeedBackForm = () => {
           name="message"
           control={control}
           render={({ field }) => (
-            <TextArea {...field} errorText={errors.message?.message} placeholder="Ваш комментар" />
+            <TextArea
+              {...field}
+              errorText={errors.message?.message}
+              placeholder="Що вас цікавить?"
+            />
           )}
         />
         <div className={styles.button_wrapper}>

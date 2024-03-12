@@ -50,16 +50,16 @@ const Teachers = () => {
 
   return (
     <section id="teachers" className={`${styles.wrapper} container`}>
-      <div className={`${styles.section_title} title`}>
-        <motion.h1
-          viewport={{ once: true }}
-          initial={{ translateY: 100, opacity: 0 }}
-          whileInView={{ translateY: 0, opacity: 1 }}
-          transition={{ ease: 'easeIn', duration: 0.75 }}
-        >
-          {t('title')}
-        </motion.h1>
-      </div>
+      <motion.h2
+        className={`${styles.section_title} title`}
+        viewport={{ once: true }}
+        initial={{ translateY: 100, opacity: 0 }}
+        whileInView={{ translateY: 0, opacity: 1 }}
+        transition={{ ease: 'easeIn', duration: 0.75 }}
+      >
+        {t('title')}
+      </motion.h2>
+
       <Search setQuery={setQuery} query={query} handleClick={filterByQuery} />
       <Tabs
         teachers={teachers}

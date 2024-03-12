@@ -18,7 +18,8 @@
     padding: 0 50px;
   }
   @media screen and (min-width: 1440px) {
-    padding: 0 130px;
+    padding: 0 120px;
+    justify-content: center;
   }
 }
 .header_nav {
@@ -26,6 +27,11 @@
   justify-content: flex-end;
   align-items: center;
   flex: 1;
+  margin: 0 auto;
+  @media screen and (min-width: 1440px) {
+    justify-content: center;
+  }
+
   .header_burger {
     display: block;
     @media screen and (min-width: 1024px) {

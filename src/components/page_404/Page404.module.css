@@ -6,6 +6,7 @@
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 40px;
 
   .lottie_wrapper {
     position: relative;
