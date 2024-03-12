@@ -160,6 +160,9 @@
   @media (max-width: 800px) {
     height: 200px;
   }
+  @media (max-width: 768px) {
+    height: 192px;
+  }
   @media (max-width: 640px) {
     height: 220px;
   }

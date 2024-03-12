@@ -10,7 +10,7 @@ import AboutUs from './about_us/AboutUs'
 
 const About: FC = () => {
   const aboutRef = useRef<HTMLDivElement>(null)
-  
+
   return (
     <section className={`${styles.about} container`} ref={aboutRef}>
       <div className={styles.about_content}>
