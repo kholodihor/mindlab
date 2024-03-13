@@ -6,7 +6,7 @@
   flex-basis: 50%;
   line-height: 150%;
   position: relative;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 844px) {
     padding: 1.25rem 1.25rem 2.5rem 1.25rem;
   }
   @media screen and (max-width: 620px) {
@@ -27,7 +27,7 @@
   margin-bottom: 1rem;
   line-height: 150%;
 
-  @media screen and (max-width: 1023px) {
+  @media screen and (max-width: 1039px) {
     font-size: 30px;
     text-align: center;
   }
@@ -36,8 +36,18 @@
     justify-content: center;
     align-items: center;
   }
+  @media screen and (max-width: 716px) {
+    font-size: 28px;
+  }
+  @media screen and (max-width: 677px) {
+    font-size: 26px;
+  }
+  @media screen and (max-width: 638px) {
+    font-size: 24px;
+  }
   @media screen and (max-width: 620px) {
     height: 45px;
+    font-size: 30px;
   }
   @media screen and (max-width: 320px) {
     font-size: 26px;
