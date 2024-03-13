@@ -57,9 +57,15 @@ const t = useTranslations("Certificate");
                 </Link>
               )}
               <div
-                className={`${css[`img__${className}`]} ${currentAnswer === color ? css[`active__${className}`] : ''}`}
+                className={`${css[`img__${className}`]} ${currentAnswer === color ? css[`active__${className}`] : ''}`} 
               >
-                <Image src={img} alt="certificate" width={240} height={200} className={css.img}/>{' '}
+                <Image src={img} alt="certificate" width={240} height={200} className={css.img}  onClick={() => {
+                if (currentAnswer === color) {
+                  setCurrentAnswer('')
+                } else {
+                  showAnswer(color)
+                }
+              }}/>{' '}
                 <div className={css.animation}>
                   <Lottie animationData={animationData} loop={true} />
                 </div>

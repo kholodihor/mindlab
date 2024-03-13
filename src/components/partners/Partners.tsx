@@ -5,7 +5,6 @@ import eye from '@/animations/eye.json'
 import Lottie from 'lottie-react'
 import ArrowPartners from '../icons/ArrowPartners'
 import ArrowSliderPartners from '../icons/ArrowSliderPartners'
-import Fire from '../icons/Fire'
 import { partners } from '@/data/data'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Mousewheel, Scrollbar } from 'swiper/modules'
@@ -21,10 +20,9 @@ import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 
-
 const Partners = () => {
   const currentWidth = useWidth()
-  const t = useTranslations("Partners");
+  const t = useTranslations('Partners')
   return (
     <section className={`${css.partners} container`} id="partners">
       <div className={css.part__left}>
@@ -36,7 +34,7 @@ const Partners = () => {
           transition={{ ease: 'easeOut', duration: 0.75 }}
           className={`title ${css.partners__title}`}
         >
-          {t("title")}
+          {t('title')}
         </motion.h2>
         {currentWidth < 1280 ? (
           <div className={css.icon__arrowTablet}>
@@ -47,14 +45,14 @@ const Partners = () => {
             <ArrowPartners />
           </div>
         )}
-        <p className={css.partners__question}>{t("question")}</p>
+        <p className={css.partners__question}>{t('question')}</p>
         <div className={css.icon__fire}>
-          <Fire />
-          <Fire />
-          <Fire />
+          <Image width={38} height={49} src={'/svg/Fire.svg'} alt="fire" className={css.img} />
+          <Image width={38} height={49} src={'/svg/Fire.svg'} alt="fire" className={css.img} />
+          <Image width={38} height={49} src={'/svg/Fire.svg'} alt="fire" className={css.img} />
         </div>
-        <p className={css.partners__text}>{t("text")}</p>
-        <p className={css.partners__list}>{t("partnersList")}</p>
+        <p className={css.partners__text}>{t('text')}</p>
+        <p className={css.partners__list}>{t('partnersList')}</p>
       </div>
       <div className={css.part__right}>
         <Swiper
@@ -67,8 +65,8 @@ const Partners = () => {
           {partners.map(({ name, logo, text, color, link }) => (
             <SwiperSlide key={name} className={css.swiperSlide} style={{ background: `${color}` }}>
               <Image
-                width={180}
-                height={170}
+                width={105}
+                height={105}
                 src={logo}
                 alt="logo"
                 className={css.partners__logo}

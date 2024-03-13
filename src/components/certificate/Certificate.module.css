@@ -1,7 +1,7 @@
 .certificate {
   color: var(--white);
   position: relative;
-  padding-top: 100px;
+  padding-top: 60px;
   padding-bottom: 200px;
   @media screen and (min-width: 768px) {
     padding-top: 100px;
@@ -106,12 +106,12 @@
   font-size: 16px;
 }
 
-.certificate__item:hover .img {
-  @media screen and (min-width: 1280px) {
+/* .certificate__item:hover .img {
+  
     opacity: 1;
     transform: scale(1) rotate(0);
-  }
-}
+  
+} */
 
 .img__green {
   position: absolute;
@@ -205,8 +205,8 @@
 }
 
 .certificate__item:hover .img__green {
-  opacity: 1;
-  transform: scale(1) rotate(10deg);
+  /* opacity: 1;
+  transform: scale(1) rotate(10deg); */
   @media screen and (min-width: 1280px) {
     opacity: 1;
     transform: scale(1) rotate(0);
@@ -214,8 +214,8 @@
 }
 
 .certificate__item:hover .img__rose {
-  opacity: 1;
-  transform: scale(1) rotate(-10deg);
+  /* opacity: 1;
+  transform: scale(1) rotate(-10deg); */
   @media screen and (min-width: 1280px) {
     opacity: 1;
     transform: scale(1) rotate(0);
@@ -223,8 +223,8 @@
 }
 
 .certificate__item:hover .img__roseLight {
-  opacity: 1;
-  transform: scale(1) rotate(-10deg);
+  /* opacity: 1;
+  transform: scale(1) rotate(-10deg); */
   @media screen and (min-width: 1280px) {
     opacity: 1;
     transform: scale(1) rotate(0deg);
@@ -232,8 +232,8 @@
 }
 
 .certificate__item:hover .img__violet {
-  opacity: 1;
-  transform: scale(1) rotate(10deg);
+  /* opacity: 1;
+  transform: scale(1) rotate(10deg); */
   @media screen and (min-width: 1280px) {
     opacity: 1;
     transform: scale(1) rotate(0);

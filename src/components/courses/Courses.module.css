@@ -1,5 +1,5 @@
 .courses__container {
-  padding-top: 60px;
+  padding-top: 73px;
   padding-bottom: 60px;
 
   @media screen and (min-width: 768px) {
@@ -47,10 +47,11 @@
 .animation {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -20px;
   width: 120px;
   @media screen and (min-width: 430px) {
     position: relative;
+    bottom: -5px;
   }
   @media screen and (min-width: 768px) {
     display: none;
@@ -69,11 +70,16 @@
 }
 
 .courses__item {
-  min-height: 150px;
+  min-height: 160px;
   position: relative;
   padding: 30px 0 0 0;
   border-bottom: 1px solid var(--white);
   transition: all 700ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @media screen and (min-width: 430px) {
+    min-height: 150px;
+    padding: 40px 0 20px 0;
+  }
 
   @media screen and (min-width: 768px) {
     min-height: 180px;
@@ -81,7 +87,7 @@
   }
 }
 
-.courses__item:first-child {
+/* .courses__item:first-child {
   padding-top: 0;
   min-height: 120px;
 
@@ -89,7 +95,7 @@
     padding-top: 40px;
     min-height: 180px;
   }
-}
+} */
 
 .thumb__title {
   display: flex;
@@ -148,7 +154,7 @@
 .title__violet,
 .title__green,
 .title__blue {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 20px;
   font-weight: 500;
   line-height: calc(48 / 32);
@@ -172,8 +178,11 @@
 .courses__link:hover .title__violetLight,
 .courses__link:focus .title__violetLight {
   color: var(--violet-light);
-  margin-bottom: 140px;
+  margin-bottom: 160px;
   transition: margin-bottom 600ms ease-in-out;
+  @media screen and (min-width: 430px) {
+    margin-bottom: 130px;
+  }
 
   @media screen and (min-width: 768px) {
     margin-bottom: 130px;

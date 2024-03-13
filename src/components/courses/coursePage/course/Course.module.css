@@ -109,6 +109,7 @@
 .teachers__list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   row-gap: 60px;
   column-gap: 20px;
 }
