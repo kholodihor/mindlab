@@ -14,6 +14,10 @@
 }
 
 .lottie {
+  width: 50%;
+  @media screen and (min-width: 1280px) {
+    width: 60%;
+  }
   width: 60%;
 }
 
@@ -30,8 +34,8 @@
     left: 0;
   }
   @media screen and (min-width: 768px) {
-    top: 70%;
-    left: 10%;
+    top: 67%;
+    /* left: 10%; */
   }
   @media screen and (min-width: 1280px) {
     top: 70%;

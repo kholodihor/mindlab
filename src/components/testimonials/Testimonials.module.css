@@ -1,55 +1,93 @@
 .reviews_container {
   position: relative;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   flex-direction: column;
   background: url(/reviews/reviews_bg.png) no-repeat;
   background-size: contain;
   background-position: center;
-  padding: 100px 20px;
+  padding-top: 100px;
+  padding-bottom: 100px;
   overflow: hidden;
 }
 
 .reviews_title {
+  position: relative;
   color: var(--white);
   font-family: 'Oswald', sans-serif;
-  font-size: 40px;
+  font-size: 26px;
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 75px;
   @media screen and (min-width: 430px) {
-    margin-left: 8rem;
+    font-size: 30px;
   }
+  @media screen and (min-width: 768px) {
+    font-size: 39px;
+    font-weight: 500;
+    margin-bottom: 60px;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    
+  }
+}
+
+.spanTitle {
+position: absolute;
+right: 16px;
+top: 45px;
+@media screen and (min-width: 430px) {
+ top: 60px;
+ }
+ @media screen and (min-width: 670px) {
+  position: relative;
+  top: 0px;
+  right: 0;
+  padding-left: 10px;
+  }
+}
+
+.img {
+  @media screen and (min-width: 430px) {
+   width: 60px;
+   height: 52px;
+  }
+  @media screen and (min-width: 768px) {
+   display: none;
+   }
+   @media screen and (min-width: 1280px) {
+    display: inline-block;
+    }
 }
 
 .swiper {
   width: 100%;
   height: 100%;
-  min-height: 20rem;
+  /* min-height: 20rem; */
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px 0;
   .slide {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 280px;
   }
 }
 
 .comments_block {
+ 
   margin-top: 60px;
-  /* margin-left: 8rem;
-  width: 480px; */
-  @media screen and (min-width: 450px) {
-    margin-left: 8rem;
-    width: 480px;
-  }
+ 
 }
 
 .comments_block_paragraph {
   color: var(--lightgray);
   font-size: 16px;
   margin-bottom: 40px;
+  max-width: 480px;
 }
 
 .comet {

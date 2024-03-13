@@ -12,12 +12,15 @@ import TextInput from '@/components/ui/inputs/text_input/TextInput'
 import TextArea from '@/components/ui/inputs/text_area/TextArea'
 import Checkbox from '@/components/ui/inputs/checkbox/Checkbox'
 import styles from './FeedBackForm.module.css'
+import { useTranslations } from 'next-intl'
 
 const FeedBackForm = () => {
   const [checked, setChecked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const { closeModal } = useModal()
   const { openAlert } = useAlert()
+  const t = useTranslations()
+
 
   const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLESHEETS_URL!
 
@@ -57,20 +60,20 @@ const FeedBackForm = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Маєте питання?</h1>
+      <h1 className={styles.title}>{t("Feedback.form.title")}</h1>
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
         <Controller
           name="name"
           control={control}
           render={({ field }) => (
-            <TextInput {...field} errorText={errors.name?.message} placeholder="Ім’я" />
+            <TextInput {...field} errorText={t(errors.name?.message)} placeholder={t("Feedback.form.name")} />
           )}
         />
         <Controller
           name="email"
           control={control}
           render={({ field }) => (
-            <TextInput {...field} errorText={errors.email?.message} placeholder="Email" />
+            <TextInput {...field} errorText={t(errors.email?.message)} placeholder="Email" />
           )}
         />
         <Controller
@@ -79,20 +82,18 @@ const FeedBackForm = () => {
           render={({ field }) => (
             <TextArea
               {...field}
-              errorText={errors.message?.message}
-              placeholder="Що вас цікавить?"
+              errorText={t(errors.message?.message)}
+              placeholder={t("Feedback.form.question")}
             />
           )}
         />
-        <div className={styles.button_wrapper}>
           <button
             type="submit"
             className={`${styles.btn} ${checked && !Object.keys(errors).length && styles.active}`}
             disabled={!checked || !isDirty || !!Object.keys(errors).length}
           >
-            {isProcessing ? 'Обробка запиту...' : 'Отримати консультацію'}
+            {isProcessing ? t("Feedback.form.loading") : t("Feedback.form.btn")}
           </button>
-        </div>
       </form>
       <div>
         <Checkbox handleAction={() => setChecked(!checked)} />

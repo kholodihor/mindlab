@@ -22,7 +22,7 @@ export const questionList: Array<questionParents> = [
     color: '#ffecd0',
     question: 'Parents.spiker.name',
     answer:
-      ["Parents.spiker.description", "Parents.spiker.inforvation"]
+      ["Parents.spiker.description" ]
   },
   {
     color: '#8d83ff',

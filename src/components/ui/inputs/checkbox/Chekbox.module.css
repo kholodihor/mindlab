@@ -10,6 +10,7 @@
     color: var(--black);
     .check_link {
       text-decoration: underline;
+      transition: color 0.3s ease-in-out;
     }
   }
   .checkbox_container {
@@ -70,4 +71,9 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
+}
+
+.check_link:hover,
+.check_link:focus {
+  color: var(--lime)
 }

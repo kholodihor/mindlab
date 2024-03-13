@@ -297,11 +297,11 @@
     "text": "We have something to be proud of, because our partners have become:",
     "patrners1": {
       "title": "Mushroom Academy",
-      "description": "Mushroom Academy is a Western Ukrainian IT school. For more than 19 years, he has been helping Ukrainians to build a successful career in the digital economy: he educates the next generation of IT citizens, develops the IT cluster, and helps those who need it."
+      "description": "Mushroom Academy is a Western Ukrainian IT school. For more than 19 years, they have been helping Ukrainians to build a successful career in the digital economy: he educates the next generation of IT citizens, develop the IT cluster, and help those who need it."
     },
     "patrners2": {
       "title": "Kyiv metropolitan educational institution named",
-      "description": "The mission of our institution is to help everyone in integral development and leadership formation, to serve the person, community, and society. Quality training, innovative curricula and high-level research are our priorities."
+      "description": "The mission of our institution is to help everyone in integral development and leadership formation, to serve the person, community, and society. Quality training, innovative curriculars and high-level research are our priorities."
     },
     "patrners3": {
       "title": "Kyiv Children's Academy",
@@ -329,8 +329,7 @@
     },
     "spiker": {
       "name": "Speakers and mentors",
-      "description": "The platform provides an opportunity to listen to lectures and receive advice from well-known specialists in various fields. Interactive webinars and interviews with successful personalities inspire and help students understand their capabilities.",
-      "inforvation": "We introduce young people to the following areas: Leadership, business, political science and sociology, modern technologies, art, career counseling and career support, which help students expand their knowledge and skills."
+      "description": "The platform provides an opportunity to listen to lectures and receive advice from well-known specialists in various fields. Interactive webinars and interviews with successful personalities inspire and help students understand their capabilities."
     },
     "guidanc": {
       "name": "Career guidance",
@@ -368,6 +367,7 @@
     "title": "Hey, do you have a question?",
     "subtitle": "Write, don't be shy, our admin will help in everything",
     "form": {
+      "title": "Do you have a question?",
       "name": "Name",
       "question": "That you are interested in?",
       "btn": "Get a consultation",
@@ -400,5 +400,15 @@
   "404": {
     "message": "please, go to the main page",
     "button": "Main page"
+  },
+  "Errors":{
+    "mustbe": "This field must be filled",
+"minName": "Name must contain at least 2 characters",
+"maxName": "Name must contain a maximum of 25 characters",
+"minEmail": "Email must contain at least 2 characters",
+"maxEmail": "Email must contain a maximum of 55 characters",
+"minQuestion": "Question must contain at least 2 characters",
+"maxQuestion": "Question must contain a maximum of 300 characters",
+"notCorrectEmail": "Incorrectly entered email"
   }
 }
