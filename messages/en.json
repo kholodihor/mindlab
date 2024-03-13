@@ -400,5 +400,10 @@
   "404": {
     "message": "please, go to the main page",
     "button": "Main page"
+  },
+  "SuccessAlert": {
+    "greeting": "Congratulations!",
+    "confirmation": "We have received your message",
+    "adminResponse": "Our administrator will respond to you as soon as possible"
   }
 }

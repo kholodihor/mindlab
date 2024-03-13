@@ -5,11 +5,12 @@ import { useAlert } from '@/stores/useAlert'
 // import { useBodyScrollLock } from '@/hooks/useBodyScrollLock'
 import CloseIcon from '@/components/icons/CloseIcon'
 import styles from './SuccessAlert.module.css'
+import { useTranslations } from 'next-intl'
 
 const SuccessAlert = () => {
   const { closeAlert } = useAlert()
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
-
+  const t = useTranslations('SuccessAlert')
   // useBodyScrollLock(isAlertOpen)
 
   const ModalLayout = () => (
@@ -18,9 +19,9 @@ const SuccessAlert = () => {
         <div className={styles.close} onClick={closeAlert}>
           <CloseIcon />
         </div>
-        <h2>Вітаємо!</h2>
-        <h5 className={styles.second_title}>Ми отримали ваше повідомлення</h5>
-        <p className={styles.paragraph}>Найближчим часом наш адміністратор надасть вам відповідь</p>
+        <h2>{t('greeting')}</h2>
+        <h5 className={styles.second_title}>{t('confirmation')}</h5>
+        <p className={styles.paragraph}>{t('adminResponse')}</p>
       </div>
     </div>
   )
