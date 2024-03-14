@@ -63,7 +63,7 @@
   },
   "Speakers": {
     "title": "Leading teachers",
-    "placeholder": "Request, direction, name, topic",
+    "placeholder": "Direction, name",
     "notFound": "We did not find any registered teachers for your request.",
     "loading": "Processing...",
     "btn": "Search",
