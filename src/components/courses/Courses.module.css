@@ -35,6 +35,7 @@
 }
 
 .titleCourses {
+  font-size: 30px;
   max-width: 257px;
   @media screen and (min-width: 430px) {
     max-width: 65%;
