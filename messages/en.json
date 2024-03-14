@@ -63,7 +63,7 @@
   },
   "Speakers": {
     "title": "Leading teachers",
-    "placeholder": "Request, direction, name, topic",
+    "placeholder": "Direction, name",
     "notFound": "We did not find any registered teachers for your request.",
     "loading": "Processing...",
     "btn": "Search",
@@ -410,5 +410,10 @@
 "minQuestion": "Question must contain at least 2 characters",
 "maxQuestion": "Question must contain a maximum of 300 characters",
 "notCorrectEmail": "Incorrectly entered email"
+  },
+  "SuccessAlert": {
+    "greeting": "Congratulations!",
+    "confirmation": "We have received your message",
+    "adminResponse": "Our administrator will respond to you as soon as possible"
   }
 }
