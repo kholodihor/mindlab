@@ -49,7 +49,7 @@
     height: 45px;
     font-size: 30px;
   }
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 364px) {
     font-size: 26px;
     width: 268px;
     height: 39px;

@@ -7,21 +7,18 @@ import pulse from '@/animations/puls.json'
 import { useTranslations } from 'next-intl'
 
 const BoostEngCard = () => {
-  const ENG_TEST_URL = 'https://forms.gle/HSFhoc82HunVTQxZ8' 
+  const ENG_TEST_URL = 'https://forms.gle/HSFhoc82HunVTQxZ8'
   const [isPulseHovered, setIsPulseHovered] = useState(false)
 
-  const t = useTranslations("About")
+  const t = useTranslations('About')
 
   const boostEngCardDesc = (
     <p className={styles.description}>
       <span className={styles.description_text}>
-      {t("english.improve")}{' '}
-      {t("english.bonus")}{' '}
+        {t('english.improve')} <b className={styles.description_breaker} />
+        {t('english.bonus')}{' '}
       </span>
-      {t("english.free")}{' '}
-      <span className={styles.description_text}>
-      {t("english.course")}
-      </span>
+      {t('english.free')} <span className={styles.description_text}>{t('english.course')}</span>
     </p>
   )
 
@@ -31,10 +28,10 @@ const BoostEngCard = () => {
 
   return (
     <Card
-      title={t("english.title")}
+      title={t('english.title')}
       description={boostEngCardDesc}
       url={ENG_TEST_URL}
-      text={t("english.btn")}
+      text={t('english.btn')}
       hoverHandler={hoverPulseHandler}
     >
       {isPulseHovered ? (
