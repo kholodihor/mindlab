@@ -11,12 +11,14 @@ import TextInput from '@/components/ui/inputs/text_input/TextInput'
 import TextArea from '@/components/ui/inputs/text_area/TextArea'
 import Checkbox from '@/components/ui/inputs/checkbox/Checkbox'
 import styles from './TestimonialForm.module.css'
+import { useTranslations } from 'next-intl'
 
 const TestimonialForm = () => {
   const [checked, setChecked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const { addNewTestimonial } = useTestimonials()
   const { closeModal } = useModal()
+  const t = useTranslations()
 
   const {
     handleSubmit,
@@ -45,27 +47,27 @@ const TestimonialForm = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>Ми будемо раді вас почути!</h1>
+      <h1 className={styles.title}>{t("Testimonials.testimonialTitle")}</h1>
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
         <Controller
           name="name"
           control={control}
           render={({ field }) => (
-            <TextInput {...field} errorText={errors.name?.message} placeholder="Ім’я" />
+            <TextInput {...field} errorText={t(errors.name?.message)} placeholder={t("Feedback.form.name")} />
           )}
         />
         <Controller
           name="email"
           control={control}
           render={({ field }) => (
-            <TextInput {...field} errorText={errors.email?.message} placeholder="Email" />
+            <TextInput {...field} errorText={t(errors.email?.message)} placeholder="Email" />
           )}
         />
         <Controller
           name="message"
           control={control}
           render={({ field }) => (
-            <TextArea {...field} errorText={errors.message?.message} placeholder="Ваш комментар" />
+            <TextArea {...field} errorText={t(errors.message?.message)} placeholder={t("Testimonials.testimonial")} />
           )}
         />
         <div className={styles.button_wrapper}>
@@ -74,13 +76,11 @@ const TestimonialForm = () => {
             className={styles.button}
             disabled={!checked || !!Object.keys(errors).length}
           >
-            {isProcessing ? 'Обробка запиту...' : 'Залишити коментар'}
+            {isProcessing ? t("Feedback.form.loading") : t("Testimonials.btn")}
           </button>
         </div>
       </form>
-      <div>
         <Checkbox handleAction={() => setChecked(!checked)} />
-      </div>
     </div>
   )
 }

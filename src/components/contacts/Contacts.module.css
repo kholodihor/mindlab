@@ -1,12 +1,6 @@
 .wrapper {
-  min-height: 510px;
   color: var(--white);
   max-width: 674px;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 32px; */
   padding: 60px 16px 40px 16px;
 
   .title {
