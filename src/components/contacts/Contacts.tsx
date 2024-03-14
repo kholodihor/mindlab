@@ -7,36 +7,11 @@ const Contacts = () => {
   const t = useTranslations("Contacts")
   return (
     <section id="contacts" className={styles.wrapper}>
-      <h2 className={styles.title}>{t("title")}</h2>
-      <p className={styles.paragraph}>
-        {t("follow")}{' '}
-        <a
-          href="https://www.instagram.com/mind.lab_hub?igsh=bWl3dGt5Njdwd3Fk&utm_source=qr"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Image
-            className={styles.image}
-            src="/contacts/instagram.svg"
-            alt="instagram"
-            width={50}
-            height={50}
-          />
-        </a>
-        {t("join")}{' '}
-        <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
-          <Image
-            className={styles.image}
-            src="/contacts/facebook.svg"
-            alt="instagram"
-            width={50}
-            height={50}
-          />
-        </a>
-      </p>
+      <h2 className={`${styles.title} title`}>{t("title")}</h2>
+     
       <p className={styles.paragraph}>
         {t("write")}{' '}
-        <a href="https://t.me/+Q8t3dkMH84hiYmNi" rel="noopener noreferrer" target="_blank">
+        <a href="https://t.me/+Q8t3dkMH84hiYmNi" rel="noopener noreferrer" target="_blank" className={styles.link}>
           {' '}
           <Image
             className={styles.image}
@@ -47,7 +22,7 @@ const Contacts = () => {
           />
         </a>
         {t("and")}{' '}
-        <a href="mailto:mind.lab.hub@gmail.com">
+        <a href="mailto:mind.lab.hub@gmail.com" className={styles.link}>
           {' '}
           <Image
             className={styles.image}
@@ -57,7 +32,32 @@ const Contacts = () => {
             height={50}
           />
         </a>{' '}
-       {t("answer")}
+        {t("join")}{' '}
+        <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank" className={styles.link}>
+          <Image
+            className={styles.image}
+            src="/contacts/facebook.svg"
+            alt="instagram"
+            width={50}
+            height={50}
+          />
+        </a>
+        {t("follow")}{' '}
+        <a
+          href="https://www.instagram.com/mind.lab_hub?igsh=bWl3dGt5Njdwd3Fk&utm_source=qr"
+          rel="noopener noreferrer"
+          target="_blank" className={styles.link}
+        >
+          <Image
+            className={styles.image}
+            src="/contacts/instagram.svg"
+            alt="instagram"
+            width={50}
+            height={50}
+          />
+        </a>
+       
+        {t("answer")}
       </p>
     </section>
   )
