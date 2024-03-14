@@ -1,9 +1,9 @@
 const ArrowPartners = () => {
   return (
     <svg
-      width="135"
-      height="40"
-      viewBox="0 0 135 40"
+      width="132"
+      height="37"
+      viewBox="0 0 132 37"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
