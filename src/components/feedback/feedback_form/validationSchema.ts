@@ -1,30 +1,31 @@
 import { z } from 'zod'
 
+
 export const feedbackValidation = z.object({
   name: z
     .string()
-    .nonempty('Поле має бути заповнене')
-    .min(2, 'Ім’я має містити мінімум 2 символи')
-    .max(25, 'Ім’я має містити максимум 25 символів'),
+    .nonempty('Errors.mustbe')
+    .min(2, 'Errors.minName')
+    .max(25, 'Errors.maxName'),
 
   email: z
     .string()
-    .nonempty('Поле має бути заповнене')
-    .min(2, 'Електронна пошта має містити мінімум 2 символи')
-    .max(55, 'Електронна пошта має містити максимум 55 символів')
+    .nonempty('Errors.mustbe')
+    .min(2, 'Errors.minEmail')
+    .max(55, 'Errors.maxEmail')
     .refine(
       (value) =>
         /^[a-zA-Z0-9_%+-]*(?:\.[a-zA-Z0-9_%+-]+)?[a-zA-Z0-9_%+-]+@[a-zA-Z0-9_%+-]*(?:\.[a-zA-Z0-9_%+-]+)?[a-zA-Z0-9_%+-]+\.[a-zA-Z]{2,}$/.test(
           value
         ),
       {
-        message: 'Некоректно введений email'
+        message: 'Errors.notCorrectEmail'
       }
     ),
 
   message: z
     .string()
-    .nonempty('Поле має бути заповнене')
-    .min(2, 'Питання має містити мінімум 2 символи')
-    .max(300, 'Питання має містити максимум 300 символів')
+    .nonempty('Errors.mustbe')
+    .min(2, 'Errors.minQuestion')
+    .max(300, 'Errors.maxQuestion')
 })

@@ -21,7 +21,7 @@ const FeedBack = () => {
   const [checked, setChecked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
-  const t = useTranslations('Feedback')
+  const t = useTranslations()
   const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLESHEETS_URL!
 
   const {
@@ -60,8 +60,8 @@ const FeedBack = () => {
     <section id="feedback" className={styles.container}>
       <div className={`${styles.wrapper}`}>
         <div className={styles.title_wrapper}>
-          <h1 className={styles.title}>{t('title')}</h1>
-          <p className={styles.subtitle}>{t('subtitle')}</p>
+          <h1 className={styles.title}>{t('Feedback.title')}</h1>
+          <p className={styles.subtitle}>{t('Feedback.subtitle')}</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} autoComplete="new-off" className={styles.form}>
           <Controller
@@ -70,9 +70,9 @@ const FeedBack = () => {
             render={({ field }) => (
               <TextInput
                 {...field}
-                errorText={errors.name?.message}
+                errorText={t(errors.name?.message)}
                 isWhite={true}
-                placeholder={t('form.name')}
+                placeholder={t('Feedback.form.name')}
               />
             )}
           />
@@ -82,7 +82,7 @@ const FeedBack = () => {
             render={({ field }) => (
               <TextInput
                 {...field}
-                errorText={errors.email?.message}
+                errorText={t(errors.email?.message)}
                 isWhite={true}
                 placeholder="Email"
               />
@@ -95,8 +95,8 @@ const FeedBack = () => {
               <TextInput
                 {...field}
                 isWhite={true}
-                errorText={errors.message?.message}
-                placeholder={t('form.question')}
+                errorText={t(errors.message?.message)}
+                placeholder={t('Feedback.form.question')}
               />
             )}
           />
@@ -106,7 +106,7 @@ const FeedBack = () => {
               className={`${styles.button} ${checked && !Object.keys(errors).length && styles.active}`}
               disabled={!checked || !isDirty || !!Object.keys(errors).length}
             >
-              {isProcessing ? t('form.loading') : t('form.btn')}
+              {isProcessing ? t('Feedback.form.loading') : t('Feedback.form.btn')}
             </button>
           </div>
         </form>
@@ -121,14 +121,14 @@ const FeedBack = () => {
             <span className={styles.checkmark}></span>
           </label>
           <p className={styles.check_paragraph}>
-            {t('chakbox.accept')}{' '}
+            {t('Feedback.chakbox.accept')}{' '}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/правила_користування_сайтом.pdf"
             >
-              {t('chakbox.public')}
+              {t('Feedback.chakbox.public')}
             </a>{' '}
             {t('chakbox.consent')}
             <a
@@ -137,7 +137,7 @@ const FeedBack = () => {
               rel="noopener noreferrer"
               href="/documents/політика_конфіденційності.pdf"
             >
-              {t('chakbox.policy')}
+              {t('Feedback.chakbox.policy')}
             </a>
           </p>
         </div>
