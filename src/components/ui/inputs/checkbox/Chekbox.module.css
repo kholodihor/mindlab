@@ -1,6 +1,6 @@
 .check_wrapper {
   margin-top: 40px;
-  font-size: 14px;
+  font-size: 12px;
   display: flex;
   gap: 12px;
   width: 90%;
@@ -10,6 +10,7 @@
     color: var(--black);
     .check_link {
       text-decoration: underline;
+      
     }
   }
   .checkbox_container {

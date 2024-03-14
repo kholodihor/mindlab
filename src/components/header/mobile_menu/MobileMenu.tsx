@@ -12,7 +12,7 @@ import MailIcon from '@/components/icons/MailIcon'
 import PhoneIcon from '@/components/icons/PhoneIcon'
 import TelegramIcon from '@/components/icons/TelegramIcon'
 import LanguageSwitcher from '../LocalSwitcher'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 type MobileMenuProps = {
   onClose: () => void
@@ -21,6 +21,7 @@ type MobileMenuProps = {
 const MobileMenu = ({ onClose }: MobileMenuProps) => {
   const [isHovered, setIsHovered] = useState(false)
   const t = useTranslations()
+  const locale = useLocale()
   return (
     <div className={styles.wrapper}>
       <div className={styles.menu_header}>
@@ -32,19 +33,19 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       <nav className={styles.menu_nav}>
         <ul>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href="/#courses">{t('Menu.courses')}</Link>
+            <Link href={`${locale}/#courses`}>{t('Menu.courses')}</Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href="/#teachers">{t('Menu.speakers')}</Link>
+            <Link href={`${locale}/#teachers`}>{t('Menu.speakers')}</Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href="/#partners">{t('Menu.partners')}</Link>
+            <Link href={`${locale}/#partners`}>{t('Menu.partners')}</Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href="/#parents">{t('Menu.parents')}</Link>
+            <Link href={`${locale}/#parents`}>{t('Menu.parents')}</Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href="/#contacts">{t('Menu.contacts')}</Link>
+            <Link href={`${locale}/#contacts`}>{t('Menu.contacts')}</Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
             <LanguageSwitcher />

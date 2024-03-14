@@ -376,8 +376,8 @@
     "chakbox": {
       "accept": "I accept the terms of",
       "public": "the Public Offer",
-      "consent": "and give my consent to the processing",
-      "data": "of my personal data in accordance with",
+      "consent": "and give my consent to the processing of my personal data in accordance with",
+      "data": "",
       "policy": "the Privacy Policy"
     }
   },
