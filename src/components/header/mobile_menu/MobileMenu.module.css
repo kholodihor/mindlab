@@ -1,34 +1,45 @@
 .wrapper {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100svh;
+  right: 0;
+  width: 274px;
+  height: 700px;
   background: var(--graphite);
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  padding: 1rem;
+  padding: 10px 40px 150px 20px;
   z-index: 9999;
+  overflow-y: scroll;
+ 
 
   .menu_header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 70px;
+  }
+  .icon {
+    height: 40px;
   }
   .menu_title {
+    font-size: 24px;
     color: var(--lime);
+  }
+  .menu_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
   }
   .menu_nav {
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    margin-top: 2rem;
 
     .header_nav_item {
-      margin: 1rem 0;
+      width: 100%;
       font-size: 18px;
       display: flex;
       .lottie {
@@ -39,8 +50,10 @@
         background: none;
         border: none;
         outline: none;
+        display: flex;
+        align-items: flex-end;
+        gap: 10px;
         color: var(--white);
-        margin-left: 1rem;
         font-size: 18px;
       }
     }
@@ -48,27 +61,52 @@
   .social {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
     margin-top: 2rem;
-  }
-  .image:nth-of-type(1) {
-    transform: rotate(10deg);
-  }
-  .image:nth-of-type(2) {
-    transform: rotate(-10deg);
+    @media screen and (min-width: 768px) {
+      margin-top: 144px;
+    }
+    .social_link:hover,
+    .social_link:focus {
+      transform: rotate(10deg);
+    } 
   }
   .contacts {
     width: 100%;
     display: flex;
     justify-content: flex-start;
     margin-top: 2rem;
-    .contacts_item {
-      margin: 1rem 0;
-      .contacts_item_link {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        font-size: 16px;
+    .contacts_list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      @media screen and (min-width: 430px) {
+        gap: 36px;
+      }
+      .contacts_item {
+        .contacts_item_title {
+          display: none;
+          @media screen and (min-width: 430px) {
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 8px;
+          }
+        }
+        .contacts_item_link {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          font-size: 16px;
+          .contacts_item_link_span {
+            display: none;
+            @media screen and (min-width: 430px) {
+              display: block;
+              font-size: 18px;
+            }
+          }
+        }
       }
     }
   }
