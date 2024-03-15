@@ -1,45 +1,47 @@
-.animation_block {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding-bottom: 2rem;
-  @media screen and (min-width: 768px) {
-    justify-content: flex-end;
-  }
-  @media screen and (min-width: 1280px) {
-    height: 449px;
-  }
-}
-
 .lottie {
-  width: 50%;
-  @media screen and (min-width: 1280px) {
-    width: 60%;
+  position: absolute;
+  right: 10px;
+  bottom: 115px;
+  width: 171px;
+  height: 242px;
+  @media screen and (min-width: 430px) {
+    width: 231px;
+    height: 327px;
+    right: 20px;
+    bottom: 121px;
   }
-  width: 60%;
+  @media screen and (min-width: 768px) {
+    width: 388px;
+    height: 549px;
+    right: 50px;
+    bottom: 310px;
+  }
+  @media screen and (min-width: 1280px) {
+    bottom: 80px;
+  }
+  @media screen and (min-width: 1440px) {
+    right: 130px;
+  }
 }
 
 .rotating_star {
   position: absolute;
-  top: 10%;
-  left: 0;
+  bottom: 152px;
+  left: 16px;
   border-radius: 100%;
   transition: all 0.7s ease-in-out;
   z-index: 51;
 
   @media screen and (min-width: 430px) {
-    top: 30%;
-    left: 0;
+    bottom: 189px;
+    left: 10px;
   }
   @media screen and (min-width: 768px) {
-    top: 67%;
-    /* left: 10%; */
+    left: 35px;
+    bottom: 310px;
   }
   @media screen and (min-width: 1280px) {
-    top: 70%;
-    left: -30%;
-    transform: translate(0, -50%);
+    bottom: 130px;
+    left: 500px;
   }
 }

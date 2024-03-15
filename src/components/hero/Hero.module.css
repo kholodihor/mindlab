@@ -1,45 +1,48 @@
 .hero {
   position: relative;
-  /* margin-top: 80px; */
   width: 100%;
-  min-height: 70vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
- 
+  height: 606px;
+  padding: 40px 16px;
+  @media screen and (min-width: 430px) {
+    height: 872px;
+    padding: 104px 16px 60px 16px;
+  }
   @media screen and (min-width: 768px) {
-    flex-direction: column;
-    padding-bottom: 100px;
+    height: 1219px;
+    padding: 112px 40px 173px 40px;
   }
   @media screen and (min-width: 1280px) {
-    flex-direction: row;
-    min-height: 80vh;
-    height: calc(100vh - 80px);
+    height: 630px;
+    padding: 80px 50px;
+  }
+  @media screen and (min-width: 1440px) {
+    height: 630px;
+    padding: 80px 130px;
   }
 }
 
 .paragraph {
   position: absolute;
-  bottom: 0;
-  left: 6%;
+  bottom: 40px;
+  left: 16px;
   color: var(--white);
-  font-size: 14px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
+  @media screen and (min-width: 430px) {
+    bottom: 60px;
+  }
   @media screen and (min-width: 768px) {
     font-size: 24px;
-    bottom: 4%;
-    /*left: 5%;*/
+    bottom: 173px;
+    left: 40px;
   }
   @media screen and (min-width: 1280px) {
-    bottom: 10%;
-    left: 4%;
+    bottom: 80px;
+    left: 50px;
   }
   @media screen and (min-width: 1440px) {
-    font-size: 24px;
-    bottom: 10%;
-    left: 9%;
+    left: 130px;
   }
 }
