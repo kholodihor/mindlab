@@ -1,9 +1,9 @@
 .wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 274px;
-  height: 700px;
+  height: 100vh;
   background: var(--graphite);
   display: flex;
   justify-content: flex-start;
