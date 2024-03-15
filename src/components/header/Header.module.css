@@ -1,5 +1,5 @@
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -30,13 +30,12 @@
   align-items: center;
   flex: 1;
   margin: 0 auto;
-  
-
-  .header_burger {
-    display: block;
-    @media screen and (min-width: 1024px) {
-      display: none;
-    }
+ 
+}
+.header_burger {
+  display: block;
+  @media screen and (min-width: 1024px) {
+    display: none;
   }
 }
 
