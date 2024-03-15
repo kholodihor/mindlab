@@ -6,23 +6,29 @@ import Link from 'next/link'
 import Burger from '../icons/Burger'
 import styles from './Header.module.css'
 import Lottie from 'lottie-react'
-import { useMediaQuery } from '@react-hook/media-query'
+// import { useMediaQuery } from '@react-hook/media-query'
 import { useLocale, useTranslations } from 'next-intl'
 import { useWidth } from '@/hooks/useWidth'
 import chatbot_default from '@/animations/сhatbot_default.json'
 import chatbot_hover from '@/animations/chatbot_hover.json'
-import MobileMenu from './mobile_menu/MobileMenu'
+// import MobileMenu from './mobile_menu/MobileMenu'
 import Logo from './logo/Logo'
 import LanguageSwitcher from './LocalSwitcher'
+import { useModal } from '@/stores/useModal'
+import MenuModal from '../modals/menuModal/MenuModal'
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  // const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-  const isSmallScreen = useMediaQuery('(max-width: 1024px)')
+  // const isSmallScreen = useMediaQuery('(max-width: 1024px)')
   const currentWidth = useWidth()
   const locale = useLocale()
 
   const t = useTranslations('Menu')
+  const { openModal, closeModal } = useModal()
+
+  const isModalOpen = useModal((state) => state.isModalOpen)
+  const modalType = useModal((state) => state.modalType)
 
   return (
     <header className={`${styles.header}`}>
@@ -60,14 +66,15 @@ const Header = () => {
           </a>
           <div
             className={styles.header_burger}
-            onClick={() => {
-              setIsMenuOpen(!isMenuOpen)
-            }}
+            onClick={() => openModal('mobmenu')}
           >
             <Burger />
           </div>
         </nav>
-        {isMenuOpen && isSmallScreen && <MobileMenu onClose={() => setIsMenuOpen(false)} />}
+        {isModalOpen && modalType === 'mobmenu' && (
+        <MenuModal handleClose={closeModal} />
+      )}
+        {/* {isMenuOpen && isSmallScreen && <MobileMenu onClose={() => setIsMenuOpen(false)} />} */}
       </div>
     </header>
   )

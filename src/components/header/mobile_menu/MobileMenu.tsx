@@ -33,20 +33,17 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       <nav className={styles.menu_nav}>
         <ul className={styles.menu_list}>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`${locale}/#courses`}>{t('Menu.courses')}</Link>
+            <Link href={`${locale}/#courses`} className={styles.header_nav_item_link}>{t('Menu.courses')}</Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`${locale}/#teachers`}>{t('Menu.speakers')}</Link>
+            <Link href={`${locale}/#teachers`} className={styles.header_nav_item_link}>{t('Menu.speakers')}</Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`${locale}/#partners`}>{t('Menu.partners')}</Link>
+            <Link href={`${locale}/#partners`} className={styles.header_nav_item_link}>{t('Menu.partners')}</Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`${locale}/#parents`}>{t('Menu.parents')}</Link>
+            <Link href={`${locale}/#parents`} className={styles.header_nav_item_link}>{t('Menu.parents')}</Link>
           </li>
-          {/* <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href="/#contacts">{t('Menu.contacts')}</Link>
-          </li> */}
           <li onClick={onClose} className={styles.header_nav_item}>
             <LanguageSwitcher />
           </li>
