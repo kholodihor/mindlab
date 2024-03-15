@@ -1,10 +1,14 @@
 .course__container {
-  padding-top: 36px;
+  padding-top: 96px;
   padding-bottom: 60px;
 
   @media screen and (min-width: 768px) {
-    padding-top: 48px;
+    padding-top: 108px;
   padding-bottom: 48px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 128px;
+ 
   }
 }
 
