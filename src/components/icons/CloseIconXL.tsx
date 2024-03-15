@@ -8,16 +8,16 @@ const CloseIconXL = () => {
         y1="33.4374"
         x2="33.4346"
         y2="5.86026"
-        stroke="#F9F9FA"
+        stroke="currentColor"
         strokeLinecap="round"
       />
-      <line x1="20" y1="19.5" x2="20" y2="19.5" stroke="#F9F9FA" strokeLinecap="round" />
+      <line x1="20" y1="19.5" x2="20" y2="19.5" stroke="currentColor" strokeLinecap="round" />
       <line
         x1="6.56453"
         y1="5.85547"
         x2="34.1417"
         y2="33.4326"
-        stroke="#F9F9FA"
+        stroke="currentColor"
         strokeLinecap="round"
       />
     </svg>

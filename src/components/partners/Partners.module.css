@@ -20,13 +20,10 @@
 }
 
 .icon__arrow {
-  display: none;
-  @media screen and (min-width: 1280px) {
     display: block;
     position: absolute;
-    right: 40px;
-    top: 260px;
-  }
+    right: 10px;
+    top: 250px;
 
   @media screen and (min-width: 1440px) {
     right: 0px;

@@ -130,7 +130,7 @@ const FeedBack = () => {
             >
               {t('Feedback.chakbox.public')}
             </a>{' '}
-            {t('Feedback.chakbox.consent')} <br /> {t('Feedback.chakbox.data')}{' '}
+            {t('Feedback.chakbox.consent')}
             <a
               className={styles.check_link}
               target="_blank"

@@ -1,9 +1,9 @@
 .wrapper {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 274px;
-  height: 700px;
+  height: 100vh;
   background: var(--graphite);
   display: flex;
   justify-content: flex-start;
@@ -24,6 +24,10 @@
   .icon {
     height: 40px;
   }
+  .icon:hover,
+  .icon:focus {
+color: var(--lime);
+  }
   .menu_title {
     font-size: 24px;
     color: var(--lime);
@@ -42,6 +46,14 @@
       width: 100%;
       font-size: 18px;
       display: flex;
+      .header_nav_item_link {
+        transition: all 0.5s ease-in-out;
+      }
+      .header_nav_item_link:hover,
+      .header_nav_item_link:focus {
+color: var(--lime);
+
+      }
       .lottie {
         width: 2rem;
         height: 2rem;
@@ -55,6 +67,11 @@
         gap: 10px;
         color: var(--white);
         font-size: 18px;
+        transition: all 0.5s ease-in-out;
+      }
+      .header_nav_item_button:hover,
+      .header_nav_item_button:focus {
+        color: var(--lime);
       }
     }
   }
@@ -99,6 +116,11 @@
           align-items: center;
           gap: 8px;
           font-size: 16px;
+          
+          }
+          .contacts_item_link:hover,
+          .contacts_item_link:focus {
+color: var(--lime);
           .contacts_item_link_span {
             display: none;
             @media screen and (min-width: 430px) {

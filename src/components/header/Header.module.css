@@ -92,7 +92,14 @@
   background-color: inherit;
   border: none;
   cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
+
+.btmSwitcher:hover,
+.btmSwitcher:focus {
+  color: var(--lime);
+}
+
 
 .btmSwitcher__active {
   color: var(--violet-light);

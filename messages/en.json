@@ -297,7 +297,7 @@
     "text": "We have something to be proud of, because our partners have become:",
     "patrners1": {
       "title": "Mushroom Academy",
-      "description": "Mushroom Academy is a Western Ukrainian IT school. For more than 19 years, they have been helping Ukrainians to build a successful career in the digital economy: he educates the next generation of IT citizens, develop the IT cluster, and help those who need it."
+      "description": "Mushroom Academy is a Western Ukrainian IT school. For more than 19 years, they have been helping Ukrainians to build a successful career in the digital economy: they educate the next generation of IT citizens, develop the IT cluster, and help those who need it."
     },
     "patrners2": {
       "title": "Kyiv metropolitan educational institution named",
@@ -353,7 +353,9 @@
     "text": "Are you excited about our platform?",
     "comenth": "Do you have your comments?",
     "feedback": "Write a review, don't be shy! We always welcome feedback!",
-    "btn": "Leave a review"
+    "btn": "Leave a review",
+    "testimonialTitle": "We will be glad to hear from you!",
+    "testimonial": "Your comment"
   },
   "Contacts": {
     "title": "Let's keep in touch!",
@@ -376,8 +378,8 @@
     "chakbox": {
       "accept": "I accept the terms of",
       "public": "the Public Offer",
-      "consent": "and give my consent to the processing",
-      "data": "of my personal data in accordance with",
+      "consent": "and give my consent to the processing of my personal data in accordance with",
+      "data": "",
       "policy": "the Privacy Policy"
     }
   },

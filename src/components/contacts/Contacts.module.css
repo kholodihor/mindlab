@@ -1,29 +1,31 @@
 .wrapper {
-  min-height: 510px;
   color: var(--white);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 32px;
-  padding: 0 16px;
+  max-width: 674px;
+  padding: 60px 16px 40px 16px;
 
   .title {
-    font-size: 30px;
-    font-weight: 500;
-    @media screen and (min-width: 768px) {
-      font-size: 40px;
-    }
+   max-width: 230px;
+   margin-bottom: 24px;
+   @media screen and (min-width: 430px) {
+    max-width: 267px;
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: 450px) {
+    max-width: 100%;
+    text-align: center;
+   
+  }
   }
   .paragraph {
     font-size: 20px;
+    font-weight: 500;
     line-height: 2rem;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.2rem;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 600px) {
       justify-content: center;
       font-size: 24px;
     }
@@ -36,4 +38,8 @@
     transform: rotate(15deg);
     cursor: pointer;
   }
+}
+
+.link {
+  padding: 0 10px;
 }

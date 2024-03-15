@@ -18,19 +18,19 @@ const LanguageSwitcher = () => {
 
   return (
     <div>
-      <span
+      <button type="button"
         onClick={() => handleCheckLocale('ua')}
         className={`${css.btmSwitcher} ${locale === 'ua' && css.btmSwitcher__active}`}
       >
         {t('ua')}
-      </span>
+      </button>
       <span className={css.span}>|</span>
-      <span
+      <button type="button"
         onClick={() => handleCheckLocale('en')}
         className={`${css.btmSwitcher} ${locale === 'en' && css.btmSwitcher__active}`}
       >
         {t('en')}
-      </span>
+      </button>
     </div>
   )
 }

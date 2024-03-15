@@ -15,7 +15,7 @@ const Checkbox = ({ handleAction }: ChecboxProps) => {
         <span className={styles.checkmark}></span>
       </label>
       <p className={styles.check_paragraph}>
-        {t('chakbox.accept')}{' '}
+        {t('chakbox.accept')}
         <a
           className={styles.check_link}
           target="_blank"
@@ -23,8 +23,8 @@ const Checkbox = ({ handleAction }: ChecboxProps) => {
           href="/documents/правила_користування_сайтом.pdf"
         >
           {t('chakbox.public')}
-        </a>{' '}
-        {t('chakbox.consent')} <br /> {t('chakbox.data')}{' '}
+        </a>
+        {t('chakbox.consent')}
         <a
           className={styles.check_link}
           target="_blank"

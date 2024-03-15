@@ -15,28 +15,37 @@
 }
 
 .wrapper {
-  width: 100%;
+  max-width: 452px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 60px;
   color: var(--white);
-  margin-top: 10vh;
+    margin: 40px auto 0 auto;
+    @media screen and (min-width: 1280px) {
+      max-width: 580px;
+     }
+  
 
   .title_wrapper {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
+    text-align: center;
+  
     .title {
-      font-size: 32px;
+      margin-bottom: 24px;
+      font-size: 24px;
       font-weight: 500;
-      margin-right: 1.1rem;
+      @media screen and (min-width: 430px) {
+       font-size: 32px;
+      }
+     
     }
     .subtitle {
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 16px;
+      @media screen and (min-width: 768px) {
+        font-size: 18px;
+        font-weight: 500;
+       }
     }
   }
 
@@ -48,14 +57,17 @@
     flex-direction: column;
     gap: 16px;
     margin: 0 auto;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
 
     .button_wrapper {
+      width: 100%;
       margin-top: 60px;
+      @media screen and (min-width: 1280px) {
+        width: 380px;
+      }
 
       .button {
-        width: 80vw;
-        max-width: 380px;
+        width: 100%;
         height: 60px;
         border-radius: 2rem;
         border: none;
@@ -64,6 +76,7 @@
         align-items: center;
         background: var(--graphite);
         font-size: 16px;
+        font-weight: 500;
         color: var(--gray);
         cursor: pointer;
       }
@@ -143,16 +156,25 @@
     }
   }
   .check_wrapper {
-    margin-top: 40px;
-    font-size: 14px;
+    font-size: 12px;
     display: flex;
-    gap: 12px;
-    padding: 0.5rem;
+    gap: 8px;
+    @media screen and (min-width: 1280px) {
+      gap: 0px;
+      font-size: 14px;
+     }
 
     .check_paragraph {
       text-align: left;
-      color: #dbdbdc;
+      color: var(--white);
+      @media screen and (min-width: 1280px) {
+        text-align: center;
+       }
       .check_link {
+        padding-left: 5px;
+        text-decoration: underline;
+      }
+      .check_link:hover {
         text-decoration: underline;
         transition: all 0.3s ease-in-out;
         

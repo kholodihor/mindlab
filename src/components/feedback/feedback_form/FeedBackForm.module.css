@@ -6,11 +6,16 @@
   align-items: center;
   flex-direction: column;
   gap: 40px;
-  padding-top: 140px;
-  /* padding: 40px 0; */
+  padding: 40px 0;
   @media screen and (min-width: 430px) {
-    padding-top: 60px;
+    padding-top: 40px;
+    
   }
+  @media screen and (min-width: 768px) {
+    padding-bottom: 0px;
+    
+  }
+  
 
   .title {
     color: var(--black);
