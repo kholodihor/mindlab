@@ -176,6 +176,13 @@
       }
       .check_link:hover {
         text-decoration: underline;
+        transition: all 0.3s ease-in-out;
+        
+      }
+      .check_link:hover,
+      .check_link:focus {
+        color: var(--blue);
+       
       }
     }
     .checkbox_container {
