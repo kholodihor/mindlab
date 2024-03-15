@@ -18,7 +18,7 @@ import LanguageSwitcher from './LocalSwitcher'
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-  const isSmallScreen = useMediaQuery('(max-width: 768px)')
+  const isSmallScreen = useMediaQuery('(max-width: 1024px)')
   const currentWidth = useWidth()
   const locale = useLocale()
 
@@ -48,7 +48,7 @@ const Header = () => {
               <Link href={`/${locale}#contacts`}>{t('contacts')}</Link>
             </li>
           </ul>
-          <div className={styles.switch}>{currentWidth >= 1024 && <LanguageSwitcher />}</div>
+          {currentWidth >= 1024 && <LanguageSwitcher />}
           <a href="https://t.me/honeyhell_bot" target="_blank">
             <Lottie
               onMouseEnter={() => setIsHovered(true)}
@@ -58,7 +58,6 @@ const Header = () => {
               className={styles.lottie}
             />
           </a>
-
           <div
             className={styles.header_burger}
             onClick={() => {

@@ -25,12 +25,12 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
     <div className={styles.wrapper}>
       <div className={styles.menu_header}>
         <h2 className={styles.menu_title}>{t('Menu.menu')}</h2>
-        <div onClick={onClose}>
+        <div onClick={onClose} className={styles.icon}>
           <CloseIconXL />
         </div>
       </div>
       <nav className={styles.menu_nav}>
-        <ul>
+        <ul className={styles.menu_list}>
           <li onClick={onClose} className={styles.header_nav_item}>
             <Link href="/#courses">{t('Menu.courses')}</Link>
           </li>
@@ -43,20 +43,13 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           <li onClick={onClose} className={styles.header_nav_item}>
             <Link href="/#parents">{t('Menu.parents')}</Link>
           </li>
-          <li onClick={onClose} className={styles.header_nav_item}>
+          {/* <li onClick={onClose} className={styles.header_nav_item}>
             <Link href="/#contacts">{t('Menu.contacts')}</Link>
-          </li>
+          </li> */}
           <li onClick={onClose} className={styles.header_nav_item}>
             <LanguageSwitcher />
           </li>
           <li className={styles.header_nav_item}>
-            <Lottie
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              animationData={isHovered ? chatbot_hover : chatbot_default}
-              loop={true}
-              className={styles.lottie}
-            />
             <a
               href="https://t.me/honeyhell_bot"
               rel="noopener noreferrer"
@@ -65,56 +58,62 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
               onMouseLeave={() => setIsHovered(false)}
               className={styles.header_nav_item_button}
             >
+               <Lottie
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+              animationData={isHovered ? chatbot_hover : chatbot_default}
+              loop={true}
+              className={styles.lottie}
+            />
               {t('Menu.chat')}
             </a>
           </li>
         </ul>
       </nav>
       <div className={styles.social}>
-        <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank">
-          <Image
-            className={styles.image}
-            src="/contacts/facebook.svg"
-            alt="facebook"
-            width={50}
-            height={50}
-          />
-        </a>
         <a
           href="https://www.instagram.com/mind.lab_hub?igsh=bWl3dGt5Njdwd3Fk&utm_source=qr"
           rel="noopener noreferrer"
           target="_blank"
+          className={styles.social_link}
         >
           <Image
-            className={styles.image}
-            src="/contacts/instagram.svg"
+            src="/svg/footer/instagram.svg"
             alt="instagram"
-            width={50}
-            height={50}
+            width={40}
+            height={40}
+          />
+        </a>
+        <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank"   className={styles.social_link}>
+          <Image
+            src="/svg/footer/facebook.svg"
+            alt="facebook"
+            width={40}
+            height={40}
           />
         </a>
       </div>
       <div className={styles.contacts}>
-        <ul>
+        <ul className={styles.contacts_list}>
           <li className={styles.contacts_item}>
-            <h4>{t('Footer.help')}</h4>
-            <a className={styles.contacts_item_link} href="mailto:mind.lab.hub@gmail.com">
+            <h4 className={styles.contacts_item_title}>{t('Footer.help')}</h4>
+            <a className={styles.contacts_item_link} href="mailto:mind.lab.hub@gmail.com" >
               <MailIcon />
-              <span>{t('Footer.mail')}</span>
+              <span className={styles.contacts_item_link_span}>{t('Footer.mail')}</span>
             </a>
           </li>
           <li className={styles.contacts_item}>
-            <h4>{t('Footer.answer')}</h4>
-            <a className={styles.contacts_item_link} href="https://t.me/+Q8t3dkMH84hiYmNi">
+            <h4 className={styles.contacts_item_title}>{t('Footer.answer')}</h4>
+            <a className={styles.contacts_item_link} href="https://t.me/+Q8t3dkMH84hiYmNi"  rel="noopener noreferrer" target="_blank">
               <TelegramIcon />
-              <span>{t('Footer.telegram')}</span>
+              <span  className={styles.contacts_item_link_span}>{t('Footer.telegram')}</span>
             </a>
           </li>
           <li className={styles.contacts_item}>
-            <h4>{t('Footer.talk')}</h4>
+            <h4 className={styles.contacts_item_title}>{t('Footer.talk')}</h4>
             <a className={styles.contacts_item_link} href="tel:6031112298">
               <PhoneIcon />
-              <span>{t('Footer.phone')}</span>
+              <span  className={styles.contacts_item_link_span}>{t('Footer.phone')}</span>
             </a>
           </li>
         </ul>

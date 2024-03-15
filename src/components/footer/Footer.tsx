@@ -40,7 +40,7 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="/" className={css.social__link} rel="noopener noreferrer" target="_blank">
+              <Link href="https://www.facebook.com/" className={css.social__link} rel="noopener noreferrer" target="_blank">
                 <Image src="/svg/footer/facebook.svg" alt="icon facebook" width={40} height={40} />
               </Link>
             </li>
