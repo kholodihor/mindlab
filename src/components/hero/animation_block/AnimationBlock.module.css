@@ -44,4 +44,8 @@
     bottom: 130px;
     left: 500px;
   }
+  @media screen and (min-width: 1440px) {
+    bottom: 120px;
+    left: 600px;
+  }
 }

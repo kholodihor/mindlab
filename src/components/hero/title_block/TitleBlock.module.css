@@ -28,16 +28,15 @@
   z-index: 50;
   @media screen and (min-width: 430px) {
     font-size: 60px;
-    line-height: 75px;
+    line-height: 72px;
   }
   @media screen and (min-width: 768px) {
     font-size: 90px;
-    line-height: 95px;
+    line-height: 90px;
     left: 0px;
   }
   @media screen and (min-width: 1280px) {
     font-size: 80px;
-    line-height: 80px;
     top: 10%;
     /* left: 5%; */
     /* left: -1%; */
@@ -79,7 +78,7 @@
     left: -30px;
   }
   @media screen and (min-width: 1280px) {
-    top: 240px;
+    top: 280px;
     left: -110px;
   }
 }

@@ -33,22 +33,22 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       <nav className={styles.menu_nav}>
         <ul className={styles.menu_list}>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`${locale}/#courses`} className={styles.header_nav_item_link}>
+            <Link href={`/${locale}/#courses`} className={styles.header_nav_item_link}>
               {t('Menu.courses')}
             </Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`${locale}/#teachers`} className={styles.header_nav_item_link}>
+            <Link href={`/${locale}/#teachers`} className={styles.header_nav_item_link}>
               {t('Menu.speakers')}
             </Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`${locale}/#partners`} className={styles.header_nav_item_link}>
+            <Link href={`/${locale}/#partners`} className={styles.header_nav_item_link}>
               {t('Menu.partners')}
             </Link>
-          </li>
+          </li>fix
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`${locale}/#parents`} className={styles.header_nav_item_link}>
+            <Link href={`/${locale}/#parents`} className={styles.header_nav_item_link}>
               {t('Menu.parents')}
             </Link>
           </li>
