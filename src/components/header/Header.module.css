@@ -30,7 +30,6 @@
   align-items: center;
   flex: 1;
   margin: 0 auto;
- 
 }
 .header_burger {
   display: block;
@@ -39,16 +38,11 @@
   }
 }
 
-.header_nav {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-}
 .header_nav ul {
-  display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
+  flex: 1;
   display: none;
   @media screen and (min-width: 1024px) {
     display: flex;
@@ -69,18 +63,8 @@
   cursor: pointer;
 }
 
-.header_logo {
-  display: flex;
-  font-size: 0.8rem;
-  font-weight: 300;
-  font-family: 'Oswald', sans-serif;
-  color: var(--lime);
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-}
-
 .container {
- width: 100%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -99,7 +83,6 @@
   color: var(--lime);
 }
 
-
 .btmSwitcher__active {
   color: var(--violet-light);
 }
@@ -110,5 +93,3 @@
   font-size: 17px;
   color: var(--gray);
 }
-
-
