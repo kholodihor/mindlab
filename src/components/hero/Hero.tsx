@@ -15,13 +15,13 @@ const Hero = () => {
   const modalType = useModal((state) => state.modalType)
   const isModalOpen = useModal((state) => state.isModalOpen)
 
-  const t = useTranslations("Hero")
+  const t = useTranslations('Hero')
 
   return (
     <section className={`${styles.hero} container`}>
       <TitleBlock />
       <AnimationBlock />
-      <p className={styles.paragraph}>{t("subtitle")}</p>
+      <p className={styles.paragraph}>{t('subtitle')}</p>
       {isModalOpen && modalType === 'feedback' && (
         <FormModal handleClose={closeModal}>
           <FeedBackForm />
