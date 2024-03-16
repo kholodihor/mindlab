@@ -3,7 +3,8 @@
   top: 0;
   left: 0;
   right: 0;
-  max-width: 100svw;
+  max-width: 1440px;
+  margin: 0 auto;
   height: 60px;
   display: flex;
   align-items: center;
@@ -31,6 +32,7 @@
   flex: 1;
   margin: 0 auto;
 }
+
 .header_burger {
   display: block;
   @media screen and (min-width: 1024px) {

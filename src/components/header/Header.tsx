@@ -9,6 +9,7 @@ import Lottie from 'lottie-react'
 // import { useMediaQuery } from '@react-hook/media-query'
 import { useLocale, useTranslations } from 'next-intl'
 import { useWidth } from '@/hooks/useWidth'
+import { useBodyScrollLock } from '@/hooks/useBodyScrollLock'
 import chatbot_default from '@/animations/сhatbot_default.json'
 import chatbot_hover from '@/animations/chatbot_hover.json'
 // import MobileMenu from './mobile_menu/MobileMenu'
@@ -29,6 +30,8 @@ const Header = () => {
 
   const isModalOpen = useModal((state) => state.isModalOpen)
   const modalType = useModal((state) => state.modalType)
+
+  useBodyScrollLock(isModalOpen)
 
   return (
     <header className={`${styles.header}`}>
@@ -64,16 +67,11 @@ const Header = () => {
               className={styles.lottie}
             />
           </a>
-          <div
-            className={styles.header_burger}
-            onClick={() => openModal('mobmenu')}
-          >
+          <div className={styles.header_burger} onClick={() => openModal('mobmenu')}>
             <Burger />
           </div>
         </nav>
-        {isModalOpen && modalType === 'mobmenu' && (
-        <MenuModal handleClose={closeModal} />
-      )}
+        {isModalOpen && modalType === 'mobmenu' && <MenuModal handleClose={closeModal} />}
         {/* {isMenuOpen && isSmallScreen && <MobileMenu onClose={() => setIsMenuOpen(false)} />} */}
       </div>
     </header>
