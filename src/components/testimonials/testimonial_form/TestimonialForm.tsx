@@ -23,12 +23,18 @@ const TestimonialForm = () => {
   const {
     handleSubmit,
     control,
-    formState: { errors }
+    watch,
+    formState: { errors, isDirty }
   } = useForm<z.infer<typeof testimonialScheme>>({
     resolver: zodResolver(testimonialScheme),
     mode: 'onChange',
     defaultValues: defaultValues
   })
+
+  const currentValues = watch()
+
+  const validValues =
+    currentValues.name !== '' && currentValues.email !== '' && currentValues.message !== ''
 
   const onSubmit: SubmitHandler<z.infer<typeof testimonialScheme>> = async (
     values: z.infer<typeof testimonialScheme>
@@ -47,13 +53,17 @@ const TestimonialForm = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>{t("Testimonials.testimonialTitle")}</h1>
+      <h1 className={styles.title}>{t('Testimonials.testimonialTitle')}</h1>
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
         <Controller
           name="name"
           control={control}
           render={({ field }) => (
-            <TextInput {...field} errorText={t(errors.name?.message)} placeholder={t("Feedback.form.name")} />
+            <TextInput
+              {...field}
+              errorText={t(errors.name?.message)}
+              placeholder={t('Feedback.form.name')}
+            />
           )}
         />
         <Controller
@@ -67,20 +77,24 @@ const TestimonialForm = () => {
           name="message"
           control={control}
           render={({ field }) => (
-            <TextArea {...field} errorText={t(errors.message?.message)} placeholder={t("Testimonials.testimonial")} />
+            <TextArea
+              {...field}
+              errorText={t(errors.message?.message)}
+              placeholder={t('Testimonials.testimonial')}
+            />
           )}
         />
         <div className={styles.button_wrapper}>
           <button
             type="submit"
             className={styles.button}
-            disabled={!checked || !!Object.keys(errors).length}
+            disabled={!checked || !isDirty || !validValues || !!Object.keys(errors).length}
           >
-            {isProcessing ? t("Feedback.form.loading") : t("Testimonials.btn")}
+            {isProcessing ? t('Feedback.form.loading') : t('Testimonials.btn')}
           </button>
         </div>
       </form>
-        <Checkbox handleAction={() => setChecked(!checked)} />
+      <Checkbox handleAction={() => setChecked(!checked)} />
     </div>
   )
 }
