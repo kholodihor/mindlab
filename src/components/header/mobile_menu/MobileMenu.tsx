@@ -46,7 +46,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
             <Link href={`/${locale}/#partners`} className={styles.header_nav_item_link}>
               {t('Menu.partners')}
             </Link>
-          </li>fix
+          </li>
           <li onClick={onClose} className={styles.header_nav_item}>
             <Link href={`/${locale}/#parents`} className={styles.header_nav_item_link}>
               {t('Menu.parents')}

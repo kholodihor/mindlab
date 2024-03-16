@@ -27,7 +27,7 @@
 .header_nav {
   display: flex;
   justify-content: flex-end;
-  gap: 28px;
+  gap: 40px;
   align-items: center;
   flex: 1;
   margin: 0 auto;
