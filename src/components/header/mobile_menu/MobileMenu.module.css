@@ -12,7 +12,6 @@
   padding: 10px 40px 150px 20px;
   z-index: 9999;
   overflow-y: scroll;
- 
 
   .menu_header {
     width: 100%;
@@ -26,7 +25,7 @@
   }
   .icon:hover,
   .icon:focus {
-color: var(--lime);
+    color: var(--lime);
   }
   .menu_title {
     font-size: 24px;
@@ -51,8 +50,7 @@ color: var(--lime);
       }
       .header_nav_item_link:hover,
       .header_nav_item_link:focus {
-color: var(--lime);
-
+        color: var(--lime);
       }
       .lottie {
         width: 2rem;
@@ -87,7 +85,7 @@ color: var(--lime);
     .social_link:hover,
     .social_link:focus {
       transform: rotate(10deg);
-    } 
+    }
   }
   .contacts {
     width: 100%;
@@ -116,20 +114,19 @@ color: var(--lime);
           align-items: center;
           gap: 8px;
           font-size: 16px;
+        }
+        .contacts_item_link:hover,
+        .contacts_item_link:focus {
+          color: var(--lime);
           
-          }
-          .contacts_item_link:hover,
-          .contacts_item_link:focus {
-color: var(--lime);
-         
         }
         .contacts_item_link_span {
-          display: none;
-          @media screen and (min-width: 430px) {
-            display: block;
-            font-size: 18px;
+            display: none;
+            @media screen and (min-width: 430px) {
+              display: block;
+              font-size: 18px;
+            }
           }
-        }
       }
     }
   }
