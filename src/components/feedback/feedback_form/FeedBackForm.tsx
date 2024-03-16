@@ -21,12 +21,12 @@ const FeedBackForm = () => {
   const { openAlert } = useAlert()
   const t = useTranslations()
 
-
   const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLESHEETS_URL!
 
   const {
     handleSubmit,
     control,
+    watch,
     formState: { errors, isDirty }
   } = useForm<z.infer<typeof feedbackValidation>>({
     resolver: zodResolver(feedbackValidation),
@@ -34,7 +34,10 @@ const FeedBackForm = () => {
     defaultValues: defaultValues
   })
 
-  console.log(isDirty)
+  const currentValues = watch()
+
+  const validValues =
+    currentValues.name !== '' && currentValues.email !== '' && currentValues.message !== ''
 
   const onSubmit: SubmitHandler<z.infer<typeof feedbackValidation>> = async (
     values: z.infer<typeof feedbackValidation>
@@ -60,13 +63,17 @@ const FeedBackForm = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={styles.title}>{t("Feedback.form.title")}</h1>
+      <h1 className={styles.title}>{t('Feedback.form.title')}</h1>
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
         <Controller
           name="name"
           control={control}
           render={({ field }) => (
-            <TextInput {...field} errorText={t(errors.name?.message)} placeholder={t("Feedback.form.name")} />
+            <TextInput
+              {...field}
+              errorText={t(errors.name?.message)}
+              placeholder={t('Feedback.form.name')}
+            />
           )}
         />
         <Controller
@@ -83,17 +90,17 @@ const FeedBackForm = () => {
             <TextArea
               {...field}
               errorText={t(errors.message?.message)}
-              placeholder={t("Feedback.form.question")}
+              placeholder={t('Feedback.form.question')}
             />
           )}
         />
-          <button
-            type="submit"
-            className={`${styles.btn} ${checked && !Object.keys(errors).length && styles.active}`}
-            disabled={!checked || !isDirty || !!Object.keys(errors).length}
-          >
-            {isProcessing ? t("Feedback.form.loading") : t("Feedback.form.btn")}
-          </button>
+        <button
+          type="submit"
+          className={`${styles.btn} ${checked && !Object.keys(errors).length && styles.active}`}
+          disabled={!checked || !isDirty || !validValues || !!Object.keys(errors).length}
+        >
+          {isProcessing ? t('Feedback.form.loading') : t('Feedback.form.btn')}
+        </button>
       </form>
       <div>
         <Checkbox handleAction={() => setChecked(!checked)} />

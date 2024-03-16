@@ -3,18 +3,16 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import axios from 'axios'
+import { useTranslations } from 'next-intl'
 import { useAlert } from '@/stores/useAlert'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { FeedBackFormInput } from '@/types'
 import { defaultValues } from './defaultValues'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { feedbackValidation } from './validationSchema'
-
-import TextInput from '@/components/ui/inputs/text_input/TextInput'
-
-import styles from './FeedBack.module.css'
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
-import { useTranslations } from 'next-intl'
+import TextInput from '@/components/ui/inputs/text_input/TextInput'
+import styles from './FeedBack.module.css'
 
 const FeedBack = () => {
   const { openAlert } = useAlert()
@@ -22,18 +20,24 @@ const FeedBack = () => {
   const [isProcessing, setIsProcessing] = useState(false)
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
   const t = useTranslations()
+
   const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLESHEETS_URL!
 
   const {
     handleSubmit,
     control,
     reset,
+    watch,
     formState: { errors, isDirty }
   } = useForm<FeedBackFormInput>({
     resolver: zodResolver(feedbackValidation),
     mode: 'onChange',
     defaultValues: defaultValues
   })
+  const currentValues = watch()
+
+  const validValues =
+    currentValues.name !== '' && currentValues.email !== '' && currentValues.message !== ''
 
   const onSubmit: SubmitHandler<FeedBackFormInput> = async (values: FeedBackFormInput) => {
     try {
@@ -104,7 +108,7 @@ const FeedBack = () => {
             <button
               type="submit"
               className={`${styles.button} ${checked && !Object.keys(errors).length && styles.active}`}
-              disabled={!checked || !isDirty || !!Object.keys(errors).length}
+              disabled={!checked || !isDirty || !validValues || !!Object.keys(errors).length}
             >
               {isProcessing ? t('Feedback.form.loading') : t('Feedback.form.btn')}
             </button>
