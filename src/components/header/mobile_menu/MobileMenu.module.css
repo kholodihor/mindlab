@@ -121,12 +121,13 @@ color: var(--lime);
           .contacts_item_link:hover,
           .contacts_item_link:focus {
 color: var(--lime);
-          .contacts_item_link_span {
-            display: none;
-            @media screen and (min-width: 430px) {
-              display: block;
-              font-size: 18px;
-            }
+         
+        }
+        .contacts_item_link_span {
+          display: none;
+          @media screen and (min-width: 430px) {
+            display: block;
+            font-size: 18px;
           }
         }
       }
