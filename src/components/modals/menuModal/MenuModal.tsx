@@ -16,7 +16,7 @@ const MenuModal = ({ handleClose }: MenuModalProps) => {
   useBodyScrollLock(isModalOpen)
 
   const ModalLayout = () => (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} onClick={handleClose}>
       <div className={styles.modal}>
        <MobileMenu onClose={handleClose}/>
       </div>
