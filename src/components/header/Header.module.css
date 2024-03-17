@@ -30,7 +30,11 @@
   gap: 28px;
   align-items: center;
   flex: 1;
-  margin: 0 auto;
+   /* margin: 0 auto; */
+  @media screen and (min-width: 1024px) {
+    gap: 40px;
+  }
+ 
 }
 
 .header_burger {
@@ -44,7 +48,7 @@
   justify-content: center;
   align-items: center;
   gap: 40px;
-  flex: 1;
+  /* flex: 1; */
   display: none;
   @media screen and (min-width: 1024px) {
     display: flex;
