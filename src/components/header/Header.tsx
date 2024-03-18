@@ -55,7 +55,7 @@ const Header = () => {
             </li>
           </ul>
           {currentWidth >= 1024 && <LanguageSwitcher />}
-          <a href="https://t.me/honeyhell_bot" target="_blank">
+          <a href="https://t.me/+Q8t3dkMH84hiYmNi" target="_blank">
             <Lottie
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}

@@ -36,7 +36,7 @@
   .review_card_body {
     .review_card_body_paragraph {
       color: var(--black);
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 400;
     }
   }

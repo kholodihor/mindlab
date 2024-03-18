@@ -1,26 +1,24 @@
 import { z } from 'zod'
 
 export const testimonialScheme = z.object({
-  name: z.string().nonempty('Введіть ім’я').max(25, 'Ім’я має містити максимум 25 символів'),
+  name: z.string().nonempty('Errors.isname').max(25, 'Errors.maxName'),
 
   email: z
     .string()
-    .nonempty('Введіть адресу елктронної пошти')
-    .min(2, 'Електронна пошта має містити мінімум 2 символи')
-    .max(55, 'Електронна пошта має містити максимум 55 символів')
+    .nonempty('Errors.ismail')
     .refine(
       (value) =>
         /^[a-zA-Z0-9_%+-]*(?:\.[a-zA-Z0-9_%+-]+)?[a-zA-Z0-9_%+-]+@[a-zA-Z0-9_%+-]*(?:\.[a-zA-Z0-9_%+-]+)?[a-zA-Z0-9_%+-]+\.[a-zA-Z]{2,}$/.test(
           value
         ),
       {
-        message: 'Некоректно введений email'
+        message: 'Errors.notCorrectEmail'
       }
     ),
 
   message: z
     .string()
-    .nonempty('Введіть текст відгуку')
-    .min(2, 'Текст відгуку має містити мінімум 2 символи')
-    .max(300, 'Текст відгуку має містити максимум 300 символів')
+    .nonempty('Errors.testimonials')
+    .min(2, 'Errors.mintestimonial')
+    .max(300, 'Errors.maxtestimonial')
 })
