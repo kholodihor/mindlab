@@ -101,3 +101,9 @@ select:-webkit-autofill:focus {
   -webkit-transition-delay: 9999s;
   transition-delay: 9999s;
 }
+
+.textInput .errorText,
+.textArea .errorText {
+  font-size: 14px;
+}
+
