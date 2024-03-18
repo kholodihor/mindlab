@@ -36,6 +36,7 @@
 
 .titleCourses {
   max-width: 257px;
+  font-size: 30px;
   @media screen and (min-width: 430px) {
     max-width: 65%;
   }
@@ -128,8 +129,11 @@
 
 .courses__link:hover .courses__description,
 .courses__link:focus .courses__description {
-  opacity: 1;
+  @media screen and (min-width: 1280px) {
+    opacity: 1;
   transition: opacity 700ms ease-in-out;
+  }
+ 
 }
 
 .components {
@@ -167,10 +171,9 @@
 .courses__link:hover .title__rose,
 .courses__link:focus .title__rose {
   color: var(--rose);
-  margin-bottom: 160px;
   transition: margin-bottom 600ms ease-in-out;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 130px;
   }
 }
@@ -178,15 +181,8 @@
 .courses__link:hover .title__violetLight,
 .courses__link:focus .title__violetLight {
   color: var(--violet-light);
-  margin-bottom: 160px;
   transition: margin-bottom 600ms ease-in-out;
-  @media screen and (min-width: 430px) {
-    margin-bottom: 130px;
-  }
-
-  @media screen and (min-width: 768px) {
-    margin-bottom: 130px;
-  }
+ 
 
   @media screen and (min-width: 1280px) {
     margin-bottom: 120px;
@@ -196,13 +192,9 @@
 .courses__link:hover .title__roseLight,
 .courses__link:focus .title__roseLight {
   color: var(--rose-light);
-  margin-bottom: 240px;
   transition: margin-bottom 600ms ease-in-out;
-  @media screen and (min-width: 430px) {
-    margin-bottom: 220px;
-  }
-
-  @media screen and (min-width: 768px) {
+ 
+  @media screen and (min-width: 1280px) {
     margin-bottom: 160px;
   }
 }
@@ -210,14 +202,9 @@
 .courses__link:hover .title__violet,
 .courses__link:focus .title__violet {
   color: var(--violet);
-  margin-bottom: 200px;
   transition: margin-bottom 600ms ease-in-out;
 
-  @media screen and (min-width: 430px) {
-    margin-bottom: 180px;
-  }
-
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 150px;
   }
 }
@@ -225,14 +212,9 @@
 .courses__link:hover .title__green,
 .courses__link:focus .title__green {
   color: var(--aquamarine);
-  margin-bottom: 240px;
   transition: margin-bottom 600ms ease-in-out;
 
-  @media screen and (min-width: 430px) {
-    margin-bottom: 200px;
-  }
-
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1280px) {
     margin-bottom: 150px;
   }
 }
@@ -240,14 +222,9 @@
 .courses__link:hover .title__blue,
 .courses__link:focus .title__blue {
   color: var(--blue);
-  margin-bottom: 200px;
   transition: margin-bottom 600ms ease-in-out;
 
-  @media screen and (min-width: 430px) {
-    margin-bottom: 160px;
-  }
-
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width:1280px) {
     margin-bottom: 150px;
   }
 }

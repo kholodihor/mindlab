@@ -371,7 +371,7 @@
     "form": {
       "title": "Do you have a question?",
       "name": "Name",
-      "question": "That you are interested in?",
+      "question": "What are you interested in?",
       "btn": "Get a consultation",
       "loading": "Processing request..."
     },

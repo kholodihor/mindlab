@@ -4,7 +4,7 @@
   height: 666px;
   padding: 100px 16px 40px 16px;
   @media screen and (min-width: 430px) {
-    height: 872px;
+    height: 932px;
     padding: 164px 16px 60px 16px;
   }
   @media screen and (min-width: 768px) {
@@ -17,7 +17,7 @@
   }
   @media screen and (min-width: 1440px) {
     height: 710px;
-    padding: 180px 130px 80px 130px;
+    padding: 160px 130px 80px 130px;
   }
 }
 
