@@ -415,8 +415,8 @@
 "isname": "Enter a name",
     "ismail": "Enter your email address",
     "testimonials": "Enter the text of the review",
-    "mintestimonial": "The feedback text must contain at least 2 characters",
-    "maxtestimonial": "The feedback text must contain a maximum of 300 characters"
+    "mintestimonial": "Feedback must contain at least 2 characters",
+    "maxtestimonial": "Feedback must contain a maximum of 300 characters"
   },
   "SuccessAlert": {
     "greeting": "Congratulations!",

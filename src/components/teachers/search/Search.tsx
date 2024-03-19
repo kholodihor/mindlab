@@ -14,7 +14,7 @@ interface SearchProps {
 }
 
 const Search = ({ setQuery, query, handleClick }: SearchProps) => {
-  const isExtraSmallScreen = useMediaQuery('(max-width: 430px)')
+  const isExtraSmallScreen = useMediaQuery('(max-width: 500px)')
   const t = useTranslations('Speakers')
   return (
     <div className={styles.wrapper}>
