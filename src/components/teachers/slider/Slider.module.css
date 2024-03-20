@@ -1,13 +1,16 @@
 .wrapper {
-  width: 100%;
-  display: flex;
+ width: 100%;
+ 
+  /* padding-left: 16px; */
+  /* display: flex;
   justify-content: center;
   align-items: flex-start;
-  flex-direction: column;
+  flex-direction: column; */
+  /* @media screen and (min-width: 768px) {
+   padding-left: 40px;
+  } */
 
-  @media screen and (max-width: 991px) {
-    padding: 0;
-  }
+ 
 
   .swiper {
     width: 100%;
@@ -15,17 +18,34 @@
     .slide {
       position: relative;
       overflow: hidden;
-      min-width: 260px;
+      width: 189px; 
+      height: 313px;
+      @media screen and (min-width: 768px) {
+        width: 216px;
+      height: 333px;
+      }
+      @media screen and (min-width: 1280px) {
+        width: 280px;
+      height: 401px;
+      }
     }
+   
   }
 
   .navigation {
-    width: 100%;
+    display: none;
+    @media screen and (min-width: 430px) {
+      width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
-    margin-top: 52px;
+    gap: 20px;
+    margin-top: 28px;
+    }
+    @media screen and (min-width: 768px) {
+      margin-top: 48px;
+    }
+    
 
     .navbtn {
       width: 48px;
@@ -38,6 +58,12 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .navbtn:hover {
+      background-color: var(--lime);
+      color: var(--black);
     }
 
     .navbtn:nth-of-type(1) {

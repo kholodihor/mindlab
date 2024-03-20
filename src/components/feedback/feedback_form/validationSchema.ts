@@ -11,8 +11,6 @@ export const feedbackValidation = z.object({
   email: z
     .string()
     .nonempty('Errors.mustbe')
-    .min(2, 'Errors.minEmail')
-    .max(55, 'Errors.maxEmail')
     .refine(
       (value) =>
         /^[a-zA-Z0-9_%+-]*(?:\.[a-zA-Z0-9_%+-]+)?[a-zA-Z0-9_%+-]+@[a-zA-Z0-9_%+-]*(?:\.[a-zA-Z0-9_%+-]+)?[a-zA-Z0-9_%+-]+\.[a-zA-Z]{2,}$/.test(

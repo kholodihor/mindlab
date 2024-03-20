@@ -1,20 +1,17 @@
 .wrapper {
   position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  @media screen and (max-width: 450px) {
-    gap: 0.5rem;
-  }
+  display: flex; 
+   justify-content: space-between; 
+   align-items: center; 
+  gap: 12px; 
+  margin-bottom: 28px;
+ 
 
   .input {
-    flex: 1;
     height: 60px;
+    width: 80%;
     border-radius: 2rem;
-    padding-left: 3rem;
-    padding-right: 1rem;
+    padding-left: 52px;
     border: 1px solid var(--white);
     color: var(--white);
     display: flex;
@@ -25,10 +22,14 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     transition: all 0.5s ease-in-out;
+    /* @media screen and (min-width: 430px) {
+      min-width: 320px;
+    } */
   }
 
   .input::placeholder {
-    color: var(--white);
+    font-size: 16px;
+    color: var(--lightgray);
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -42,8 +43,8 @@
   }
 
   .button {
-    width: 66px;
-    min-width: 60px;
+    display: inline-block;
+  min-width: 66px;
     height: 60px;
     color: var(--black);
     border-radius: 2rem;
@@ -52,18 +53,22 @@
     justify-content: center;
     align-items: center;
     background: var(--lime);
-    font-size: 16px;
+    /* font-size: 16px; */
     transition: all 0.5s ease-in-out;
     cursor: pointer;
-    @media screen and (min-width: 768px) {
-      width: 216px;
-    }
+    /* @media screen and (min-width: 430px) {
+      min-width: 70px;
+    } */
     @media screen and (min-width: 1280px) {
       width: 380px;
     }
   }
 
-  .button:hover {
+  .button:hover,
+  .button:focus {
+    background-color: var(--violet-light);
+  }
+  .button:active {
     background: var(--violet);
   }
 }

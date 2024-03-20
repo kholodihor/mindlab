@@ -1,25 +1,28 @@
 .wrapper {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  row-gap: 20px;
+  column-gap: 16px;
+  margin-bottom: 36px;
 
   .tab {
     min-width: 100px;
     height: 48px;
     color: var(--white);
     border-radius: 2rem;
-    background: #161618;
+    background: var(--graphite);
     border: 1px solid transparent;
     font-size: 16px;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 1rem;
-    transition: all 0.1s ease-in-out;
+    padding: 0 24px;
+    transition: all 0.3s ease-in-out;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -30,16 +33,15 @@
   }
   .tab:hover {
     background: var(--black);
-    border: 1px solid var(--white);
+    /* border: 1px solid var(--white); */
     color: var(--white);
   }
   .active {
     background: var(--violet-light);
     color: var(--black);
   }
-  .active:hover {
-    background: var(--lime);
-    color: var(--black);
-    border: 1px solid var(--black);
-  }
+  /* .active:hover {
+    color: var(--white);
+    border: 1px solid var(--white);
+  } */
 }

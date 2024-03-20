@@ -12,11 +12,10 @@
     padding: 172px 40px 173px 40px;
   }
   @media screen and (min-width: 1280px) {
-    height: 710px;
+    height: 730px;
     padding: 160px 50px 80px 50px;
   }
   @media screen and (min-width: 1440px) {
-    height: 710px;
     padding: 160px 130px 80px 130px;
   }
 }
@@ -39,7 +38,7 @@
     left: 40px;
   }
   @media screen and (min-width: 1280px) {
-    bottom: 80px;
+    bottom: 70px;
     left: 50px;
   }
   @media screen and (min-width: 1440px) {
