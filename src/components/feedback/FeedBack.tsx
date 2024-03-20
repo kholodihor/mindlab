@@ -125,23 +125,23 @@ const FeedBack = () => {
             <span className={styles.checkmark}></span>
           </label>
           <p className={styles.check_paragraph}>
-            {t('Feedback.chakbox.accept')}{' '}
+            {t('Feedback.checkbox.accept')}{' '}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/правила_користування_сайтом.pdf"
             >
-              {t('Feedback.chakbox.public')}
+              {t('Feedback.checkbox.public')}
             </a>{' '}
-            {t('Feedback.chakbox.consent')}
+            {t('Feedback.checkbox.consent')}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/політика_конфіденційності.pdf"
             >
-              {t('Feedback.chakbox.policy')}
+              {t('Feedback.checkbox.policy')}
             </a>
           </p>
         </div>

@@ -375,7 +375,7 @@
       "btn": "Get a consultation",
       "loading": "Processing request..."
     },
-    "chakbox": {
+    "checkbox": {
       "accept": "I accept the terms of",
       "public": "the Public Offer",
       "consent": "and give my consent to the processing of my personal data in accordance with",
