@@ -5,7 +5,7 @@ import ArrowLeft from '@/components/icons/ArrowLeft'
 import styles from './TeacherPage.module.css'
 import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
 import LinkedinIconXL from '@/components/icons/LinkedinIconXL'
-import FacebokIconXL from '@/components/icons/FacebokIconXL'
+import FacebookIconXL from '@/components/icons/FacebookIconXL'
 import TelegramIconXL from '@/components/icons/TelegramIconXL'
 import TeacherTabs from './teacher_tabs/TeacherTabs'
 import { ITeacherResponse } from '@/types/teachers'
@@ -17,14 +17,15 @@ const TeacherPage = ({ id }: { id: string }) => {
   const teacher = teachers?.find((teacher) => teacher.id === id) as ITeacherResponse
   const t = useTranslations('Speakers')
   const locale = useLocale()
+  
   return (
     <div className={styles.page}>
       <a href={`/${locale}#teachers`} className={styles.link}>
         <ArrowLeft />
-        <p>{t('otherpeakers')}</p>
+        <p>{t('otherspeakers')}</p>
       </a>
       {!teacher ? (
-        <p className={styles.error}>{t('notFoundTeatcher')}</p>
+        <p className={styles.error}>{t('notFoundTeacher')}</p>
       ) : (
         <div className={styles.wrapper}>
           <div className={styles.teacher}>
@@ -32,7 +33,7 @@ const TeacherPage = ({ id }: { id: string }) => {
               <TeacherCard teacher={teacher} />
             </div>
             <div className={styles.icons}>
-              <FacebokIconXL />
+              <FacebookIconXL />
               <TelegramIconXL />
               <LinkedinIconXL />
             </div>
