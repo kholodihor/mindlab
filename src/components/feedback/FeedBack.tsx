@@ -89,6 +89,7 @@ const FeedBack = () => {
                 errorText={t(errors.email?.message)}
                 isWhite={true}
                 placeholder="Email"
+                className={styles.input}
               />
             )}
           />

@@ -7,17 +7,20 @@
   .input {
     width: 100%;
     height: 43px;
+    font-size: 18px;
     padding: 0 16px;
     background: none;
     border: none;
+    color: var(--white);
+    font: 500;
     outline: none;
     color: var(--black);
-    border-bottom: 1px solid var(--black);
+    border-bottom: 1px solid var(--gray-light);
   }
 
   .white {
-    color: #818182;
-    border-bottom: 1px solid #818182;
+    color: var(--white);
+    border-bottom: 1px solid var(--gray-light);
   }
 
   .error {
