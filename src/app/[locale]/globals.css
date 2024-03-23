@@ -2,7 +2,7 @@
 
 :root {
   --white: #f9f9fa;
-  --white-second: #FFFFFF;
+  --white-second: #ffffff;
   --lightgray: #dbdbdc;
   --gray: #959596;
   --graphite: #1d1d1e;
@@ -15,6 +15,7 @@
   --rose: #fed1ce;
   --rose-light: #ffecd0;
   --gray-light: #818182;
+  --adminBG: #e6eaff;
 }
 
 * {
@@ -107,4 +108,3 @@ select:-webkit-autofill:focus {
 .textArea .errorText {
   font-size: 14px;
 }
-

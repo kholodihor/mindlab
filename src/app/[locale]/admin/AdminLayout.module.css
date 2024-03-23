@@ -1,0 +1,14 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  background: var(--adminBG);
+  color: black;
+  .sidebar {
+    width: 320px;
+    background: var(--black);
+    color: var(--white);
+  }
+  .pages {
+    flex: 1;
+  }
+}
