@@ -2,45 +2,92 @@
   min-height: 100vh;
   background: var(--graphite);
   color: var(--white);
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 40px;
+ 
+  padding: 120px 0;
+  @media screen and (min-width: 430px) {
+    padding: 220px 0 224px 0;
+  }
+  @media screen and (min-width: 768px) {
+    padding: 360px 0 501px 0;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 140px 0 120px 0;
+  }
 
   .lottie_wrapper {
     position: relative;
     width: fit-content;
     min-height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-bottom: 40px;
+    margin: 0 auto;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center; */
+   
     .lottie {
+      height: 183px;
+      margin: 0 auto 64px auto;
+      
+      @media screen and (min-width: 430px) {
+       height: 246px;
+       
+      }
       @media screen and (min-width: 768px) {
-        width: 70%;
-        height: 60%;
+        height: 348px;
+        margin-bottom: 40px;
+       
+      }
+      @media screen and (min-width:1280px) {
+        width: 898px;
+        height: 505px;
+        margin-bottom: 40px;
+       
       }
     }
 
     .title {
-      position: absolute;
-      bottom: 7%;
-      left: 0;
-      width: 100%;
+      max-width: 390px;
       text-transform: uppercase;
       text-align: center;
       font-family: 'Oswald', sans-serif;
       font-size: 26px;
       font-weight: 500;
+      margin: 0 auto 40px auto;
+      @media screen and (min-width: 430px) {
+        /* min-width: 380px; */
+       }
+       @media screen and (min-width: 768px) {
+        font-size: 24px;
+        max-width: 100%;
+       }
+       @media screen and (min-width: 1280px) {
+        min-width: 500px;
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+       }
+     
     }
 
     .button {
-      position: absolute;
-      bottom: -10%;
-      left: 50%;
-      transform: translateX(-50%);
+      display: block;
+      color: var(--black);
+      height: 60px;
+     width: calc(100% - 32px);
+      margin: 0 auto;
+      border-radius: 2rem;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--lime);
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+      @media screen and (min-width: 430px) {
+       width: 380px;
+      }
     }
   }
 }
