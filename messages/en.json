@@ -67,8 +67,8 @@
     "notFound": "We did not find any registered teachers for your request.",
     "loading": "Processing...",
     "btn": "Search",
-    "otherpeakers": "To other teachers",
-    "notFoundTeatcher": "No such teacher was found. Try again.",
+    "otherspeakers": "To other teachers",
+    "notFoundTeacher": "No such teacher was found. Try again.",
     "aboutSpeaker": {
       "title": "About the teacher",
       "aboutMe": "About me",
@@ -375,7 +375,7 @@
       "btn": "Get a consultation",
       "loading": "Processing request..."
     },
-    "chakbox": {
+    "checkbox": {
       "accept": "I accept the terms of",
       "public": "the Public Offer",
       "consent": "and give my consent to the processing of my personal data in accordance with",
@@ -403,16 +403,16 @@
     "message": "please, go to the main page",
     "button": "Main page"
   },
-  "Errors":{
+  "Errors": {
     "mustbe": "This field must be filled",
-"minName": "Name must contain at least 2 characters",
-"maxName": "Name must contain a maximum of 25 characters",
-"minEmail": "Email must contain at least 2 characters",
-"maxEmail": "Email must contain a maximum of 55 characters",
-"minQuestion": "Question must contain at least 2 characters",
-"maxQuestion": "Question must contain a maximum of 300 characters",
-"notCorrectEmail": "Incorrectly entered email",
-"isname": "Enter a name",
+    "minName": "Name must contain at least 2 characters",
+    "maxName": "Name must contain a maximum of 25 characters",
+    "minEmail": "Email must contain at least 2 characters",
+    "maxEmail": "Email must contain a maximum of 55 characters",
+    "minQuestion": "Question must contain at least 2 characters",
+    "maxQuestion": "Question must contain a maximum of 300 characters",
+    "notCorrectEmail": "Incorrectly entered email",
+    "isname": "Enter a name",
     "ismail": "Enter your email address",
     "testimonials": "Enter the text of the review",
     "mintestimonial": "Feedback must contain at least 2 characters",
