@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import { menuList } from '@/data/data'
+import { usePathname } from 'next/navigation'
 import css from '../footer/Footer.module.css'
 import MailIcon from '../icons/MailIcon'
 import TelegramIcon from '../icons/TelegramIcon'
@@ -10,6 +13,11 @@ import { useLocale, useTranslations } from 'next-intl'
 const Footer = () => {
   const t = useTranslations()
   const locale = useLocale()
+  const pathname = usePathname()
+  const isAdminPage = pathname.split('/').includes('admin')
+
+  if (isAdminPage) return null
+
   return (
     <footer className={css.footer}>
       <div className={`${css.footer_container} `}>
@@ -40,7 +48,12 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="https://www.facebook.com/" className={css.social__link} rel="noopener noreferrer" target="_blank">
+              <Link
+                href="https://www.facebook.com/"
+                className={css.social__link}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
                 <Image src="/svg/footer/facebook.svg" alt="icon facebook" width={40} height={40} />
               </Link>
             </li>
