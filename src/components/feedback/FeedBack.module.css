@@ -81,17 +81,17 @@
         cursor: pointer;
       }
       .button:hover {
-        background: var(--violet);
+        background: var(--violet-light);
         color: var(--black);
       }
       .button:disabled {
         background: var(--graphite);
-        color: var(--gray);
+        color: var(--gray-light);
         cursor: not-allowed;
       }
       .button:disabled:hover {
         background: var(--graphite);
-        color: var(--gray);
+        color: var(--gray-light);
         cursor: not-allowed;
       }
       .active {
@@ -166,7 +166,7 @@
 
     .check_paragraph {
       text-align: left;
-      color: var(--white);
+      color: var(--lightgray);
       @media screen and (min-width: 1280px) {
         text-align: center;
        }
@@ -212,7 +212,7 @@
       width: 24px;
       cursor: pointer;
       background-color: transparent;
-      border: 1px solid var(--white);
+      border: 2px solid var(--white);
       z-index: 5;
     }
 
@@ -235,10 +235,10 @@
     }
 
     .checkbox_container .checkmark:after {
-      left: 20%;
-      top: 5%;
-      width: 12.34px;
-      height: 9.77px;
+      left: 40%;
+      top: 15%;
+      width: 3px;
+      height: 10px;
       border: 1px solid white;
       border-width: 0 2px 2px 0;
       -webkit-transform: rotate(45deg);
@@ -246,6 +246,11 @@
       transform: rotate(45deg);
     }
   }
+}
+
+.input::placeholder {
+font-size: 18px;
+color: var(--gray-light);
 }
 
 @keyframes spin {

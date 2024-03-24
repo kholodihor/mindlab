@@ -10,6 +10,7 @@ import TelegramIconXL from '@/components/icons/TelegramIconXL'
 import TeacherTabs from './teacher_tabs/TeacherTabs'
 import { ITeacherResponse } from '@/types/teachers'
 import { useLocale, useTranslations } from 'next-intl'
+import Link from 'next/link'
 import Image from 'next/image'
 
 const TeacherPage = ({ id }: { id: string }) => {
@@ -30,18 +31,49 @@ const TeacherPage = ({ id }: { id: string }) => {
         <div className={styles.wrapper}>
           <div className={styles.teacher}>
             <div className={styles.card}>
+             
               <TeacherCard teacher={teacher} />
             </div>
-            <div className={styles.icons}>
-              <FacebookIconXL />
-              <TelegramIconXL />
-              <LinkedinIconXL />
+            <div>
+              <div className={styles.about}>
+              <h3 className={styles.name}>{teacher.name}</h3>
+              <p className={styles.speciality}>{teacher.speciality}</p>
+              </div>
+              <div className={styles.icons}>
+             <Link
+                 href="https://www.facebook.com/"
+                 className={styles.social__link}
+                 rel="noopener noreferrer"
+                 target="_blank"
+               >
+                  <FacebookIconXL />
+               </Link>
+               <Link
+                   href="https://t.me/"
+                   className={styles.social__link}
+                   rel="noopener noreferrer"
+                   target="_blank"
+                 >
+                   <TelegramIconXL />
+                 </Link>
+                 <Link
+                   href="https://www.linkedin.com/in"
+                   className={styles.social__link}
+                   rel="noopener noreferrer"
+                   target="_blank"
+                 >
+                   <LinkedinIconXL />
+                 </Link>
+              
+             </div>
             </div>
+            
+           
           </div>
           <TeacherTabs teacher={teacher} />
           <Image
-            width={20}
-            height={20}
+            width={33}
+            height={33}
             src={'/speaker_page/star.svg'}
             alt="star"
             className={styles.star_small}
@@ -54,7 +86,7 @@ const TeacherPage = ({ id }: { id: string }) => {
             className={styles.star_large}
           />
           <Image
-            width={35}
+            width={33}
             height={35}
             src={'/speaker_page/star.svg'}
             alt="star"

@@ -16,6 +16,11 @@
   }
 }
 
-.button:hover {
+.button:hover,
+.button:focus {
+  background: var(--violet-light);
+}
+
+.button:active{
   background: var(--violet);
 }
