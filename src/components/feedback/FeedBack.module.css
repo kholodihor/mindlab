@@ -81,7 +81,7 @@
         cursor: pointer;
       }
       .button:hover {
-        background: var(--violet);
+        background: var(--violet-light);
         color: var(--black);
       }
       .button:disabled {
