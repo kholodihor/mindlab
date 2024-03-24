@@ -2,7 +2,7 @@ export const getCourseColor = (title: string) => {
   if (title.toLowerCase() === 'leadership') {
     return '#aaaedf'
   }
-  if (title.toLowerCase() === 'career counseling/career guidance') {
+  if (title.toLowerCase() === 'career counselling/career guidance') {
     return '#ffecd0'
   }
   if (title.toLowerCase() === 'business') {

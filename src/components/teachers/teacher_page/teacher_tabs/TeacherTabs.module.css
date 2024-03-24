@@ -1,18 +1,23 @@
 .tabs {
-  flex: 1;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* flex-direction: column; */
+  /* justify-content: flex-start;
+  align-items: flex-start; */
   gap: 32px;
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start;
+   }
 
   .tabs_container {
     display: flex;
-    justify-content: start;
-    gap: 1rem;
+    flex-wrap: wrap;
+
+    gap: 20px;
 
     .tab {
-      width: 169px;
+      width: 100%;
       height: 48px;
       border-radius: 2rem;
       background: #161618;
@@ -20,8 +25,15 @@
       outline: none;
       color: var(--white);
       font-size: 16px;
+      font-weight: 500;
       transition: all 0.3s ease;
       cursor: pointer;
+      @media screen and (min-width: 430px) {
+        width: 189px;
+       }
+       @media screen and (min-width: 1280px) {
+        width: 200px;
+       }
     }
 
     .tab:hover {
@@ -34,7 +46,9 @@
       transition: all 0.3s ease;
     }
     .active:hover {
-      background: var(--lime);
+      background: var(--violet-light);
+      color: var(--black);
+      transition: all 0.3s ease;
     }
   }
 }

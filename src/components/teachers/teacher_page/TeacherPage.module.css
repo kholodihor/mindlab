@@ -1,6 +1,15 @@
 .page {
-  min-height: calc(100vh - 80px);
-  margin-top: 25vh;
+ padding-top: 96px;
+ padding-bottom: 60px;
+ @media screen and (min-width: 768px) {
+  padding-top: 108px;
+  padding-bottom: 120px;
+}
+@media screen and (min-width: 1280px) {
+  padding-top: 129px;
+  padding-bottom: 160px;
+}
+ 
 }
 .link {
   display: flex;
@@ -26,14 +35,16 @@
 .wrapper {
   position: relative;
   display: flex;
-  flex-direction: column;
-  gap: 50px;
+  flex-wrap: wrap;
+  /* flex-direction: column; */
+  gap: 32px;
 
   @media screen and (min-width: 768px) {
-    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
   }
-  @media screen and (min-width: 850px) {
-    gap: 100px;
+  @media screen and (min-width:1280px) {
+    gap: 120px;
   }
 
   .star_small {
@@ -42,58 +53,131 @@
     left: 50%;
     transform: translateX(-50%);
     display: none;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1280px) {
       display: block;
     }
   }
   .star_large {
-    position: absolute;
-    top: 70%;
-    left: 30%;
-    transform: translateY(-50%);
     display: none;
-    @media screen and (min-width: 768px) {
-      display: block;
+    @media screen and (min-width: 1280px) {
+     display: block;
+     position: absolute;
+     left: 380px;
+     bottom: 64px;
     }
+   
   }
   .star_medium {
-    position: absolute;
-    top: 5%;
-    right: 20%;
-    transform: translateY(-50%);
     display: none;
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 768px) {
+      position: absolute;
+      top: 60px;
+      right: 33px;
+      display: block;
+    }
+    @media screen and (min-width: 1280px) {
+      position: absolute;
+  top: 0;
+      right: 78px;
       display: block;
     }
   }
 
   .teacher {
     display: flex;
-    gap: 3rem;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 32px;
+    margin-bottom: 36px;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
 
-    @media screen and (min-width: 450px) {
-      flex-direction: row;
+    @media screen and (min-width: 430px) {
+      margin-bottom: 0;
     }
 
     @media screen and (min-width: 768px) {
-      justify-content: flex-start;
-      align-items: flex-start;
+      /* justify-content: flex-start;
+      align-items: flex-start; */
+      flex-wrap: wrap;
+        width: 216px;
+    }
+    @media screen and (min-width: 1280px) {
+      /* justify-content: flex-start;
+      align-items: flex-start; */
+      flex-wrap: nowrap;
+        width: 380px;
+        gap: 60px;
     }
 
     .card {
-      @media screen and (min-width: 768px) {
-        flex: 1;
+      @media screen and (min-width: 430px) {
+        height: 202px;
+        overflow-y: hidden;
       }
+      @media screen and (min-width: 768px) {
+       overflow-y: auto;
+       height: auto;
+      }
+    }
+    .about {
+      display: none;
+      @media screen and (min-width: 430px) {
+        width: 189px;
+        display: block;
+        margin-bottom: 40px;
+      }
+      @media screen and (min-width: 768px) {
+       display: none;
+      }
+    }
+    .name {
+      @media screen and (min-width: 430px) {
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--white-second);
+        margin-bottom: 8px;
+      }
+      
+      @media screen and (min-width: 768px) {
+        margin-bottom: 12px;
+      }
+      @media screen and (min-width: 1280px) {
+        font-size: 24px;
+      }
+    }
+    .speciality {
+      @media screen and (min-width: 430px) {
+        font-size: 16px;
+      color: var(--white);
+      font-weight: 400;
+      /* width: 189px; */
+      }
+      
+      @media screen and (min-width: 768px) {
+        width: 216px;
+      }
+      @media screen and (min-width: 1280px) {
+        width: 280px;
+        } 
     }
     .icons {
       display: flex;
-      flex-direction: row;
-      gap: 1rem;
-      @media screen and (min-width: 450px) {
+      flex-direction: column;
+      gap: 20px;
+      @media screen and (min-width: 430px) {
+        flex-direction:row
+      }
+      @media screen and (min-width: 1280px) {
         flex-direction: column;
+      }
+      .social__link {
+        width: 40px;
+        height: 40px;
+        transition: transform 0.3s ease-in-out;
+      }
+      .social__link:hover,
+      .social__link:focus {
+color: var(--lime);
       }
     }
   }
