@@ -19,7 +19,7 @@ const FeedBack = () => {
   const [checked, setChecked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
-  const t = useTranslations('Feedback')
+  const t = useTranslations()
 
   const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLESHEETS_URL!
 
@@ -64,8 +64,8 @@ const FeedBack = () => {
     <section id="feedback" className={styles.container}>
       <div className={`${styles.wrapper}`}>
         <div className={styles.title_wrapper}>
-          <h1 className={styles.title}>{t('title')}</h1>
-          <p className={styles.subtitle}>{t('subtitle')}</p>
+          <h1 className={styles.title}>{t('Feedback.title')}</h1>
+          <p className={styles.subtitle}>{t('Feedback.subtitle')}</p>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           <Controller
@@ -76,7 +76,7 @@ const FeedBack = () => {
                 {...field}
                 errorText={t(errors.name?.message)}
                 isWhite={true}
-                placeholder={t('form.name')}
+                placeholder={t('Feedback.form.name')}
               />
             )}
           />
@@ -101,7 +101,7 @@ const FeedBack = () => {
                 {...field}
                 isWhite={true}
                 errorText={t(errors.message?.message)}
-                placeholder={t('form.question')}
+                placeholder={t('Feedback.form.question')}
               />
             )}
           />
@@ -111,7 +111,7 @@ const FeedBack = () => {
               className={`${styles.button} ${checked && !Object.keys(errors).length && styles.active}`}
               disabled={!checked || !isDirty || !validValues || !!Object.keys(errors).length}
             >
-              {isProcessing ? t('form.loading') : t('form.btn')}
+              {isProcessing ? t('Feedback.form.loading') : t('Feedback.form.btn')}
             </button>
           </div>
         </form>
@@ -126,23 +126,23 @@ const FeedBack = () => {
             <span className={styles.checkmark}></span>
           </label>
           <p className={styles.check_paragraph}>
-            {t('checkbox.accept')}{' '}
+            {t('Feedback.checkbox.accept')}{' '}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/правила_користування_сайтом.pdf"
             >
-              {t('checkbox.public')}
+              {t('Feedback.checkbox.public')}
             </a>{' '}
-            {t('checkbox.consent')}
+            {t('Feedback.checkbox.consent')}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/політика_конфіденційності.pdf"
             >
-              {t('checkbox.policy')}
+              {t('Feedback.checkbox.policy')}
             </a>
           </p>
         </div>

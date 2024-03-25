@@ -1,18 +1,17 @@
 .wrapper {
-  position: relative;
-  height: 100%;
+  /* position: relative; */
+  /* height: 100%; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 40px;
-  padding: 40px 0;
+  
 
   .title {
     color: var(--black);
     font-size: 24px;
     text-align: center;
-    margin-top: 40px;
     @media screen and (min-width: 430px) {
       font-size: 32px;
     }
@@ -28,6 +27,7 @@
     overflow: hidden;
     .button_wrapper {
       width: 100%;
+      padding-top: 20px;
 
       .button {
         width: 100%;

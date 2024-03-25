@@ -2,11 +2,11 @@
   position: relative;
   width: 100%;
   max-width: 580px;
-  height: 64px;
 
   .input {
     width: 100%;
     height: 43px;
+    max-height: auto;
     padding: 16px;
     background: none;
     border: none;
@@ -15,6 +15,11 @@
     font-family: sans-serif;
     color: var(--black);
     border-bottom: 1px solid var(--black);
+    font-size: 16px;
+    font-weight: normal;
+    @media screen and (min-width: 430px) {
+      font-size: 18px;
+    }
   }
   .input::placeholder {
     font-family: sans-serif;
@@ -22,14 +27,14 @@
 
   .white {
     color: #818182;
-    border-bottom: 1px solid #818182;
+    border-bottom: 1px solid var(--black);
   }
   .error {
     position: absolute;
-    top: 80%;
+    top: 100%;
     left: 0;
     font-size: 14px;
     color: #da3c3c;
-    font-weight: bold;
+    font-weight: normal;
   }
 }
