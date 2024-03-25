@@ -19,7 +19,7 @@ const FeedBack = () => {
   const [checked, setChecked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
-  const t = useTranslations()
+  const t = useTranslations('Feedback')
 
   const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLESHEETS_URL!
 
@@ -64,10 +64,10 @@ const FeedBack = () => {
     <section id="feedback" className={styles.container}>
       <div className={`${styles.wrapper}`}>
         <div className={styles.title_wrapper}>
-          <h1 className={styles.title}>{t('Feedback.title')}</h1>
-          <p className={styles.subtitle}>{t('Feedback.subtitle')}</p>
+          <h1 className={styles.title}>{t('title')}</h1>
+          <p className={styles.subtitle}>{t('subtitle')}</p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} autoComplete="new-off" className={styles.form}>
+        <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
           <Controller
             name="name"
             control={control}
@@ -76,7 +76,7 @@ const FeedBack = () => {
                 {...field}
                 errorText={t(errors.name?.message)}
                 isWhite={true}
-                placeholder={t('Feedback.form.name')}
+                placeholder={t('form.name')}
               />
             )}
           />
@@ -101,7 +101,7 @@ const FeedBack = () => {
                 {...field}
                 isWhite={true}
                 errorText={t(errors.message?.message)}
-                placeholder={t('Feedback.form.question')}
+                placeholder={t('form.question')}
               />
             )}
           />
@@ -111,7 +111,7 @@ const FeedBack = () => {
               className={`${styles.button} ${checked && !Object.keys(errors).length && styles.active}`}
               disabled={!checked || !isDirty || !validValues || !!Object.keys(errors).length}
             >
-              {isProcessing ? t('Feedback.form.loading') : t('Feedback.form.btn')}
+              {isProcessing ? t('form.loading') : t('form.btn')}
             </button>
           </div>
         </form>
@@ -126,23 +126,23 @@ const FeedBack = () => {
             <span className={styles.checkmark}></span>
           </label>
           <p className={styles.check_paragraph}>
-            {t('Feedback.checkbox.accept')}{' '}
+            {t('checkbox.accept')}{' '}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/правила_користування_сайтом.pdf"
             >
-              {t('Feedback.checkbox.public')}
+              {t('checkbox.public')}
             </a>{' '}
-            {t('Feedback.checkbox.consent')}
+            {t('checkbox.consent')}
             <a
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
               href="/documents/політика_конфіденційності.pdf"
             >
-              {t('Feedback.checkbox.policy')}
+              {t('checkbox.policy')}
             </a>
           </p>
         </div>
