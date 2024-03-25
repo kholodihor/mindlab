@@ -7,7 +7,7 @@
   .input {
     width: 100%;
     height: 43px;
-    font-size: 18px;
+    font-size: 16px;
     padding: 0 16px;
     background: none;
     border: none;
@@ -16,6 +16,10 @@
     outline: none;
     color: var(--black);
     border-bottom: 1px solid var(--gray-light);
+    @media screen and (min-width: 430px) {
+      font-size: 18px;
+      font-weight: 500;
+    }
   }
 
   .white {

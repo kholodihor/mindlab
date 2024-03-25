@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
-import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react'
+import { ForwardedRef, InputHTMLAttributes, forwardRef, useRef, useEffect } from 'react'
 import styles from './TextArea.module.css'
 
 interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
@@ -14,6 +14,19 @@ const TextArea = forwardRef(function TextInput(
   { title, errorText, isWhite, value = '', ...rest }: TextAreaProps,
   _ref: ForwardedRef<HTMLTextAreaElement>
 ) {
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    autoResize();
+  }, [value]); 
+
+  const autoResize = () => {
+    const textarea = textareaRef.current;
+    if (textarea) {
+      textarea.style.height = "43";
+      textarea.style.height = textarea.scrollHeight + "px"; 
+    }
+  };
   return (
     <div className={styles.wrapper}>
       {!!title && (
@@ -23,6 +36,7 @@ const TextArea = forwardRef(function TextInput(
       )}
       <textarea
         {...rest}
+        ref={textareaRef}
         id={title}
         value={value}
         rows={5}

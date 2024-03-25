@@ -15,23 +15,23 @@ const Checkbox = ({ handleAction }: ChecboxProps) => {
         <span className={styles.checkmark}></span>
       </label>
       <p className={styles.check_paragraph}>
-        {t('chakbox.accept')}
+        {t('checkbox.accept')}
         <a
           className={styles.check_link}
           target="_blank"
           rel="noopener noreferrer"
           href="/documents/правила_користування_сайтом.pdf"
         >
-          {t('chakbox.public')}
+          {t('checkbox.public')}
         </a>
-        {t('chakbox.consent')}
+        {t('checkbox.consent')}
         <a
           className={styles.check_link}
           target="_blank"
           rel="noopener noreferrer"
           href="/documents/політика_конфіденційності.pdf"
         >
-          {t('chakbox.policy')}
+          {t('checkbox.policy')}
         </a>
       </p>
     </div>
