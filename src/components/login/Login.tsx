@@ -58,39 +58,45 @@ const Login = () => {
     <section className={styles.container}>
       <div className={`${styles.wrapper}`}>
         <div className={styles.title_wrapper}>
-          <h1 className={styles.title}>Login</h1>
+          <h1 className={styles.title}>Адміністрування сайту</h1>
+          <p className={styles.subtitle}>Для входу на панель адміністратора<br />
+            підтвердіть свій акаунт</p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
-          <Controller
-            name="email"
-            control={control}
-            render={({ field }) => (
-              <TextInput
-                {...field}
-                errorText={errors.email?.message}
-                isWhite={true}
-                placeholder="Email"
-              />
-            )}
-          />
-          <Controller
-            name="password"
-            control={control}
-            render={({ field }) => (
-              <PasswordInput
-                {...field}
-                errorText={errors.password?.message}
-                isWhite={true}
-                placeholder="Пароль"
-              />
-            )}
-          />
-          <div className={styles.button_wrapper}>
-            <button type="submit" className={styles.button} disabled={isProcessing}>
-              {isProcessing ? 'Обробка запиту...' : 'Login'}
-            </button>
-          </div>
-        </form>
+        <div className={styles.form_wrapper}>
+          <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
+            <label className={styles.inputLabel}>Введіть логін:</label>
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <TextInput
+                  {...field}
+                  errorText={errors.email?.message}
+                  isWhite={true}
+                  placeholder="Логін"
+                />
+              )}
+            />
+            <label className={styles.inputLabel}>Введіть пароль :</label>
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => (
+                <PasswordInput
+                  {...field}
+                  errorText={errors.password?.message}
+                  isWhite={true}
+                  placeholder="Пароль"
+                />
+              )}
+            />
+            <div className={styles.button_wrapper}>
+              <button type="submit" className={styles.button} disabled={isProcessing}>
+                {isProcessing ? 'Обробка запиту...' : 'Увійти'}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   )
