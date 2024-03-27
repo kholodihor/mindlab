@@ -25,7 +25,7 @@ const Header = () => {
   const currentWidth = useWidth()
   const locale = useLocale()
 
-  const isAdminPage = pathname.split('/').includes('admin')
+  const isAdminPage = pathname.split('/').includes('admin') || pathname.split('/').includes('login')
 
   const t = useTranslations('Menu')
   const { openModal, closeModal } = useModal()

@@ -14,7 +14,7 @@ const Footer = () => {
   const t = useTranslations()
   const locale = useLocale()
   const pathname = usePathname()
-  const isAdminPage = pathname.split('/').includes('admin')
+  const isAdminPage = pathname.split('/').includes('admin') || pathname.split('/').includes('login')
 
   if (isAdminPage) return null
 

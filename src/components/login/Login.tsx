@@ -13,6 +13,7 @@ import PasswordInput from '../ui/inputs/password-input/PasswordInput'
 
 import styles from './Login.module.css'
 
+
 const Login = () => {
   const router = useRouter()
   const session = useSession()
@@ -56,7 +57,7 @@ const Login = () => {
 
   return (
     <section className={styles.container}>
-      <div className={`${styles.wrapper}`}>
+      <div className={styles.wrapper}>
         <div className={styles.title_wrapper}>
           <h1 className={styles.title}>Адміністрування сайту</h1>
           <p className={styles.subtitle}>Для входу на панель адміністратора<br />
@@ -64,12 +65,12 @@ const Login = () => {
         </div>
         <div className={styles.form_wrapper}>
           <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
-            <label className={styles.inputLabel}>Введіть логін:</label>
             <Controller
               name="email"
               control={control}
               render={({ field }) => (
                 <TextInput
+                  title={`Введіть логін:`}
                   {...field}
                   errorText={errors.email?.message}
                   isWhite={true}
@@ -77,12 +78,12 @@ const Login = () => {
                 />
               )}
             />
-            <label className={styles.inputLabel}>Введіть пароль :</label>
             <Controller
               name="password"
               control={control}
               render={({ field }) => (
                 <PasswordInput
+                  title={`Введіть пароль:`}
                   {...field}
                   errorText={errors.password?.message}
                   isWhite={true}

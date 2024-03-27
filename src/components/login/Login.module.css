@@ -13,7 +13,7 @@
   flex-direction: column;
   gap: 105px;
   color: var(--black);
-  padding-top: 15vh;
+  padding-top: 8.5vh;
   margin: 0 auto;
 
   .title_wrapper {
@@ -26,7 +26,6 @@
       font-family: Oswald;
       font-weight: 500;
       font-size: 40px;
-      font-weight: 500;
       letter-spacing: 0;
       text-transform: uppercase;
       padding-bottom: 1.5rem;
@@ -45,27 +44,20 @@
     box-shadow: 0 1px 25px rgb(167, 129, 247, 0.2);
     width: 100%;
     position: relative;
-    z-index: 2;
+    z-index: 100;
 
     .form {
       margin: 0 auto;
-      width: 370px;
+      width: 380px;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      gap: 24px;
-
-      .inputLabel {
-        font-size: 16px;
-        font-weight: 600;
-        align-self: flex-start;
-      }
+      padding: 35px 0;
+      gap: 30px;
 
       .button_wrapper {
-        margin-top: 55px;
-        margin-bottom: 35px;
-
+        margin-top: 45px;
 
         .button {
           width: 380px;
@@ -101,11 +93,26 @@
 
     .form:before {
       position: absolute;
-      content: url(../../../public/login/Group_1611.png);
-      top: -21%;
-      left: 15%;
+      content: url(../../../public/login/Group_1611.svg);
+      display: block;
+      top: -23%;
+      left: 14%;
+      z-index: -10;
+      clip-path: inset(0 0 37% 0);
     }
   }
-
-
 }
+
+.TextInput_wrapper__lg_YQ label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.PasswordInput_eye__HamoE {
+  display: none;
+}
+
+/* .inputLabel {
+  font-size: 16px; 
+  font-weight: 600;
+} */
