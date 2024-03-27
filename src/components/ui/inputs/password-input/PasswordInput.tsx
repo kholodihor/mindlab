@@ -3,8 +3,6 @@
 
 import { useState } from 'react'
 import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react'
-// import { FaRegEye } from 'react-icons/fa'
-// import { FaRegEyeSlash } from 'react-icons/fa'
 import { RxEyeClosed } from "react-icons/rx";
 
 import styles from './PasswordInput.module.css'

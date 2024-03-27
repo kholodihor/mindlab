@@ -13,47 +13,61 @@ import PasswordInput from '../ui/inputs/password-input/PasswordInput'
 
 import styles from './Login.module.css'
 
+// type FormInputs = {
+//   login: string;
+// };
 
 const Login = () => {
-  const router = useRouter()
-  const session = useSession()
-  const [isProcessing, setIsProcessing] = useState(false)
+  const router = useRouter();
+  const session = useSession();
+  const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
     if (session?.status === 'authenticated') {
-      router.replace('/admin')
+      router.replace('/admin');
     }
-  }, [session, router])
+  }, [session, router]);
 
   const {
     handleSubmit,
     control,
+    setError,
     formState: { errors }
   } = useForm<z.infer<typeof loginScheme>>({
     resolver: zodResolver(loginScheme),
     mode: 'onChange',
     defaultValues: defaultValues
-  })
+  });
 
   const onSubmit: SubmitHandler<z.infer<typeof loginScheme>> = async (
     values: z.infer<typeof loginScheme>
   ) => {
     try {
-      setIsProcessing(true)
-      await signIn('credentials', {
+      setIsProcessing(true);
+      const callback = await signIn('credentials', {
         ...values,
         redirect: false
-      }).then((callback) => {
-        setIsProcessing(false)
-        if (callback?.ok) {
-          router.replace('/admin')
-          router.refresh()
-        }
-      })
-    } catch (error: any) {
-      console.log(error)
+      });
+      setIsProcessing(false);
+      if (callback?.ok) {
+        router.replace('/admin');
+        router.refresh();
+      }
+    } catch (error) {
+      const errors = error.response.data;
+
+      if (errors.login) {
+        setError('email', {
+          message: 'Неіснуючий логін'
+        });
+      }
+      if (errors.password) {
+        setError('password', {
+          message: 'Невірний пароль'
+        });
+      }
     }
-  }
+  };
 
   return (
     <section className={styles.container}>
