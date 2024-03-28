@@ -1,0 +1,25 @@
+.container {
+  min-height: 80px;
+  max-width: 1120px;
+  border-bottom: 1px solid var(--violet);
+  background-color: #E6EAFF;
+  padding: 20px 65px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: Oswald;
+  font-size: 30px;
+  font-weight: 500;
+  color: var(--black);
+  line-height: 45px;
+  text-transform: uppercase;
+}
+
+.button_container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
