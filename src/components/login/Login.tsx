@@ -13,84 +13,105 @@ import PasswordInput from '../ui/inputs/password-input/PasswordInput'
 
 import styles from './Login.module.css'
 
+// type FormInputs = {
+//   login: string;
+// };
+
 const Login = () => {
-  const router = useRouter()
-  const session = useSession()
-  const [isProcessing, setIsProcessing] = useState(false)
+  const router = useRouter();
+  const session = useSession();
+  const [isProcessing, setIsProcessing] = useState(false);
 
   useEffect(() => {
     if (session?.status === 'authenticated') {
-      router.replace('/admin')
+      router.replace('/admin');
     }
-  }, [session, router])
+  }, [session, router]);
 
   const {
     handleSubmit,
     control,
+    setError,
     formState: { errors }
   } = useForm<z.infer<typeof loginScheme>>({
     resolver: zodResolver(loginScheme),
     mode: 'onChange',
     defaultValues: defaultValues
-  })
+  });
 
   const onSubmit: SubmitHandler<z.infer<typeof loginScheme>> = async (
     values: z.infer<typeof loginScheme>
   ) => {
     try {
-      setIsProcessing(true)
-      await signIn('credentials', {
+      setIsProcessing(true);
+      const callback = await signIn('credentials', {
         ...values,
         redirect: false
-      }).then((callback) => {
-        setIsProcessing(false)
-        if (callback?.ok) {
-          router.replace('/admin')
-          router.refresh()
-        }
-      })
-    } catch (error: any) {
-      console.log(error)
+      });
+      setIsProcessing(false);
+      if (callback?.ok) {
+        router.replace('/admin');
+        router.refresh();
+      }
+    } catch (error) {
+      const errors = error.response.data;
+
+      if (errors.login) {
+        setError('email', {
+          message: 'Неіснуючий логін'
+        });
+      }
+      if (errors.password) {
+        setError('password', {
+          message: 'Невірний пароль'
+        });
+      }
     }
-  }
+  };
 
   return (
     <section className={styles.container}>
-      <div className={`${styles.wrapper}`}>
+      <div className={styles.wrapper}>
         <div className={styles.title_wrapper}>
-          <h1 className={styles.title}>Login</h1>
+          <h1 className={styles.title}>Адміністрування сайту</h1>
+          <p className={styles.subtitle}>Для входу на панель адміністратора<br />
+            підтвердіть свій акаунт</p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
-          <Controller
-            name="email"
-            control={control}
-            render={({ field }) => (
-              <TextInput
-                {...field}
-                errorText={errors.email?.message}
-                isWhite={true}
-                placeholder="Email"
-              />
-            )}
-          />
-          <Controller
-            name="password"
-            control={control}
-            render={({ field }) => (
-              <PasswordInput
-                {...field}
-                errorText={errors.password?.message}
-                isWhite={true}
-                placeholder="Пароль"
-              />
-            )}
-          />
-          <div className={styles.button_wrapper}>
-            <button type="submit" className={styles.button} disabled={isProcessing}>
-              {isProcessing ? 'Обробка запиту...' : 'Login'}
-            </button>
-          </div>
-        </form>
+        <div className={styles.form_wrapper}>
+          <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>
+            <Controller
+              name="email"
+              control={control}
+              render={({ field }) => (
+                <TextInput
+                  title={`Введіть логін:`}
+                  {...field}
+                  errorText={errors.email?.message}
+                  isWhite={true}
+                  placeholder="Логін"
+                />
+              )}
+            />
+            <Controller
+              name="password"
+              control={control}
+              render={({ field }) => (
+                <PasswordInput
+                  title={`Введіть пароль:`}
+                  {...field}
+                  errorText={errors.password?.message}
+                  isWhite={true}
+                  placeholder="Пароль"
+                />
+              )}
+            />
+            <div className={styles.button_wrapper}>
+              <button type="submit" className={styles.button} disabled={isProcessing}>
+                {isProcessing ? 'Обробка запиту...' : 'Увійти'}
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   )

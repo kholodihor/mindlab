@@ -18,7 +18,7 @@ const TextInput = forwardRef(function TextInput(
   return (
     <div className={styles.wrapper}>
       {!!title && (
-        <label htmlFor={title} className="">
+        <label htmlFor={title} className="" style={{ fontSize: '16px', fontWeight: 600 }}>
           {title}
         </label>
       )}

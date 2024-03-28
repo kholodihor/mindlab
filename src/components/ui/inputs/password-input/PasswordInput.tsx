@@ -3,10 +3,10 @@
 
 import { useState } from 'react'
 import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react'
-import { FaRegEye } from 'react-icons/fa'
-import { FaRegEyeSlash } from 'react-icons/fa'
+import { RxEyeClosed } from "react-icons/rx";
 
 import styles from './PasswordInput.module.css'
+import EyeIcon from '@/components/icons/EyeIcon'
 
 interface PasswordInputProps extends InputHTMLAttributes<HTMLInputElement> {
   title?: string
@@ -23,7 +23,7 @@ const PasswordInput = forwardRef(function PasswordInput(
   return (
     <div className={styles.wrapper}>
       {!!title && (
-        <label htmlFor={title} className="">
+        <label htmlFor={title} className="" style={{ fontSize: '16px', fontWeight: 600, }}>
           {title}
         </label>
       )}
@@ -36,7 +36,7 @@ const PasswordInput = forwardRef(function PasswordInput(
         type={showPassword ? 'text' : 'password'}
       />
       <div onClick={() => setShowPassword(!showPassword)} className={styles.eye}>
-        {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+        {showPassword ? <EyeIcon /> : <RxEyeClosed />}
       </div>
       {errorText && <span className={styles.error}>{errorText}</span>}
     </div>
