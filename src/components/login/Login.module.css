@@ -13,7 +13,7 @@
   flex-direction: column;
   gap: 105px;
   color: var(--black);
-  padding-top: 8.5vh;
+  padding: 8.5vh 0;
   margin: 0 auto;
 
   .title_wrapper {
