@@ -1,0 +1,25 @@
+.add_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Fixel Display;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 24px;
+  height: 48px;
+  min-width: 250px;
+  background-color: var(--blue);
+  border-radius: 32px;
+  cursor: pointer;
+  transition: all .5s ease-in-out;
+  border: none;
+}
+
+.add_btn:hover {
+  background-color: var(--violet);
+}
+
+.add_btn:active {
+  background-color: var(--dark-blue);
+}
