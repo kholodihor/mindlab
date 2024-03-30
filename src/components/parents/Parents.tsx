@@ -23,6 +23,7 @@ type Answer = Array<string>
 const Parents = () => {
   const { openModal } = useModal()
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
+  const alertType = useAlert((state)=>state.alertType)
   const [answer, setAnswer] = useState<Answer>([])
 const t = useTranslations()
 
@@ -136,7 +137,7 @@ const t = useTranslations()
         className={css.wrapper__rotatingStar} onClick={() => openModal('feedback')}>
         <RotatingStar />
      </motion.div>
-      {isAlertOpen && <SuccessAlert />}
+      {isAlertOpen && alertType === 'feedback' &&  <SuccessAlert />}
     </section>
   )
 }

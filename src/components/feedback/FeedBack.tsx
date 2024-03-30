@@ -10,6 +10,7 @@ import { FeedBackFormInput } from '@/types'
 import { defaultValues } from './defaultValues'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { feedbackValidation } from './validationSchema'
+import { useBodyScrollLock } from '@/hooks/useBodyScrollLock'
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
 import TextInput from '@/components/ui/inputs/text_input/TextInput'
 import styles from './FeedBack.module.css'
@@ -19,7 +20,10 @@ const FeedBack = () => {
   const [checked, setChecked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
+    const alertType = useAlert((state)=>state.alertType)
   const t = useTranslations()
+
+  useBodyScrollLock(isAlertOpen)
 
   const googleSheetsUrl = process.env.NEXT_PUBLIC_GOOGLESHEETS_URL!
 
@@ -50,7 +54,7 @@ const FeedBack = () => {
       if (response.status === 200 && response.data === 'Success') {
         console.log(response)
       }
-      openAlert()
+      openAlert('feedback')
       setChecked(false)
       reset()
     } catch (error: any) {
@@ -74,7 +78,7 @@ const FeedBack = () => {
             render={({ field }) => (
               <TextInput
                 {...field}
-                errorText={t(errors.name?.message)}
+                errorText={errors.name?.message && t(errors.name?.message)}
                 isWhite={true}
                 placeholder={t('Feedback.form.name')}
               />
@@ -86,7 +90,7 @@ const FeedBack = () => {
             render={({ field }) => (
               <TextInput
                 {...field}
-                errorText={t(errors.email?.message)}
+                errorText={errors.email?.message && t(errors.email?.message)}
                 isWhite={true}
                 placeholder="Email"
                 className={styles.input}
@@ -100,7 +104,7 @@ const FeedBack = () => {
               <TextInput
                 {...field}
                 isWhite={true}
-                errorText={t(errors.message?.message)}
+                errorText={errors.message?.message && t(errors.message?.message)}
                 placeholder={t('Feedback.form.question')}
               />
             )}
@@ -153,7 +157,7 @@ const FeedBack = () => {
           <Image src="/stars.png" width={500} height={500} alt="sun" className={styles.stars} />
         </div>
       </div>
-      {isAlertOpen && <SuccessAlert />}
+      {isAlertOpen && alertType === 'feedback' && <SuccessAlert />}
     </section>
   )
 }

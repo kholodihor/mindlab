@@ -1,13 +1,18 @@
+/* eslint-disable no-unused-vars */
 import { create } from 'zustand'
+
+type AlertType = 'testimonial' | 'feedback' | ''
 
 interface AlertState {
   isAlertOpen: boolean
-  openAlert: () => void
+  alertType: AlertType
+  openAlert: (type:AlertType) => void
   closeAlert: () => void
 }
 
 export const useAlert = create<AlertState>((set) => ({
   isAlertOpen: false,
-  openAlert: () => set({ isAlertOpen: true }),
-  closeAlert: () => set({ isAlertOpen: false })
+  alertType: '',
+  openAlert: (type) => set({ isAlertOpen: true, alertType:type  }),
+  closeAlert: () => set({ isAlertOpen: false, alertType:'' })
 }))

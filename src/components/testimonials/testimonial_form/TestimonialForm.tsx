@@ -7,6 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { testimonialScheme } from './validationSchema'
 import { useTestimonials } from '@/hooks/swr/useTestimonials'
 import { useModal } from '@/stores/useModal'
+import { useAlert } from '@/stores/useAlert'
 import TextInput from '@/components/ui/inputs/text_input/TextInput'
 import TextArea from '@/components/ui/inputs/text_area/TextArea'
 import Checkbox from '@/components/ui/inputs/checkbox/Checkbox'
@@ -19,6 +20,7 @@ const TestimonialForm = () => {
   const { addNewTestimonial } = useTestimonials()
   const { closeModal } = useModal()
   const t = useTranslations()
+  const {openAlert} = useAlert()
 
   const {
     handleSubmit,
@@ -41,13 +43,16 @@ const TestimonialForm = () => {
   ) => {
     try {
       setIsProcessing(true)
-      await addNewTestimonial(values)
+      const response  = await addNewTestimonial(values)
       setIsProcessing(false)
-      setTimeout(() => {
-        closeModal()
-      }, 2000)
+      closeModal()
+      if(response.status === 200){
+        openAlert('testimonial')
+      }
     } catch (error: any) {
-      console.log(error)
+      alert(error)
+    } finally{
+      setIsProcessing(false)
     }
   }
 
@@ -61,7 +66,7 @@ const TestimonialForm = () => {
           render={({ field }) => (
             <TextInput
               {...field}
-              errorText={t(errors.name?.message)}
+              errorText={errors.name?.message && t(errors.name?.message)}
               placeholder={t('Feedback.form.name')}
             />
           )}
@@ -70,7 +75,7 @@ const TestimonialForm = () => {
           name="email"
           control={control}
           render={({ field }) => (
-            <TextInput {...field} errorText={t(errors.email?.message)} placeholder="Email" />
+            <TextInput {...field} errorText={errors.email?.message && t(errors.email?.message)} placeholder="Email" />
           )}
         />
         <Controller
@@ -79,7 +84,7 @@ const TestimonialForm = () => {
           render={({ field }) => (
             <TextArea
               {...field}
-              errorText={t(errors.message?.message)}
+              errorText={errors.message?.message && t(errors.message?.message)}
               placeholder={t('Testimonials.testimonial')}
             />
           )}
