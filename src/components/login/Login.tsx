@@ -13,10 +13,6 @@ import PasswordInput from '../ui/inputs/password-input/PasswordInput'
 
 import styles from './Login.module.css'
 
-// type FormInputs = {
-//   login: string;
-// };
-
 const Login = () => {
   const router = useRouter();
   const session = useSession();
@@ -87,7 +83,6 @@ const Login = () => {
                   title={`Введіть логін:`}
                   {...field}
                   errorText={errors.email?.message}
-                  isWhite={true}
                   placeholder="Логін"
                 />
               )}
@@ -100,7 +95,6 @@ const Login = () => {
                   title={`Введіть пароль:`}
                   {...field}
                   errorText={errors.password?.message}
-                  isWhite={true}
                   placeholder="Пароль"
                 />
               )}

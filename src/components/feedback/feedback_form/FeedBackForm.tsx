@@ -55,7 +55,7 @@ const FeedBackForm = () => {
       setIsProcessing(false)
       setChecked(false)
       closeModal()
-      openAlert()
+      openAlert('feedback')
     } catch (error: any) {
       console.log(error)
     }
@@ -71,7 +71,7 @@ const FeedBackForm = () => {
           render={({ field }) => (
             <TextInput
               {...field}
-              errorText={t(errors.name?.message)}
+              errorText={errors.name?.message && t(errors.name?.message)}
               placeholder={t('Feedback.form.name')}
             />
           )}
@@ -80,7 +80,7 @@ const FeedBackForm = () => {
           name="email"
           control={control}
           render={({ field }) => (
-            <TextInput {...field} errorText={t(errors.email?.message)} placeholder="Email" />
+            <TextInput {...field} errorText={errors.email?.message && t( errors.email?.message)} placeholder="Email" />
           )}
         />
         <Controller
@@ -89,7 +89,7 @@ const FeedBackForm = () => {
           render={({ field }) => (
             <TextArea
               {...field}
-              errorText={t(errors.message?.message)}
+              errorText={errors.message?.message && t(errors.message?.message)}
               placeholder={t('Feedback.form.question')}
             />
           )}

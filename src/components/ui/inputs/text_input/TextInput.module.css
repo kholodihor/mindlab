@@ -2,7 +2,6 @@
   position: relative;
   width: 100%;
   max-width: 580px;
-  height: 64px;
 
   .input {
     width: 100%;
@@ -22,18 +21,17 @@
     }
   }
 
-  /* .white {
+  .white {
     color: var(--white);
     border-bottom: 1px solid var(--gray-light);
-  } */
+  }
 
   .error {
-    font-size: 14px;
-    font-weight: 400;
-    color: #da3c3c;
     position: absolute;
-    bottom: -48%;
+    top: 100%;
     left: 0;
-    border-color: #da3c3c;
+    font-size: 14px;
+    color: #da3c3c;
+    font-weight: normal;
   }
 }

@@ -9,10 +9,6 @@ import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import './globals.css'
 
-export function generateStaticParams() {
-  return [{ locale: 'ua' }, { locale: 'en' }]
-}
-
 const fixelDisplay = localFont({
   src: [
     {
@@ -65,6 +61,10 @@ export const metadata: Metadata = {
 }
 
 const locales = ['ua', 'en']
+
+export function generateStaticParams() {
+  return [{ locale: 'ua' }, { locale: 'en' }]
+}
 
 export default async function RootLayout({
   children,

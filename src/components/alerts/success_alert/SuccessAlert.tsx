@@ -2,7 +2,6 @@
 import React from 'react'
 import { createPortal } from 'react-dom'
 import { useAlert } from '@/stores/useAlert'
-// import { useBodyScrollLock } from '@/hooks/useBodyScrollLock'
 import CloseIcon from '@/components/icons/CloseIcon'
 import styles from './SuccessAlert.module.css'
 import { useTranslations } from 'next-intl'
@@ -11,7 +10,6 @@ const SuccessAlert = () => {
   const { closeAlert } = useAlert()
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
   const t = useTranslations('SuccessAlert')
-  // useBodyScrollLock(isAlertOpen)
 
   const ModalLayout = () => (
     <div className={styles.wrapper}>

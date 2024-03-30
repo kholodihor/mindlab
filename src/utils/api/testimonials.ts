@@ -15,7 +15,8 @@ export const createTestimonial = async (testimonial: TTestimonial) => {
     const response = await axios.post<TTestimonialResponse>('/testimonials', testimonial, {
       headers: { 'Content-Type': 'application/json' }
     })
-    return response.data
+    console.log(response)
+    return response
   } catch (error) {
     console.log(error)
   }

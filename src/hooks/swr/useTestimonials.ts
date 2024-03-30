@@ -12,10 +12,11 @@ export const useTestimonials = () => {
 
   const addNewTestimonial = async (item: TTestimonial) => {
     try {
-      const newTestimonial = await testimonialsApi.createTestimonial(item)
-      if (newTestimonial && data) {
-        mutate([newTestimonial, ...data])
+      const response = await testimonialsApi.createTestimonial(item)
+      if (response && data) {
+        mutate([response.data, ...data])
       }
+      return response
     } catch (error) {
       throw Promise.reject()
     }
