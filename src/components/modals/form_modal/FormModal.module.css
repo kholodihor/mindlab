@@ -14,12 +14,9 @@
     position: relative;
     width: 95vw;
     max-width: 580px;
-    max-height: 95vh;
+    max-height: 90vh;
     background: var(--white);
     border-radius: 1rem;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     padding: 52px 16px 36px 16px;
     overflow-y: scroll;
 

@@ -2,9 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* flex-direction: column; */
-  /* justify-content: flex-start;
-  align-items: flex-start; */
   gap: 32px;
   @media screen and (min-width: 768px) {
     justify-content: flex-start;
@@ -31,7 +28,7 @@
       @media screen and (min-width: 430px) {
         width: 189px;
        }
-       @media screen and (min-width: 1280px) {
+       @media screen and (min-width: 768px) {
         width: 200px;
        }
     }

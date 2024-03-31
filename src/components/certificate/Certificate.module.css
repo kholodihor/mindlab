@@ -106,13 +106,6 @@
   font-size: 16px;
 }
 
-/* .certificate__item:hover .img {
-  
-    opacity: 1;
-    transform: scale(1) rotate(0);
-  
-} */
-
 .img__green {
   position: absolute;
   bottom: -240px;
@@ -121,6 +114,7 @@
   transform: scale(0.5) rotate(240deg);
   transition: all 0.4s ease;
   z-index: 2;
+  pointer-events: none;
   @media screen and (min-width: 430px) {
     bottom: -270px;
     right: 30px;
@@ -144,6 +138,7 @@
   opacity: 0;
   transition: all 0.4s ease;
   z-index: 2;
+  pointer-events: none;
   @media screen and (min-width: 430px) {
     bottom: -270px;
     right: 30px;
@@ -167,6 +162,7 @@
   transform: scale(0.1) rotate(-240deg);
   transition: all 0.4s ease;
   z-index: 2;
+  pointer-events: none;
   @media screen and (min-width: 430px) {
     bottom: -270px;
     right: 30px;
@@ -189,6 +185,7 @@
   transform: scale(0.5) rotate(240deg);
   transition: all 0.4s ease;
   z-index: 2;
+  pointer-events: none;
   @media screen and (min-width: 430px) {
     top: -280px;
     right: 40px;
@@ -205,8 +202,7 @@
 }
 
 .certificate__item:hover .img__green {
-  /* opacity: 1;
-  transform: scale(1) rotate(10deg); */
+
   @media screen and (min-width: 1280px) {
     opacity: 1;
     transform: scale(1) rotate(0);
@@ -214,8 +210,7 @@
 }
 
 .certificate__item:hover .img__rose {
-  /* opacity: 1;
-  transform: scale(1) rotate(-10deg); */
+
   @media screen and (min-width: 1280px) {
     opacity: 1;
     transform: scale(1) rotate(0);
@@ -223,8 +218,7 @@
 }
 
 .certificate__item:hover .img__roseLight {
-  /* opacity: 1;
-  transform: scale(1) rotate(-10deg); */
+
   @media screen and (min-width: 1280px) {
     opacity: 1;
     transform: scale(1) rotate(0deg);
@@ -232,8 +226,7 @@
 }
 
 .certificate__item:hover .img__violet {
-  /* opacity: 1;
-  transform: scale(1) rotate(10deg); */
+
   @media screen and (min-width: 1280px) {
     opacity: 1;
     transform: scale(1) rotate(0);
@@ -245,6 +238,7 @@
   opacity: 1;
   z-index: 1;
   transition: all 0.4s ease;
+  pointer-events: fill;
   transform: scale(1) rotate(10deg);
   @media screen and (min-width: 1280px) {
     transform: scale(1) rotate(0);
@@ -255,6 +249,7 @@
   opacity: 1;
   z-index: 1;
   transition: all 0.4s ease;
+  pointer-events: fill;
   transform: scale(1) rotate(-10deg);
   @media screen and (min-width: 1280px) {
     transform: scale(1) rotate(0);

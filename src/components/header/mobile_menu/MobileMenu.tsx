@@ -12,7 +12,7 @@ import MailIcon from '@/components/icons/MailIcon'
 import PhoneIcon from '@/components/icons/PhoneIcon'
 import TelegramIconXL from '@/components/icons/TelegramIconXL'
 import LanguageSwitcher from '../LocalSwitcher'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { useWidth } from '@/hooks/useWidth'
 import TelegramIcon from '@/components/icons/TelegramIcon'
 import MailIconXL from '@/components/icons/MailIconXL'
@@ -25,7 +25,6 @@ type MobileMenuProps = {
 const MobileMenu = ({ onClose }: MobileMenuProps) => {
   const [isHovered, setIsHovered] = useState(false)
   const t = useTranslations()
-  const locale = useLocale()
   const currentWidth = useWidth();
   return (
     <div className={styles.wrapper}>
@@ -38,22 +37,22 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       <nav className={styles.menu_nav}>
         <ul className={styles.menu_list}>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`/${locale}/#courses`} className={styles.header_nav_item_link}>
+            <Link href={`#courses`} className={styles.header_nav_item_link}>
               {t('Menu.courses')}
             </Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`/${locale}/#teachers`} className={styles.header_nav_item_link}>
+            <Link href={`#teachers`} className={styles.header_nav_item_link}>
               {t('Menu.speakers')}
             </Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`/${locale}/#partners`} className={styles.header_nav_item_link}>
+            <Link href={`#partners`} className={styles.header_nav_item_link}>
               {t('Menu.partners')}
             </Link>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`/${locale}/#parents`} className={styles.header_nav_item_link}>
+            <Link href={`#parents`} className={styles.header_nav_item_link}>
               {t('Menu.parents')}
             </Link>
           </li>
