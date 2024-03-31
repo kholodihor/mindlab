@@ -36,7 +36,6 @@
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: column; */
   gap: 32px;
 
   @media screen and (min-width: 768px) {
@@ -87,23 +86,15 @@
     display: flex;
     gap: 32px;
     margin-bottom: 36px;
-    /* flex-direction: column; */
-    /* justify-content: center; */
-    /* align-items: center; */
-
     @media screen and (min-width: 430px) {
       margin-bottom: 0;
     }
 
     @media screen and (min-width: 768px) {
-      /* justify-content: flex-start;
-      align-items: flex-start; */
       flex-wrap: wrap;
         width: 216px;
     }
     @media screen and (min-width: 1280px) {
-      /* justify-content: flex-start;
-      align-items: flex-start; */
       flex-wrap: nowrap;
         width: 380px;
         gap: 60px;
@@ -129,36 +120,25 @@
       @media screen and (min-width: 768px) {
        display: none;
       }
-    }
-    .name {
-      @media screen and (min-width: 430px) {
+      .about_name {
         font-size: 18px;
         font-weight: 500;
         color: var(--white-second);
         margin-bottom: 8px;
-      }
-      
-      @media screen and (min-width: 768px) {
-        margin-bottom: 12px;
-      }
-      @media screen and (min-width: 1280px) {
-        font-size: 24px;
-      }
     }
+    .about_speciality {
+      font-size: 16px;
+    color: var(--white);
+    font-weight: 400;
+ 
+  }
+    }
+   
     .speciality {
-      @media screen and (min-width: 430px) {
         font-size: 16px;
       color: var(--white);
       font-weight: 400;
-      /* width: 189px; */
-      }
-      
-      @media screen and (min-width: 768px) {
-        width: 216px;
-      }
-      @media screen and (min-width: 1280px) {
-        width: 280px;
-        } 
+   
     }
     .icons {
       display: flex;
