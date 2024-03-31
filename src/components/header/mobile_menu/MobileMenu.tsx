@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import Lottie from 'lottie-react'
 import chatbot_default from '@/animations/сhatbot_default.json'
@@ -35,14 +34,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           <CloseIconXL />
         </div>
       </div>
-      <ul style={{display: "flex", flexWrap: "wrap", gap: "20px"}}>
-          <li style={{width: "100%"}}><Link href={`/${locale}#courses`}>courses</Link></li>
-          <li style={{width: "100%"}}><Link href={`/${locale}#teachers`}>teachers</Link></li>
-          <li style={{width: "100%"}}><Link href={`/${locale}#partners`}>partners</Link></li>
-          <li style={{width: "100%"}}><Link href={`/${locale}#parents`}>parents</Link></li>
-        </ul>
       <nav className={styles.menu_nav}>
-       
         <ul className={styles.menu_list}>
           <li  className={styles.header_nav_item}>
             <a href={`/${locale}#courses`} onClick={onClose} className={styles.header_nav_item_link}>
