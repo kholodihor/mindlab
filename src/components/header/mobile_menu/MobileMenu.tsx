@@ -35,27 +35,34 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           <CloseIconXL />
         </div>
       </div>
+      <ul style={{display: "flex", flexWrap: "wrap", gap: "20px"}}>
+          <li style={{width: "100%"}}><Link href={`/${locale}#courses`}>courses</Link></li>
+          <li style={{width: "100%"}}><Link href={`/${locale}#teachers`}>teachers</Link></li>
+          <li style={{width: "100%"}}><Link href={`/${locale}#partners`}>partners</Link></li>
+          <li style={{width: "100%"}}><Link href={`/${locale}#parents`}>parents</Link></li>
+        </ul>
       <nav className={styles.menu_nav}>
+       
         <ul className={styles.menu_list}>
           <li  className={styles.header_nav_item}>
-            <Link href={`/${locale}#courses`} onClick={onClose} className={styles.header_nav_item_link}>
+            <a href={`/${locale}#courses`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.courses')}
-            </Link>
+            </a>
           </li>
           <li  className={styles.header_nav_item}>
-            <Link href={`/${locale}#teachers`} onClick={onClose} className={styles.header_nav_item_link}>
+            <a href={`/${locale}#teachers`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.speakers')}
-            </Link>
+            </a>
           </li>
           <li  className={styles.header_nav_item}>
-            <Link href={`/${locale}#partners`} onClick={onClose} className={styles.header_nav_item_link}>
+            <a href={`/${locale}#partners`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.partners')}
-            </Link>
+            </a>
           </li>
           <li className={styles.header_nav_item}>
-            <Link href={`/${locale}#parents`} onClick={onClose} className={styles.header_nav_item_link}>
+            <a href={`/${locale}#parents`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.parents')}
-            </Link>
+            </a>
           </li>
           <li onClick={onClose} className={styles.header_nav_item}>
             <LanguageSwitcher />
