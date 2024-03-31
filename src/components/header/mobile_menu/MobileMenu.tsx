@@ -12,7 +12,7 @@ import MailIcon from '@/components/icons/MailIcon'
 import PhoneIcon from '@/components/icons/PhoneIcon'
 import TelegramIconXL from '@/components/icons/TelegramIconXL'
 import LanguageSwitcher from '../LocalSwitcher'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useWidth } from '@/hooks/useWidth'
 import TelegramIcon from '@/components/icons/TelegramIcon'
 import MailIconXL from '@/components/icons/MailIconXL'
@@ -26,6 +26,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
   const [isHovered, setIsHovered] = useState(false)
   const t = useTranslations()
   const currentWidth = useWidth();
+  const locale = useLocale()
   return (
     <div className={styles.wrapper}>
       <div className={styles.menu_header}>
@@ -36,23 +37,23 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       </div>
       <nav className={styles.menu_nav}>
         <ul className={styles.menu_list}>
-          <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`#courses`} className={styles.header_nav_item_link}>
+          <li  className={styles.header_nav_item}>
+            <Link href={`/${locale}#courses`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.courses')}
             </Link>
           </li>
-          <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`#teachers`} className={styles.header_nav_item_link}>
+          <li  className={styles.header_nav_item}>
+            <Link href={`/${locale}#teachers`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.speakers')}
             </Link>
           </li>
-          <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`#partners`} className={styles.header_nav_item_link}>
+          <li  className={styles.header_nav_item}>
+            <Link href={`/${locale}#partners`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.partners')}
             </Link>
           </li>
-          <li onClick={onClose} className={styles.header_nav_item}>
-            <Link href={`#parents`} className={styles.header_nav_item_link}>
+          <li className={styles.header_nav_item}>
+            <Link href={`/${locale}#parents`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.parents')}
             </Link>
           </li>
