@@ -26,19 +26,50 @@ model Teacher{
   courseIds   String[]  @db.ObjectId 
   courses     Course[]  @relation(fields: [courseIds], references: [id])
   createdAt   DateTime  @default(now()) 
-  
 }
 
 model Course{
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  title       String
-  description String
-  tags        String[]
-  teacherIds  String[]  @db.ObjectId 
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  title          String
+  descriptionUa  String
+  descriptionEn  String
+  tagsUa         String[]
+  tagsEn         String[]
+  courseDescriptionUa1 String
+  courseDescriptionUa2 String
+  courseDescriptionEn1 String
+  courseDescriptionEn2 String
+  startDateUa    String
+  startDateEn    String
+  priceUa        String
+  priceEn        String
+  numberOfPlacesUa String
+  numberOfPlacesEn String
+  experienceUa    String
+  experienceEn    String
+  languageLevelUa String
+  languageLevelEn String
+  timeForLearningUa String
+  timeForLearningEn String
+  forWhomTitleUa1     String
+  forWhomTitleUa2     String
+  forWhomDescriptionUa1     String
+  forWhomDescriptionUa2     String
+  forWhomTitleEn1     String
+  forWhomTitleEn2     String
+  forWhomDescriptionEn1     String
+  forWhomDescriptionEn2     String
+  themeTitleUa   String
+  themeTitleEn   String
+  themesUa       String[]
+  themesEn       String[]
+  faqUa          FAQUA[]
+  faqEn          FAQEN[]
+  teacherIds     String[]  @db.ObjectId 
   teachers    Teacher[] @relation(fields: [teacherIds], references: [id])
   createdAt   DateTime  @default(now()) 
-
 }
+
 
 model Account {
   id                 String  @id @default(auto()) @map("_id") @db.ObjectId
@@ -69,4 +100,11 @@ model User {
   accounts      Account[]
 }
 
-
+type FAQUA  {
+  questionUa String
+  answerUa String
+}
+type FAQEN  {
+  questionEn String
+  answerEn String
+}
