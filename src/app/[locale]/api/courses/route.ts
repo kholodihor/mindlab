@@ -15,17 +15,50 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     await prismaConnect()
-    const { title, description, tag1, tag2, teacherId } = await request.json()
+    const data = await request.json()
     const response = await prisma.course.create({
       data: {
-        title,
-        description,
-        tags: [tag1, tag2],
-        teacherIds: [teacherId]
+        title: data.title,
+        descriptionUa: data.descriptionUa,
+        descriptionEn: data.descriptionEn,
+        tagsUa: [...data.tagsUa],
+        tagsEn: [...data.tagsEn],
+        courseDescriptionUa1: data.courseDescriptionUa1,
+        courseDescriptionUa2: data.courseDescriptionUa2,
+        courseDescriptionEn1: data.courseDescriptionEn1,
+        courseDescriptionEn2: data.courseDescriptionEn2,
+        startDateUa: data.startDateUa,
+        startDateEn: data.startDateEn,
+        priceUa: data.priceUa,
+        priceEn: data.priceEn,
+        numberOfPlacesUa: data.numberOfPlacesUa,
+        numberOfPlacesEn: data.numberOfPlacesEn,
+        experienceUa: data.experienceUa,
+        experienceEn: data.experienceEn,
+        languageLevelUa: data.languageLevelUa,
+        languageLevelEn: data.languageLevelEn,
+        timeForLearningUa: data.timeForLearningUa,
+        timeForLearningEn: data.timeForLearningEn,
+        forWhomTitleUa1: data.forWhomTitleUa1,
+        forWhomTitleUa2: data.forWhomTitleUa2,
+        forWhomDescriptionUa1: data.forWhomDescriptionUa1,
+        forWhomDescriptionUa2: data.forWhomDescriptionUa2,
+        forWhomTitleEn1: data.forWhomTitleEn1,
+        forWhomTitleEn2: data.forWhomTitleEn2,
+        forWhomDescriptionEn1: data.forWhomDescriptionEn1,
+        forWhomDescriptionEn2: data.forWhomDescriptionEn2,
+        themeTitleUa: data.themeTitleUa,
+        themeTitleEn: data.themeTitleEn,
+        themesUa: [...data.themesUa],
+        themesEn: [...data.themesEn],
+        faqUa: [...data.faqUa],
+        faqEn: [...data.faqEn],
+        teacherIds: [data.teacherId]
       }
     })
     return NextResponse.json(response, { status: 200 })
   } catch (error) {
+    console.log(error)
     return NextResponse.json({ message: 'Cannot post' }, { status: 500 })
   }
 }
