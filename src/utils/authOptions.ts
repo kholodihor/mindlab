@@ -21,27 +21,31 @@ export const authOptions: AuthOptions = {
       },
       // @ts-ignore
       async authorize(credentials: { email: string; password: string }) {
-        if (!credentials.email || !credentials.password) {
-          throw new Error('Invalid email or password')
-        }
-
-        const user = await prisma.user.findUnique({
-          where: {
-            email: credentials.email
+        try {
+          if (!credentials.email || !credentials.password) {
+            throw new Error('Invalid email or password')
           }
-        })
 
-        if (!user || !user?.hashedPassword) {
-          throw new Error('User not found')
+          const user = await prisma.user.findUnique({
+            where: {
+              email: credentials.email
+            }
+          })
+
+          if (!user || !user?.hashedPassword) {
+            throw new Error('User not found')
+          }
+
+          const isCorrectPassword = await bcrypt.compare(credentials.password, user.hashedPassword)
+
+          if (!isCorrectPassword) {
+            throw new Error('Invalid email or password')
+          }
+
+          return user
+        } catch (error) {
+          console.log(error)
         }
-
-        const isCorrectPassword = await bcrypt.compare(credentials.password, user.hashedPassword)
-
-        if (!isCorrectPassword) {
-          throw new Error('Invalid email or password')
-        }
-
-        return user
       }
     })
   ],
