@@ -2,7 +2,7 @@
 'use client'
 
 import { ForwardedRef, InputHTMLAttributes, forwardRef, useRef, useEffect } from 'react'
-import styles from './TextArea.module.css'
+import styles from './Admin_TextArea.module.css'
 
 interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   title?: string
@@ -10,7 +10,7 @@ interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   errorText?: string
 }
 
-const TextArea = forwardRef(function TextInput(
+const Admin_TextArea = forwardRef(function TextInput(
   { title, errorText, isWhite, value = '', ...rest }: TextAreaProps,
   _ref: ForwardedRef<HTMLTextAreaElement>
 ) {
@@ -30,7 +30,7 @@ const TextArea = forwardRef(function TextInput(
   return (
     <div className={styles.wrapper}>
       {!!title && (
-        <label htmlFor={title} className="">
+        <label htmlFor={title} className={styles.input_title}>
           {title}
         </label>
       )}
@@ -50,6 +50,6 @@ const TextArea = forwardRef(function TextInput(
   )
 })
 
-TextArea.displayName = 'TextArea'
+Admin_TextArea.displayName = 'Admin_TextArea'
 
-export default TextArea
+export default Admin_TextArea
