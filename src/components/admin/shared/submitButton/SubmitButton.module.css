@@ -1,0 +1,26 @@
+.submit_btn {
+  padding: 18px 55px;
+  border: none;
+  background-color: var(--blue);
+  border-radius: 34px;
+  font-family: Fixel Display;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--white);
+  cursor: pointer;
+  outline: none; 
+  transition: all .5s ease-in-out;
+}
+
+.submit_btn:hover {
+  background-color: var(--violet);
+}
+
+.submit_btn:disabled {
+  background-color: var(--violet-light);
+}
+
+.submit_btn:active {
+  background-color: #0000A7;
+}
