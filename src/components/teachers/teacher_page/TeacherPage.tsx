@@ -18,7 +18,7 @@ const TeacherPage = ({ id }: { id: string }) => {
   const teacher = teachers?.find((teacher) => teacher.id === id) as ITeacherResponse
   const t = useTranslations('Speakers')
   const locale = useLocale()
-  
+
   return (
     <div className={styles.page}>
       <a href={`/${locale}#teachers`} className={styles.link}>
@@ -31,44 +31,40 @@ const TeacherPage = ({ id }: { id: string }) => {
         <div className={styles.wrapper}>
           <div className={styles.teacher}>
             <div className={styles.card}>
-             
               <TeacherCard teacher={teacher} />
             </div>
             <div>
               <div className={styles.about}>
-              <h3 className={styles.about_name}>{teacher.name}</h3>
-              <p className={styles.about_speciality}>{teacher.speciality}</p>
+                <h3 className={styles.about_name}>{teacher.name}</h3>
+                <p className={styles.about_speciality}>{teacher.speciality}</p>
               </div>
               <div className={styles.icons}>
-             <Link
-                 href="https://www.facebook.com/"
-                 className={styles.social__link}
-                 rel="noopener noreferrer"
-                 target="_blank"
-               >
+                <Link
+                  href="https://www.facebook.com/"
+                  className={styles.social__link}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
                   <FacebookIconXL />
-               </Link>
-               <Link
-                   href="https://t.me/"
-                   className={styles.social__link}
-                   rel="noopener noreferrer"
-                   target="_blank"
-                 >
-                   <TelegramIconXL />
-                 </Link>
-                 <Link
-                   href="https://www.linkedin.com/in"
-                   className={styles.social__link}
-                   rel="noopener noreferrer"
-                   target="_blank"
-                 >
-                   <LinkedinIconXL />
-                 </Link>
-              
-             </div>
+                </Link>
+                <Link
+                  href="https://t.me/"
+                  className={styles.social__link}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <TelegramIconXL />
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in"
+                  className={styles.social__link}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <LinkedinIconXL />
+                </Link>
+              </div>
             </div>
-            
-           
           </div>
           <TeacherTabs teacher={teacher} />
           <Image
