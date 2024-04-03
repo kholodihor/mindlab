@@ -23,7 +23,7 @@ const Admin_TextArea = forwardRef(function TextInput(
   const autoResize = () => {
     const textarea = textareaRef.current;
     if (textarea) {
-      textarea.style.height = "43";
+      textarea.style.height = "0";
       textarea.style.height = textarea.scrollHeight + "px";
     }
   };
@@ -39,7 +39,7 @@ const Admin_TextArea = forwardRef(function TextInput(
         ref={textareaRef}
         id={title}
         value={value}
-        rows={1}
+        rows={5}
         cols={30}
         style={{ overflow: 'hidden' }}
         className={`${styles.input} ${isWhite && styles.white}`}
