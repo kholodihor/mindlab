@@ -10,7 +10,13 @@ export const useCourses = () => {
     {}
   )
 
-  const addTeacher = async (item: ICourse) => {
+  const getCourseById = (id: string) => {
+    if (Array.isArray(data) && data.length) {
+      return data?.find((item: ICourseResponse) => item.id === id)
+    }
+  }
+
+  const addCourse = async (item: ICourse) => {
     try {
       const newCourse = await coursesApi.createCourse(item)
       if (newCourse && data) {
@@ -21,10 +27,34 @@ export const useCourses = () => {
     }
   }
 
+  const updateCourse = async (item: ICourse, courseId: string) => {
+    try {
+      const updatedCourse = await coursesApi.updateCourse(item, courseId)
+      if (updatedCourse && data) {
+        mutate()
+      }
+    } catch (error) {
+      throw Promise.reject()
+    }
+  }
+
+  const deleteCourse = async (id: string) => {
+    try {
+      const updatedCourses = data?.filter((item) => item.id !== id)
+      mutate(updatedCourses)
+      await coursesApi.deleteCourse(id)
+    } catch (error) {
+      throw Promise.reject()
+    }
+  }
+
   return {
     courses: data,
     isLoading,
     isError: error,
-    addTeacher
+    getCourseById,
+    addCourse,
+    updateCourse,
+    deleteCourse
   }
 }
