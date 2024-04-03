@@ -1,0 +1,27 @@
+.tab_btn {
+  padding: 20px 95px;
+  background-color: transparent;
+  border-radius: 34px;
+  font-family: Fixel Display;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--gray-light);
+  cursor: pointer;
+  outline: none;
+  border: none;
+  transition: all .5s ease-in-out;
+  border-bottom: 2px solid var(--gray-light);
+  border-bottom-left-radius: 34px;
+  border-bottom-right-radius: 34px;
+}
+
+.tab_btn:hover {
+  color: var(--violet-light);
+  border-color: var(--violet-light);
+}
+
+.tab_btn.active {
+  color: var(--blue);
+  border-color: var(--blue);
+}

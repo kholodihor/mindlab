@@ -1,0 +1,29 @@
+.reset_btn {
+  padding: 15px 50px;
+  border: 3px solid var(--blue);
+  background-color: transparent;
+  border-radius: 34px;
+  font-family: Fixel Display;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: var(--blue);
+  cursor: pointer;
+  outline: none; 
+  transition: all .5s ease-in-out;
+}
+
+.reset_btn:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+}
+
+.reset_btn:disabled {
+  border-color: var(--violet-light);
+  color: var(--violet-light);
+}
+
+.reset_btn:active {
+  border-color: #0000A7;
+  color: #0000A7;
+}

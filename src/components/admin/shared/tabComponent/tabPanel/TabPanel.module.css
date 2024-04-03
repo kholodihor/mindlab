@@ -1,0 +1,12 @@
+.tab_container {
+  margin-bottom: 45px;
+}
+
+.tab_list {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style: none;
+  background-color: transparent;
+  margin-bottom: 40px;
+}
