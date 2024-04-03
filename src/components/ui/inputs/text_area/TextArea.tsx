@@ -18,13 +18,13 @@ const TextArea = forwardRef(function TextInput(
 
   useEffect(() => {
     autoResize();
-  }, [value]); 
+  }, [value]);
 
   const autoResize = () => {
     const textarea = textareaRef.current;
     if (textarea) {
-      textarea.style.height = "43";
-      textarea.style.height = textarea.scrollHeight + "px"; 
+      textarea.style.height = "0";
+      textarea.style.height = textarea.scrollHeight + "px";
     }
   };
   return (
