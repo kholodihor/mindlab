@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { authOptions } from '@/utils/authOptions'
 import NextAuth from 'next-auth'
 

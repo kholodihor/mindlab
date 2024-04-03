@@ -1,15 +1,15 @@
 'use client'
 
 import ArrowTop from '@/components/icons/ArrowTop'
-import { ICourseResponse } from '@/types/courses'
+import { ICourseResponseStatic } from '@/types/courses'
 import { useState } from 'react'
 import styles from './TeacherCourses.module.css'
 import { getCourseColor } from '@/helpers/getCourseColor'
 import { useWidth } from '@/hooks/useWidth'
 
-const TeacherCourses = ({ data }: { data: ICourseResponse[] }) => {
+const TeacherCourses = ({ data }: { data: ICourseResponseStatic[] }) => {
   const [isHovered, setIsHovered] = useState(false)
-  const isLargeScreen = useWidth();
+  const isLargeScreen = useWidth()
 
   return (
     <>
@@ -17,7 +17,8 @@ const TeacherCourses = ({ data }: { data: ICourseResponse[] }) => {
         Array.isArray(data) &&
         data.map((item, index) => (
           <div className={styles.content} key={index}>
-            {isLargeScreen >= 1280 ? <h1
+            {isLargeScreen >= 1280 ? (
+              <h1
                 className={styles.content_title_desktop}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
@@ -29,23 +30,54 @@ const TeacherCourses = ({ data }: { data: ICourseResponse[] }) => {
                 {isHovered && (
                   <ArrowTop color={getCourseColor(item.title)} width={15} height={15} />
                 )}
-              </h1> : <h1
-                  className={styles.content_title}
-                  style={{ color: `${getCourseColor(item.title)}` }}
-                >
-                  {item.title}{' '}
-                  <ArrowTop color={getCourseColor(item.title)} width={15} height={15} />
-                </h1>}
+              </h1>
+            ) : (
+              <h1
+                className={styles.content_title}
+                style={{ color: `${getCourseColor(item.title)}` }}
+              >
+                {item.title} <ArrowTop color={getCourseColor(item.title)} width={15} height={15} />
+              </h1>
+            )}
             <p className={styles.content_paragraph}>{item.description}</p>
             <div className={styles.tags}>
-              {item.tags.map((tag, index) => (
-                isLargeScreen >= 1280 ?  <span className={styles.tag} style={index === 0 ? { backgroundColor: isHovered ? `${getCourseColor(item.title)}` : '#1d1d1e', border: "none", color: isHovered ? '#09090a' : "" } : {backgroundColor: '#09090a'}} key={index}>
-                {`#${tag}`}
-              </span> :  <span className={styles.tag} style={index === 0 ? { backgroundColor: `${getCourseColor(item.title)}`, border: "none", color: '#09090a' } : {backgroundColor: '#09090a'}} key={index}>
-                {`#${tag}`}
-              </span>
-               
-              ))}
+              {item.tags.map((tag, index) =>
+                isLargeScreen >= 1280 ? (
+                  <span
+                    className={styles.tag}
+                    style={
+                      index === 0
+                        ? {
+                            backgroundColor: isHovered
+                              ? `${getCourseColor(item.title)}`
+                              : '#1d1d1e',
+                            border: 'none',
+                            color: isHovered ? '#09090a' : ''
+                          }
+                        : { backgroundColor: '#09090a' }
+                    }
+                    key={index}
+                  >
+                    {`#${tag}`}
+                  </span>
+                ) : (
+                  <span
+                    className={styles.tag}
+                    style={
+                      index === 0
+                        ? {
+                            backgroundColor: `${getCourseColor(item.title)}`,
+                            border: 'none',
+                            color: '#09090a'
+                          }
+                        : { backgroundColor: '#09090a' }
+                    }
+                    key={index}
+                  >
+                    {`#${tag}`}
+                  </span>
+                )
+              )}
             </div>
           </div>
         ))}
