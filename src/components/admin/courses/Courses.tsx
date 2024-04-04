@@ -3,6 +3,8 @@ import styles from './Courses.module.css'
 import { coursesList } from '@/data/data'
 import { useTranslations } from 'next-intl'
 import PageTitle from '../shared/pageTitle/PageTitle'
+import EditIcon from './icons/EditIcon'
+import DeleteIcon from './icons/DeleteIcon'
 
 const Courses = () => {
   const t = useTranslations("Courses")
@@ -21,10 +23,10 @@ const Courses = () => {
                 </div>
                 <div className={styles.button_block}>
                   <button type='button' className={styles.button_edit}>
-                    x
+                    <EditIcon />
                   </button>
                   <button type='button' className={styles.button_delete}>
-                    x
+                    <DeleteIcon />
                   </button>
                 </div>
               </li>
