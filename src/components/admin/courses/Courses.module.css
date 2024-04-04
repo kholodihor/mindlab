@@ -1,3 +1,86 @@
 .wrapper {
-  /* margin-top: 80px; */
+  margin: 0 auto;
+  padding: 0 65px;
+  max-width: 1120px;
+}
+
+.main_content {
+  padding-top: 40px;
+}
+
+.courses {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.courses_card {
+  position: relative;
+  padding: 20px 66px 19px 20px;
+  width: calc(33.3% - 20px);
+  height: 155px;
+  border-radius: 16px;
+  box-shadow: 2px 0 8px rgba(167, 129, 247, .2);
+  overflow: hidden;
+}
+
+.course_content {
+  height: 116px;
+  overflow: hidden;
+}
+
+.course_title {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  line-height: 150%;
+  font-weight: 500;
+}
+
+.courses_description {
+  position: relative;
+  max-height: 83px;
+  font-size: 14px;
+  line-height: 150%;
+}
+
+.courses_description::after {
+  content: '...';
+}
+
+.button_block button {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 2px 0 8px rgba(167, 129, 247, .2);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in;
+}
+
+.button_edit {
+  top: 20px;
+  right: 20px;
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.button_edit:active {
+  background-color: #0000A7;
+}
+
+.button_delete {
+  bottom: 20px;
+  right: 20px;
+  background-color: #DA3C3C;
+  color: var(--white);
+}
+
+.button_delete:active {
+  background-color: #922828;
 }
