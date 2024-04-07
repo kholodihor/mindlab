@@ -1,5 +1,20 @@
+.wrapper__color {
+    height: 72px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7.2px;
+}
+
+.title__color {
+width: 100%;
+font-size: 16px;
+font-weight: 400;
+margin-bottom: 8px;
+}
+
 .label {
     position: relative;
+    display: block;
     height: 40px;
 }
 .input {
@@ -39,3 +54,9 @@ border: none;
 .input:checked ~ .icon {
     display: block;
 } 
+
+.error {
+    font-size: 14px;
+    color: #da3c3c;
+    font-weight: normal;
+  }
