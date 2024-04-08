@@ -21,7 +21,7 @@ const AddCourse = () => {
     defaultValues: {
       title: '',
       color: '',
-      description: '',
+      descriptionUa: '',
       descriptionEn: '',
       tagsUa1: '',
       tagsUa2: '',
@@ -31,6 +31,14 @@ const AddCourse = () => {
       tagsEn2: '',
       tagsEn3: '',
       tagsEn4: '',
+      courseDescriptionUa1: '',
+      courseDescriptionEn1: '',
+      startDateUa: '',
+      startDateEn: '',
+      priceUa: '',
+      priceEn: '',
+      numberOfPlacesUa: '',
+      numberOfPlacesEn: '',
     }
   })
   const colorList = ['#AAAEDF', '#8D83FF', '#2928E3', '#03AA89', '#FED1CE', '#FFECD0']
@@ -42,8 +50,8 @@ const AddCourse = () => {
   }
   return (
     <div>
-      <PageTitle title="додавання курсу" />
-      <div className={css.container} >
+      <PageTitle title="додавання курсу" isAddButtonDisplayed={true} isSettingsButtonDisplayed={true}/>
+      <div className={css.container}>
         <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
           <h3 className={css.title}>Інформація для головної сторінки</h3>
           <div className={css.container1}>
@@ -68,26 +76,27 @@ const AddCourse = () => {
                     {...field}
                     title="Оберіть колір:"
                     colorList={colorList}
+                    
                     errorText={errors.color?.message && errors.color?.message}
                   />
                 )}
               />
             </div>
             <div className={css.rightPart}>
-            <Controller
-                name="description"
+              <Controller
+                name="descriptionUa"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
                     title="Введіть опис (max 300 символів):"
-                    errorText={errors.description?.message && errors.description?.message}
+                    errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
                     placeholder="Опис"
                     className={css.textarea}
                   />
                 )}
               />
-               <Controller
+              <Controller
                 name="descriptionEn"
                 control={control}
                 render={({ field }) => (
@@ -101,14 +110,13 @@ const AddCourse = () => {
               />
             </div>
           </div>
-          <div >
-            <h3 className={css.title}>Теги до курсу українською</h3>
-            <div className={css.container2}>
-          <Controller
-                name="tagsUa1"
-                control={control}
-                render={({ field }) => (
-                  <div className={css.flex__element}>
+          <h3 className={css.title}>Теги до курсу українською</h3>
+          <div className={css.container2}>
+            <Controller
+              name="tagsUa1"
+              control={control}
+              render={({ field }) => (
+                <div className={css.flex__element}>
                   <Admin_TextInput
                     {...field}
                     title="Тег курсу (max 24 символів):"
@@ -116,12 +124,13 @@ const AddCourse = () => {
                     placeholder="#"
                   />
                 </div>
-                )}
-                />
-                  <Controller
-                name="tagsUa2"
-                control={control}
-                render={({ field }) => ( <div className={css.flex__element}>
+              )}
+            />
+            <Controller
+              name="tagsUa2"
+              control={control}
+              render={({ field }) => (
+                <div className={css.flex__element}>
                   <Admin_TextInput
                     {...field}
                     title="Тег курсу (max 24 символів):"
@@ -129,13 +138,13 @@ const AddCourse = () => {
                     placeholder="#"
                   />
                 </div>
-                )}
-                />
-                  <Controller
-                name="tagsUa3"
-                control={control}
-                render={({ field }) => (
-                  <div className={css.flex__element}>
+              )}
+            />
+            <Controller
+              name="tagsUa3"
+              control={control}
+              render={({ field }) => (
+                <div className={css.flex__element}>
                   <Admin_TextInput
                     {...field}
                     title="Тег курсу (max 24 символів):"
@@ -143,13 +152,13 @@ const AddCourse = () => {
                     placeholder="#"
                   />
                 </div>
-                )}
-                />
-                  <Controller
-                name="tagsUa4"
-                control={control}
-                render={({ field }) => (
-                  <div className={css.flex__element}>
+              )}
+            />
+            <Controller
+              name="tagsUa4"
+              control={control}
+              render={({ field }) => (
+                <div className={css.flex__element}>
                   <Admin_TextInput
                     {...field}
                     title="Тег курсу (max 24 символів):"
@@ -157,18 +166,16 @@ const AddCourse = () => {
                     placeholder="#"
                   />
                 </div>
-                )}
-                />
-                </div>
+              )}
+            />
           </div>
-          <div >
-            <h3 className={css.title}>Теги до курсу англійською</h3>
-            <div className={css.container2}>
-          <Controller
-                name="tagsEn1"
-                control={control}
-                render={({ field }) => (
-                  <div className={css.flex__element}>
+          <h3 className={css.title}>Теги до курсу англійською</h3>
+          <div className={css.container2}>
+            <Controller
+              name="tagsEn1"
+              control={control}
+              render={({ field }) => (
+                <div className={css.flex__element}>
                   <Admin_TextInput
                     {...field}
                     title="Тег курсу англійською (max 24 символів):"
@@ -176,12 +183,13 @@ const AddCourse = () => {
                     placeholder="#"
                   />
                 </div>
-                )}
-                />
-                  <Controller
-                name="tagsEn2"
-                control={control}
-                render={({ field }) => ( <div className={css.flex__element}>
+              )}
+            />
+            <Controller
+              name="tagsEn2"
+              control={control}
+              render={({ field }) => (
+                <div className={css.flex__element}>
                   <Admin_TextInput
                     {...field}
                     title="Тег курсу англійською (max 24 символів):"
@@ -189,13 +197,13 @@ const AddCourse = () => {
                     placeholder="#"
                   />
                 </div>
-                )}
-                />
-                  <Controller
-                name="tagsEn3"
-                control={control}
-                render={({ field }) => (
-                  <div className={css.flex__element}>
+              )}
+            />
+            <Controller
+              name="tagsEn3"
+              control={control}
+              render={({ field }) => (
+                <div className={css.flex__element}>
                   <Admin_TextInput
                     {...field}
                     title="Тег курсу англійською (max 24 символів):"
@@ -203,13 +211,13 @@ const AddCourse = () => {
                     placeholder="#"
                   />
                 </div>
-                )}
-                />
-                  <Controller
-                name="tagsEn4"
-                control={control}
-                render={({ field }) => (
-                  <div className={css.flex__element}>
+              )}
+            />
+            <Controller
+              name="tagsEn4"
+              control={control}
+              render={({ field }) => (
+                <div className={css.flex__element}>
                   <Admin_TextInput
                     {...field}
                     title="Тег курсу англійською (max 24 символів):"
@@ -217,9 +225,90 @@ const AddCourse = () => {
                     placeholder="#"
                   />
                 </div>
+              )}
+            />
+          </div>
+          <h3 className={css.title}>Сторінка курсу українською</h3>
+          <div className={css.container2}>
+            <div className={`${css.flex__element} ${css.wrapper__description}`}>
+              <Controller
+                name="courseDescriptionUa1"
+                control={control}
+                render={({ field }) => (
+                  <Admin_TextArea
+                    {...field}
+                    title="Введіть опис англійською (max 300 символів):"
+                    errorText={errors.courseDescriptionUa1?.message && errors.courseDescriptionUa1?.message}
+                    placeholder="Опис"
+                  />
                 )}
+              />
+            </div>
+            <div className={css.container3}>
+              <div className={`${css.flex__element} ${css.wrapper__date} ${css.wrapper__price}`}>
+                <Controller
+                name="startDateUa"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Дата початку курсу:' placeholder='23 березня 2024' errorText={errors.startDateUa?.message && errors.startDateUa?.message} />}
                 />
-                </div>
+              </div>
+              <div className={`${css.flex__element} ${css.wrapper__price}`}>
+                <Controller
+                name="numberOfPlacesUa"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='К-ть місць на курсі:' placeholder='15 місць' errorText={errors.numberOfPlacesUa?.message && errors.numberOfPlacesUa?.message} />}
+                />
+              </div>
+            </div>
+            <div className={`${css.flex__element} ${css.wrapper__price}`}>
+              <Controller
+                name="priceUa"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Вартість курсу:' placeholder='700 грн/міс.' errorText={errors.priceUa?.message && errors.priceUa?.message} />}
+                />
+              </div>
+          </div>
+          <div >
+            <h3 className={css.title}>Сторінка курсу англійською</h3>
+            <div className={css.container2}>
+            <div className={`${css.flex__element} ${css.wrapper__description}`}>
+              <Controller
+                name="courseDescriptionEn1"
+                control={control}
+                render={({ field }) => (
+                  <Admin_TextArea
+                    {...field}
+                    title="Введіть опис англійською (max 300 символів):"
+                    errorText={errors.courseDescriptionEn1?.message && errors.courseDescriptionEn1?.message}
+                    placeholder="Опис"
+                  />
+                )}
+              />
+            </div>
+            <div className={css.container3}>
+              <div className={`${css.flex__element} ${css.wrapper__date} ${css.wrapper__price}`}>
+                <Controller
+                name="startDateEn"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Дата початку курсу:' placeholder='23 березня 2024' errorText={errors.startDateEn?.message && errors.startDateEn?.message} />}
+                />
+              </div>
+              <div className={`${css.flex__element} ${css.wrapper__price}`}>
+                <Controller
+                name="numberOfPlacesEn"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='К-ть місць на курсі:' placeholder='15 місць' errorText={errors.numberOfPlacesEn?.message && errors.numberOfPlacesEn?.message} />}
+                />
+              </div>
+            </div>
+            <div className={`${css.flex__element} ${css.wrapper__price}`}>
+              <Controller
+                name="priceEn"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Вартість курсу:' placeholder='700 грн/міс.' errorText={errors.priceEn?.message && errors.priceEn?.message} />}
+                />
+              </div>
+          </div>
           </div>
           <button type="submit"> Відправити форму</button>
         </form>
@@ -227,5 +316,4 @@ const AddCourse = () => {
     </div>
   )
 }
-
 export default AddCourse
