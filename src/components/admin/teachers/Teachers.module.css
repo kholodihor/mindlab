@@ -1,0 +1,11 @@
+.teachers_content {
+  padding: 40px 60px;
+  max-width: 1120px;
+}
+
+.teachers_list {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+}

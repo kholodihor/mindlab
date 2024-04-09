@@ -1,12 +1,13 @@
 .container {
   min-height: 80px;
   max-width: 1120px;
-  border-bottom: 1px solid var(--violet);
   background-color: #E6EAFF;
   padding: 20px 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /*margin-bottom: 40px;*/
+  box-shadow: 0 6px 8px -6px rgba(167, 129, 247, 0.2);
 }
 
 .title {
