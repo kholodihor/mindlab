@@ -43,3 +43,8 @@ export type FeedBackFormInput = {
 export type PropsIconColor = {
   color: string
 }
+
+export type UploadResponse = {
+  imageId: string
+  imageUrl: string
+}

@@ -43,7 +43,7 @@ export const updateCourse = async (courseData: ICourse, id: string) => {
 
 export const deleteCourse = async (id: string) => {
   try {
-    const response = await axios.delete<ICourseResponse>(`/courses/${id}`)
+    const response = await axios.delete(`/courses/${id}`)
     return response.data
   } catch (error) {
     console.log(error)
