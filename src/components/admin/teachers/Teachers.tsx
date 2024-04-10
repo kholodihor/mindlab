@@ -9,22 +9,17 @@ const Teachers = () => {
   const [teachersList, setTeachers] = useState(teachers)
 
   function deleteTeacher(id: number) {
-    const newTeachersList = teachersList.filter((teacher) => teacher.id !== id)
+    const newTeachersList = teachersList.filter((teacher) => Number(teacher.id) !== id)
 
     setTeachers(newTeachersList)
   }
 
-  function editTeacher(id: number) {
-    const editedTeacher = teachersList.filter((teacher) => teacher.id === id)
-    console.log(editedTeacher)
-  }
-
   return <section>
-    <PageTitle title="Викладачі" isAddButtonDisplayed={true} isSettingsButtonDisplayed={true} text='Додати викладача' />
+    <PageTitle title="Викладачі" isAddButtonDisplayed={true} isSettingsButtonDisplayed={true} text='Додати викладача' href='teachers/add' />
     <div className={styles.teachers_content}>
       <div className={styles.teachers_list}>
         {teachersList && teachersList.map((teacher) => (
-          <TeacherCard key={teacher.id} teacher={teacher} deleteTeacher={deleteTeacher} editTeacher={editTeacher} />
+          <TeacherCard key={teacher.id} teacher={teacher} deleteTeacher={deleteTeacher} />
         ))}
       </div>
     </div>
