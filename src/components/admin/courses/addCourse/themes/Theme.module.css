@@ -1,0 +1,34 @@
+.thumb {
+  max-height: 380px;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 16px;
+  margin-top: 92px;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 318px;
+  padding: 20px 20px 50px 20px;
+  background-color: var(--white);
+  border-radius: 16px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--black-admin);
+  margin-bottom: 24px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 60px;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--adminBG);
+}

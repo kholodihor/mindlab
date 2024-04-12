@@ -1,5 +1,7 @@
 .tab_btn {
-  padding: 20px 95px;
+  padding: 20px;
+ display: block;
+ width: 233px;
   background-color: transparent;
   border-radius: 34px;
   font-family: Fixel Display;

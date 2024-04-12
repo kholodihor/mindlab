@@ -8,6 +8,11 @@ import css from './AddCourse.module.css'
 import ColorInput from '../../shared/colorInput/ColorInput'
 import Admin_TextArea from '../../ui/admin_inputs/text_area/Admin_TextArea'
 import Admin_TextInput from '../../ui/admin_inputs/text_input/Admin_TextInput'
+import TabPanel from '../../shared/tabComponent/tabPanel/TabPanel'
+import Themes from './themes/Themes'
+import Teacher from './teacher/Teacher'
+import ForWhom from './forWhom/ForWhom'
+import Question from './question/Question'
 
 const AddCourse = () => {
   const {
@@ -39,6 +44,11 @@ const AddCourse = () => {
       priceEn: '',
       numberOfPlacesUa: '',
       numberOfPlacesEn: '',
+      themeTitleUa: '',
+      themesUa1: '',themesUa2: '',themesUa3: '',themesUa4: '', themesUa5: '', themesUa6: '', themesUa7: '',themesUa8: '',themesUa9: '',
+      themesUa10: '',themesUa11: '',themesUa12: '',themesUa13: '',themesUa14: '', themesUa15: '',themesUa16: '',themesUa17: '',themesUa18: '',
+      themesEn1: '',themesEn2: '',themesEn3: '',themesEn4: '', themesEn5: '', themesEn6: '', themesEn7: '',themesEn8: '',themesEn9: '',
+      themesEn10: '',themesEn11: '',themesEn12: '',themesEn13: '',themesEn14: '', themesEn15: '',themesEn16: '',themesEn17: '',themesEn18: '',
     }
   })
   const colorList = ['#AAAEDF', '#8D83FF', '#2928E3', '#03AA89', '#FED1CE', '#FFECD0']
@@ -49,7 +59,7 @@ const AddCourse = () => {
     console.log(data)
   }
   return (
-    <div>
+    <div >
       <PageTitle title="додавання курсу" isAddButtonDisplayed={true} isSettingsButtonDisplayed={true}/>
       <div className={css.container}>
         <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
@@ -280,7 +290,7 @@ const AddCourse = () => {
                     {...field}
                     title="Введіть опис англійською (max 300 символів):"
                     errorText={errors.courseDescriptionEn1?.message && errors.courseDescriptionEn1?.message}
-                    placeholder="Опис"
+                    placeholder="Description"
                   />
                 )}
               />
@@ -290,14 +300,14 @@ const AddCourse = () => {
                 <Controller
                 name="startDateEn"
                 control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Дата початку курсу:' placeholder='23 березня 2024' errorText={errors.startDateEn?.message && errors.startDateEn?.message} />}
+                render={({field})=> <Admin_TextInput {...field} title='Дата початку курсу:' placeholder='23 March 2024' errorText={errors.startDateEn?.message && errors.startDateEn?.message} />}
                 />
               </div>
               <div className={`${css.flex__element} ${css.wrapper__price}`}>
                 <Controller
                 name="numberOfPlacesEn"
                 control={control}
-                render={({field})=> <Admin_TextInput {...field} title='К-ть місць на курсі:' placeholder='15 місць' errorText={errors.numberOfPlacesEn?.message && errors.numberOfPlacesEn?.message} />}
+                render={({field})=> <Admin_TextInput {...field} title='К-ть місць на курсі:' placeholder='15 places' errorText={errors.numberOfPlacesEn?.message && errors.numberOfPlacesEn?.message} />}
                 />
               </div>
             </div>
@@ -305,10 +315,11 @@ const AddCourse = () => {
               <Controller
                 name="priceEn"
                 control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Вартість курсу:' placeholder='700 грн/міс.' errorText={errors.priceEn?.message && errors.priceEn?.message} />}
+                render={({field})=> <Admin_TextInput {...field} title='Вартість курсу:' placeholder='UAH 700/month' errorText={errors.priceEn?.message && errors.priceEn?.message} />}
                 />
               </div>
           </div>
+          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, Component: Question}]}/>
           </div>
           <button type="submit"> Відправити форму</button>
         </form>

@@ -76,5 +76,18 @@ export const addCourseValidation = z.object({
         .nonempty('Заповніть поле')
         .min(2, 'Текст має містити мінімум 2 символи')
         .max(24, 'Текст має містити максимум 24 символи'),
-      
+        themeTitleUa: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(120, 'Текст має містити максимум 120 символи'),
+        themesUa1: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(60, 'Текст має містити максимум 60 символи'), 
+        themesUa2: z.string(), themesUa3: z.string(), themesUa4: z.string(), themesUa5: z.string(),themesUa6: z.string(),themesUa7: z.string(),themesUa8: z.string(),themesUa9: z.string(),themesUa10: z.string(),themesUa11: z.string(),themesUa12: z.string(),themesUa13: z.string(), themesUa14: z.string(), themesUa15: z.string(), themesUa16: z.string(), themesUa17: z.string(), themesUa18: z.string(),
+        themesEn1: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(60, 'Текст має містити максимум 60 символи'), 
+        themesEn2: z.string(), themesEn3: z.string(), themesEn4: z.string(), themesEn5: z.string(),themesEn6: z.string(),themesEn7: z.string(),themesEn8: z.string(),themesEn9: z.string(),themesEn10: z.string(),themesEn11: z.string(),themesEn12: z.string(),themesEn13: z.string(), themesEn14: z.string(), themesEn15: z.string(), themesEn16: z.string(), themesEn17: z.string(), themesEn18: z.string(),
 })
