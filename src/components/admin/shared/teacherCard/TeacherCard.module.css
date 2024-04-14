@@ -1,0 +1,85 @@
+.card {
+  max-width: 230px;
+  width: 100%;
+  height: 380px;
+  position: relative;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--violet-light);
+  border-radius: 1rem;
+}
+
+.image {
+  width: 215px;
+  height: 235px;
+  object-fit: cover;
+  border-radius: 1rem;
+  z-index: 0;
+}
+
+.mask {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: calc(100% - 15px);
+  height: 235px;
+  border-radius: 1rem;
+}
+
+.info {
+  font-family: Fixel Display;
+  color: var(--black);
+}
+
+.name {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  margin-bottom: 5px;
+}
+
+.speciality {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  margin-bottom: 10px;
+}
+
+.button_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_delete {
+  background-color: #DA3C3C;
+}
+
+.btn_delete:active {
+  background-color: #922828;
+}
+
+.btn_edit {
+  background-color: var(--blue);
+}
+
+.btn_edit:active {
+  background-color: #0000A7;
+}

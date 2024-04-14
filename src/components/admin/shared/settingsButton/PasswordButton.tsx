@@ -1,14 +1,15 @@
+import Link from 'next/link'
 import styles from './PasswordButton.module.css'
 import PasswordIcon from './icons/PasswordIcon'
 
-type PasswordButtonProps = {
-  handleClick: () => void
-}
-
-const PasswordButton = ({ handleClick } : PasswordButtonProps) => {
-  return <button className={styles.password_btn} type="button" onClick={handleClick}>
-    <PasswordIcon />
-  </button>
+const PasswordButton = () => {
+  return(
+    <Link href='/admin/changePassword'>
+      <button className={styles.password_btn} type="button">
+        <PasswordIcon />
+      </button>
+    </Link>
+  )
 }
 
 export default PasswordButton
