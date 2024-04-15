@@ -2,8 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import styles from './TeacherCard.module.css'
-import EditIcon from '../../courses/icons/EditIcon'
-import DeleteIcon from '../../courses/icons/DeleteIcon'
+import EditIcon from '../icons/EditIcon'
+import DeleteIcon from '../icons/DeleteIcon'
 
 type TeacherProps = {
   teacher: {
@@ -33,7 +33,7 @@ const TeacherCard = ({ teacher, deleteTeacher }: TeacherProps) => {
           <Link className={`${styles.btn} ${styles.btn_edit}`} href={`/admin/teachers/edit/${parseInt(teacher.id)}`} ><EditIcon /></Link>
         </div>
       </div>
-      <Image width={220} height={235} src='/teachers/mask.png' className={styles.mask} alt='mask'/>
+      <Image width={220} height={235} src='/teachers/mask.png' className={styles.mask} alt='mask' />
     </div>
   )
 }
