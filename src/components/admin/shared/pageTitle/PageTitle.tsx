@@ -7,16 +7,18 @@ type PageTitleProps = {
   title: string,
   isAddButtonDisplayed: boolean,
   isSettingsButtonDisplayed: boolean
+  text?: string
+  href?: string
 }
 
-const PageTitle = ({ title, isAddButtonDisplayed, isSettingsButtonDisplayed }: PageTitleProps) => {
+const PageTitle = ({ title, isAddButtonDisplayed, isSettingsButtonDisplayed, text, href }: PageTitleProps) => {
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>{title}</h2>
       <div className={styles.button_container}>
-        {isAddButtonDisplayed && <AddButton text={"text text"} handleClick={() => { }} />}
+        {isAddButtonDisplayed && <AddButton text={text} href={href}/>}
 
-        {isSettingsButtonDisplayed && <PasswordButton handleClick={() => { }} />}
+        {isSettingsButtonDisplayed && <PasswordButton />}
       </div>
     </div>
   )

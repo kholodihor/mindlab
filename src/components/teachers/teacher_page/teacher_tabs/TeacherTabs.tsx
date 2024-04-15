@@ -28,9 +28,9 @@ const tabs: Tab[] = [
 const TeacherTabs = ({ teacher }: { teacher: ITeacherResponse }) => {
   const { courses } = useCourses()
   const [activeTab, setActiveTab] = useState<ActiveTab>('courses')
-  const t = useTranslations("Speakers")
+  const t = useTranslations('Speakers')
 
-  const teacherCourses = courses?.filter((course) => teacher.courseIds.includes(course.id))
+  const teacherCourses = courses?.find((course) => course.title === teacher.speciality)
 
   return (
     <div className={styles.tabs}>
@@ -47,7 +47,7 @@ const TeacherTabs = ({ teacher }: { teacher: ITeacherResponse }) => {
           </button>
         ))}
       </div>
-      {activeTab === 'courses' && <TeacherCourses data={teacherCourses} />}
+      {activeTab === 'courses' && teacherCourses && <TeacherCourses data={[teacherCourses]} />}
       {activeTab === 'about' && <AboutTeacher data={teacher} />}
     </div>
   )

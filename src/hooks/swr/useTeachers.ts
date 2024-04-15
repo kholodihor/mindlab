@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import { AxiosError } from 'axios'
 import * as teachersApi from '@/utils/api/teachers'
-import { ITeacher, ITeacherResponse } from '@/types/teachers'
+import { ITeacherResponse, TeacherFormData } from '@/types/teachers'
 
 export const useTeachers = () => {
   const { data, error, isLoading, mutate } = useSWR<ITeacherResponse[], AxiosError>(
@@ -16,9 +16,9 @@ export const useTeachers = () => {
     }
   }
 
-  const addTeacher = async (file: File | Blob, item: ITeacher) => {
+  const addTeacher = async (item: TeacherFormData) => {
     try {
-      const newTeacher = await teachersApi.createTeacher(file, item)
+      const newTeacher = await teachersApi.createTeacher(item)
       if (newTeacher && data) {
         mutate([newTeacher, ...data])
       }
@@ -27,9 +27,9 @@ export const useTeachers = () => {
     }
   }
 
-  const updateTeacher = async (courseId: string, item: ITeacher, file?: File | Blob) => {
+  const updateTeacher = async (courseId: string, item: TeacherFormData) => {
     try {
-      const updatedTeacher = await teachersApi.updateTeacher(courseId, item, file)
+      const updatedTeacher = await teachersApi.updateTeacher(courseId, item)
       if (updatedTeacher && data) {
         mutate()
       }

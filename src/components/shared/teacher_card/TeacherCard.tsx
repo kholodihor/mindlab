@@ -1,15 +1,15 @@
 import React from 'react'
 import Image from 'next/image'
 import styles from './TeacherCard.module.css'
-import { Teacher } from '@/types'
+import { ITeacherResponse } from '@/types/teachers'
 
-const TeacherCard = ({ teacher }: { teacher: Teacher }) => {
+const TeacherCard = ({ teacher }: { teacher: ITeacherResponse }) => {
   return (
     <div className={styles.card}>
       <Image
         width={189}
         height={202}
-        src={teacher.image}
+        src={teacher.imageUrl}
         alt={teacher.name}
         className={styles.image}
       />

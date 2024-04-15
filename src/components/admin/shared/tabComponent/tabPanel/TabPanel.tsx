@@ -14,7 +14,7 @@ type TabPanelProps = {
   }[]
 }
 
-const TabPanel = ({ tabList= []} : TabPanelProps) => {
+const TabPanel = ({ tabList = []} : TabPanelProps) => {
   const defaultSelectedTab = tabList[0].id
   const [selectedTab, setSelectedTab] = useState(defaultSelectedTab)
   const panel = tabList.find((tab) => tab.id === selectedTab)

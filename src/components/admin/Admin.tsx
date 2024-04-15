@@ -1,6 +1,7 @@
 'use client'
 // import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 // import { useSession } from 'next-auth/react'
 
 const Admin = () => {
@@ -17,7 +18,11 @@ const Admin = () => {
   //   }
   // }, [session, router])
 
-  router.replace('/admin/courses')
+  useEffect(() => {
+    router.replace('/admin/courses')
+  }, [router])
+
+  // router.replace('/admin/courses')
 
   return null
 }
