@@ -1,0 +1,22 @@
+.wrapper {
+  margin: 0 auto;
+  padding: 0 65px;
+  max-width: 1120px;
+}
+
+.main_content {
+  padding-top: 40px;
+}
+
+.testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.testimonial_item {
+  position: relative;
+  width: calc(33.3% - 20px);
+  overflow: hidden;
+}
