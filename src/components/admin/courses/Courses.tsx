@@ -3,8 +3,8 @@ import styles from './Courses.module.css'
 import { coursesList } from '@/data/data'
 import { useTranslations } from 'next-intl'
 import PageTitle from '../shared/pageTitle/PageTitle'
-import EditIcon from './icons/EditIcon'
-import DeleteIcon from './icons/DeleteIcon'
+import EditIcon from '../shared/icons/EditIcon'
+import DeleteIcon from '../shared/icons/DeleteIcon'
 
 const Courses = () => {
   const t = useTranslations("Courses")
