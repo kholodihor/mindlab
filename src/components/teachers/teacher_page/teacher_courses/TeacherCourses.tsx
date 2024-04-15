@@ -1,13 +1,13 @@
 'use client'
 
 import ArrowTop from '@/components/icons/ArrowTop'
-import { ICourseResponseStatic } from '@/types/courses'
+import { ICourseResponse } from '@/types/courses'
 import { useState } from 'react'
 import styles from './TeacherCourses.module.css'
 import { getCourseColor } from '@/helpers/getCourseColor'
 import { useWidth } from '@/hooks/useWidth'
 
-const TeacherCourses = ({ data }: { data: ICourseResponseStatic[] }) => {
+const TeacherCourses = ({ data }: { data: ICourseResponse[] }) => {
   const [isHovered, setIsHovered] = useState(false)
   const isLargeScreen = useWidth()
 
@@ -23,25 +23,25 @@ const TeacherCourses = ({ data }: { data: ICourseResponseStatic[] }) => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
                 style={
-                  isHovered ? { color: `${getCourseColor(item.title)}` } : { color: '#ffffff' }
+                  isHovered ? { color: `${getCourseColor(item?.title)}` } : { color: '#ffffff' }
                 }
               >
                 {item.title}{' '}
                 {isHovered && (
-                  <ArrowTop color={getCourseColor(item.title)} width={15} height={15} />
+                  <ArrowTop color={getCourseColor(item?.title)} width={15} height={15} />
                 )}
               </h1>
             ) : (
               <h1
                 className={styles.content_title}
-                style={{ color: `${getCourseColor(item.title)}` }}
+                style={{ color: `${getCourseColor(item?.title)}` }}
               >
-                {item.title} <ArrowTop color={getCourseColor(item.title)} width={15} height={15} />
+                {item.title} <ArrowTop color={getCourseColor(item?.title)} width={15} height={15} />
               </h1>
             )}
-            <p className={styles.content_paragraph}>{item.description}</p>
+            <p className={styles.content_paragraph}>{item.descriptionUa}</p>
             <div className={styles.tags}>
-              {item.tags.map((tag, index) =>
+              {item.tagsUa.map((tag, index) =>
                 isLargeScreen >= 1280 ? (
                   <span
                     className={styles.tag}
@@ -49,7 +49,7 @@ const TeacherCourses = ({ data }: { data: ICourseResponseStatic[] }) => {
                       index === 0
                         ? {
                             backgroundColor: isHovered
-                              ? `${getCourseColor(item.title)}`
+                              ? `${getCourseColor(item?.title)}`
                               : '#1d1d1e',
                             border: 'none',
                             color: isHovered ? '#09090a' : ''
@@ -66,7 +66,7 @@ const TeacherCourses = ({ data }: { data: ICourseResponseStatic[] }) => {
                     style={
                       index === 0
                         ? {
-                            backgroundColor: `${getCourseColor(item.title)}`,
+                            backgroundColor: `${getCourseColor(item?.title)}`,
                             border: 'none',
                             color: '#09090a'
                           }
