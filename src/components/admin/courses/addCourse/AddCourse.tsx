@@ -49,6 +49,15 @@ const AddCourse = () => {
       themesUa10: '',themesUa11: '',themesUa12: '',themesUa13: '',themesUa14: '', themesUa15: '',themesUa16: '',themesUa17: '',themesUa18: '',
       themesEn1: '',themesEn2: '',themesEn3: '',themesEn4: '', themesEn5: '', themesEn6: '', themesEn7: '',themesEn8: '',themesEn9: '',
       themesEn10: '',themesEn11: '',themesEn12: '',themesEn13: '',themesEn14: '', themesEn15: '',themesEn16: '',themesEn17: '',themesEn18: '',
+      faqUa1: '',
+      faqEn1: '',
+      faqUa2: '',
+      faqEn2: '',
+      answerUa1: '',
+      answerUa2: '',
+      answerEn1: '',
+      answerEn2: ''
+
     }
   })
   const colorList = ['#AAAEDF', '#8D83FF', '#2928E3', '#03AA89', '#FED1CE', '#FFECD0']

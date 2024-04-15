@@ -90,4 +90,77 @@ export const addCourseValidation = z.object({
         .min(2, 'Текст має містити мінімум 2 символи')
         .max(60, 'Текст має містити максимум 60 символи'), 
         themesEn2: z.string(), themesEn3: z.string(), themesEn4: z.string(), themesEn5: z.string(),themesEn6: z.string(),themesEn7: z.string(),themesEn8: z.string(),themesEn9: z.string(),themesEn10: z.string(),themesEn11: z.string(),themesEn12: z.string(),themesEn13: z.string(), themesEn14: z.string(), themesEn15: z.string(), themesEn16: z.string(), themesEn17: z.string(), themesEn18: z.string(),
+        experienceUa: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(160, 'Текст має містити максимум 160 символи'),
+        languageLevelUa: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(160, 'Текст має містити максимум 160 символи'),
+        timeForLearningUa: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(160, 'Текст має містити максимум 160 символи'),
+        forWhomTitleUa1: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(160, 'Текст має містити максимум 160 символи'),
+        forWhomDescriptionUa1: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(160, 'Текст має містити максимум 160 символи'),
+        forWhomTitleUa2: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(160, 'Текст має містити максимум 160 символи'),
+        forWhomDescriptionUa2: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(160, 'Текст має містити максимум 160 символи'),
+        experienceEn: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(160, 'Текст має містити максимум 160 символи'),
+        languageLevelEn: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(160, 'Текст має містити максимум 160 символи'),
+        timeForLearningEn: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(160, 'Текст має містити максимум 160 символи'),
+        forWhomTitleEn1: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(60, 'Текст має містити максимум 60 символи'),
+        forWhomDescriptionEn1: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(120, 'Текст має містити максимум 120 символи'),
+        forWhomTitleEn2: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(60, 'Текст має містити максимум 60 символи'),
+        forWhomDescriptionEn2: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(120, 'Текст має містити максимум 120 символи'),
+        faqUa1: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(60, 'Текст має містити максимум 60 символи'),
+        faqEn1: z.string()
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(120, 'Текст має містити максимум 120 символи'), 
+        answerUa1: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(60, 'Текст має містити максимум 60 символи'),
+        answerEn1: z.string({required_error: 'Заповніть поле'})
+        .nonempty('Заповніть поле')
+        .min(2, 'Текст має містити мінімум 2 символи')
+        .max(120, 'Текст має містити максимум 120 символи'),
+        faqUa2: z.string(), faqEn2: z.string(), answerUa2: z.string(), answerEn2: z.string(),       
 })

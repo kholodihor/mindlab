@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const Themes = ({ control, errors }: { control: any; errors: any }) => {
   const [themesList, setThemesList] = useState<Array<number>>([1])
-  // const addTheme = setThemesList(prev => [...prev, 1] )
+ 
   return (
     <div className={css.container2}>
       <div className={styles.thumb}>
@@ -47,9 +47,7 @@ const Themes = ({ control, errors }: { control: any; errors: any }) => {
           )}
         />
             )}
-         
-       
-        <button type="button" onClick={()=>setThemesList(prev => [...prev, themesList.length + 1])} className={styles.btn}><PlusIcon  color='#AAAEDF'/></button>
+         {themesList.length <= 17 &&  <button type="button" onClick={()=>setThemesList(prev => [...prev, themesList.length + 1])} className={styles.btn}><PlusIcon  color='#AAAEDF'/></button>}
         </div>
       </div>
       <div >
@@ -70,8 +68,7 @@ const Themes = ({ control, errors }: { control: any; errors: any }) => {
             />
           )}
         />)}
-       
-         <button type="button" className={styles.btn}><PlusIcon  color='#AAAEDF'/></button>
+       {themesList.length <= 17 &&  <button type="button" className={styles.btn}><PlusIcon  color='#AAAEDF'/></button>}
          </div>
       </div>
     </div>
