@@ -26,6 +26,10 @@ const Sidebar = () => {
         <Link href="/">
           <h2 className={styles.logo_title}>Mind Lab</h2>
         </Link>
+        <div className={styles.website}>
+          <span className={styles.website_span}>web</span>
+          <span className={styles.website_span}>site</span>
+        </div>
       </div>
       <ul className={styles.menu}>
         <li

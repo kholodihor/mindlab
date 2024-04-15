@@ -1,6 +1,6 @@
 import axios from '@/config/axios'
 import { UploadResponse } from '@/types'
-import { ITeacher, ITeacherResponse } from '@/types/teachers'
+import { ITeacherResponse, TeacherFormData } from '@/types/teachers'
 
 export const getTeachers = async () => {
   try {
@@ -20,9 +20,11 @@ export const getTeacherById = async (id: string) => {
   }
 }
 
-export const createTeacher = async (file: File | Blob, teacherData: ITeacher) => {
+export const createTeacher = async (teacherData: TeacherFormData) => {
   try {
-    const res: UploadResponse = await axios.post('/upload', file)
+    const formData = new FormData()
+    formData.append('file', teacherData.file[0])
+    const res: UploadResponse = await axios.post('/upload', formData)
     const newTeacher = { ...teacherData, imageId: res.imageId, imageUrl: res.imageUrl }
     const response = await axios.post<ITeacherResponse>('/teachers', newTeacher, {
       headers: { 'Content-Type': 'application/json' }
@@ -33,17 +35,20 @@ export const createTeacher = async (file: File | Blob, teacherData: ITeacher) =>
   }
 }
 
-export const updateTeacher = async (id: string, teacherData: ITeacher, file?: File | Blob) => {
+export const updateTeacher = async (id: string, teacherData: TeacherFormData) => {
   try {
-    if (!file) {
-      const response = await axios.patch<ITeacherResponse>(`/teachers/${id}`, teacherData, {
+    if (teacherData.file[0].size > 0) {
+      const formData = new FormData()
+      formData.append('file', teacherData.file[0])
+      const res: UploadResponse = await axios.post('/upload', formData)
+      const updatedTeacher = { ...teacherData, imageId: res.imageId, imageUrl: res.imageUrl }
+      const response = await axios.patch<ITeacherResponse>(`/teachers/${id}`, updatedTeacher, {
         headers: { 'Content-Type': 'application/json' }
       })
       return response.data
     }
-    const res: UploadResponse = await axios.post('/upload', file)
-    const updatedTeacher = { ...teacherData, imageId: res.imageId, imageUrl: res.imageUrl }
-    const response = await axios.patch<ITeacherResponse>(`/teachers/${id}`, updatedTeacher, {
+
+    const response = await axios.patch<ITeacherResponse>(`/teachers/${id}`, teacherData, {
       headers: { 'Content-Type': 'application/json' }
     })
     return response.data

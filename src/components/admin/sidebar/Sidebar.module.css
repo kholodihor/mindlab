@@ -12,6 +12,18 @@
       font-size: 30px;
       font-weight: 500;
     }
+    .website {
+      margin-left: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      .website_span {
+        background: var(--blue);
+        font-size: 13px;
+        height: 13px;
+        padding: 0;
+      }
+    }
   }
   .menu {
     display: flex;
