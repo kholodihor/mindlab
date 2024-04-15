@@ -13,9 +13,9 @@ const Testimonials = () => {
         <div className={styles.wrapper}>
           <ul className={styles.testimonials}>
             {
-              reviews.map(review => {
+              reviews.map((review, idx) => {
                 return (
-                  <li key={review.name} className={styles.testimonial_item}>
+                  <li key={idx} className={styles.testimonial_item}>
                     <TestimonialCard name={review.name} image={review.image} text={review.text} />
                   </li>
                 )
