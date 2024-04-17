@@ -58,11 +58,11 @@ const EditPage = ({ id }: { id: string }) => {
     setImage(img)
   }
 
-  /*useEffect(() => {
+  useEffect(() => {
     if (!currentValues.image[0]?.size) return
     const file = currentValues.image[0]
     setImagePreview(file)
-  }, [currentValues.image])*/
+  }, [currentValues.image])
 
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     console.log(data)
@@ -79,7 +79,7 @@ const EditPage = ({ id }: { id: string }) => {
               <div className={styles.image_preview}>
                 <FileInput name="image" control={control} accept="image/*" title="Фото викладача:" placeholder='Завантажити з комп’ютера' />
                 <div className={styles.image_preview_box}>
-                  <h4 className={styles.image_preview_title}>Прев'ю:</h4>
+                  <h4 className={styles.image_preview_title}>Прев&#39;ю:</h4>
                   <Image width={280} height={300} src={image ? image : editedTeacher.image} alt={currentValues.name} className={styles.image}/>
                   <Image width={280} height={300} src='/teachers/mask.png' className={styles.mask} alt='mask' />
                 </div>

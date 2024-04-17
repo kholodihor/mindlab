@@ -31,7 +31,7 @@ const AddPage = () => {
 
   const currentValues = watch()
 
-  /*const setImagePreview = (file: File) => {
+  const setImagePreview = (file: File) => {
     const img = URL.createObjectURL(file)
     setImage(img)
   };
@@ -40,7 +40,7 @@ const AddPage = () => {
     if (!currentValues.image?.length) return
     const file = currentValues.image[0]
     setImagePreview(file)
-  }, [currentValues.image])*/
+  }, [currentValues.image])
 
   const onSubmit: SubmitHandler<FormFields> = (data) => {
     console.log(data)
@@ -57,7 +57,7 @@ const AddPage = () => {
               <div className={styles.image_preview}>
                 <FileInput name="image" control={control} accept="image/*" title="Фото викладача:" placeholder='Завантажити з комп’ютера' />
                 <div className={styles.image_preview_box}>
-                  <h4 className={styles.image_preview_title}>Прев'ю:</h4>
+                  <h4 className={styles.image_preview_title}>Прев&#39;ю:</h4>
                   {
                     image
                     ?
