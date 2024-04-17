@@ -9,7 +9,6 @@ type TProps<T extends FieldValues> = InputHTMLAttributes<HTMLInputElement> &
 
 const FileInput = <T extends FieldValues>({title, placeholder, control, name, rules, ...rest}: TProps<T>) => {
   const { field, formState } = useController<T>({ name, control, rules })
-  const fileName = field.value && field.value[0]?.name
   const errorMessage = (
     formState.errors[name] as DeepMap<FieldValues, FieldError>
   )?.message
