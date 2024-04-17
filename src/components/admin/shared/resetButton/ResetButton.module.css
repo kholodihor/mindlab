@@ -1,9 +1,9 @@
 .reset_btn {
   padding: 15px 50px;
+  min-width: 230px;
   border: 3px solid var(--blue);
   background-color: transparent;
   border-radius: 34px;
-  font-family: Fixel Display;
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
