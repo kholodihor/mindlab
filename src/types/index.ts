@@ -5,7 +5,8 @@ export type CoursesList = {
   components: ComponentsCourse
   color: string
   classname: string
-  href: string
+  href: string,
+  id: string
 }
 
 export type ComponentsCourse = {

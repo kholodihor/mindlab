@@ -40,7 +40,7 @@ const Themes = ({ control, errors }: { control: any; errors: any }) => {
             <Admin_TextArea
               {...field}
               title="Введіть тему (max 60 символів): "
-              errorText={themesList.length === 0 ?
+              errorText={item === 1 ?
                 errors.themesUa1?.message && errors.themesUa1?.message : errors.themesUa2?.message && errors.themesUa2?.message}
               placeholder="Що таке політика"
             />
@@ -61,7 +61,7 @@ const Themes = ({ control, errors }: { control: any; errors: any }) => {
             <Admin_TextArea
               {...field}
               title="Введіть тему (max 60 символів): "
-              errorText={ themesList.length === 0 ?
+              errorText={ item === 1 ?
                 errors.themesEn1?.message && errors.themesEn1?.message : errors.themesEn2?.message && errors.themesEn2?.messag
               }
               placeholder="What is politics?"

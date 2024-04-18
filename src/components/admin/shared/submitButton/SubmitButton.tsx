@@ -2,7 +2,7 @@ import styles from './SubmitButton.module.css'
 
 type SubmitButtonProps = {
   text: string,
-  handleSubmit: () => void,
+  handleSubmit?: () => void,
   disabled?: boolean
 }
 

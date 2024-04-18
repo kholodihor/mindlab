@@ -1,37 +1,47 @@
 'use client'
+
 import PageTitle from '../../shared/pageTitle/PageTitle'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
-import { addCourseValidation } from './validationSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
-import css from './AddCourse.module.css'
+import css from '../addCourse/AddCourse.module.css'
 import ColorInput from '../../shared/colorInput/ColorInput'
 import Admin_TextArea from '../../ui/admin_inputs/text_area/Admin_TextArea'
 import Admin_TextInput from '../../ui/admin_inputs/text_input/Admin_TextInput'
 import TabPanel from '../../shared/tabComponent/tabPanel/TabPanel'
-import Themes from './themes/Themes'
-import Teacher from './teacher/Teacher'
-import ForWhom from './forWhom/ForWhom'
-import Question from './question/Question'
+import Themes from '../addCourse/themes/Themes'
+import Teacher from '../addCourse/teacher/Teacher'
+import ForWhom from '../addCourse/forWhom/ForWhom'
+import Question from '../addCourse/question/Question'
 import ResetButton from '../../shared/resetButton/ResetButton'
 import SubmitButton from '../../shared/submitButton/SubmitButton'
-import { defaultValues } from './defaultValues'
+import { coursesList } from '@/data/data'
+import { useEffect } from 'react'
+import { editCourseValidation } from './validationShema'
+import { defaultValue, defaultdata } from './defaultValues'
 
-const AddCourse = () => {
+
+const EditCourse = ({ id }: { id: string }) => {
+    const currentCourse = coursesList.find(item => item.id === id);
+     useEffect(()=>{
+        console.log(id)
+        console.log(currentCourse, 'currentCourse')
+     }, [currentCourse, id])
   const {
     handleSubmit,
     control,
     // watch,
-    formState: { errors, isDirty, isValid }
-  } = useForm<z.infer<typeof addCourseValidation>>({
-    resolver: zodResolver(addCourseValidation),
+    formState: { errors }
+  } = useForm<z.infer<typeof editCourseValidation>>({
+    resolver: zodResolver(editCourseValidation),
     mode: 'onChange',
-    defaultValues: defaultValues
+    values: defaultValue(defaultdata)
   })
+
   const colorList = ['#AAAEDF', '#8D83FF', '#2928E3', '#03AA89', '#FED1CE', '#FFECD0']
 
-  const onSubmit: SubmitHandler<z.infer<typeof addCourseValidation>> = async (
-    data: z.infer<typeof addCourseValidation>
+  const onSubmit: SubmitHandler<z.infer<typeof editCourseValidation>> = async (
+    data: z.infer<typeof editCourseValidation>
   ) => {
     console.log(data)
   }
@@ -300,11 +310,11 @@ const AddCourse = () => {
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />
-            <SubmitButton text='Додати курс'  disabled={!isDirty || !isValid} />
+            <SubmitButton text='Додати курс' />
           </div>
         </form>
       </div>
     </div>
   )
 }
-export default AddCourse
+export default EditCourse;

@@ -10,7 +10,8 @@ export const coursesList: Array<CoursesList> = [
     components: { mob: [], tab: [], desk: ['leadership.power', 'leadership.power'] },
     color: '#aaaedf',
     classname: 'violetLight',
-    href: '/courses/leadership'
+    href: '/courses/leadership',
+    id: '1'
   },
   {
     title: 'Career counseling / Career guidance ',
@@ -24,7 +25,8 @@ export const coursesList: Array<CoursesList> = [
     },
     color: '#ffecd0',
     classname: 'roseLight',
-    href: '/courses/career'
+    href: '/courses/career',
+    id: '2'
   },
   {
     title: 'Business',
@@ -38,7 +40,8 @@ export const coursesList: Array<CoursesList> = [
     },
     color: '#8d83ff',
     classname: 'violet',
-    href: '/courses/business'
+    href: '/courses/business',
+    id: '3'
   },
   {
     title: 'Innovative technologies',
@@ -52,7 +55,8 @@ export const coursesList: Array<CoursesList> = [
     },
     color: '#03aa89',
     classname: 'green',
-    href: '/courses/innovative'
+    href: '/courses/innovative',
+    id: '4'
   },
   {
     title: 'ART',
@@ -66,7 +70,8 @@ export const coursesList: Array<CoursesList> = [
     },
     color: '#2928e3',
     classname: 'blue',
-    href: '/courses/art'
+    href: '/courses/art',
+    id:'5'
   },
   {
     title: 'Political science-sociology',
@@ -80,7 +85,8 @@ export const coursesList: Array<CoursesList> = [
     },
     color: '#fed1ce',
     classname: 'rose',
-    href: '/courses/political'
+    href: '/courses/political',
+    id: '6'
   }
 ]
 
