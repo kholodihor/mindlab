@@ -1,4 +1,5 @@
-import { z } from 'zod';
+import { z } from 'zod'
+import { formatBytes } from '@/helpers/formatBytes'
 
 const MAX_FILE_SIZE = 1024 * 1024 * 3
 
@@ -42,7 +43,7 @@ export const TeachersFormValidation = z.object({
     })
     .refine(
       (value) => value?.[0]?.size <= MAX_FILE_SIZE,
-      `Максимальний розмір зображення ${(MAX_FILE_SIZE)} Mb`
+      `Максимальний розмір зображення ${formatBytes(MAX_FILE_SIZE)} Mb`
     )
     .refine(
       (value) => ACCEPTED_IMAGE_TYPES.includes(value?.[0]?.type),
