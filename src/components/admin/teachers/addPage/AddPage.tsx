@@ -10,9 +10,9 @@ import FileInput from '../../shared/fileInput/FileInput'
 import Admin_TextInput from '../../ui/admin_inputs/text_input/Admin_TextInput'
 import ResetButton from '../../shared/resetButton/ResetButton'
 import SubmitButton from '../../shared/submitButton/SubmitButton'
-import Admin_TextArea from '../../ui/admin_inputs/text_area/Admin_TextArea';
+import Admin_TextArea from '../../ui/admin_inputs/text_area/Admin_TextArea'
 import Image from 'next/image'
-import { useForm, SubmitHandler, Controller } from 'react-hook-form';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import PreviewIcon from './icons/PreviewIcon'
 
 const AddPage = () => {

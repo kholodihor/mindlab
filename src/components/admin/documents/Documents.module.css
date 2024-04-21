@@ -1,0 +1,10 @@
+.documents_content {
+  padding: 40px 65px;
+}
+
+.documents_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
