@@ -38,9 +38,9 @@ export const useTeachers = () => {
     }
   }
 
-  const deleteTeacher = async (id: string) => {
+  const deleteTeacher = async (id: string, imageId: string) => {
     try {
-      await teachersApi.deleteTeacher(id)
+      await teachersApi.deleteTeacher(id, imageId)
       const updatedTeachers = data?.filter((item) => item.id !== id)
       mutate(updatedTeachers)
     } catch (error) {

@@ -4,15 +4,11 @@ import Image from 'next/image'
 import styles from './TeacherCard.module.css'
 import EditIcon from '../../courses/icons/EditIcon'
 import DeleteIcon from '../../courses/icons/DeleteIcon'
+import { ITeacherResponse } from '@/types/teachers'
 
 type TeacherProps = {
-  teacher: {
-    id: string
-    image: string
-    name: string
-    speciality: string
-  }
-  deleteTeacher: (id: number) => void
+  teacher: ITeacherResponse
+  deleteTeacher: (id: string, public_id: string) => void
 }
 
 const TeacherCard = ({ teacher, deleteTeacher }: TeacherProps) => {
@@ -21,7 +17,7 @@ const TeacherCard = ({ teacher, deleteTeacher }: TeacherProps) => {
       <Image
         width={220}
         height={235}
-        src={teacher.image}
+        src={teacher.imageUrl}
         alt={teacher.name}
         className={styles.image}
       />
@@ -29,11 +25,21 @@ const TeacherCard = ({ teacher, deleteTeacher }: TeacherProps) => {
         <h3 className={styles.name}>{teacher.name}</h3>
         <p className={styles.speciality}>{teacher.speciality}</p>
         <div className={styles.button_container}>
-          <button className={`${styles.btn} ${styles.btn_delete}`} onClick={() => deleteTeacher(parseInt(teacher.id))}><DeleteIcon /></button>
-          <Link className={`${styles.btn} ${styles.btn_edit}`} href={`/admin/teachers/edit/${parseInt(teacher.id)}`} ><EditIcon /></Link>
+          <button
+            className={`${styles.btn} ${styles.btn_delete}`}
+            onClick={() => deleteTeacher(teacher.id, teacher.imageId)}
+          >
+            <DeleteIcon />
+          </button>
+          <Link
+            className={`${styles.btn} ${styles.btn_edit}`}
+            href={`/admin/teachers/edit/${teacher.id}`}
+          >
+            <EditIcon />
+          </Link>
         </div>
       </div>
-      <Image width={220} height={235} src='/teachers/mask.png' className={styles.mask} alt='mask'/>
+      <Image width={220} height={235} src="/teachers/mask.png" className={styles.mask} alt="mask" />
     </div>
   )
 }
