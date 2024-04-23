@@ -1,0 +1,48 @@
+.card {
+  max-width: 230px;
+  width: 100%;
+  height: 205px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  border-radius: 1rem;
+  box-shadow: 0 6px 8px -6px rgba(167, 129, 247, 0.2);
+  background-color: var(--white);
+}
+
+.document_info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.name {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--black);
+  text-align: center;
+}
+
+.btn_delete {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #DA3C3C;
+}
+
+.btn_delete:active {
+  background-color: #922828;
+}
