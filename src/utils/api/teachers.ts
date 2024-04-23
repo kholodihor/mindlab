@@ -23,9 +23,9 @@ export const getTeacherById = async (id: string) => {
 export const createTeacher = async (teacherData: TeacherFormData) => {
   try {
     const formData = new FormData()
-    formData.append('file', teacherData.file[0])
+    formData.append('file', teacherData.image[0])
     const res: UploadResponse = await axios.post('/upload', formData)
-    const newTeacher = { ...teacherData, imageId: res.imageId, imageUrl: res.imageUrl }
+    const newTeacher = { ...teacherData, imageId: res.data.imageId, imageUrl: res.data.imageUrl }
     const response = await axios.post<ITeacherResponse>('/teachers', newTeacher, {
       headers: { 'Content-Type': 'application/json' }
     })
@@ -37,11 +37,15 @@ export const createTeacher = async (teacherData: TeacherFormData) => {
 
 export const updateTeacher = async (id: string, teacherData: TeacherFormData) => {
   try {
-    if (teacherData.file[0].size > 0) {
+    if (teacherData.image[0].size > 0) {
       const formData = new FormData()
-      formData.append('file', teacherData.file[0])
+      formData.append('file', teacherData.image[0])
       const res: UploadResponse = await axios.post('/upload', formData)
-      const updatedTeacher = { ...teacherData, imageId: res.imageId, imageUrl: res.imageUrl }
+      const updatedTeacher = {
+        ...teacherData,
+        imageId: res.data.imageId,
+        imageUrl: res.data.imageUrl
+      }
       const response = await axios.patch<ITeacherResponse>(`/teachers/${id}`, updatedTeacher, {
         headers: { 'Content-Type': 'application/json' }
       })
@@ -57,9 +61,10 @@ export const updateTeacher = async (id: string, teacherData: TeacherFormData) =>
   }
 }
 
-export const deleteTeacher = async (id: string) => {
+export const deleteTeacher = async (id: string, imageId: string) => {
   try {
     const response = await axios.delete(`/teachers/${id}`)
+    await axios.delete(`/upload/${encodeURIComponent(imageId)}`)
     return response.data
   } catch (error) {
     console.log(error)

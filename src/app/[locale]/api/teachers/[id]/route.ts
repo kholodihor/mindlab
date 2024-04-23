@@ -9,15 +9,15 @@ export async function GET(request: Request, { params }: { params: { id: string }
   }
   try {
     await prismaConnect()
-    const course = await prisma.teacher.findUnique({
+    const teacher = await prisma.teacher.findUnique({
       where: {
         id: params.id
       }
     })
-    if (!course) {
+    if (!teacher) {
       return new NextResponse('Teacher Not found', { status: 404 })
     }
-    return NextResponse.json(course, { status: 200 })
+    return NextResponse.json(teacher, { status: 200 })
   } catch (error) {
     console.log('[GET TEACHER BY ID]', error)
     return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
@@ -31,7 +31,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     }
     await prismaConnect()
     const data: ITeacher = await request.json()
-    const updatedCourse = await prisma.teacher.update({
+    const updatedTeacher = await prisma.teacher.update({
       where: {
         id: params.id
       },
@@ -40,16 +40,35 @@ export async function PATCH(request: Request, { params }: { params: { id: string
         imageUrl: data.imageUrl,
         imageId: data.imageId,
         speciality: data.speciality,
-        about_me: data.about_me,
-        about_help: data.about_help,
-        linkedinLink: data.linkedinLink,
-        facebookLink: data.facebookLink,
-        telegramLink: data.facebookLink
+        about_me: data.about,
+        about_help: data.help,
+        linkedinLink: data.linkedinUrl,
+        facebookLink: data.facebookUrl,
+        telegramLink: data.facebookUrl
       }
     })
-    return NextResponse.json(updatedCourse, { status: 200 })
+    return NextResponse.json(updatedTeacher, { status: 200 })
   } catch (error) {
     console.log('[UPDATE TEACHER]', error)
     return new NextResponse('Internal Server Error', { status: 500 })
+  }
+}
+
+export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+  if (!params.id) {
+    return new NextResponse('Not found', { status: 404 })
+  }
+  try {
+    await prismaConnect()
+    await prisma.teacher.delete({
+      where: {
+        id: params.id
+      }
+    })
+
+    return NextResponse.json({ message: 'teacher deleted successfully' }, { status: 200 })
+  } catch (error) {
+    console.log('[DELETE COURSE', error)
+    return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
   }
 }
