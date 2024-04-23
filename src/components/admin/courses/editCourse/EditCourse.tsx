@@ -73,7 +73,6 @@ const EditCourse = ({ id }: { id: string }) => {
                     {...field}
                     title="Оберіть колір:"
                     colorList={colorList}
-                    
                     errorText={errors.color?.message && errors.color?.message}
                   />
                 )}
@@ -248,6 +247,11 @@ const EditCourse = ({ id }: { id: string }) => {
                 control={control}
                 render={({field})=> <Admin_TextInput {...field} title='Дата початку курсу:' placeholder='23 березня 2024' errorText={errors.startDateUa?.message && errors.startDateUa?.message} />}
                 />
+                <Controller
+                name="courseDurationUa"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Тривалість курсу:' placeholder='2 місяці' errorText={errors.courseDurationUa?.message && errors.courseDurationUa?.message} />}
+                />
               </div>
               <div className={`${css.flex__element} ${css.wrapper__price}`}>
                 <Controller
@@ -262,6 +266,11 @@ const EditCourse = ({ id }: { id: string }) => {
                 name="priceUa"
                 control={control}
                 render={({field})=> <Admin_TextInput {...field} title='Вартість курсу:' placeholder='700 грн/міс.' errorText={errors.priceUa?.message && errors.priceUa?.message} />}
+                />
+                <Controller
+                name="fullpriceUa"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Повна вартість курсу:' placeholder='1200 грн' errorText={errors.fullpriceUa?.message && errors.fullpriceUa?.message} />}
                 />
               </div>
           </div>
@@ -306,7 +315,7 @@ const EditCourse = ({ id }: { id: string }) => {
                 />
               </div>
           </div>
-          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, Component: Question}]}/>
+          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, themeList: [1, 2, 3, 4, 5], Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList: [1, 2 ], Component: Question}]}/>
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />

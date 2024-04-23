@@ -238,8 +238,13 @@ const AddCourse = () => {
                 control={control}
                 render={({field})=> <Admin_TextInput {...field} title='Дата початку курсу:' placeholder='23 березня 2024' errorText={errors.startDateUa?.message && errors.startDateUa?.message} />}
                 />
+                 <Controller
+                name="courseDurationUa"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Тривалість курсу:' placeholder='2 місяці' errorText={errors.courseDurationUa?.message && errors.courseDurationUa?.message} />}
+                />
               </div>
-              <div className={`${css.flex__element} ${css.wrapper__price}`}>
+              <div className={`${css.flex__element} ${css.wrapper__places}`}>
                 <Controller
                 name="numberOfPlacesUa"
                 control={control}
@@ -251,7 +256,12 @@ const AddCourse = () => {
               <Controller
                 name="priceUa"
                 control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Вартість курсу:' placeholder='700 грн/міс.' errorText={errors.priceUa?.message && errors.priceUa?.message} />}
+                render={({field})=> <Admin_TextInput {...field} title='Вартість курсу за місяць:' placeholder='700 грн/міс.' errorText={errors.priceUa?.message && errors.priceUa?.message} />}
+                />
+                 <Controller
+                name="fullpriceUa"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Повна вартість курсу:' placeholder='1200 грн' errorText={errors.fullpriceUa?.message && errors.fullpriceUa?.message} />}
                 />
               </div>
           </div>
@@ -279,8 +289,13 @@ const AddCourse = () => {
                 control={control}
                 render={({field})=> <Admin_TextInput {...field} title='Дата початку курсу:' placeholder='23 March 2024' errorText={errors.startDateEn?.message && errors.startDateEn?.message} />}
                 />
+                 <Controller
+                name="courseDurationEn"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Тривалість курсу:' placeholder='2 months' errorText={errors.courseDurationEn?.message && errors.courseDurationEn?.message} />}
+                />
               </div>
-              <div className={`${css.flex__element} ${css.wrapper__price}`}>
+              <div className={`${css.flex__element} ${css.wrapper__places}`}>
                 <Controller
                 name="numberOfPlacesEn"
                 control={control}
@@ -294,9 +309,14 @@ const AddCourse = () => {
                 control={control}
                 render={({field})=> <Admin_TextInput {...field} title='Вартість курсу:' placeholder='UAH 700/month' errorText={errors.priceEn?.message && errors.priceEn?.message} />}
                 />
+                 <Controller
+                name="fullpriceEn"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Повна вартість курсу:' placeholder='UAH 1200' errorText={errors.fullpriceEn?.message && errors.fullpriceEn?.message} />}
+                />
               </div>
           </div>
-          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, Component: Question}]}/>
+          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList:[1, 2], Component: Question}]}/>
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />

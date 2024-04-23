@@ -6,8 +6,8 @@ import styles from './Theme.module.css'
 import PlusIcon from '@/components/icons/PlusIcon';
 import { useState } from 'react';
 
-const Themes = ({ control, errors }: { control: any; errors: any }) => {
-  const [themesList, setThemesList] = useState<Array<number>>([1])
+const Themes = ({ control, errors, themeList }: { control: any; errors: any, themeList?: Array<number> }) => {
+  const [themesList, setThemesList] = useState<Array<number>>(themeList ? themeList : [1])
  
   return (
     <div className={css.container2}>
@@ -18,9 +18,23 @@ const Themes = ({ control, errors }: { control: any; errors: any }) => {
           render={({ field }) => (
             <Admin_TextArea
               {...field}
-              title="Заголовок до тем курсу (max 120 символів):"
+              title="Заголовок до тем курсу (max 200 символів):"
               errorText={
                 errors.themeTitleUa?.message && errors.themeTitleUa?.message
+              }
+              placeholder="Заголовок"
+            />
+          )}
+        />
+         <Controller
+          name="themeTitleEn"
+          control={control}
+          render={({ field }) => (
+            <Admin_TextArea
+              {...field}
+              title="Заголовок до тем курсу англійською (max 200 символів):"
+              errorText={
+                errors.themeTitleEn?.message && errors.themeTitleEn?.message
               }
               placeholder="Заголовок"
             />

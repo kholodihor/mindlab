@@ -5,8 +5,8 @@ import css from './Question.module.css'
 import Admin_TextInput from '@/components/admin/ui/admin_inputs/text_input/Admin_TextInput';
 import PlusIcon from '@/components/icons/PlusIcon';
 
-const Question = ({ control, errors }: { control: any; errors: any })=> {
-    const [questionList, setThemesList] = useState<Array<number>>([1])
+const Question = ({ control, errors, themeList }: { control: any; errors: any, themeList?: Array<number> })=> {
+    const [questionList, setThemesList] = useState<Array<number>>(themeList ? themeList : [1])
     return (
         <div>
             {questionList.map(item => <div key={item} className={css.thumb}>

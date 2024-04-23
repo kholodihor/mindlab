@@ -10,7 +10,8 @@ type TabPanelProps = {
     title: string
     control: any
     errors: any
-    Component: FC<{ index: number, control: any, errors: any}>;
+    themeList?: Array<number>
+    Component: FC<{ index: number, control: any, errors: any, themeList?: Array<number> }>;
   }[]
 }
 
@@ -34,7 +35,7 @@ const TabPanel = ({ tabList = []} : TabPanelProps) => {
             ))}
           </ul>
           <div className={styles.tab_content}>
-            {panel && <panel.Component index={selectedTab} control={panel.control} errors={panel.errors}/>}
+            {panel && <panel.Component index={selectedTab} themeList={panel.themeList} control={panel.control} errors={panel.errors}/>}
           </div>
         </div>
 }

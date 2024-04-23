@@ -71,12 +71,21 @@
   width: 317px;
 }
 .wrapper__price {
-  height: 136px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 40px;
   width: 317px;
+  height: 243px;
 }
 
 .wrapper__date {
   margin-bottom: 20px;
+}
+
+.wrapper__places {
+  height: 136px;
+  width: 317px;
 }
 
 .btt__form {
