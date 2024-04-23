@@ -1,6 +1,5 @@
 import { z } from 'zod'
 
-
 export const editCourseValidation = z.object({
   title: z
     .string()
@@ -183,4 +182,5 @@ export const editCourseValidation = z.object({
         .min(2, 'Текст має містити мінімум 2 символи')
         .max(150, 'Текст має містити максимум 150 символи'),
         faqUa2: z.string(), faqUa3: z.string(), faqUa4: z.string(), faqUa5: z.string(), faqEn2: z.string(), faqEn3: z.string(), faqEn4: z.string(), faqEn5: z.string(), answerUa2: z.string(), answerUa3: z.string(), answerUa4: z.string(), answerUa5: z.string(), answerEn2: z.string(), answerEn3: z.string(), answerEn4: z.string(), answerEn5: z.string(),       
-})
+        teacherId: z.object({value: z.string(),label: z.string()})
+      })

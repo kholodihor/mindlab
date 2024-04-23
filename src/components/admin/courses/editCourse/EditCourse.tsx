@@ -47,7 +47,7 @@ const EditCourse = ({ id }: { id: string }) => {
   }
   return (
     <div >
-      <PageTitle title="додавання курсу" isAddButtonDisplayed={false} isSettingsButtonDisplayed={false}/>
+      <PageTitle title="редагування курсу" isAddButtonDisplayed={false} isSettingsButtonDisplayed={false}/>
       <div className={css.container}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h3 className={css.title}>Інформація для головної сторінки</h3>
@@ -315,7 +315,7 @@ const EditCourse = ({ id }: { id: string }) => {
                 />
               </div>
           </div>
-          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, themeList: [1, 2, 3, 4, 5], Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList: [1, 2 ], Component: Question}]}/>
+          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, themeList: [1, 2, 3, 4], Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList: [1, 2 ], Component: Question}]}/>
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />
