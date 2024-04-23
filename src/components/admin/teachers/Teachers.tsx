@@ -1,30 +1,41 @@
 'use client'
-import React, {useState} from 'react'
+
 import styles from './Teachers.module.css'
-import { teachers } from './teacher'
+import { useTeachers } from '@/hooks/swr/useTeachers'
 import PageTitle from '../shared/pageTitle/PageTitle'
 import TeacherCard from '../shared/teacherCard/TeacherCard'
 
 const Teachers = () => {
-  const [teachersList, setTeachers] = useState(teachers)
+  const { teachers, deleteTeacher, isLoading } = useTeachers()
 
-  function deleteTeacher(id: number) {
-    const newTeachersList = teachersList.filter((teacher) => Number(teacher.id) !== id)
-
-    setTeachers(newTeachersList)
+  const handleDelete = (id: string, imageId: string) => {
+    if (confirm('Ви впевнені, що хочете видалити цього викладача?')) {
+      deleteTeacher(id, imageId)
+      console.log(imageId)
+    }
   }
 
-  return <section>
-    <PageTitle title="Викладачі" isAddButtonDisplayed={true} isSettingsButtonDisplayed={true} text='Додати викладача' href='teachers/add' />
-    <div className={styles.teachers_content}>
-      <div className={styles.teachers_list}>
-        {teachersList && teachersList.map((teacher) => (
-          <TeacherCard key={teacher.id} teacher={teacher} deleteTeacher={deleteTeacher} />
-        ))}
+  if (isLoading) return <p>Loading...</p>
+
+  return (
+    <section>
+      <PageTitle
+        title="Викладачі"
+        isAddButtonDisplayed={true}
+        isSettingsButtonDisplayed={true}
+        text="Додати викладача"
+        href="teachers/add"
+      />
+      <div className={styles.teachers_content}>
+        <div className={styles.teachers_list}>
+          {teachers &&
+            teachers.map((teacher) => (
+              <TeacherCard key={teacher.id} teacher={teacher} deleteTeacher={handleDelete} />
+            ))}
+        </div>
       </div>
-    </div>
-    
-  </section>
+    </section>
+  )
 }
 
 export default Teachers
