@@ -1,0 +1,40 @@
+.thumb {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.thumb1 {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 318px;
+    min-height: 200px;
+    padding: 20px;
+    background-color: var(--white);
+    border-radius: 16px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--black-admin);
+    margin-bottom: 40px;
+  }
+
+  .wrapper1 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 45px;
+    padding: 40px 20px;
+    background-color: var(--white);
+    border-radius: 16px;
+    
+  }
+  

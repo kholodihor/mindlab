@@ -63,6 +63,20 @@
   transition: background-color 0.3s ease-in;
 }
 
+.link_edit {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 2px 0 8px rgba(167, 129, 247, .2);
+    cursor: pointer;
+    transition: background-color 0.3s ease-in;
+}
+
 .button_edit {
   top: 20px;
   right: 20px;
