@@ -9,7 +9,7 @@ const ACCEPTED_FILE_TYPES = [
 ]
 
 export const DocumentsFormValidation = z.object({
-  name: z.string({ required_error: 'Поле повинно бути заповнене'})
+  fileName: z.string({ required_error: 'Поле повинно бути заповнене'})
   .trim()
   .min(4, { message: "Мінімум 4 символи" })
   .max(60, { message: "Максимум 60 символів" })
