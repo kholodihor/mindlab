@@ -49,5 +49,5 @@ export const defaultValues = {
         answerEn3: '',
         answerEn4: '',
         answerEn5: '',
-        teacherId: ''
+        teacherId: { value: '', label: ''}
 }

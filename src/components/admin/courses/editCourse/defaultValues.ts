@@ -49,7 +49,7 @@ type Courseprops = {
     answerEn3: string,
     answerEn4: string,
     answerEn5: string,
-    teacherId: string
+    teacherId: { value: string, label: string}
 }
 export const defaultValue = (course: Courseprops) => {
     return {
@@ -103,7 +103,7 @@ export const defaultValue = (course: Courseprops) => {
         answerEn3: course ? course.answerEn3 : '',
         answerEn4: course ? course.answerEn4 : '',
         answerEn5: course ? course.answerEn5 : '',
-        teacherId: course ? course.teacherId: ''
+        teacherId: course ? course.teacherId : { value: '', label: ''}
 }
 }
 
@@ -158,5 +158,5 @@ export const defaultdata = {
         answerEn3: '',
         answerEn4: '',
         answerEn5: '',
-        teacherId: ''
+        teacherId: { value: '1', label: 'Ana Garty'}
 }
