@@ -128,13 +128,13 @@ const AddPage = () => {
             </div>
             <div className={`${styles.input_group} ${styles.input_group_small}`}>
               <Controller
-                name="linkedinUrl"
+                name="linkedinLink"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
                     title="Введіть посилання на LinkedIn викладача:"
-                    errorText={errors.linkedinUrl?.message}
+                    errorText={errors.linkedinLink?.message}
                     placeholder="Посилання на LinkedIn"
                   />
                 )}
@@ -142,13 +142,13 @@ const AddPage = () => {
             </div>
             <div className={`${styles.input_group} ${styles.input_group_small}`}>
               <Controller
-                name="facebookUrl"
+                name="facebookLink"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
                     title="Введіть посилання на Facebook викладача:"
-                    errorText={errors.facebookUrl?.message}
+                    errorText={errors.facebookLink?.message}
                     placeholder="Посилання на Facebook"
                   />
                 )}
@@ -156,13 +156,13 @@ const AddPage = () => {
             </div>
             <div className={`${styles.input_group} ${styles.input_group_small}`}>
               <Controller
-                name="telegramUrl"
+                name="telegramLink"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
                     title="Введіть посилання на Telegram викладача:"
-                    errorText={errors.telegramUrl?.message}
+                    errorText={errors.telegramLink?.message}
                     placeholder="Посилання на Telegram"
                   />
                 )}
@@ -174,13 +174,13 @@ const AddPage = () => {
             <div className={styles.about_input}>
               <div className={`${styles.input_group} ${styles.area_group}`}>
                 <Controller
-                  name="about"
+                  name="about_me"
                   control={control}
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
                       title="Про викладача (max 140 символів):"
-                      errorText={errors.about?.message}
+                      errorText={errors.about_me?.message}
                       placeholder="Опис"
                     />
                   )}
@@ -188,13 +188,13 @@ const AddPage = () => {
               </div>
               <div className={`${styles.input_group} ${styles.area_group}`}>
                 <Controller
-                  name="help"
+                  name="about_help"
                   control={control}
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
                       title="З чим може допомогти викладач? (max 140 символів):"
-                      errorText={errors.help?.message}
+                      errorText={errors.about_help?.message}
                       placeholder="Опис"
                     />
                   )}
