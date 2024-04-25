@@ -1,13 +1,17 @@
 "use client";
-import React, { useState, FC } from 'react'
+import React, { useState, FC} from 'react'
 import styles from './TabPanel.module.css'
 import TabButton from '../tabButton/TabButton'
+
 
 type TabPanelProps = {
   tabList: {
     id: number
     title: string
-    Component: FC<{ index: number }>;
+    control: any
+    errors: any
+    themeList?: Array<number>
+    Component: FC<{ index: number, control: any, errors: any, themeList?: Array<number> }>;
   }[]
 }
 
@@ -31,7 +35,7 @@ const TabPanel = ({ tabList = []} : TabPanelProps) => {
             ))}
           </ul>
           <div className={styles.tab_content}>
-            {panel && <panel.Component index={selectedTab} />}
+            {panel && <panel.Component index={selectedTab} themeList={panel.themeList} control={panel.control} errors={panel.errors}/>}
           </div>
         </div>
 }

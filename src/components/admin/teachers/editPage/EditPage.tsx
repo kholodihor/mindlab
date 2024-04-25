@@ -41,11 +41,11 @@ const EditPage = ({ id }: { id: string }) => {
     if (teacherData) {
       setValue('name', teacherData.name)
       setValue('speciality', teacherData.speciality)
-      setValue('about', teacherData.about_me)
-      setValue('help', teacherData.about_help)
-      setValue('linkedinUrl', teacherData.linkedinLink)
-      setValue('facebookUrl', teacherData.facebookLink)
-      setValue('telegramUrl', teacherData.telegramLink)
+      setValue('about_me', teacherData.about_me)
+      setValue('about_help', teacherData.about_help)
+      setValue('linkedinLink', teacherData.linkedinLink)
+      setValue('facebookLink', teacherData.facebookLink)
+      setValue('telegramLink', teacherData.telegramLink)
       setValue('image', [new File([], teacherData?.imageUrl, { type: 'for-url' })])
       setImage(teacherData?.imageUrl)
     }
@@ -136,39 +136,39 @@ const EditPage = ({ id }: { id: string }) => {
             </div>
             <div className={`${styles.input_group} ${styles.input_group_small}`}>
               <Controller
-                name="linkedinUrl"
+                name="linkedinLink"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
                     title="Введіть посилання на LinkedIn викладача:"
-                    errorText={errors.linkedinUrl?.message}
+                    errorText={errors.linkedinLink?.message}
                   />
                 )}
               />
             </div>
             <div className={`${styles.input_group} ${styles.input_group_small}`}>
               <Controller
-                name="facebookUrl"
+                name="facebookLink"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
                     title="Введіть посилання на Facebook викладача:"
-                    errorText={errors.facebookUrl?.message}
+                    errorText={errors.facebookLink?.message}
                   />
                 )}
               />
             </div>
             <div className={`${styles.input_group} ${styles.input_group_small}`}>
               <Controller
-                name="telegramUrl"
+                name="telegramLink"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
                     title="Введіть посилання на Telegram викладача:"
-                    errorText={errors.telegramUrl?.message}
+                    errorText={errors.telegramLink?.message}
                   />
                 )}
               />
@@ -179,26 +179,26 @@ const EditPage = ({ id }: { id: string }) => {
             <div className={styles.about_input}>
               <div className={`${styles.input_group} ${styles.area_group}`}>
                 <Controller
-                  name="about"
+                  name="about_me"
                   control={control}
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
                       title="Про викладача (max 140 символів):"
-                      errorText={errors.about?.message}
+                      errorText={errors.about_me?.message}
                     />
                   )}
                 />
               </div>
               <div className={`${styles.input_group} ${styles.area_group}`}>
                 <Controller
-                  name="help"
+                  name="about_help"
                   control={control}
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
                       title="З чим може допомогти викладач? (max 140 символів):"
-                      errorText={errors.help?.message}
+                      errorText={errors.about_help?.message}
                     />
                   )}
                 />
