@@ -2,9 +2,9 @@ export const defaultValues = {
   image: [],
   name: '',
   speciality: '',
-  linkedinUrl: '',
-  facebookUrl: '',
-  telegramUrl: '',
-  about: '',
-  help: ''
+  linkedinLink: '',
+  facebookLink: '',
+  telegramLink: '',
+  about_me: '',
+  about_help: ''
 }

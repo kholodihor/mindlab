@@ -24,11 +24,11 @@ export async function POST(request: Request) {
         imageUrl: data.imageUrl,
         imageId: data.imageId,
         speciality: data.speciality,
-        about_me: data.about,
-        about_help: data.help,
-        linkedinLink: data.linkedinUrl,
-        facebookLink: data.facebookUrl,
-        telegramLink: data.facebookUrl
+        about_me: data.about_me,
+        about_help: data.about_help,
+        linkedinLink: data.linkedinLink,
+        facebookLink: data.facebookLink,
+        telegramLink: data.facebookLink
       }
     })
     return NextResponse.json(response, { status: 200 })
