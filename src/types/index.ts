@@ -48,7 +48,7 @@ export type PropsIconColor = {
 export type UploadResponse = {
   data: {
     message: string
-    imageId: string
-    imageUrl: string
+    fileId: string
+    fileUrl: string
   }
 }

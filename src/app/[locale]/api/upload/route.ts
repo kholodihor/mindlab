@@ -45,8 +45,8 @@ export async function POST(req: NextRequest) {
       if (res.success && res.result) {
         return NextResponse.json({
           message: 'success',
-          imageUrl: res.result.secure_url,
-          imageId: res.result.public_id
+          fileUrl: res.result.secure_url,
+          fileId: res.result.public_id
         })
       }
     } else return NextResponse.json({ message: 'failure' })

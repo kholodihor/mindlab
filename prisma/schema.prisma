@@ -30,6 +30,14 @@ model Teacher{
   createdAt   DateTime  @default(now()) 
 }
 
+model Document{
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  fileName    String
+  fileUrl    String
+  fileId     String
+  createdAt   DateTime  @default(now()) 
+}
+
 model Course{
   id             String    @id @default(auto()) @map("_id") @db.ObjectId
   title          String
