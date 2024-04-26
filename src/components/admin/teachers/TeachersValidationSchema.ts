@@ -11,7 +11,7 @@ export const TeachersFormValidation = z.object({
     .trim()
     .min(4, { message: 'Мінімум 4 символи' })
     .max(60, { message: 'Максимум 60 символів' })
-    .regex(/^[A-Za-z\s]*$/, { message: 'Поле повинно містити тільки літери' }),
+    .regex(/^[a-zA-Zа-яА-Яє-їЄ-Ї ]*$/, { message: 'Поле повинно містити тільки літери' }),
   speciality: z
     .string({ required_error: 'Поле повинно бути заповнене' })
     .max(52, { message: 'Ваша спеціалізація повинна містити максимум 52 символи' }),

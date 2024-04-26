@@ -9,9 +9,10 @@ import styles from './ConfirmModal.module.css'
 interface ConfirmModalProps {
   confirmText: string
   handleClose?: () => void
+  onConfirm: () => void
 }
 
-const ConfirmModal = ({ confirmText, handleClose }: ConfirmModalProps) => {
+const ConfirmModal = ({ confirmText, handleClose, onConfirm }: ConfirmModalProps) => {
   const isModalOpen = useModal((state) => state.isModalOpen)
 
   useBodyScrollLock(isModalOpen)
@@ -22,7 +23,7 @@ const ConfirmModal = ({ confirmText, handleClose }: ConfirmModalProps) => {
         <div className={styles.text}>{confirmText}</div>
         <div className={styles.btn_box}>
           <button className={styles.btn_close} onClick={handleClose}>Скасувати</button>
-          <button className={styles.btn_confirm} onClick={() => {}}>Підтвердити</button>
+          <button className={styles.btn_confirm} onClick={() => {onConfirm}}>Підтвердити</button>
         </div>
       </div>
     </div>

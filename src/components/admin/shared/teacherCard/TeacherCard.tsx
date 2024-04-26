@@ -9,7 +9,6 @@ import { ITeacherResponse } from '@/types/teachers'
 type TeacherProps = {
   teacher: ITeacherResponse
   deleteTeacher: (id: string, public_id: string) => void
-  openModal: (modalType: string) => void
 }
 
 const TeacherCard = ({ teacher, deleteTeacher }: TeacherProps) => {
@@ -28,7 +27,7 @@ const TeacherCard = ({ teacher, deleteTeacher }: TeacherProps) => {
         <div className={styles.button_container}>
           <button
             className={`${styles.btn} ${styles.btn_delete}`}
-            onClick={() => { deleteTeacher(teacher.id, teacher.imageId)} }
+            onClick={() => {deleteTeacher(teacher.id, teacher.imageId)} }
           >
             <DeleteIcon />
           </button>
