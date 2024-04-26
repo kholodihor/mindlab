@@ -4,7 +4,7 @@ import { ITeacherResponse, TeacherFormData } from '@/types/teachers'
 
 export const getTeachers = async () => {
   try {
-    const response = await axios.get('/teachers')
+    const response = await axios.get<ITeacherResponse[]>('/teachers')
     return response.data
   } catch (error) {
     console.log(error)
@@ -13,7 +13,7 @@ export const getTeachers = async () => {
 
 export const getTeacherById = async (id: string) => {
   try {
-    const response = await axios.get(`/teachers/${id}`)
+    const response = await axios.get<ITeacherResponse>(`/teachers/${id}`)
     return response.data
   } catch (error) {
     console.log(error)
