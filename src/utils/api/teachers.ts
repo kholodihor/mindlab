@@ -25,7 +25,7 @@ export const createTeacher = async (teacherData: TeacherFormData) => {
     const formData = new FormData()
     formData.append('file', teacherData.image[0])
     const res: UploadResponse = await axios.post('/upload', formData)
-    const newTeacher = { ...teacherData, imageId: res.data.imageId, imageUrl: res.data.imageUrl }
+    const newTeacher = { ...teacherData, imageId: res.data.fileId, imageUrl: res.data.fileUrl }
     const response = await axios.post<ITeacherResponse>('/teachers', newTeacher, {
       headers: { 'Content-Type': 'application/json' }
     })
@@ -43,8 +43,8 @@ export const updateTeacher = async (id: string, teacherData: TeacherFormData) =>
       const res: UploadResponse = await axios.post('/upload', formData)
       const updatedTeacher = {
         ...teacherData,
-        imageId: res.data.imageId,
-        imageUrl: res.data.imageUrl
+        imageId: res.data.fileId,
+        imageUrl: res.data.fileUrl
       }
       const response = await axios.patch<ITeacherResponse>(`/teachers/${id}`, updatedTeacher, {
         headers: { 'Content-Type': 'application/json' }
