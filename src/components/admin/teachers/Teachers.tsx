@@ -14,13 +14,19 @@ const Teachers = () => {
   const isModalOpen = useModal((state) => state.isModalOpen)
   const modalType = useModal((state) => state.modalType)
 
-  const handleDelete = (id: string, imageId: string) => {
-    deleteTeacher(id, imageId)
-    closeModal()
+  const handleDelete = async (id: string, imageId: string) => {
+    openModal('confirm')
+    try {
+      await deleteTeacher(id, imageId)
+      closeModal()
+    } catch (error: any) {
+      alert(error)
+    }
     /*if (confirm('Ви впевнені, що хочете видалити цього викладача?')) {
       deleteTeacher(id, imageId)
       console.log(imageId)
     }*/
+
   }
 
   if (isLoading) return <p>Loading...</p>
@@ -38,13 +44,13 @@ const Teachers = () => {
         <div className={styles.teachers_list}>
           {teachers &&
             teachers.map((teacher) => (
-              <TeacherCard key={teacher.id} teacher={teacher} openModal={openModal} deleteTeacher={deleteTeacher} />
+              <TeacherCard key={teacher.id} teacher={teacher} openModal={openModal} deleteTeacher={handleDelete} />
             ))}
         </div>
       </div>
 
       {isModalOpen && modalType === 'confirm' && (
-        <ConfirmModal confirmText='Ви впевнені, що хочете видалити цього викладача?' handleClose={closeModal} handleConfirm={handleDelete} />
+        <ConfirmModal confirmText='Ви впевнені, що хочете видалити цього викладача?' handleClose={closeModal} />
       )}
     </section>
   )

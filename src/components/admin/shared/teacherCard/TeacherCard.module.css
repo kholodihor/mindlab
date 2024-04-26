@@ -6,7 +6,6 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   gap: 10px;
   border: 1px solid var(--violet-light);
@@ -16,14 +15,13 @@
 .image {
   width: 215px;
   height: 235px;
-  object-fit: cover;
   border-radius: 1rem;
   z-index: 0;
 }
 
 .mask {
   position: absolute;
-  top: 8px;
+  top: 10px;
   left: 8px;
   width: calc(100% - 15px);
   height: 235px;

@@ -12,7 +12,7 @@ type TeacherProps = {
   openModal: (modalType: string) => void
 }
 
-const TeacherCard = ({ teacher, openModal }: TeacherProps) => {
+const TeacherCard = ({ teacher, deleteTeacher }: TeacherProps) => {
   return (
     <div className={styles.card}>
       <Image
@@ -28,7 +28,7 @@ const TeacherCard = ({ teacher, openModal }: TeacherProps) => {
         <div className={styles.button_container}>
           <button
             className={`${styles.btn} ${styles.btn_delete}`}
-            onClick={() => {openModal('confirm')} }
+            onClick={() => { deleteTeacher(teacher.id, teacher.imageId)} }
           >
             <DeleteIcon />
           </button>
