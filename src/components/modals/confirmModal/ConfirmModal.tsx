@@ -7,9 +7,9 @@ import { useBodyScrollLock } from '@/hooks/useBodyScrollLock'
 import styles from './ConfirmModal.module.css'
 
 interface ConfirmModalProps {
-  confirmText: string
+  confirmText?: string
   handleClose?: () => void
-  onConfirm: () => void
+  onConfirm?: () => void
 }
 
 const ConfirmModal = ({ confirmText, handleClose, onConfirm }: ConfirmModalProps) => {
@@ -22,8 +22,12 @@ const ConfirmModal = ({ confirmText, handleClose, onConfirm }: ConfirmModalProps
       <div className={styles.modal}>
         <div className={styles.text}>{confirmText}</div>
         <div className={styles.btn_box}>
-          <button className={styles.btn_close} onClick={handleClose}>Скасувати</button>
-          <button className={styles.btn_confirm} onClick={() => {onConfirm}}>Підтвердити</button>
+          <button className={styles.btn_close} onClick={handleClose}>
+            Скасувати
+          </button>
+          <button className={styles.btn_confirm} onClick={onConfirm}>
+            Підтвердити
+          </button>
         </div>
       </div>
     </div>

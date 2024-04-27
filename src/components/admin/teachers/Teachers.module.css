@@ -1,3 +1,7 @@
+.wrapper {
+  position: relative;
+}
+
 .teachers_content {
   padding: 40px 60px;
   max-width: 1120px;

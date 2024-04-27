@@ -16,7 +16,12 @@ const DocumentCard = ({ document, deleteDocument }: DocumentProps) => {
         <PdfIcon />
         <h3 className={styles.name}>{document.fileName}</h3>
       </div>
-      <button className={styles.btn_delete} onClick={() => deleteDocument(document.id, document.fileId)}><DeleteIcon /></button>
+      <button
+        className={styles.btn_delete}
+        onClick={() => deleteDocument(document.id, document.fileId)}
+      >
+        <DeleteIcon />
+      </button>
     </div>
   )
 }
