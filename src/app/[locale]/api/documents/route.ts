@@ -22,7 +22,7 @@ export async function POST(request: Request) {
       data: {
         fileName: data.fileName,
         fileUrl: data.fileUrl,
-        fileId: data.fileId,
+        fileId: data.fileId
       }
     })
     return NextResponse.json(response, { status: 200 })
@@ -32,21 +32,21 @@ export async function POST(request: Request) {
   }
 }
 
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
-  if (!params.id) {
-    return new NextResponse('Not found', { status: 404 })
-  }
-  try {
-    await prismaConnect()
-    await prisma.document.delete({
-      where: {
-        id: params.id
-      }
-    })
+// export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+//   if (!params.id) {
+//     return new NextResponse('Not found', { status: 404 })
+//   }
+//   try {
+//     await prismaConnect()
+//     await prisma.document.delete({
+//       where: {
+//         id: params.id
+//       }
+//     })
 
-    return NextResponse.json({ message: 'document deleted successfully' }, { status: 200 })
-  } catch (error) {
-    console.log('[DELETE DOCUMENT', error)
-    return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
-  }
-}
+//     return NextResponse.json({ message: 'document deleted successfully' }, { status: 200 })
+//   } catch (error) {
+//     console.log('[DELETE DOCUMENT', error)
+//     return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
+//   }
+// }

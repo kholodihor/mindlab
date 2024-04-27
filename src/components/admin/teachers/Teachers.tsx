@@ -1,35 +1,44 @@
 'use client'
 
-import styles from './Teachers.module.css'
+import { useState } from 'react'
 import { useTeachers } from '@/hooks/swr/useTeachers'
-import { useModal } from '@/stores/useModal'
+import Swal from 'sweetalert2'
 import PageTitle from '../shared/pageTitle/PageTitle'
 import TeacherCard from '../shared/teacherCard/TeacherCard'
-import ConfirmModal from '@/components/modals/confirmModal/ConfirmModal'
+import Loader from '../shared/loader/Loader'
+import styles from './Teachers.module.css'
 
 const Teachers = () => {
   const { teachers, deleteTeacher, isLoading } = useTeachers()
-  const { openModal, closeModal } = useModal()
-
-  const isModalOpen = useModal((state) => state.isModalOpen)
-  const modalType = useModal((state) => state.modalType)
-
+  const [isProcessing, setisProcessing] = useState(false)
   const handleDelete = (id: string, imageId: string) => {
-    openModal('confirm')
-    
-    deleteTeacher(id, imageId)
-    closeModal()
-    /*if (confirm('Ви впевнені, що хочете видалити цього викладача?')) {
-      deleteTeacher(id, imageId)
-      console.log(imageId)
-    }*/
-
+    Swal.fire({
+      title: 'Ви впевнені, що хочете видалити викладача?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Відмінити',
+      confirmButtonText: 'Видалити викладача'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDeleteTeacher(id, imageId)
+      }
+    })
   }
 
-  if (isLoading) return <p>Loading...</p>
+  const handleDeleteTeacher = async (id: string, imageId: string) => {
+    setisProcessing(true)
+    await deleteTeacher(id, imageId)
+    setisProcessing(false)
+    Swal.fire({
+      title: 'Викладача успішно видалено',
+      icon: 'success'
+    })
+  }
 
   return (
-    <section>
+    <section className={styles.wrapper}>
       <PageTitle
         title="Викладачі"
         isAddButtonDisplayed={true}
@@ -45,10 +54,7 @@ const Teachers = () => {
             ))}
         </div>
       </div>
-
-      {isModalOpen && modalType === 'confirm' && (
-        <ConfirmModal confirmText='Ви впевнені, що хочете видалити цього викладача?' handleClose={closeModal} onConfirm={() => {handleDelete}} />
-      )}
+      {(isLoading || isProcessing) && <Loader />}
     </section>
   )
 }

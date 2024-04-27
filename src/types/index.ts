@@ -5,7 +5,7 @@ export type CoursesList = {
   components: ComponentsCourse
   color: string
   classname: string
-  href: string,
+  href: string
   id: string
 }
 
@@ -51,4 +51,10 @@ export type UploadResponse = {
     fileId: string
     fileUrl: string
   }
+}
+
+export type UseModalShowReturnType = {
+  show: boolean
+  setShow: (value: boolean) => void
+  onHide: () => void
 }

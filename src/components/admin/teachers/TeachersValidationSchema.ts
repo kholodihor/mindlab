@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { isURL } from 'validator'
 import { formatBytes } from '@/helpers/formatBytes'
 
 const MAX_FILE_SIZE = 1024 * 1024 * 3
@@ -13,13 +14,16 @@ export const TeachersFormValidation = z.object({
     .max(60, { message: 'Максимум 60 символів' })
     .regex(/^[a-zA-Zа-яА-Яє-їЄ-Ї ]*$/, { message: 'Поле повинно містити тільки літери' }),
   speciality: z
-    .string({ required_error: 'Поле повинно бути заповнене' })
+    .string()
+    .min(1, { message: 'Поле повинно бути заповнене' })
     .max(52, { message: 'Ваша спеціалізація повинна містити максимум 52 символи' }),
   about_me: z
-    .string({ required_error: 'Поле повинно бути заповнене' })
+    .string()
+    .min(1, { message: 'Поле повинно бути заповнене' })
     .max(140, { message: 'Максимум 140 символів' }),
   about_help: z
-    .string({ required_error: 'Поле повинно бути заповнене' })
+    .string()
+    .min(1, { message: 'Поле повинно бути заповнене' })
     .max(140, { message: 'Максимум 140 символів' }),
   image: z
     .any()
@@ -36,9 +40,24 @@ export const TeachersFormValidation = z.object({
       (value) => ACCEPTED_IMAGE_TYPES.includes(value?.[0]?.type),
       'Оберіть фото в форматі .jpg, .jpeg, .png або .webp.'
     ),
-  linkedinLink: z.string().url().optional(),
-  facebookLink: z.string().url().optional(),
-  telegramLink: z.string().url().optional()
+  linkedinLink: z
+    .string()
+    .optional()
+    .refine((value) => value === '' || isURL(value), {
+      message: 'Invalid URL format or empty string'
+    }),
+  facebookLink: z
+    .string()
+    .optional()
+    .refine((value) => value === '' || isURL(value), {
+      message: 'Invalid URL format or empty string'
+    }),
+  telegramLink: z
+    .string()
+    .optional()
+    .refine((value) => value === '' || isURL(value), {
+      message: 'Invalid URL format or empty string'
+    })
 })
 
 export type FormFields = z.infer<typeof TeachersFormValidation>
