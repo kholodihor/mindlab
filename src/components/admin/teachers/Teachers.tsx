@@ -2,17 +2,28 @@
 
 import styles from './Teachers.module.css'
 import { useTeachers } from '@/hooks/swr/useTeachers'
+import { useModal } from '@/stores/useModal'
 import PageTitle from '../shared/pageTitle/PageTitle'
 import TeacherCard from '../shared/teacherCard/TeacherCard'
+import ConfirmModal from '@/components/modals/confirmModal/ConfirmModal'
 
 const Teachers = () => {
   const { teachers, deleteTeacher, isLoading } = useTeachers()
+  const { openModal, closeModal } = useModal()
+
+  const isModalOpen = useModal((state) => state.isModalOpen)
+  const modalType = useModal((state) => state.modalType)
 
   const handleDelete = (id: string, imageId: string) => {
-    if (confirm('Ви впевнені, що хочете видалити цього викладача?')) {
+    openModal('confirm')
+    
+    deleteTeacher(id, imageId)
+    closeModal()
+    /*if (confirm('Ви впевнені, що хочете видалити цього викладача?')) {
       deleteTeacher(id, imageId)
       console.log(imageId)
-    }
+    }*/
+
   }
 
   if (isLoading) return <p>Loading...</p>
@@ -34,6 +45,10 @@ const Teachers = () => {
             ))}
         </div>
       </div>
+
+      {isModalOpen && modalType === 'confirm' && (
+        <ConfirmModal confirmText='Ви впевнені, що хочете видалити цього викладача?' handleClose={closeModal} onConfirm={() => {handleDelete}} />
+      )}
     </section>
   )
 }
