@@ -1,19 +1,23 @@
 import Select from 'react-select'
 import css from './Teacher.module.css'
 import { Controller } from 'react-hook-form'
+import { useTeachers } from '@/hooks/swr/useTeachers';
 
 const Teacher = ({ control, errors }: { control: any; errors: any }) => {
-  const options = [
-    { value: '1', label: 'Ana Garty' },
-    { value: '2', label: 'Ivan Struk' },
-    { value: '3', label: 'Maria KoKo' },
-    { value: '4', label: 'Ana Ana' },
-    { value: '5', label: 'Ivan Ivan' },
-    { value: '6', label: 'Maria Maria' },
-    { value: '9', label: 'Ana Ana' },
-    { value: '7', label: 'Ivan Go' },
-    { value: '8', label: 'Maria Qwerty' }
-  ]
+  const {teachers} = useTeachers()
+
+  const options= teachers?.map(({name, id}) => { return {value: id, label: name}});
+  // const options = [
+  //   { value: '1', label: 'Ana Garty' },
+  //   { value: '2', label: 'Ivan Struk' },
+  //   { value: '3', label: 'Maria KoKo' },
+  //   { value: '4', label: 'Ana Ana' },
+  //   { value: '5', label: 'Ivan Ivan' },
+  //   { value: '6', label: 'Maria Maria' },
+  //   { value: '9', label: 'Ana Ana' },
+  //   { value: '7', label: 'Ivan Go' },
+  //   { value: '8', label: 'Maria Qwerty' }
+  //  ]
 
   return (
     <div className={css.wrapper}>
@@ -24,7 +28,7 @@ const Teacher = ({ control, errors }: { control: any; errors: any }) => {
         render={({ field }) => (
           <Select
             {...field}
-            options={options}
+            options={options?.length !== 0 ? options : [{value: '1', label: 'Ana Garty'}]}
             placeholder="Марко Федоренко"
             theme={(theme) => ({
               ...theme,

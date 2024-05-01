@@ -5,6 +5,7 @@ import { addCourseValidation } from './validationSchema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import css from './AddCourse.module.css'
+import { useState } from 'react'
 import ColorInput from '../../shared/colorInput/ColorInput'
 import Admin_TextArea from '../../ui/admin_inputs/text_area/Admin_TextArea'
 import Admin_TextInput from '../../ui/admin_inputs/text_input/Admin_TextInput'
@@ -16,8 +17,14 @@ import Question from './question/Question'
 import ResetButton from '../../shared/resetButton/ResetButton'
 import SubmitButton from '../../shared/submitButton/SubmitButton'
 import { defaultValues } from './defaultValues'
+import { useCourses } from '@/hooks/swr/useCourses'
+import Swal from 'sweetalert2'
+import Loader from '../../shared/loader/Loader'
+import { addCourseData } from '../helpers/addCourseData'
 
 const AddCourse = () => {
+  const {isLoading, addCourse} = useCourses()
+  const [isProcessing, setIsProcessing] = useState(false)
   const {
     handleSubmit,
     control,
@@ -34,6 +41,25 @@ const AddCourse = () => {
     data: z.infer<typeof addCourseValidation>
   ) => {
     console.log(data)
+   
+try {
+  const dataCourse = addCourseData(data);
+console.log(dataCourse)
+  setIsProcessing(true)
+  await addCourse(dataCourse)
+  setIsProcessing(false)
+    Swal.fire({
+      title: 'Курс успішно додано',
+      icon: 'success'
+    })
+  
+} catch {
+  Swal.fire({
+    title: 'Щось пішдо не так. Спробуйту знову',
+    icon: 'error'
+  })
+}
+
   }
   return (
     <div >
@@ -76,7 +102,7 @@ const AddCourse = () => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис (max 300 символів):"
+                    title="Введіть опис (max 400 символів):"
                     errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
                     placeholder="Опис"
                     className={css.textarea}
@@ -89,7 +115,7 @@ const AddCourse = () => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис англійською (max 300 символів):"
+                    title="Введіть опис англійською (max 400 символів):"
                     errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
                     placeholder="Опис"
                   />
@@ -324,6 +350,7 @@ const AddCourse = () => {
           </div>
         </form>
       </div>
+      {(isLoading || isProcessing) && <Loader />}
     </div>
   )
 }

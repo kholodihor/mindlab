@@ -45,16 +45,16 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
         <h3 className={styles.title}>Теми курсу українською (max 18)</h3>
         <div className={styles.wrapper}>
          
-            {themesList.map(item => 
+            {themesList.map((item, index) => 
               <Controller
-              key={item}
-          name={`themesUa${item}`}
+              key={index}
+          name={`themesUa${index + 1}`}
           control={control}
           render={({ field }) => (
             <Admin_TextArea
               {...field}
               title="Введіть тему (max 60 символів): "
-              errorText={item === 1 ?
+              errorText={index === 0 ?
                 errors.themesUa1?.message && errors.themesUa1?.message : errors.themesUa2?.message && errors.themesUa2?.message}
               placeholder="Що таке політика"
             />
@@ -67,15 +67,15 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
       <div >
         <h3 className={styles.title}>Теми курсу англійською (max 18)</h3>
         <div className={styles.wrapper}>
-          {themesList.map(item =>  <Controller
+          {themesList.map((item, index) =>  <Controller
           key={item}
-          name={`themesEn${item}`}
+          name={`themesEn${index + 1}`}
           control={control}
           render={({ field }) => (
             <Admin_TextArea
               {...field}
               title="Введіть тему (max 60 символів): "
-              errorText={ item === 1 ?
+              errorText={ index === 0 ?
                 errors.themesEn1?.message && errors.themesEn1?.message : errors.themesEn2?.message && errors.themesEn2?.messag
               }
               placeholder="What is politics?"

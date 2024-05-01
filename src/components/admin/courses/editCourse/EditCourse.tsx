@@ -15,18 +15,24 @@ import ForWhom from '../addCourse/forWhom/ForWhom'
 import Question from '../addCourse/question/Question'
 import ResetButton from '../../shared/resetButton/ResetButton'
 import SubmitButton from '../../shared/submitButton/SubmitButton'
-import { coursesList } from '@/data/data'
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import { editCourseValidation } from './validationShema'
-import { defaultValue, defaultdata } from './defaultValues'
+import { defaultValue } from './defaultValues'
+import { useCourses } from '@/hooks/swr/useCourses'
+import Loader from '../../shared/loader/Loader'
 
 
 const EditCourse = ({ id }: { id: string }) => {
-    const currentCourse = coursesList.find(item => item.id === id);
-     useEffect(()=>{
-        console.log(id)
-        console.log(currentCourse, 'currentCourse')
-     }, [currentCourse, id])
+  const { isLoading, getCourseById} = useCourses();
+  const course = getCourseById(id);
+
+    // const currentCourse = courses.find(item => item.id === id);
+    //  useEffect(()=>{
+    
+    //     console.log(id)
+    //     console.log(course, 'currentCourse')
+    //  }, [id, course])
+
   const {
     handleSubmit,
     control,
@@ -35,7 +41,7 @@ const EditCourse = ({ id }: { id: string }) => {
   } = useForm<z.infer<typeof editCourseValidation>>({
     resolver: zodResolver(editCourseValidation),
     mode: 'onChange',
-    values: defaultValue(defaultdata)
+    values: defaultValue(course)
   })
 
   const colorList = ['#AAAEDF', '#8D83FF', '#2928E3', '#03AA89', '#FED1CE', '#FFECD0']
@@ -315,7 +321,7 @@ const EditCourse = ({ id }: { id: string }) => {
                 />
               </div>
           </div>
-          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, themeList: [1, 2, 3, 4], Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList: [1, 2 ], Component: Question}]}/>
+          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, themeList: course.themesUa, Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList: course.faqUa, Component: Question}]}/>
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />
@@ -323,6 +329,7 @@ const EditCourse = ({ id }: { id: string }) => {
           </div>
         </form>
       </div>
+      {isLoading && <Loader />}
     </div>
   )
 }
