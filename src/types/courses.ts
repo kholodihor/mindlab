@@ -5,10 +5,6 @@ export interface ICourse {
   tagsUa: string[]
   tagsEn: string[]
   color: string
-  // courseDescriptionUa1: string
-  // courseDescriptionUa2: string
-  // courseDescriptionEn1: string
-  // courseDescriptionEn2: string
   courseDescriptionUa1: string
   courseDurationUa: string
   courseDescriptionEn1: string
