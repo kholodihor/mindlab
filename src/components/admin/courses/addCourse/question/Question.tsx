@@ -5,11 +5,11 @@ import css from './Question.module.css'
 import Admin_TextInput from '@/components/admin/ui/admin_inputs/text_input/Admin_TextInput';
 import PlusIcon from '@/components/icons/PlusIcon';
 
-const Question = ({ control, errors, themeList }: { control: any; errors: any, themeList?: Array<number> })=> {
-    const [questionList, setThemesList] = useState<Array<number>>(themeList ? themeList : [1])
+const Question = ({ control, errors, themeList }: { control: any; errors: any, themeList?: Array<any> })=> {
+    const [questionList, setThemesList] = useState<Array<any>>(themeList ? themeList : [1])
     return (
         <div>
-            {questionList.map((item, index) => <div key={item} className={css.thumb}>
+            {questionList.map((item, index) => <div key={index} className={css.thumb}>
     <div className={css.wrapper}>
     <Controller
             name={`faqUa${index + 1}`}
@@ -31,7 +31,7 @@ const Question = ({ control, errors, themeList }: { control: any; errors: any, t
               <Admin_TextInput
                 {...field}
                 title="Часте питання:"
-                errorText={item === 0 ?
+                errorText={index === 0 ?
                     errors.faqEn1?.message && errors.faqEn1?.message : errors.faqEn2?.message && errors.faqEn2?.message}
                 placeholder="Які навички необхідні для вступу?"
               />
@@ -67,7 +67,7 @@ const Question = ({ control, errors, themeList }: { control: any; errors: any, t
           />
     </div>
 </div>)}
-<button type="button" className={css.btn} onClick={()=>setThemesList(prev => [...prev, questionList.length + 1])}>
+<button type="button" className={css.btn} onClick={()=>setThemesList(prev => [...prev, {question: '1'}])}>
     <PlusIcon color='#2928E3'/>
     <p className={css.btnText}>Додати питання</p>
 </button>

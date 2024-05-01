@@ -6,8 +6,8 @@ import styles from './Theme.module.css'
 import PlusIcon from '@/components/icons/PlusIcon';
 import { useState } from 'react';
 
-const Themes = ({ control, errors, themeList }: { control: any; errors: any, themeList?: Array<number> }) => {
-  const [themesList, setThemesList] = useState<Array<number>>(themeList ? themeList : [1])
+const Themes = ({ control, errors, themeList }: { control: any; errors: any, themeList?: Array<string> }) => {
+  const [themesList, setThemesList] = useState<Array<string>>(themeList ? themeList : ['1'])
  
   return (
     <div className={css.container2}>
@@ -61,7 +61,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
           )}
         />
             )}
-         {themesList.length <= 17 &&  <button type="button" onClick={()=>setThemesList(prev => [...prev, themesList.length + 1])} className={styles.btn}><PlusIcon  color='#AAAEDF'/></button>}
+         {themesList.length <= 17 &&  <button type="button" onClick={()=>setThemesList(prev => [...prev, '1' ])} className={styles.btn}><PlusIcon  color='#AAAEDF'/></button>}
         </div>
       </div>
       <div >
