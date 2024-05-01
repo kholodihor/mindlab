@@ -4,14 +4,21 @@ export interface ICourse {
   descriptionEn: string
   tagsUa: string[]
   tagsEn: string[]
+  color: string
+  // courseDescriptionUa1: string
+  // courseDescriptionUa2: string
+  // courseDescriptionEn1: string
+  // courseDescriptionEn2: string
   courseDescriptionUa1: string
-  courseDescriptionUa2: string
+  courseDurationUa: string
   courseDescriptionEn1: string
-  courseDescriptionEn2: string
+  courseDurationEn: string
   startDateUa: string
   startDateEn: string
   priceUa: string
   priceEn: string
+  fullpriceUa: string
+  fullpriceEn: string
   numberOfPlacesUa: string
   numberOfPlacesEn: string
   experienceUa: string
