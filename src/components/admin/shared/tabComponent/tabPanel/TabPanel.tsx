@@ -10,8 +10,8 @@ type TabPanelProps = {
     title: string
     control: any
     errors: any
-    themeList?: Array<number>
-    Component: FC<{ index: number, control: any, errors: any, themeList?: Array<number> }>;
+    themeList?: Array<any>
+    Component: FC<{ index: number, control: any, errors: any, themeList?: Array<any> }>;
   }[]
 }
 

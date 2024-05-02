@@ -15,18 +15,22 @@ import ForWhom from '../addCourse/forWhom/ForWhom'
 import Question from '../addCourse/question/Question'
 import ResetButton from '../../shared/resetButton/ResetButton'
 import SubmitButton from '../../shared/submitButton/SubmitButton'
-import { coursesList } from '@/data/data'
-import { useEffect } from 'react'
+import { useState } from 'react'
 import { editCourseValidation } from './validationShema'
-import { defaultValue, defaultdata } from './defaultValues'
+import { defaultValue } from './defaultValues'
+import { useCourses } from '@/hooks/swr/useCourses'
+import Loader from '../../shared/loader/Loader'
+import Swal from 'sweetalert2'
+import { addCourseData } from '../helpers/addCourseData'
+import { useRouter } from 'next/navigation'
 
 
 const EditCourse = ({ id }: { id: string }) => {
-    const currentCourse = coursesList.find(item => item.id === id);
-     useEffect(()=>{
-        console.log(id)
-        console.log(currentCourse, 'currentCourse')
-     }, [currentCourse, id])
+  const { isLoading, getCourseById, updateCourse, isError} = useCourses();
+  const [isProcessing, setIsProcessing] = useState(false)
+  const course = getCourseById(id);
+  const router = useRouter()
+
   const {
     handleSubmit,
     control,
@@ -35,7 +39,7 @@ const EditCourse = ({ id }: { id: string }) => {
   } = useForm<z.infer<typeof editCourseValidation>>({
     resolver: zodResolver(editCourseValidation),
     mode: 'onChange',
-    values: defaultValue(defaultdata)
+    values: defaultValue(course)
   })
 
   const colorList = ['#AAAEDF', '#8D83FF', '#2928E3', '#03AA89', '#FED1CE', '#FFECD0']
@@ -44,6 +48,26 @@ const EditCourse = ({ id }: { id: string }) => {
     data: z.infer<typeof editCourseValidation>
   ) => {
     console.log(data)
+   
+      const dataCourse = addCourseData(data);
+    console.log(dataCourse)
+      setIsProcessing(true)
+      await updateCourse(dataCourse, id)
+      setIsProcessing(false)
+      if(isError) {
+        return Swal.fire({
+           title: 'Щось пішдо не так. Спробуйту знову',
+           icon: 'error'
+         })
+        }
+        Swal.fire({
+          title: 'Курс успішно оновлено',
+          icon: 'success'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            router.push('/admin')
+          }
+        })
   }
   return (
     <div >
@@ -298,8 +322,13 @@ const EditCourse = ({ id }: { id: string }) => {
                 control={control}
                 render={({field})=> <Admin_TextInput {...field} title='Дата початку курсу:' placeholder='23 March 2024' errorText={errors.startDateEn?.message && errors.startDateEn?.message} />}
                 />
+                 <Controller
+                name="courseDurationEn"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Тривалість курсу:' placeholder='2 months' errorText={errors.courseDurationEn?.message && errors.courseDurationEn?.message} />}
+                />
               </div>
-              <div className={`${css.flex__element} ${css.wrapper__price}`}>
+              <div className={`${css.flex__element} ${css.wrapper__places}`}>
                 <Controller
                 name="numberOfPlacesEn"
                 control={control}
@@ -313,16 +342,22 @@ const EditCourse = ({ id }: { id: string }) => {
                 control={control}
                 render={({field})=> <Admin_TextInput {...field} title='Вартість курсу:' placeholder='UAH 700/month' errorText={errors.priceEn?.message && errors.priceEn?.message} />}
                 />
+                 <Controller
+                name="fullpriceEn"
+                control={control}
+                render={({field})=> <Admin_TextInput {...field} title='Повна вартість курсу:' placeholder='UAH 1200' errorText={errors.fullpriceEn?.message && errors.fullpriceEn?.message} />}
+                />
               </div>
           </div>
-          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, themeList: [1, 2, 3, 4], Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList: [1, 2 ], Component: Question}]}/>
+          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, themeList: course?.themesUa , Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList: course?.faqUa, Component: Question}]}/>
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />
-            <SubmitButton text='Додати курс' />
+            <SubmitButton text='Застосувати зміни' />
           </div>
         </form>
       </div>
+      {(isLoading || isProcessing) && <Loader />}
     </div>
   )
 }
