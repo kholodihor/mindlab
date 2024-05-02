@@ -46,7 +46,7 @@ export const editCourseValidation = z.object({
       courseDescriptionUa1: z.string({required_error: 'Заповніть поле'})
       .nonempty('Заповніть поле')
       .min(2, 'Текст має містити мінімум 2 символи')
-      .max(550, 'Текст має містити максимум 550 символи'),
+      .max(900, 'Текст має містити максимум 900 символи'),
       startDateUa: z.string({required_error: 'Заповніть поле'})
       .nonempty('Заповніть поле')
       .min(2, 'Текст має містити мінімум 2 символи')
@@ -66,7 +66,7 @@ export const editCourseValidation = z.object({
       courseDescriptionEn1: z.string({required_error: 'Заповніть поле'})
       .nonempty('Заповніть поле')
       .min(2, 'Текст має містити мінімум 2 символи')
-      .max(550, 'Текст має містити максимум 550 символи'),
+      .max(900, 'Текст має містити максимум 900 символи'),
       startDateEn: z.string({required_error: 'Заповніть поле'})
       .nonempty('Заповніть поле')
       .min(2, 'Текст має містити мінімум 2 символи')

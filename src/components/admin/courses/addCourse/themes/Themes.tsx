@@ -68,7 +68,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
         <h3 className={styles.title}>Теми курсу англійською (max 18)</h3>
         <div className={styles.wrapper}>
           {themesList.map((item, index) =>  <Controller
-          key={item}
+          key={index}
           name={`themesEn${index + 1}`}
           control={control}
           render={({ field }) => (

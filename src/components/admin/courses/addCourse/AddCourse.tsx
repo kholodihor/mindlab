@@ -21,10 +21,12 @@ import { useCourses } from '@/hooks/swr/useCourses'
 import Swal from 'sweetalert2'
 import Loader from '../../shared/loader/Loader'
 import { addCourseData } from '../helpers/addCourseData'
+import { useRouter } from 'next/navigation'
 
 const AddCourse = () => {
   const {isLoading, addCourse} = useCourses()
   const [isProcessing, setIsProcessing] = useState(false)
+  const router = useRouter()
   const {
     handleSubmit,
     control,
@@ -51,6 +53,10 @@ console.log(dataCourse)
     Swal.fire({
       title: 'Курс успішно додано',
       icon: 'success'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        router.push('/admin')
+      }
     })
   
 } catch {

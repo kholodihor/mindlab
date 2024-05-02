@@ -8,10 +8,12 @@ import Link from 'next/link'
 import Swal from 'sweetalert2'
 import { useCourses } from '@/hooks/swr/useCourses'
 import Loader from '../shared/loader/Loader'
+import { useRouter } from 'next/navigation'
 
 const Courses = () => {
   const {courses, deleteCourse, isLoading} = useCourses();
-  const [isProcessing, setIsProcessing] = useState(false)
+  const [isProcessing, setIsProcessing] = useState(false);
+  const router = useRouter();
 
   const handleDeleteCourse = async (id: string) => {
     setIsProcessing(true)
@@ -20,7 +22,13 @@ const Courses = () => {
     Swal.fire({
       title: 'Курс успішно видалено',
       icon: 'success'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        router.refresh()
+      }
     })
+    
+
   }
 
   const handleDelete = (id: string) => {

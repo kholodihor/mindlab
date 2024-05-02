@@ -22,12 +22,14 @@ import { useCourses } from '@/hooks/swr/useCourses'
 import Loader from '../../shared/loader/Loader'
 import Swal from 'sweetalert2'
 import { addCourseData } from '../helpers/addCourseData'
+import { useRouter } from 'next/navigation'
 
 
 const EditCourse = ({ id }: { id: string }) => {
   const { isLoading, getCourseById, updateCourse, isError} = useCourses();
   const [isProcessing, setIsProcessing] = useState(false)
   const course = getCourseById(id);
+  const router = useRouter()
 
   const {
     handleSubmit,
@@ -61,6 +63,10 @@ const EditCourse = ({ id }: { id: string }) => {
         Swal.fire({
           title: 'Курс успішно оновлено',
           icon: 'success'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            router.push('/admin')
+          }
         })
   }
   return (
@@ -347,7 +353,7 @@ const EditCourse = ({ id }: { id: string }) => {
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />
-            <SubmitButton text='Додати курс' />
+            <SubmitButton text='Застосувати зміни' />
           </div>
         </form>
       </div>
