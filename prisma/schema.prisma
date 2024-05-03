@@ -17,25 +17,36 @@ model Testimonial{
 }
 
 model Teacher{
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
-  speciality  String
-  imageUrl    String
-  imageId     String
-  linkedinLink String
-  facebookLink String
-  telegramLink String
-  about_me    String
-  about_help  String
-  createdAt   DateTime  @default(now()) 
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  speciality    String
+  imageUrl      String
+  imageId       String
+  linkedinLink  String
+  facebookLink  String
+  telegramLink  String
+  about_me      String
+  about_help    String
+  createdAt     DateTime  @default(now()) 
 }
 
 model Document{
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   fileName    String
-  fileUrl    String
-  fileId     String
+  fileUrl     String
+  fileId      String
   createdAt   DateTime  @default(now()) 
+}
+
+model Contact{
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  value         String
+  icon          String
+  instagramLink String
+  facebookLink  String
+  telegramLink  String
+  createdAt     DateTime  @default(now()) 
 }
 
 model Course{
