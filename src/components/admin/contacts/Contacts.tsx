@@ -53,57 +53,59 @@ const Contacts = () => {
       <PageTitle title="контакти" isSettingsButtonDisplayed isAddButtonDisplayed={false} />
       <div className={styles.contacts}>
         <div className={styles.contact_list}>
-          {Object.keys(contacts[0])
-            .filter((name) => name !== 'id' && name !== 'createdAt')
-            .map((name, index) => (
-              <div key={index} className={styles.contact_item}>
-                <div className={styles.contact_desc}>
-                  <div className={styles.contact_title}>
-                    {name === 'email' && (
-                      <span className={styles.contact_icon}>
-                        <MailIcon />
-                      </span>
-                    )}
-                    {name === 'phone' && (
-                      <span className={styles.contact_icon}>
-                        <PhoneIcon />
-                      </span>
-                    )}
-                    {name === 'telegram' && (
-                      <span className={styles.contact_icon}>
-                        <TelegramIcon />
-                      </span>
-                    )}
-                    {name === 'instagram' && (
-                      <span className={styles.contact_icon}>
-                        <InstagramIcon />
-                      </span>
-                    )}
-                    {name === 'facebook' && (
-                      <span className={styles.contact_icon}>
-                        <FacebookIcon />
-                      </span>
-                    )}
-                    <h4>{translateContactsNames(name)}</h4>
+          {contacts &&
+            Array.isArray(contacts) &&
+            Object.keys(contacts[0])
+              .filter((name) => name !== 'id' && name !== 'createdAt')
+              .map((name, index) => (
+                <div key={index} className={styles.contact_item}>
+                  <div className={styles.contact_desc}>
+                    <div className={styles.contact_title}>
+                      {name === 'email' && (
+                        <span className={styles.contact_icon}>
+                          <MailIcon />
+                        </span>
+                      )}
+                      {name === 'phone' && (
+                        <span className={styles.contact_icon}>
+                          <PhoneIcon />
+                        </span>
+                      )}
+                      {name === 'telegram' && (
+                        <span className={styles.contact_icon}>
+                          <TelegramIcon />
+                        </span>
+                      )}
+                      {name === 'instagram' && (
+                        <span className={styles.contact_icon}>
+                          <InstagramIcon />
+                        </span>
+                      )}
+                      {name === 'facebook' && (
+                        <span className={styles.contact_icon}>
+                          <FacebookIcon />
+                        </span>
+                      )}
+                      <h4>{translateContactsNames(name)}</h4>
+                    </div>
+                    <p className={styles.contact_input}>{contacts[0][name]}</p>
                   </div>
-                  <p className={styles.contact_input}>{contacts[0][name]}</p>
+                  <div className={styles.btn_box}>
+                    <button
+                      className={`${styles.btn} ${styles.btn_delete}`}
+                      onClick={() => handleDelete(contacts[0].id, name, contacts[0])}
+                    >
+                      <DeleteIcon />
+                    </button>
+                    <Link
+                      className={`${styles.btn} ${styles.btn_edit}`}
+                      href={`/admin/contacts/edit/${name}`}
+                    >
+                      <EditIcon />
+                    </Link>
+                  </div>
                 </div>
-                <div className={styles.btn_box}>
-                  <button
-                    className={`${styles.btn} ${styles.btn_delete}`}
-                    onClick={() => handleDelete(contacts[0].id, name, contacts[0])}
-                  >
-                    <DeleteIcon />
-                  </button>
-                  <Link
-                    className={`${styles.btn} ${styles.btn_edit}`}
-                    href={`/admin/contacts/edit/${name}`}
-                  >
-                    <EditIcon />
-                  </Link>
-                </div>
-              </div>
-            ))}
+              ))}
         </div>
       </div>
       {(isLoading || isProcessing) && <Loader />}
