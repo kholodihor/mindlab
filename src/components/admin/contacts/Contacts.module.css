@@ -1,0 +1,84 @@
+.wrapper {
+  position: relative;
+}
+
+.contacts {
+  padding: 40px 65px;
+}
+
+.contact_list {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact_item {
+  width: 320px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 6px 8px -6px rgba(167, 129, 247, 0.2);
+  background-color: var(--white);
+}
+
+.contact_icon {
+  width: 24px;
+  height: 24px;
+}
+
+.contact_title {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact_title h4 {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.contact_input {
+  font-weight: 400;
+  font-size: 16px;
+  padding: 10px 15px;
+  border-bottom: 1px solid var(--black);
+}
+
+.btn_box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_delete {
+  background-color: #da3c3c;
+}
+
+.btn_delete:active {
+  background-color: #922828;
+}
+
+.btn_edit {
+  background-color: var(--blue);
+}
+
+.btn_edit:active {
+  background-color: #0000a7;
+}

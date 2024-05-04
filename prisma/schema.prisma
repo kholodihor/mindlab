@@ -33,51 +33,32 @@ model Teacher{
 model Document{
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   fileName    String
-  fileUrl    String
-  fileId     String
+  fileUrl     String
+  fileId      String
   createdAt   DateTime  @default(now()) 
 }
 
-// model Course{
-//   id             String    @id @default(auto()) @map("_id") @db.ObjectId
-//   title          String
-//   descriptionUa  String
-//   descriptionEn  String
-//   tagsUa         String[]
-//   tagsEn         String[]
-//   courseDescriptionUa1 String
-//   courseDescriptionUa2 String
-//   courseDescriptionEn1 String
-//   courseDescriptionEn2 String
-//   startDateUa    String
-//   startDateEn    String
-//   priceUa        String
-//   priceEn        String
-//   numberOfPlacesUa String
-//   numberOfPlacesEn String
-//   experienceUa    String
-//   experienceEn    String
-//   languageLevelUa String
-//   languageLevelEn String
-//   timeForLearningUa String
-//   timeForLearningEn String
-//   forWhomTitleUa1     String
-//   forWhomTitleUa2     String
-//   forWhomDescriptionUa1     String
-//   forWhomDescriptionUa2     String
-//   forWhomTitleEn1     String
-//   forWhomTitleEn2     String
-//   forWhomDescriptionEn1     String
-//   forWhomDescriptionEn2     String
-//   themeTitleUa   String
-//   themeTitleEn   String
-//   themesUa       String[]
-//   themesEn       String[]
-//   faqUa          FAQUA[]
-//   faqEn          FAQEN[]
-//   teacherIds     String[]  @db.ObjectId 
-//   createdAt   DateTime  @default(now()) 
+// model Contact{
+//   id            String    @id @default(auto()) @map("_id") @db.ObjectId
+//   name          String
+//   value         String
+//   icon          String
+//   instagramLink String
+//   facebookLink  String
+//   telegramLink  String
+//   createdAt     DateTime  @default(now()) 
 // }
+
+model Contacts{
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  email         String
+  phone         String
+  telegram      String
+  instagram     String
+  facebook      String
+  createdAt     DateTime  @default(now()) 
+}
+
 
 model Course{
   id             String    @id @default(auto()) @map("_id") @db.ObjectId
