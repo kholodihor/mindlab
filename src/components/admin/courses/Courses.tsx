@@ -11,9 +11,9 @@ import Loader from '../shared/loader/Loader'
 import { useRouter } from 'next/navigation'
 
 const Courses = () => {
-  const {courses, deleteCourse, isLoading} = useCourses();
-  const [isProcessing, setIsProcessing] = useState(false);
-  const router = useRouter();
+  const { courses, deleteCourse, isLoading } = useCourses()
+  const [isProcessing, setIsProcessing] = useState(false)
+  const router = useRouter()
 
   const handleDeleteCourse = async (id: string) => {
     setIsProcessing(true)
@@ -27,8 +27,6 @@ const Courses = () => {
         router.refresh()
       }
     })
-    
-
   }
 
   const handleDelete = (id: string) => {
@@ -47,40 +45,53 @@ const Courses = () => {
     })
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log('courses=>', courses)
     console.log('isLoading=>', isLoading)
   }, [courses, isLoading])
 
-  return <>
-    <PageTitle title='курси' isAddButtonDisplayed={true} isSettingsButtonDisplayed={true} text='Додати курс'  href='/courses/add'/>
+  return (
+    <section className={styles.section}>
+      <PageTitle
+        title="курси"
+        isAddButtonDisplayed={true}
+        isSettingsButtonDisplayed={true}
+        text="Додати курс"
+        href="/courses/add"
+      />
 
-    <main className={styles.main_content}>
-      <div className={styles.wrapper}>
-        <ul className={styles.courses}>
-        {courses?.map(
-            ({ title, courseDescriptionUa1, id }) => (
+      <div className={styles.main_content}>
+        <div className={styles.wrapper}>
+          <ul className={styles.courses}>
+            {courses?.map(({ title, courseDescriptionUa1, id }) => (
               <li className={styles.courses_card} key={title}>
                 <div className={styles.course_content}>
                   <h3 className={styles.course_title}>{title}</h3>
                   <p className={styles.courses_description}>{courseDescriptionUa1}</p>
                 </div>
                 <div className={styles.button_block}>
-                  <Link href={`/admin/courses/edit/${id}`} className={`${styles.button_edit} ${styles.link_edit}`}>
+                  <Link
+                    href={`/admin/courses/edit/${id}`}
+                    className={`${styles.button_edit} ${styles.link_edit}`}
+                  >
                     <EditIcon />
                   </Link>
-                  <button type='button' className={styles.button_delete} onClick={()=>handleDelete(id)}>
+                  <button
+                    type="button"
+                    className={styles.button_delete}
+                    onClick={() => handleDelete(id)}
+                  >
                     <DeleteIcon />
                   </button>
                 </div>
               </li>
-            )
-          )}
-        </ul>
+            ))}
+          </ul>
+        </div>
       </div>
-    </main>
-    {(isLoading || isProcessing) && <Loader />}
-  </>
+      {(isLoading || isProcessing) && <Loader />}
+    </section>
+  )
 }
 
 export default Courses

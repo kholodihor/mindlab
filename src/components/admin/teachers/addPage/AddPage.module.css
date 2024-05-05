@@ -4,7 +4,7 @@
 
 .input_group {
   background-color: var(--white);
-  box-shadow: 0 2px 8px #A781F733;
+  box-shadow: 0 2px 8px #a781f733;
   padding: 40px 20px;
   border-radius: 16px;
 }
@@ -55,7 +55,6 @@
   position: relative;
 }
 
-
 .image_preview_title {
   font-weight: 600;
   font-size: 16px;
@@ -64,6 +63,7 @@
 
 .image {
   border-radius: 1rem;
+  object-fit: cover;
 }
 
 .mask {

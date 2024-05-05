@@ -1,3 +1,7 @@
+.section {
+  position: relative;
+}
+
 .wrapper {
   margin: 0 auto;
   padding: 0 65px;
@@ -21,7 +25,7 @@
   width: calc(33.3% - 20px);
   height: 155px;
   border-radius: 16px;
-  box-shadow: 2px 0 8px rgba(167, 129, 247, .2);
+  box-shadow: 2px 0 8px rgba(167, 129, 247, 0.2);
   overflow: hidden;
 }
 
@@ -58,23 +62,23 @@
   justify-content: center;
   border-radius: 50%;
   border: none;
-  box-shadow: 2px 0 8px rgba(167, 129, 247, .2);
+  box-shadow: 2px 0 8px rgba(167, 129, 247, 0.2);
   cursor: pointer;
   transition: background-color 0.3s ease-in;
 }
 
 .link_edit {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    border: none;
-    box-shadow: 2px 0 8px rgba(167, 129, 247, .2);
-    cursor: pointer;
-    transition: background-color 0.3s ease-in;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 2px 0 8px rgba(167, 129, 247, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in;
 }
 
 .button_edit {
@@ -85,13 +89,13 @@
 }
 
 .button_edit:active {
-  background-color: #0000A7;
+  background-color: #0000a7;
 }
 
 .button_delete {
   bottom: 20px;
   right: 20px;
-  background-color: #DA3C3C;
+  background-color: #da3c3c;
   color: var(--white);
 }
 

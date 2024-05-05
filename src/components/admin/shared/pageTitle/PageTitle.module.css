@@ -1,12 +1,12 @@
 .container {
   min-height: 80px;
+  width: 100%;
   max-width: 1120px;
-  background-color: #E6EAFF;
+  background-color: #e6eaff;
   padding: 20px 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /*margin-bottom: 40px;*/
   box-shadow: 0 6px 8px -6px rgba(167, 129, 247, 0.2);
 }
 

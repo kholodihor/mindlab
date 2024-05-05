@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   gap: 10px;
   border: 1px solid var(--violet-light);
   border-radius: 1rem;
@@ -16,6 +17,7 @@
   width: 215px;
   height: 235px;
   border-radius: 1rem;
+  object-fit: cover;
   z-index: 0;
 }
 
@@ -26,11 +28,12 @@
   width: calc(100% - 15px);
   height: 235px;
   border-radius: 1rem;
+  object-fit: cover;
 }
 
 .info {
-  font-family: Fixel Display;
   color: var(--black);
+  width: 100%;
 }
 
 .name {
@@ -67,7 +70,7 @@
 }
 
 .btn_delete {
-  background-color: #DA3C3C;
+  background-color: #da3c3c;
 }
 
 .btn_delete:active {
@@ -79,5 +82,5 @@
 }
 
 .btn_edit:active {
-  background-color: #0000A7;
+  background-color: #0000a7;
 }
