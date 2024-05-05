@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  width: 100%;
 }
 
 .teachers_content {
@@ -8,8 +9,9 @@
 }
 
 .teachers_list {
-  display: grid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: auto;
 }
