@@ -43,6 +43,7 @@ const ChangePassword = () => {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsProcessing(true)
+    console.log(data)
     //await changePassword(data)
     setIsProcessing(false)
     router.back()
