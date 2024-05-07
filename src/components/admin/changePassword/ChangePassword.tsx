@@ -8,7 +8,7 @@ import Loader from '../shared/loader/Loader'
 import Admin_TextInput from '../ui/admin_inputs/text_input/Admin_TextInput'
 import { useRouter } from 'next/navigation'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
-import { ChangePasswordValidation, FormFields } from './changePasswordValidation'
+import { ChangePasswordValidation, FormFields } from './ChangePasswordShemaValidation'
 import { useModal } from '@/stores/useModal'
 import ConfirmModal from '@/components/modals/confirmModal/ConfirmModal'
 
