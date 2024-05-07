@@ -26,7 +26,7 @@ const ConfirmModal = ({ confirmText, handleClose, onConfirm }: ConfirmModalProps
             Скасувати
           </button>
           <button className={styles.btn_confirm} onClick={onConfirm}>
-            Підтвердити
+            Змінити пароль
           </button>
         </div>
       </div>
