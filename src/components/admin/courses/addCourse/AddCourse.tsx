@@ -47,9 +47,8 @@ const AddCourse = () => {
 try {
   const dataCourse = addCourseData(data);
   setIsProcessing(true)
-  const response = await addCourse(dataCourse)
+ await addCourse(dataCourse)
   setIsProcessing(false)
-  if(response.status === 200) {
     Swal.fire({
       title: 'Курс успішно додано',
       icon: 'success'
@@ -58,15 +57,13 @@ try {
         router.push('/admin')
       }
     })
-  } }
+   }
   catch {
   Swal.fire({
     title: 'Щось пішдо не так. Спробуйту знову',
     icon: 'error'
   })
 }
-
-
   }
   return (
     <div >
