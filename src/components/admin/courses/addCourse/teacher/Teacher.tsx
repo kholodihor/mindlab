@@ -3,10 +3,10 @@ import css from './Teacher.module.css'
 import { Controller } from 'react-hook-form'
 import { useTeachers } from '@/hooks/swr/useTeachers';
 
-const Teacher = ({ control, errors }: { control: any; errors: any }) => {
+const Teacher = ({ control, errors, speciality }: { control: any; errors: any, speciality?: string }) => {
   const {teachers} = useTeachers()
 
-  const options= teachers?.map(({name, id}) => { return {value: id, label: name}});
+  const options= speciality ? teachers?.filter(item => item.speciality === speciality)?.map(({name, id}) => { return {value: id, label: name}}) : teachers?.map(({name, id}) => { return {value: id, label: name}});
 
   return (
     <div className={css.wrapper}>

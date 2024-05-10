@@ -30,7 +30,7 @@ const AddCourse = () => {
   const {
     handleSubmit,
     control,
-    // watch,
+    watch,
     formState: { errors, isDirty, isValid }
   } = useForm<z.infer<typeof addCourseValidation>>({
     resolver: zodResolver(addCourseValidation),
@@ -46,9 +46,8 @@ const AddCourse = () => {
    
 try {
   const dataCourse = addCourseData(data);
-console.log(dataCourse)
   setIsProcessing(true)
-  await addCourse(dataCourse)
+ await addCourse(dataCourse)
   setIsProcessing(false)
     Swal.fire({
       title: 'Курс успішно додано',
@@ -58,14 +57,13 @@ console.log(dataCourse)
         router.push('/admin')
       }
     })
-  
-} catch {
+   }
+  catch {
   Swal.fire({
     title: 'Щось пішдо не так. Спробуйту знову',
     icon: 'error'
   })
 }
-
   }
   return (
     <div >
@@ -348,7 +346,7 @@ console.log(dataCourse)
                 />
               </div>
           </div>
-          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, Component: Question}]}/>
+          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, speciality: watch('title') ? watch('title') : '', Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, Component: Question}]}/>
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />

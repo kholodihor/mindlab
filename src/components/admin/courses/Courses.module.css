@@ -25,6 +25,7 @@
   width: calc(33.3% - 20px);
   height: 155px;
   border-radius: 16px;
+  background-color: var(--white);
   box-shadow: 2px 0 8px rgba(167, 129, 247, 0.2);
   overflow: hidden;
 }

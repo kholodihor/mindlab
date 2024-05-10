@@ -15,7 +15,7 @@ import ForWhom from '../addCourse/forWhom/ForWhom'
 import Question from '../addCourse/question/Question'
 import ResetButton from '../../shared/resetButton/ResetButton'
 import SubmitButton from '../../shared/submitButton/SubmitButton'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { editCourseValidation } from './validationShema'
 import { defaultValue } from './defaultValues'
 import { useCourses } from '@/hooks/swr/useCourses'
@@ -26,7 +26,7 @@ import { useRouter } from 'next/navigation'
 
 
 const EditCourse = ({ id }: { id: string }) => {
-  const { isLoading, getCourseById, updateCourse, isError} = useCourses();
+  const { isLoading, getCourseById, updateCourse } = useCourses();
   const [isProcessing, setIsProcessing] = useState(false)
   const course = getCourseById(id);
   const router = useRouter()
@@ -42,6 +42,10 @@ const EditCourse = ({ id }: { id: string }) => {
     values: defaultValue(course)
   })
 
+  useEffect(()=> {
+    console.log('id=>', id)
+    console.log(course)
+  }, [id, course])
   const colorList = ['#AAAEDF', '#8D83FF', '#2928E3', '#03AA89', '#FED1CE', '#FFECD0']
 
   const onSubmit: SubmitHandler<z.infer<typeof editCourseValidation>> = async (
@@ -51,23 +55,25 @@ const EditCourse = ({ id }: { id: string }) => {
    
       const dataCourse = addCourseData(data);
     console.log(dataCourse)
+    try{
       setIsProcessing(true)
-      await updateCourse(dataCourse, id)
-      setIsProcessing(false)
-      if(isError) {
-        return Swal.fire({
-           title: 'Щось пішдо не так. Спробуйту знову',
-           icon: 'error'
+       await updateCourse(dataCourse, id)
+       setIsProcessing(false)
+         Swal.fire({
+           title: 'Курс успішно оновлено',
+           icon: 'success'
+         }).then((result) => {
+           if (result.isConfirmed) {
+             router.push('/admin')
+           }
          })
-        }
-        Swal.fire({
-          title: 'Курс успішно оновлено',
-          icon: 'success'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            router.push('/admin')
-          }
-        })
+    } catch (error){
+      Swal.fire({
+        title: 'Щось пішло не так. Спробуйте знову',
+        icon: 'error'
+      })
+    }
+     
   }
   return (
     <div >
@@ -349,7 +355,7 @@ const EditCourse = ({ id }: { id: string }) => {
                 />
               </div>
           </div>
-          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, themeList: course?.themesUa , Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList: course?.faqUa, Component: Question}]}/>
+          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, themeList: course?.themesUa , Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, speciality: course?.title, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList: course?.faqUa, Component: Question}]}/>
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />

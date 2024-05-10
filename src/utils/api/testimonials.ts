@@ -21,3 +21,33 @@ export const createTestimonial = async (testimonial: TTestimonial) => {
     console.log(error)
   }
 }
+
+export const getTestimonialById = async (id: string) => {
+  try {
+    const response = await axios.get(`/testimonials/${id}`)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const deleteTestimonial = async (id: string) => {
+  try {
+    const response = await axios.delete(`/testimonials/${id}`)
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const updateTestimonial = async (testimonialData: TTestimonial, id: string) => {
+  try {
+    const response = await axios.patch<TTestimonialResponse>(`/testimonials/${id}`, testimonialData, {
+      headers: { 'Content-Type': 'application/json' }
+    })
+    return response.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+

@@ -4,6 +4,7 @@
     background-color: var(--white);
     border-radius: 16px;
     margin-bottom: 150px;
+    box-shadow: 2px 0 8px rgba(167, 129, 247, 0.2);
 }
 
 .title {
