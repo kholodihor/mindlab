@@ -1,0 +1,36 @@
+.container {
+    padding: 40px 64px;
+}
+
+.form {
+padding: 40px 64px;
+display: flex;
+gap: 20px;
+}
+
+.leftPart {
+    width: 316px;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 16px;
+    gap: 40px;
+    background-color: var(--white);
+}
+
+.rightPart {
+    width: 655px;
+    padding: 40px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border-radius: 16px;
+    gap: 40px;
+    background-color: var(--white);
+}
+
+.btt__form {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
