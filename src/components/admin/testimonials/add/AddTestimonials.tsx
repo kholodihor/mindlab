@@ -1,26 +1,24 @@
 'use client'
 
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
-import { addTestimonialsValidation } from './validationSchema';
+import { testimonialScheme } from '@/components/testimonials/testimonial_form/validationSchema'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react';
 import Swal from 'sweetalert2'
 import Admin_TextInput from '../../ui/admin_inputs/text_input/Admin_TextInput';
-import ColorInput from '../../shared/colorInput/ColorInput';
 import css from './AddTestimonials.module.css'
 import PageTitle from '../../shared/pageTitle/PageTitle';
 import ResetButton from '../../shared/resetButton/ResetButton';
 import SubmitButton from '../../shared/submitButton/SubmitButton';
-import { defaultValue } from './defaultValue';
+import { defaultValues } from '../../../testimonials/testimonial_form/defaultValues';
 import Admin_TextArea from '../../ui/admin_inputs/text_area/Admin_TextArea';
 import { useTestimonials } from '@/hooks/swr/useTestimonials';
 import { useRouter } from 'next/navigation';
 import Loader from '../../shared/loader/Loader';
 
 const AddTestimonials = ()=> {
-    const colorList = ['#AAAEDF', '#8D83FF', '#2928E3', '#03AA89', '#FED1CE', '#FFECD0']
-    const {addNewTestimonial, isLoading, isError} = useTestimonials();
+    const {addNewTestimonial, isLoading } = useTestimonials();
     const [isProcessing, setIsProcessing] = useState(false)
     const router = useRouter()
 
@@ -28,35 +26,37 @@ const AddTestimonials = ()=> {
         handleSubmit,
         control,
         formState: { errors, isDirty, isValid }
-      } = useForm<z.infer<typeof addTestimonialsValidation>>({
-        resolver: zodResolver(addTestimonialsValidation),
+      } = useForm<z.infer<typeof testimonialScheme>>({
+        resolver: zodResolver(testimonialScheme),
         mode: 'onChange',
-        defaultValues: defaultValue
+        defaultValues: defaultValues
       })
 
-      const onSubmit: SubmitHandler<z.infer<typeof addTestimonialsValidation>> = async (
-        data: z.infer<typeof addTestimonialsValidation>
+      const onSubmit: SubmitHandler<z.infer<typeof testimonialScheme>> = async (
+        data: z.infer<typeof testimonialScheme>
       ) => {
         console.log(data)
        
       setIsProcessing(true)
-      await addNewTestimonial(data)
+    const response =   await addNewTestimonial(data)
       setIsProcessing(false)
-      if(isError) {
-        Swal.fire({
-            title: 'Щось пішдо не так. Спробуйту знову',
-            icon: 'error'
-          })
-          return
+      if(!response) {
+        return Swal.fire({
+          title: 'Щось пішдо не так. Спробуйте знову',
+          icon: 'error'
+        })
       }
+      if(response.status === 200) {
         Swal.fire({
           title: 'Відгук успішно додано',
           icon: 'success'
         }).then((result) => {
           if (result.isConfirmed) {
-            // router.push('/admin/testimonials')
+            router.push('/admin/testimonials')
           }
         })
+      }
+     
       }
     return (
         <div>
@@ -65,63 +65,41 @@ const AddTestimonials = ()=> {
             <div className={css.form}>
             <div className={css.leftPart}>
               <Controller
-                name="nameUa"
+                name="name"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
                     title="Введіть ім’я користувача:"
-                    errorText={errors.nameUa?.message && errors.nameUa?.message}
+                    errorText={errors.name?.message && errors.name?.message}
                     placeholder="Iм’я"
                   />
                 )}
               />
-               <Controller
-                name="nameEn"
+            <Controller
+                name="email"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
-                    title="Ім’я користувача англійською:"
-                    errorText={errors.nameEn?.message && errors.nameEn?.message}
-                    placeholder="Iм’я"
-                  />
-                )}
-              />
-               <Controller
-                name="color"
-                control={control}
-                render={({ field }) => (
-                  <ColorInput
-                    {...field}
-                    title="Оберіть колір аватарки:"
-                    colorList={colorList}
-                    errorText={errors.color?.message && errors.color?.message}
+                    type='email'
+                    title="Введіть email"
+                    errorText={errors.email?.message && errors.email?.message}
+                    placeholder='email'
                   />
                 )}
               />
               </div>
               <div className={css.rightPart}>
-              <Controller
-                name="messageUa"
+              
+                <Controller
+                name="message"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
                     title="Введіть відгук (max 350 символів):"
-                    errorText={errors.messageUa?.message && errors.messageUa?.message}
-                    placeholder='Відгук'
-                  />
-                )}
-              />
-               <Controller
-                name="messageEn"
-                control={control}
-                render={({ field }) => (
-                  <Admin_TextArea
-                    {...field}
-                    title="Введіть відгук англійською (max 350 символів):"
-                    errorText={errors.messageEn?.message && errors.messageEn?.message}
+                    errorText={errors.message?.message && errors.message?.message}
                     placeholder='Відгук'
                   />
                 )}

@@ -5,6 +5,6 @@ export type TTestimonial = {
 }
 
 export type TTestimonialResponse = TTestimonial & {
-  _id: string
+  id: string
   isPublished: boolean
 }

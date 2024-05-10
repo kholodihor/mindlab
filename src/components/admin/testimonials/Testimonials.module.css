@@ -1,6 +1,7 @@
 .testimonials__list {
     padding: 40px 64px;
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
 
 }
@@ -10,6 +11,8 @@
     height: 256px;
     padding: 20px;
     background-color: var(--white);
+    border-radius: 16px;
+    box-shadow: 2px 0 8px rgba(167, 129, 247, 0.2);
 }
 
 .testimonials__thumb {
@@ -39,7 +42,20 @@
     align-items: center;
     justify-content: center;
     width: 32px;
+    height: 32px;
     border: none;
-    background-color: red;
+    color: var(--white);
+    background-color: var(--red);
     border-radius: 50%;
+}
+
+.editBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: var(--white);
+    background-color: var(--blue);
 }

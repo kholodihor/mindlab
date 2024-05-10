@@ -1,9 +1,9 @@
 import EditTestimonials from "@/components/admin/testimonials/edit/EditTestimonials";
 
 
-const editTestimonials = () => {
+const editTestimonials = ({params}:{params:{id:string}}) => {
     return (
-        <EditTestimonials />
+        <EditTestimonials id={params.id}/>
     )
 };
 
