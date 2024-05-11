@@ -38,17 +38,6 @@ model Document{
   createdAt   DateTime  @default(now()) 
 }
 
-// model Contact{
-//   id            String    @id @default(auto()) @map("_id") @db.ObjectId
-//   name          String
-//   value         String
-//   icon          String
-//   instagramLink String
-//   facebookLink  String
-//   telegramLink  String
-//   createdAt     DateTime  @default(now()) 
-// }
-
 model Contacts{
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
   email         String
