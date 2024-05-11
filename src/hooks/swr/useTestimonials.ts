@@ -32,8 +32,8 @@ export const useTestimonials = () => {
     try {
       const updatedTestimonial = data?.filter((item) => item.id !== id)
       mutate(updatedTestimonial)
-    const response =   await testimonialsApi.deleteTestimonial(id)
-    return response
+      const response = await testimonialsApi.deleteTestimonial(id)
+      return response
     } catch (error) {
       throw Promise.reject()
     }
@@ -50,7 +50,6 @@ export const useTestimonials = () => {
       throw Promise.reject()
     }
   }
-
 
   return {
     testimonials: data,
