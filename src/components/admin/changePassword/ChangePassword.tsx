@@ -10,7 +10,10 @@ import { useRouter } from 'next/navigation'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { ChangePasswordValidation, FormFields } from './ChangePasswordShemaValidation'
 import { useModal } from '@/stores/useModal'
+import { useSession } from 'next-auth/react'
 import ConfirmModal from '@/components/modals/confirmModal/ConfirmModal'
+import { changePassword } from '@/utils/api/password'
+import { signOut } from 'next-auth/react'
 
 const ChangePassword = () => {
   const [isProcessing, setIsProcessing] = useState(false)
@@ -18,6 +21,8 @@ const ChangePassword = () => {
   const isModalOpen = useModal((state) => state.isModalOpen)
   const modalType = useModal((state) => state.modalType)
   const router = useRouter()
+
+  const { data: session } = useSession()
 
   const {
     control,
@@ -29,9 +34,9 @@ const ChangePassword = () => {
   })
 
   useEffect(() => {
-    const listener = event => {
+    const listener = (event) => {
       if (event.code === 'Enter' || event.code === 'NumpadEnter') {
-        event.preventDefault();
+        event.preventDefault()
         openModal('confirm')
       }
     }
@@ -42,11 +47,21 @@ const ChangePassword = () => {
   }, [openModal])
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
-    setIsProcessing(true)
-    console.log(data)
-    //await changePassword(data)
-    setIsProcessing(false)
-    router.back()
+    try {
+      setIsProcessing(true)
+      const values = {
+        email: session.user.email,
+        password: data.password
+      }
+      const response = await changePassword(values)
+      setIsProcessing(false)
+      if (response.status === 200) {
+        signOut({ callbackUrl: '/login' })
+        router.push('/login')
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
@@ -59,12 +74,10 @@ const ChangePassword = () => {
       <div className={styles.content}>
         <div className={styles.password_info}>
           <div className={styles.password_detail}>
-            <h5 className={styles.password_title}>Актуальний пароль:</h5>
-            <p className={styles.password_subtitle}>MindLab-2024</p>
-          </div>
-          <div className={styles.password_detail}>
             <h5 className={styles.password_title}>Логін:</h5>
-            <p className={styles.password_subtitle}>Вас@hgm.com</p>
+            <p className={styles.password_subtitle}>
+              {session.user.email ? session.user.email : 'example@mail.ua'}
+            </p>
           </div>
         </div>
         <div className={styles.change_password}>
@@ -74,10 +87,10 @@ const ChangePassword = () => {
                 name="password"
                 control={control}
                 render={({ field }) => (
-                  <Admin_TextInput 
+                  <Admin_TextInput
                     {...field}
-                    title='Введіть новий пароль (max 12 символів)'
-                    placeholder='Новий пароль'
+                    title="Введіть новий пароль (max 12 символів)"
+                    placeholder="Новий пароль"
                     errorText={errors.password?.message}
                   />
                 )}
@@ -90,8 +103,8 @@ const ChangePassword = () => {
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
-                    title='Підтвердіть новий пароль:'
-                    placeholder='Новий пароль'
+                    title="Підтвердіть новий пароль:"
+                    placeholder="Новий пароль"
                     errorText={errors.confirmPassword?.message}
                   />
                 )}
@@ -100,11 +113,11 @@ const ChangePassword = () => {
           </form>
         </div>
       </div>
-      {(isProcessing) && <Loader />}
+      {isProcessing && <Loader />}
 
       {isModalOpen && modalType === 'confirm' && (
-        <ConfirmModal 
-          confirmText='Ви впевнені, що хочете змінити свій пароль?'
+        <ConfirmModal
+          confirmText="Ви впевнені, що хочете змінити свій пароль?"
           handleClose={closeModal}
           onConfirm={handleSubmit(onSubmit)}
         />
