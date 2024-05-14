@@ -18,8 +18,10 @@
       flex-direction: column;
       gap: 5px;
       .website_span {
+        display: flex;
+        align-items: center;
         background: var(--blue);
-        font-size: 13px;
+        font-size: 16px;
         height: 13px;
         padding: 0;
       }
