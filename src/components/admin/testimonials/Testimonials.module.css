@@ -1,3 +1,11 @@
+.container {
+    padding: 40px 64px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+}
+
 .testimonials__list {
   padding: 40px 64px;
   display: flex;
