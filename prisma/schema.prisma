@@ -143,3 +143,16 @@ type FAQEN  {
   questionEn String
   answerEn String
 }
+
+model Partners {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  nameUa        String
+  nameEn        String
+  imageUrl    String
+  imageId     String
+  websiteLink String
+  descriptionUa String
+  descriptionEn String
+  color  String
+  createdAt   DateTime  @default(now()) 
+}

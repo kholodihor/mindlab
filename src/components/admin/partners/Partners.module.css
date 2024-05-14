@@ -1,0 +1,90 @@
+.container {
+    padding: 40px 63px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.partner__item {
+    position: relative;
+    padding: 36px 20px;
+    width: 317px;
+    height: 317px;
+    border-radius: 16px;
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center; */
+}
+
+.partner__logo {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 18px;
+}
+
+.partner__name {
+    text-align: center;
+font-size: 12px;
+font-weight: 500;
+ }
+ .thumb {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 277px;
+ }
+
+ .partner__link {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+ }
+
+ .partner__description {
+    text-align: center;
+    padding: 0 25px;
+font-size: 7.14px;
+ }
+
+.icon__arrow {
+    width: 15px;
+    color: var(--black);
+    
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.deleteBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border: none;
+    color: var(--white);
+    background-color: var(--red);
+    border-radius: 50%;
+}
+
+.editBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    color: var(--white);
+    background-color: var(--blue);
+}
