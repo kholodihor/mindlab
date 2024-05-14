@@ -6,6 +6,13 @@
 
 }
 
+.testimonials__list {
+  padding: 40px 64px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
 .testimonials__item {
   width: 317px;
   height: 256px;
