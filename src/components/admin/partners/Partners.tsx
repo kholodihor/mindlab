@@ -14,14 +14,14 @@ import EditIcon from '../courses/icons/EditIcon'
 import Loader from '../shared/loader/Loader'
 
 const Partners = () => {
-  const {partners, isLoading, deletePartner} = usePartners()
+  const { partners, isLoading, deletePartner } = usePartners()
   const [isProcessing, setIsProcessing] = useState(false)
- 
+
   const router = useRouter()
 
   const handleDeletePartner = async (id: string, imageId: string) => {
     setIsProcessing(true)
-   await deletePartner(id, imageId)
+    await deletePartner(id, imageId)
     setIsProcessing(false)
     Swal.fire({
       title: 'Партнер успішно видалено',
@@ -48,31 +48,53 @@ const Partners = () => {
       }
     })
   }
-  return <div>
-    <PageTitle title='Партнери' isAddButtonDisplayed={true} isSettingsButtonDisplayed={true} text='Додати партнера' href={'/partners/add'}/>
-    <ul className={css.container}>
-      {partners?.map(({id, color, nameEn, imageUrl, descriptionUa, websiteLink, imageId})=><li key={id} className={css.partner__item} style={{backgroundColor: color}}>
-<Image src={imageUrl} width={120} height={120} alt={nameEn} className={css.partner__logo}/>
-<p className={css.partner__description}>{descriptionUa}</p>
-<div className={css.thumb}>
-<Link href={websiteLink} className={css.partner__link}>
-  <p className={css.partner__name}>{nameEn}</p>
-  <div className={css.icon__arrow}>
-    <ArrowSliderPartners />
-  </div>
-</Link>
-<div className={css.wrapper}>
-  <button className={css.deleteBtn} onClick={()=> handleDelete(id, imageId)}><DeleteIcon /></button>
-   
-<Link href={`/admin/partners/edit/${id}`} onClick={()=> console.log(id)} className={css.editBtn}>
-  <EditIcon />
- </Link>   
-</div>
-</div>
-      </li>)}
-    </ul>
-    {(isLoading || isProcessing) && <Loader />}
-  </div>
+  return (
+    <div>
+      <PageTitle
+        title="Партнери"
+        isAddButtonDisplayed={true}
+        isSettingsButtonDisplayed={true}
+        text="Додати партнера"
+        href={'/partners/add'}
+      />
+      <ul className={css.container}>
+        {partners?.map(({ id, color, nameEn, imageUrl, descriptionUa, websiteLink, imageId }) => (
+          <li key={id} className={css.partner__item} style={{ backgroundColor: color }}>
+            <Image
+              src={imageUrl}
+              width={120}
+              height={120}
+              alt={nameEn}
+              className={css.partner__logo}
+            />
+            <p className={css.partner__description}>{descriptionUa}</p>
+            <div className={css.thumb}>
+              <Link href={websiteLink} className={css.partner__link}>
+                <p className={css.partner__name}>{nameEn}</p>
+                <div className={css.icon__arrow}>
+                  <ArrowSliderPartners />
+                </div>
+              </Link>
+              <div className={css.wrapper}>
+                <button className={css.deleteBtn} onClick={() => handleDelete(id, imageId)}>
+                  <DeleteIcon />
+                </button>
+
+                <Link
+                  href={`/admin/partners/edit/${id}`}
+                  onClick={() => console.log(id)}
+                  className={css.editBtn}
+                >
+                  <EditIcon />
+                </Link>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+      {(isLoading || isProcessing) && <Loader />}
+    </div>
+  )
 }
 
 export default Partners

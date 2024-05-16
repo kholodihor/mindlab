@@ -25,8 +25,11 @@ model Teacher{
   linkedinLink String
   facebookLink String
   telegramLink String
+  instagramLink String
   about_me    String
   about_help  String
+  about_me_en    String
+  about_help_en  String
   createdAt   DateTime  @default(now()) 
 }
 
