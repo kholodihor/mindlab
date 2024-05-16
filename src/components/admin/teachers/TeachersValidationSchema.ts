@@ -20,11 +20,31 @@ export const TeachersFormValidation = z.object({
   about_me: z
     .string()
     .min(1, { message: 'Поле повинно бути заповнене' })
-    .max(140, { message: 'Максимум 140 символів' }),
+    .max(200, { message: 'Максимум 200 символів' })
+    .refine((value) => /^[a-zA-Zа-яА-ЯҐґЄєІіЇї\s\d'’ʼ.,:;"()!?-]+$/.test(value), {
+      message: 'Введіть коректний текст українською мовою'
+    }),
   about_help: z
     .string()
     .min(1, { message: 'Поле повинно бути заповнене' })
-    .max(140, { message: 'Максимум 140 символів' }),
+    .max(200, { message: 'Максимум 200 символів' })
+    .refine((value) => /^[a-zA-Zа-яА-ЯҐґЄєІіЇї\s\d'’ʼ.,:;"()!?-]+$/.test(value), {
+      message: 'Введіть коректний текст українською мовою'
+    }),
+  about_me_en: z
+    .string()
+    .min(1, { message: 'Поле повинно бути заповнене' })
+    .max(200, { message: 'Максимум 200 символів' })
+    .refine((value) => /^[a-zA-Z\s\d'’.,-:;"()!?-]+$/.test(value), {
+      message: 'Введіть коректний текст англійською мовою'
+    }),
+  about_help_en: z
+    .string()
+    .min(1, { message: 'Поле повинно бути заповнене' })
+    .max(200, { message: 'Максимум 200 символів' })
+    .refine((value) => /^[a-zA-Z\s\d'’.,-:;"()!?-]+$/.test(value), {
+      message: 'Введіть коректний текст англійською мовою'
+    }),
   image: z
     .any()
     .refine((value) => value?.length > 0, 'Додайте зображення')
@@ -44,19 +64,25 @@ export const TeachersFormValidation = z.object({
     .string()
     .optional()
     .refine((value) => value === '' || isURL(value), {
-      message: 'Invalid URL format or empty string'
+      message: 'Невалідний формат URL'
     }),
   facebookLink: z
     .string()
     .optional()
     .refine((value) => value === '' || isURL(value), {
-      message: 'Invalid URL format or empty string'
+      message: 'Невалідний формат URL'
     }),
   telegramLink: z
     .string()
     .optional()
     .refine((value) => value === '' || isURL(value), {
-      message: 'Invalid URL format or empty string'
+      message: 'Невалідний формат URL'
+    }),
+  instagramLink: z
+    .string()
+    .optional()
+    .refine((value) => value === '' || isURL(value), {
+      message: 'Невалідний формат URL'
     })
 })
 

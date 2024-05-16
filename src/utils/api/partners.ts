@@ -21,11 +21,13 @@ export const getPartnerById = async (id: string) => {
 }
 
 export const createPartner = async (partnerData: PartnersFormData) => {
+  console.log(partnerData)
   try {
     const formData = new FormData()
     formData.append('file', partnerData.image[0])
     const res: UploadResponse = await axios.post('/upload', formData)
     const newPartner = { ...partnerData, imageId: res.data.fileId, imageUrl: res.data.fileUrl }
+    console.log(newPartner)
     const response = await axios.post<IPartnersResponse>('/partners', newPartner, {
       headers: { 'Content-Type': 'application/json' }
     })
