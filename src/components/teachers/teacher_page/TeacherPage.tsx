@@ -7,6 +7,7 @@ import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
 import LinkedinIconXL from '@/components/icons/LinkedinIconXL'
 import FacebookIconXL from '@/components/icons/FacebookIconXL'
 import TelegramIconXL from '@/components/icons/TelegramIconXL'
+import { FaInstagram } from 'react-icons/fa'
 import TeacherTabs from './teacher_tabs/TeacherTabs'
 import { ITeacherResponse } from '@/types/teachers'
 import { useLocale, useTranslations } from 'next-intl'
@@ -18,6 +19,8 @@ const TeacherPage = ({ id }: { id: string }) => {
   const teacher = teachers?.find((teacher) => teacher.id === id) as ITeacherResponse
   const t = useTranslations('Speakers')
   const locale = useLocale()
+
+  console.log(teacher)
 
   return (
     <div className={styles.page}>
@@ -39,30 +42,47 @@ const TeacherPage = ({ id }: { id: string }) => {
                 <p className={styles.about_speciality}>{teacher.speciality}</p>
               </div>
               <div className={styles.icons}>
-                <Link
-                  href="https://www.facebook.com/"
-                  className={styles.social__link}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <FacebookIconXL />
-                </Link>
-                <Link
-                  href="https://t.me/"
-                  className={styles.social__link}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <TelegramIconXL />
-                </Link>
-                <Link
-                  href="https://www.linkedin.com/in"
-                  className={styles.social__link}
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <LinkedinIconXL />
-                </Link>
+                {teacher.facebookLink && (
+                  <Link
+                    href={teacher.facebookLink}
+                    className={styles.social__link}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <FacebookIconXL />
+                  </Link>
+                )}
+                {teacher.telegramLink && (
+                  <Link
+                    href={teacher.telegramLink}
+                    className={styles.social__link}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <TelegramIconXL />
+                  </Link>
+                )}
+
+                {teacher.linkedinLink && (
+                  <Link
+                    href={teacher.linkedinLink}
+                    className={styles.social__link}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <LinkedinIconXL />
+                  </Link>
+                )}
+                {teacher.instagramLink && (
+                  <Link
+                    href={teacher.instagramLink}
+                    className={styles.social__link_instagram}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    <FaInstagram className={styles.social__link_instagram_icon} />
+                  </Link>
+                )}
               </div>
             </div>
           </div>

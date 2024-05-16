@@ -42,9 +42,12 @@ export async function PATCH(request: Request, { params }: { params: { id: string
         speciality: data.speciality,
         about_me: data.about_me,
         about_help: data.about_help,
+        about_me_en: data.about_me_en,
+        about_help_en: data.about_help_en,
         linkedinLink: data.linkedinLink,
         facebookLink: data.facebookLink,
-        telegramLink: data.facebookLink
+        telegramLink: data.telegramLink,
+        instagramLink: data.instagramLink
       }
     })
     return NextResponse.json(updatedTeacher, { status: 200 })

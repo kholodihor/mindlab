@@ -193,7 +193,7 @@ const AddPage = () => {
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
-                      title="Про викладача (max 140 символів):"
+                      title="Про викладача (max 200 символів):"
                       errorText={errors.about_me?.message}
                       placeholder="Опис"
                     />
@@ -207,7 +207,7 @@ const AddPage = () => {
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
-                      title="З чим може допомогти викладач? (max 140 символів):"
+                      title="З чим може допомогти викладач? (max 200 символів):"
                       errorText={errors.about_help?.message}
                       placeholder="Опис"
                     />
@@ -226,9 +226,9 @@ const AddPage = () => {
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
-                      title="Про викладача (max 140 символів):"
+                      title="Про викладача англійською (max 200 символів):"
                       errorText={errors.about_me_en?.message}
-                      placeholder="Опис"
+                      placeholder="Опис англійською"
                     />
                   )}
                 />
@@ -240,9 +240,9 @@ const AddPage = () => {
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
-                      title="З чим може допомогти викладач? (max 140 символів):"
+                      title="З чим може допомогти викладач англійською? (max 200 символів):"
                       errorText={errors.about_help_en?.message}
-                      placeholder="Опис"
+                      placeholder="Опис англійською"
                     />
                   )}
                 />
