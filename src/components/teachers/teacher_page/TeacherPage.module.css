@@ -1,15 +1,14 @@
 .page {
- padding-top: 96px;
- padding-bottom: 60px;
- @media screen and (min-width: 768px) {
-  padding-top: 108px;
-  padding-bottom: 120px;
-}
-@media screen and (min-width: 1280px) {
-  padding-top: 129px;
-  padding-bottom: 160px;
-}
- 
+  padding-top: 96px;
+  padding-bottom: 60px;
+  @media screen and (min-width: 768px) {
+    padding-top: 108px;
+    padding-bottom: 120px;
+  }
+  @media screen and (min-width: 1280px) {
+    padding-top: 129px;
+    padding-bottom: 160px;
+  }
 }
 .link {
   display: flex;
@@ -42,7 +41,7 @@
     flex-wrap: nowrap;
     gap: 20px;
   }
-  @media screen and (min-width:1280px) {
+  @media screen and (min-width: 1280px) {
     gap: 120px;
   }
 
@@ -59,12 +58,11 @@
   .star_large {
     display: none;
     @media screen and (min-width: 1280px) {
-     display: block;
-     position: absolute;
-     left: 380px;
-     bottom: 64px;
+      display: block;
+      position: absolute;
+      left: 380px;
+      bottom: 64px;
     }
-   
   }
   .star_medium {
     display: none;
@@ -76,7 +74,7 @@
     }
     @media screen and (min-width: 1280px) {
       position: absolute;
-  top: 0;
+      top: 0;
       right: 78px;
       display: block;
     }
@@ -92,12 +90,12 @@
 
     @media screen and (min-width: 768px) {
       flex-wrap: wrap;
-        width: 216px;
+      width: 216px;
     }
     @media screen and (min-width: 1280px) {
       flex-wrap: nowrap;
-        width: 380px;
-        gap: 60px;
+      width: 380px;
+      gap: 60px;
     }
 
     .card {
@@ -106,8 +104,8 @@
         overflow-y: hidden;
       }
       @media screen and (min-width: 768px) {
-       overflow-y: auto;
-       height: auto;
+        overflow-y: auto;
+        height: auto;
       }
     }
     .about {
@@ -118,34 +116,32 @@
         margin-bottom: 40px;
       }
       @media screen and (min-width: 768px) {
-       display: none;
+        display: none;
       }
       .about_name {
         font-size: 18px;
         font-weight: 500;
         color: var(--white-second);
         margin-bottom: 8px;
-    }
-    .about_speciality {
-      font-size: 16px;
-    color: var(--white);
-    font-weight: 400;
- 
-  }
-    }
-   
-    .speciality {
+      }
+      .about_speciality {
         font-size: 16px;
+        color: var(--white);
+        font-weight: 400;
+      }
+    }
+
+    .speciality {
+      font-size: 16px;
       color: var(--white);
       font-weight: 400;
-   
     }
     .icons {
       display: flex;
       flex-direction: column;
       gap: 20px;
       @media screen and (min-width: 430px) {
-        flex-direction:row
+        flex-direction: row;
       }
       @media screen and (min-width: 1280px) {
         flex-direction: column;
@@ -155,9 +151,31 @@
         height: 40px;
         transition: transform 0.3s ease-in-out;
       }
+      .social__link_instagram {
+        width: 40px;
+        height: 40px;
+        color: black;
+        background: #fff;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.3s ease-in-out;
+      }
+      .social__link_instagram_icon {
+        width: 35px;
+        height: 35px;
+        color: black;
+        font-weight: bold;
+        transition: transform 0.3s ease-in-out;
+      }
       .social__link:hover,
       .social__link:focus {
-color: var(--lime);
+        color: var(--lime);
+      }
+      .social__link_instagram:hover,
+      .social__link_instagram:focus {
+        background: var(--lime);
       }
     }
   }

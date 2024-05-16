@@ -43,9 +43,12 @@ const EditPage = ({ id }: { id: string }) => {
       setValue('speciality', teacherData.speciality)
       setValue('about_me', teacherData.about_me)
       setValue('about_help', teacherData.about_help)
+      setValue('about_me_en', teacherData.about_me_en)
+      setValue('about_help_en', teacherData.about_help_en)
       setValue('linkedinLink', teacherData.linkedinLink)
       setValue('facebookLink', teacherData.facebookLink)
       setValue('telegramLink', teacherData.telegramLink)
+      setValue('instagramLink', teacherData.instagramLink)
       setValue('image', [new File([], teacherData?.imageUrl, { type: 'for-url' })])
       setImage(teacherData?.imageUrl)
     }
@@ -173,6 +176,19 @@ const EditPage = ({ id }: { id: string }) => {
                 )}
               />
             </div>
+            <div className={`${styles.input_group} ${styles.input_group_small}`}>
+              <Controller
+                name="instagramLink"
+                control={control}
+                render={({ field }) => (
+                  <Admin_TextInput
+                    {...field}
+                    title="Введіть посилання на Instagram викладача:"
+                    errorText={errors.instagramLink?.message}
+                  />
+                )}
+              />
+            </div>
           </div>
           <div className={styles.about_container}>
             <h4 className={styles.subtitle}>Про викладача</h4>
@@ -184,7 +200,7 @@ const EditPage = ({ id }: { id: string }) => {
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
-                      title="Про викладача (max 140 символів):"
+                      title="Про викладача (max 200 символів):"
                       errorText={errors.about_me?.message}
                     />
                   )}
@@ -197,8 +213,39 @@ const EditPage = ({ id }: { id: string }) => {
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
-                      title="З чим може допомогти викладач? (max 140 символів):"
+                      title="З чим може допомогти викладач? (max 200 символів):"
                       errorText={errors.about_help?.message}
+                    />
+                  )}
+                />
+              </div>
+            </div>
+          </div>
+          <div className={styles.about_container}>
+            <h4 className={styles.subtitle}>Про викладача англійською</h4>
+            <div className={styles.about_input}>
+              <div className={`${styles.input_group} ${styles.area_group}`}>
+                <Controller
+                  name="about_me_en"
+                  control={control}
+                  render={({ field }) => (
+                    <Admin_TextArea
+                      {...field}
+                      title="Про викладача англійською (max 200 символів):"
+                      errorText={errors.about_me_en?.message}
+                    />
+                  )}
+                />
+              </div>
+              <div className={`${styles.input_group} ${styles.area_group}`}>
+                <Controller
+                  name="about_help_en"
+                  control={control}
+                  render={({ field }) => (
+                    <Admin_TextArea
+                      {...field}
+                      title="З чим може допомогти викладач англійською? (max 200 символів):"
+                      errorText={errors.about_help_en?.message}
                     />
                   )}
                 />

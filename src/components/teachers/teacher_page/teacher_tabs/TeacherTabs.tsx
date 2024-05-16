@@ -48,7 +48,7 @@ const TeacherTabs = ({ teacher }: { teacher: ITeacherResponse }) => {
         ))}
       </div>
       {activeTab === 'courses' && teacherCourses && <TeacherCourses data={[teacherCourses]} />}
-      {activeTab === 'about' && <AboutTeacher data={teacher} />}
+      {activeTab === 'about' && <AboutTeacher teacher={teacher} />}
     </div>
   )
 }

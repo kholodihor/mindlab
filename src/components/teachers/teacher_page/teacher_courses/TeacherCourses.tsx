@@ -6,8 +6,10 @@ import { useState } from 'react'
 import styles from './TeacherCourses.module.css'
 import { getCourseColor } from '@/helpers/getCourseColor'
 import { useWidth } from '@/hooks/useWidth'
+import { useLocale } from 'next-intl'
 
 const TeacherCourses = ({ data }: { data: ICourseResponse[] }) => {
+  const locale = useLocale()
   const [isHovered, setIsHovered] = useState(false)
   const isLargeScreen = useWidth()
 
@@ -39,7 +41,9 @@ const TeacherCourses = ({ data }: { data: ICourseResponse[] }) => {
                 {item.title} <ArrowTop color={getCourseColor(item?.title)} width={15} height={15} />
               </h1>
             )}
-            <p className={styles.content_paragraph}>{item.descriptionUa}</p>
+            <p className={styles.content_paragraph}>
+              {locale === 'ua' ? item.descriptionUa : item.descriptionEn}
+            </p>
             <div className={styles.tags}>
               {item.tagsUa.map((tag, index) =>
                 isLargeScreen >= 1280 ? (
@@ -58,7 +62,7 @@ const TeacherCourses = ({ data }: { data: ICourseResponse[] }) => {
                     }
                     key={index}
                   >
-                    {`#${tag}`}
+                    {`${tag}`}
                   </span>
                 ) : (
                   <span
@@ -74,7 +78,7 @@ const TeacherCourses = ({ data }: { data: ICourseResponse[] }) => {
                     }
                     key={index}
                   >
-                    {`#${tag}`}
+                    {`${tag}`}
                   </span>
                 )
               )}

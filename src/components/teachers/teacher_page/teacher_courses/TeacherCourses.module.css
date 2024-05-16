@@ -9,7 +9,7 @@
   border-bottom: solid 1px var(--white);
   @media screen and (min-width: 1280px) {
     border-bottom: none;
-   }
+  }
 
   .content_title {
     font-size: 20px;
@@ -18,7 +18,7 @@
     cursor: pointer;
     @media screen and (min-width: 768px) {
       font-size: 24px;
-     }
+    }
   }
 
   .content_title_desktop {
@@ -30,12 +30,11 @@
 
   .content_paragraph {
     font-size: 16px;
-    
   }
   .tags {
     display: flex;
     flex-wrap: wrap;
-    justify-content: start;
+    justify-content: flex-start;
     height: 40px;
     overflow-y: hidden;
     gap: 1rem;
@@ -55,11 +54,10 @@
       align-items: center;
       padding: 0 12px;
       white-space: nowrap;
-     
     }
     .tag__first {
-       display: none;
-       min-width: 122px;
+      display: none;
+      min-width: 122px;
       height: 40px;
       border-radius: 2rem;
       background-color: var(--black);
@@ -73,7 +71,6 @@
       align-items: center;
       padding: 0 12px;
       white-space: nowrap;
-     
     }
   }
 }
