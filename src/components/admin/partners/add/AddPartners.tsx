@@ -50,26 +50,23 @@ const AddPartners = () => {
   }, [currentValues.image])
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
-    console.log(data)
-
-   
-      setIsProcessing(true)
-   const response =  await addPartner(data)
-      setIsProcessing(false)
-      if(response){
-        Swal.fire({
-          title: 'Курс успішно додано',
-          icon: 'success'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            router.push('/admin/partners')
-          }
-        })
-      } else {
-        Swal.fire({
-          title: 'Щось пішло не так. Спробуйту знову',
-          icon: 'error'
-        })
+    setIsProcessing(true)
+    const response = await addPartner(data)
+    setIsProcessing(false)
+    if (response) {
+      Swal.fire({
+        title: 'Партнера успішно додано',
+        icon: 'success'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router.push('/admin/partners')
+        }
+      })
+    } else {
+      Swal.fire({
+        title: 'Щось пішло не так. Спробуйту знову',
+        icon: 'error'
+      })
     }
   }
   return (
