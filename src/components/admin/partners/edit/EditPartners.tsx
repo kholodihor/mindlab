@@ -55,7 +55,7 @@ const EditPartners = ({ id }: { id: string }) => {
       setImage(patrnerData?.imageUrl)
     }
     console.log(image)
-  }, [id,  image, setValue])
+  }, [id])
 
   const currentValues = watch()
   console.log(currentValues)
@@ -72,8 +72,11 @@ const EditPartners = ({ id }: { id: string }) => {
   }, [currentValues.image])
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
+
     setIsProcessing(true)
-    await updatePartner(id, data)
+   const response =  await updatePartner(id, data)
+   console.log(response)
+   if(response){
     setIsProcessing(false)
     Swal.fire({
       title: 'Дані успішно оновленні',
@@ -83,6 +86,11 @@ const EditPartners = ({ id }: { id: string }) => {
         router.push('/admin/partners')
       }
     })
+   } 
+   Swal.fire({
+    title: 'Щось пішло не так. Спробуйте знову.',
+    icon: 'error'
+  })
   }
 
   return (

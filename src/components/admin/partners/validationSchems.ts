@@ -4,7 +4,7 @@ import { formatBytes } from '@/helpers/formatBytes'
 
 const MAX_FILE_SIZE = 1024 * 1024 * 3
 
-const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/svg', 'for-url']
+const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/svg', 'image/svg+xml', 'for-url']
 
 export const PartnersValidation = z.object({
   nameUa: z

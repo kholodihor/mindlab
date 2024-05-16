@@ -31,10 +31,11 @@ export const usePartners = () => {
 
   const updatePartner = async (partnerId: string, item: PartnersFormData) => {
     try {
-      const updatedPartner = await partnersApi.updatePartner(partnerId, item)
-      if (updatedPartner && data) {
+      const updatedPartners = await partnersApi.updatePartner(partnerId, item)
+      if (updatedPartners && data) {
         mutate()
       }
+      return updatedPartners
     } catch (error) {
       throw Promise.reject()
     }

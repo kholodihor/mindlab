@@ -6,7 +6,6 @@ import { useRouter } from 'next/navigation'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormFields, PartnersValidation } from '../validationSchems'
-// import { defaultValue } from './defaultValue'
 import { defaultValue } from './defaultValue'
 import FileInput from '../../shared/fileInput/FileInput'
 import css from './AddPartner.module.css'
@@ -51,23 +50,26 @@ const AddPartners = () => {
   }, [currentValues.image])
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
-    setIsProcessing(true)
-    const response = await addPartner(data)
-    setIsProcessing(false)
-    if (response) {
-      Swal.fire({
-        title: 'Партнера успішно додано',
-        icon: 'success'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          router.push('/admin')
-        }
-      })
-    } else {
-      Swal.fire({
-        title: 'Щось пішло не так. Спробуйту знову',
-        icon: 'error'
-      })
+    console.log(data)
+
+   
+      setIsProcessing(true)
+   const response =  await addPartner(data)
+      setIsProcessing(false)
+      if(response){
+        Swal.fire({
+          title: 'Курс успішно додано',
+          icon: 'success'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            router.push('/admin/partners')
+          }
+        })
+      } else {
+        Swal.fire({
+          title: 'Щось пішло не так. Спробуйту знову',
+          icon: 'error'
+        })
     }
   }
   return (
