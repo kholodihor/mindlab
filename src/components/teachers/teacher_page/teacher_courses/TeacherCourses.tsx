@@ -44,45 +44,87 @@ const TeacherCourses = ({ data }: { data: ICourseResponse[] }) => {
             <p className={styles.content_paragraph}>
               {locale === 'ua' ? item.descriptionUa : item.descriptionEn}
             </p>
-            <div className={styles.tags}>
-              {item.tagsUa.map((tag, index) =>
-                isLargeScreen >= 1280 ? (
-                  <span
-                    className={styles.tag}
-                    style={
-                      index === 0
-                        ? {
-                            backgroundColor: isHovered
-                              ? `${getCourseColor(item?.title)}`
-                              : '#1d1d1e',
-                            border: 'none',
-                            color: isHovered ? '#09090a' : ''
-                          }
-                        : { backgroundColor: '#09090a' }
-                    }
-                    key={index}
-                  >
-                    {`${tag}`}
-                  </span>
-                ) : (
-                  <span
-                    className={styles.tag}
-                    style={
-                      index === 0
-                        ? {
-                            backgroundColor: `${getCourseColor(item?.title)}`,
-                            border: 'none',
-                            color: '#09090a'
-                          }
-                        : { backgroundColor: '#09090a' }
-                    }
-                    key={index}
-                  >
-                    {`${tag}`}
-                  </span>
-                )
-              )}
-            </div>
+            {locale === 'ua' ? (
+              <div className={styles.tags}>
+                {item.tagsUa.map((tag, index) =>
+                  isLargeScreen >= 1280 ? (
+                    <span
+                      className={styles.tag}
+                      style={
+                        index === 0
+                          ? {
+                              backgroundColor: isHovered
+                                ? `${getCourseColor(item?.title)}`
+                                : '#1d1d1e',
+                              border: 'none',
+                              color: isHovered ? '#09090a' : ''
+                            }
+                          : { backgroundColor: '#09090a' }
+                      }
+                      key={index}
+                    >
+                      {`${tag}`}
+                    </span>
+                  ) : (
+                    <span
+                      className={styles.tag}
+                      style={
+                        index === 0
+                          ? {
+                              backgroundColor: `${getCourseColor(item?.title)}`,
+                              border: 'none',
+                              color: '#09090a'
+                            }
+                          : { backgroundColor: '#09090a' }
+                      }
+                      key={index}
+                    >
+                      {`${tag}`}
+                    </span>
+                  )
+                )}
+              </div>
+            ) : (
+              <div className={styles.tags}>
+                {item.tagsEn.map((tag, index) =>
+                  isLargeScreen >= 1280 ? (
+                    <span
+                      className={styles.tag}
+                      style={
+                        index === 0
+                          ? {
+                              backgroundColor: isHovered
+                                ? `${getCourseColor(item?.title)}`
+                                : '#1d1d1e',
+                              border: 'none',
+                              color: isHovered ? '#09090a' : ''
+                            }
+                          : { backgroundColor: '#09090a' }
+                      }
+                      key={index}
+                    >
+                      {`${tag}`}
+                    </span>
+                  ) : (
+                    <span
+                      className={styles.tag}
+                      style={
+                        index === 0
+                          ? {
+                              backgroundColor: `${getCourseColor(item?.title)}`,
+                              border: 'none',
+                              color: '#09090a'
+                            }
+                          : { backgroundColor: '#09090a' }
+                      }
+                      key={index}
+                    >
+                      {`${tag}`}
+                    </span>
+                  )
+                )}
+              </div>
+            )}
           </div>
         ))}
     </>
