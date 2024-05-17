@@ -1,22 +1,31 @@
 'use client'
 
 import Lottie from 'lottie-react'
-import { coursesList } from '@/data/data'
 import ArrowRight from '../icons/ArrowRight'
 import ArrowTop from '../icons/ArrowTop'
 import eyeCourses from '@/animations/eyesCourses.json'
 import css from '../courses/Courses.module.css'
 import Link from 'next/link'
-import { useWidth } from '@/hooks/useWidth'
-import { currentComponentsCourse } from '@/utils/currentComponentsCourse'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
+import { useCourses } from '@/hooks/swr/useCourses'
 
 const Courses = () => {
-  const screenWidth = useWidth()
-  const t = useTranslations("Courses")
-  const locale = useLocale();
+  const { courses } = useCourses()
+  const t = useTranslations('Courses')
+  const locale = useLocale()
+
+  const [isHovered, setIsHovered] = useState('')
+
+  const handleMouseEnter = (color: string) => {
+    setIsHovered(color)
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered('')
+  }
 
   return (
     <section id="courses" className={`container ${css.courses__container}`}>
@@ -28,7 +37,7 @@ const Courses = () => {
           transition={{ ease: 'easeOut', duration: 0.75 }}
           className={`title ${css.titleCourses}`}
         >
-         {t("title")}
+          {t('title')}
         </motion.h2>
 
         <div className={css.animation}>
@@ -36,41 +45,66 @@ const Courses = () => {
         </div>
       </div>
       <ul className={css.courses}>
-        {coursesList.map(
-          ({ title, description, component, components, classname, color, href }) => (
-            <li className={css.courses__item} key={title}>
-              <Link href={`/${locale}${href}`} className={css.courses__link}>
-                <div className={css.thumb__title}>
-                  <h3 className={` ${css[`title__${classname}`]}`}>{title}</h3>
-                  <div className={css.icon__title}>
-                    <ArrowTop color={color} width={21} height={22} />
-                  </div>
+        {courses?.map(({ title, descriptionUa, descriptionEn, tagsUa, tagsEn, color, id }) => (
+          <li className={css.courses__item} key={id}>
+            <Link
+              href={`/${locale}${id}`}
+              className={css.courses__link}
+              onMouseEnter={() => handleMouseEnter(color)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <div className={css.thumb__title}>
+                <h3 className={css.title} style={{ color: isHovered === color ? color : '' }}>
+                  {title}
+                </h3>
+                <div className={css.icon__title}>
+                  <ArrowTop color={color} width={21} height={22} />
                 </div>
-                <p className={css.courses__description}>{t(description)}</p>
-                <div className={css.components}>
-                  <p className={`${css.components__element} ${css[`components__${classname}`]}`}>
-                    {t(component)}
-                  </p>
-                  <ul className={css.components__list}>
-                    {currentComponentsCourse(components, screenWidth).map((item, index) => (
-                      <li key={index} className={css.components__item}>
-                        {t(item)}
-                      </li>
+              </div>
+              <p className={css.courses__description}>
+                {locale === 'ua' ? descriptionUa : descriptionEn}
+              </p>
+              <ul className={css.components__list}>
+                {' '}
+                {locale === 'ua'
+                  ? tagsUa.map((item, index) => (
+                      <li
+                        key={index}
+                        className={css.components__item}
+                        style={
+                          isHovered === color && index === 0
+                            ? { backgroundColor: color, color: '#09090A', border: 'none' }
+                            : { backgroundColor: '', color: '' }
+                        }
+                      >{item}</li>
+                    ))
+                  : tagsEn.map((item, index) => (
+                      <li
+                        key={index}
+                        className={css.components__item}
+                        style={
+                          isHovered === color && index === 0
+                            ? { backgroundColor: color, color: '#09090A', border: 'none' }
+                            : { backgroundColor: '', color: '' }
+                        }
+                      >{item}</li>
                     ))}
-                  </ul>
-                </div>
-              </Link>
-            </li>
-          )
-        )}
+              </ul>
+            </Link>
+          </li>
+        ))}
       </ul>
       <div className={css.thumb}>
-        <h4 className={css.test}>{t("profTest.question")}</h4>
+        <h4 className={css.test}>{t('profTest.question')}</h4>
         <div className={css.wrapper__test}>
-          <p className={css.text}>{t("profTest.answer")}</p>
-          <Link href="https://www.16personalities.com/free-personality-test" rel="noopener noreferrer"
-                  target="_blank" className={css.test__link}>
-            <p>{t("profTest.test")}</p>
+          <p className={css.text}>{t('profTest.answer')}</p>
+          <Link
+            href="https://www.16personalities.com/free-personality-test"
+            rel="noopener noreferrer"
+            target="_blank"
+            className={css.test__link}
+          >
+            <p>{t('profTest.test')}</p>
             <ArrowRight />
           </Link>
         </div>
