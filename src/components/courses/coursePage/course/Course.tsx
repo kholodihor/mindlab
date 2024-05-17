@@ -56,39 +56,3 @@ const t = useTranslations("Courses")
 }
 
 export default Course
-
-// const [isHovered, setIsHovered] = useState('');
-
-// const handleMouseEnter = (color: string) => {
-//   setIsHovered(color);
-// };
-
-// const handleMouseLeave = () => {
-//   setIsHovered('');
-// };
-
-// <ul className={css.courses}>
-//         {courses?.map(
-//           ({ title, descriptionUa, descriptionEn, tagsUa, tagsEn, color, id }) => (
-//             <li className={css.courses__item} key={id}>
-//               <Link href={`/${locale}${id}`} className={css.courses__link} onMouseEnter={()=>handleMouseEnter(color)}
-//       onMouseLeave={handleMouseLeave}>
-//                 <div className={css.thumb__title} >
-//                   <h3 className={css.title} style={{color: isHovered === color ? color : ''}} >{title}</h3>
-//                   <div className={css.icon__title}>
-//                     <ArrowTop color={color} width={21} height={22} />
-//                   </div>
-//                 </div>
-//                 <p className={css.courses__description}>{locale === 'ua' ? descriptionUa : descriptionEn}</p>
-//                   <ul className={css.components__list}>
-//                     {locale === 'ua' ? tagsUa : tagsEn.map((item, index) => (
-//                       <li key={index} className={css.components__item} style={isHovered === color && index === 0 ? {backgroundColor: color, color: '#09090A', border: 'none'} : {backgroundColor: '', color: ''}}>
-//                         {item}
-//                       </li>
-//                     ))}
-//                   </ul>
-//               </Link>
-//             </li>
-//           )
-//         )}
-//       </ul>
