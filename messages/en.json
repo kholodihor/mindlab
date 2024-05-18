@@ -83,9 +83,9 @@
   "Courses": {
     "title": "Choose the direction you like",
     "price": {
-      "fullprice": "UAH 1,200 upon full payment of the course",
-      "monthlyprice": "UAH/month when paying in installments",
-      "price": "UAH/month"
+      "fullprice": " upon full payment of the course",
+      "monthlyprice": " when paying in installments",
+      "price": ""
     },
     "time": {
       "text": "The course continues",
