@@ -1,12 +1,28 @@
 import Select from 'react-select'
 import css from './Teacher.module.css'
 import { Controller } from 'react-hook-form'
-import { useTeachers } from '@/hooks/swr/useTeachers';
+import { useTeachers } from '@/hooks/swr/useTeachers'
 
-const Teacher = ({ control, errors, speciality }: { control: any; errors: any, speciality?: string }) => {
-  const {teachers} = useTeachers()
+const Teacher = ({
+  control,
+  errors,
+  speciality
+}: {
+  control: any
+  errors: any
+  speciality?: string
+}) => {
+  const { teachers } = useTeachers()
 
-  const options= speciality ? teachers?.filter(item => item.speciality === speciality)?.map(({name, id}) => { return {value: id, label: name}}) : teachers?.map(({name, id}) => { return {value: id, label: name}});
+  const options = speciality
+    ? teachers
+        ?.filter((item) => item.speciality === speciality)
+        ?.map(({ name_en, id }) => {
+          return { value: id, label: name_en }
+        })
+    : teachers?.map(({ name_en, id }) => {
+        return { value: id, label: name_en }
+      })
 
   return (
     <div className={css.wrapper}>
@@ -18,7 +34,7 @@ const Teacher = ({ control, errors, speciality }: { control: any; errors: any, s
           <Select
             {...field}
             options={options?.length !== 0 ? options : []}
-            placeholder={options?.length !== 0 ? "Марко Федоренко" : "Немає викладачів"}
+            placeholder={options?.length !== 0 ? 'Марко Федоренко' : 'Немає викладачів'}
             theme={(theme) => ({
               ...theme,
               borderRadius: 0,
@@ -71,8 +87,9 @@ const Teacher = ({ control, errors, speciality }: { control: any; errors: any, s
           />
         )}
       />
-     {errors.teacherId?.message && errors.teacherId?.message !== undefined  && <span className={css.error}>{errors.teacherId?.message}</span>}
-     
+      {errors.teacherId?.message && errors.teacherId?.message !== undefined && (
+        <span className={css.error}>{errors.teacherId?.message}</span>
+      )}
     </div>
   )
 }
