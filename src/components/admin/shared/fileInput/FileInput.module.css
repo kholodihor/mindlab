@@ -7,7 +7,7 @@
 }
 
 .file_input_title {
-  color: #161618;
+  color: var(--graphite);
 }
 
 .file_input_btn {

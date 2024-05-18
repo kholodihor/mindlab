@@ -85,8 +85,9 @@
   width: 100%;
 }
 
-.area_group {
+.about_container .area_group {
   flex: 1;
+  min-height: 235px;
 }
 
 .btn_container {

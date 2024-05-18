@@ -48,6 +48,12 @@
   font-size: 14px;
   line-height: 21px;
   margin-bottom: 10px;
+  height: 40px; 
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .button_container {
@@ -60,8 +66,8 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   color: var(--white);
   border-radius: 50%;
   display: flex;

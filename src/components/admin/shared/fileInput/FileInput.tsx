@@ -13,9 +13,9 @@ const FileInput = <T extends FieldValues>({title, placeholder, control, name, ru
     formState.errors[name] as DeepMap<FieldValues, FieldError>
   )?.message
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      field.onChange(e.target.files)
-    }
+    if (!e.target.files) return;
+    field.onChange(e.target.files);
+    console.log(e.target.files)
   }
 
   return (
