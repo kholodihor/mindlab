@@ -133,7 +133,7 @@ const AddPage = () => {
                     {...field}
                     title="Спеціалізація (max 52 символи)"
                     errorText={errors.speciality?.message}
-                    placeholder="Політичний радник..."
+                    placeholder="Leadership"
                   />
                 )}
               />
