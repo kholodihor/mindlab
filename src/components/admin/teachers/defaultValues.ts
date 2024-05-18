@@ -1,6 +1,7 @@
 export const defaultValues = {
   image: [],
-  name: '',
+  name_ua: '',
+  name_en: '',
   speciality: '',
   linkedinLink: '',
   facebookLink: '',

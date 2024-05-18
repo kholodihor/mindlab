@@ -5,6 +5,7 @@ import styles from './TeacherCard.module.css'
 import EditIcon from '../../courses/icons/EditIcon'
 import DeleteIcon from '../../courses/icons/DeleteIcon'
 import { ITeacherResponse } from '@/types/teachers'
+import { useLocale } from 'next-intl'
 
 type TeacherProps = {
   teacher: ITeacherResponse
@@ -12,22 +13,25 @@ type TeacherProps = {
 }
 
 const TeacherCard = ({ teacher, deleteTeacher }: TeacherProps) => {
+  const locale = useLocale()
   return (
     <div className={styles.card}>
       <Image
         width={220}
         height={235}
         src={teacher.imageUrl}
-        alt={teacher.name}
+        alt={locale === 'en' ? teacher.name_en : teacher.name_ua}
         className={styles.image}
       />
       <div className={styles.info}>
-        <h3 className={styles.name}>{teacher.name}</h3>
+        <h3 className={styles.name}>{locale === 'en' ? teacher.name_en : teacher.name_ua}</h3>
         <p className={styles.speciality}>{teacher.speciality}</p>
         <div className={styles.button_container}>
           <button
             className={`${styles.btn} ${styles.btn_delete}`}
-            onClick={() => {deleteTeacher(teacher.id, teacher.imageId)} }
+            onClick={() => {
+              deleteTeacher(teacher.id, teacher.imageId)
+            }}
           >
             <DeleteIcon />
           </button>

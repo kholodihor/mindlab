@@ -39,7 +39,8 @@ const EditPage = ({ id }: { id: string }) => {
     const teacherData = getTeacherById(id)
 
     if (teacherData) {
-      setValue('name', teacherData.name)
+      setValue('name_ua', teacherData.name_ua)
+      setValue('name_en', teacherData.name_en)
       setValue('speciality', teacherData.speciality)
       setValue('about_me', teacherData.about_me)
       setValue('about_help', teacherData.about_help)
@@ -100,7 +101,7 @@ const EditPage = ({ id }: { id: string }) => {
                     width={280}
                     height={300}
                     src={image}
-                    alt={currentValues.name}
+                    alt={currentValues.name_ua}
                     className={styles.image}
                   />
                   <Image
@@ -115,13 +116,24 @@ const EditPage = ({ id }: { id: string }) => {
             </div>
             <div className={styles.input_group}>
               <Controller
-                name="name"
+                name="name_ua"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
                     title="Введіть ім'я та прізвище:"
-                    errorText={errors.name?.message}
+                    errorText={errors.name_ua?.message}
+                  />
+                )}
+              />
+              <Controller
+                name="name_en"
+                control={control}
+                render={({ field }) => (
+                  <Admin_TextInput
+                    {...field}
+                    title="Введіть ім'я та прізвище англійською мовою:"
+                    errorText={errors.name_en?.message}
                   />
                 )}
               />
