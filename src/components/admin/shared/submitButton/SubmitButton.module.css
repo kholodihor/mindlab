@@ -1,5 +1,5 @@
 .submit_btn {
-  padding: 18px 50px;
+  padding: 18px 41px;
   border: none;
   background-color: var(--blue);
   border-radius: 34px;
@@ -10,6 +10,7 @@
   cursor: pointer;
   outline: none; 
   transition: all .5s ease-in-out;
+  min-width: 230px;
 }
 
 .submit_btn:hover {

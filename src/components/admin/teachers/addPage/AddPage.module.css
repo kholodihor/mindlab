@@ -13,8 +13,9 @@
   padding: 20px;
 }
 
-.input_group:first-child {
+.info_container .input_group:first-child {
   grid-area: 1 / 1 / 4 / 2;
+  height: 520px;
 }
 
 .input_group:nth-child(2) {
@@ -38,6 +39,7 @@
   font-size: 24px;
   line-height: 36px;
   margin-bottom: 30px;
+  color: var(--black-admin);
 }
 
 .image_preview {
@@ -59,6 +61,7 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
+  color: var(--graphite);
 }
 
 .image {
@@ -98,6 +101,7 @@
 
 .area_group {
   flex: 1;
+  min-height: 235px;
 }
 
 .btn_container {
