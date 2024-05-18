@@ -4,7 +4,6 @@ import Image from 'next/image'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
-import { reviews } from '@/data/reviews'
 import { useModal } from '@/stores/useModal'
 import { useAlert } from '@/stores/useAlert'
 import { useTestimonials } from '@/hooks/swr/useTestimonials'
@@ -48,9 +47,9 @@ const Testimonials = () => {
         }}
         className={styles.swiper}
       >
-        {reviews.map((review, index) => (
+        {testimonials?.map((item, index) => (
           <SwiperSlide key={index} className={styles.slide}>
-            <TestimonialCard review={review} />
+            <TestimonialCard review={item} />
           </SwiperSlide>
         ))}
       </Swiper>

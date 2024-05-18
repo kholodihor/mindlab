@@ -18,7 +18,8 @@ model Testimonial{
 
 model Teacher{
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
+  name_ua     String
+  name_en     String
   speciality  String
   imageUrl    String
   imageId     String

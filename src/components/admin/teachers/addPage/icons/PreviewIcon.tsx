@@ -1,8 +1,27 @@
 const PreviewIcon = () => {
   return (
-    <svg width="275" height="294" viewBox="0 0 275 294" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1.5" y="1" width="272" height="292" rx="23" stroke="#DBDBDC" stroke-width="2" stroke-dasharray="20 20"/>
-      <path d="M138.019 80.1816L138.019 213.818M75.2271 146.443H199.773" stroke="#DBDBDC" stroke-width="2"/>
+    <svg
+      width="275"
+      height="294"
+      viewBox="0 0 275 294"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect
+        x="1.5"
+        y="1"
+        width="272"
+        height="292"
+        rx="23"
+        stroke="#DBDBDC"
+        strokeWidth="2"
+        strokeDasharray="20 20"
+      />
+      <path
+        d="M138.019 80.1816L138.019 213.818M75.2271 146.443H199.773"
+        stroke="#DBDBDC"
+        strokeWidth="2"
+      />
     </svg>
   )
 }

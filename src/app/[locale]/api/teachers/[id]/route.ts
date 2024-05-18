@@ -36,7 +36,8 @@ export async function PATCH(request: Request, { params }: { params: { id: string
         id: params.id
       },
       data: {
-        name: data.name,
+        name_ua: data.name_ua,
+        name_en: data.name_en,
         imageUrl: data.imageUrl,
         imageId: data.imageId,
         speciality: data.speciality,

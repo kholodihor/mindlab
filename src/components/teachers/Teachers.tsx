@@ -42,7 +42,8 @@ const Teachers = () => {
         teachers?.filter(
           (teacher) =>
             teacher?.speciality?.toLowerCase().includes(query.toLowerCase()) ||
-            teacher?.name?.toLowerCase().includes(query.toLowerCase())
+            teacher?.name_en?.toLowerCase().includes(query.toLowerCase()) ||
+            teacher?.name_ua?.toLowerCase().includes(query.toLowerCase())
         )
       )
     }

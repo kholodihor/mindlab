@@ -38,7 +38,9 @@ const TeacherPage = ({ id }: { id: string }) => {
             </div>
             <div>
               <div className={styles.about}>
-                <h3 className={styles.about_name}>{teacher.name}</h3>
+                <h3 className={styles.about_name}>
+                  {locale === 'ua' ? teacher.name_ua : teacher.name_en}
+                </h3>
                 <p className={styles.about_speciality}>{teacher.speciality}</p>
               </div>
               <div className={styles.icons}>
