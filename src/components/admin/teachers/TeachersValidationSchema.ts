@@ -7,12 +7,20 @@ const MAX_FILE_SIZE = 1024 * 1024 * 3
 const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'for-url']
 
 export const TeachersFormValidation = z.object({
-  name: z
+  name_ua: z
     .string({ required_error: 'Поле повинно бути заповнене' })
     .trim()
     .min(4, { message: 'Мінімум 4 символи' })
     .max(60, { message: 'Максимум 60 символів' })
-    .regex(/^[a-zA-Zа-яА-Яє-їЄ-Ї ]*$/, { message: 'Поле повинно містити тільки літери' }),
+    .regex(/^[а-яА-Яє-їЄ-Ї ]*$/, {
+      message: 'Поле повинно містити тільки літери української мови'
+    }),
+  name_en: z
+    .string({ required_error: 'Поле повинно бути заповнене' })
+    .trim()
+    .min(4, { message: 'Мінімум 4 символи' })
+    .max(60, { message: 'Максимум 60 символів' })
+    .regex(/^[a-zA-Z ]*$/, { message: 'Поле повинно містити тільки літери англійської мови' }),
   speciality: z
     .string()
     .min(1, { message: 'Поле повинно бути заповнене' })
