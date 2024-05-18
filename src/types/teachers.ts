@@ -1,5 +1,6 @@
 export interface ITeacher {
-  name?: string
+  name_ua?: string
+  name_en?: string
   imageUrl?: string
   imageId?: string
   speciality?: string
@@ -18,7 +19,8 @@ export interface ITeacherResponse extends ITeacher {
 }
 
 export type TeacherFormData = {
-  name?: string
+  name_ua?: string
+  name_en?: string
   speciality?: string
   about_me?: string
   about_help?: string

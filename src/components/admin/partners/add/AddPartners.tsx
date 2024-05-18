@@ -49,6 +49,8 @@ const AddPartners = () => {
     setImagePreview(file)
   }, [currentValues.image])
 
+  console.log(currentValues.image)
+
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsProcessing(true)
     const response = await addPartner(data)

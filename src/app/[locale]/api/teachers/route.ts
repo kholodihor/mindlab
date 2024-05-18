@@ -20,7 +20,8 @@ export async function POST(request: Request) {
     const data: ITeacher = await request.json()
     const response = await prisma.teacher.create({
       data: {
-        name: data.name,
+        name_ua: data.name_ua,
+        name_en: data.name_en,
         imageUrl: data.imageUrl,
         imageId: data.imageId,
         speciality: data.speciality,
