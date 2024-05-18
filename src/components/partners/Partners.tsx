@@ -5,22 +5,24 @@ import eye from '@/animations/eye.json'
 import Lottie from 'lottie-react'
 import ArrowPartners from '../icons/ArrowPartners'
 import ArrowSliderPartners from '../icons/ArrowSliderPartners'
-import { partners } from '@/data/data'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Mousewheel, Scrollbar } from 'swiper/modules'
 import Link from 'next/link'
 import ArrowPartnersTablet from '../icons/ArrowPartnersTablet'
 import { motion } from 'framer-motion'
 import { useWidth } from '@/hooks/useWidth'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 import css from '../partners/Partners.module.css'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
+import { usePartners } from '@/hooks/swr/usePartners'
 
 const Partners = () => {
+  const {partners} = usePartners()
+  const locale = useLocale()
   const currentWidth = useWidth()
   const t = useTranslations('Partners')
   return (
@@ -62,18 +64,18 @@ const Partners = () => {
           loop={true}
           modules={[Navigation, Mousewheel, Scrollbar]}
         >
-          {partners.map(({ name, logo, text, color, link }) => (
-            <SwiperSlide key={name} className={css.swiperSlide} style={{ background: `${color}` }}>
+          {partners?.map(({ nameUa, nameEn, websiteLink, descriptionEn, descriptionUa, color, id, imageUrl}) => (
+            <SwiperSlide key={id} className={css.swiperSlide} style={{ background: `${color}` }}>
               <Image
                 width={105}
                 height={105}
-                src={logo}
+                src={imageUrl}
                 alt="logo"
                 className={css.partners__logo}
               />
-              <p className={css.partners__description}>{t(text)}</p>
-              <Link href={link} className={css.swiper__link}>
-                <p className={css.partners__name}>{t(name)}</p>
+              <p className={css.partners__description}>{locale === 'ua' ? descriptionUa : descriptionEn}</p>
+              <Link href={websiteLink} className={css.swiper__link}>
+                <p className={css.partners__name}>{locale === 'ua' ? nameUa : nameEn}</p>
                 <div className={css.link__icon}>
                   <ArrowSliderPartners />
                 </div>
