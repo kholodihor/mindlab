@@ -13,8 +13,9 @@
   padding: 20px;
 }
 
-.input_group:first-child {
+.info_container .input_group:first-child {
   grid-area: 1 / 1 / 4 / 2;
+  height: 520px;
 }
 
 .input_group:nth-child(2) {
