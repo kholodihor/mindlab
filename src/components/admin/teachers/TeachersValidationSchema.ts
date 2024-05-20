@@ -7,43 +7,52 @@ const MAX_FILE_SIZE = 1024 * 1024 * 3
 const ACCEPTED_IMAGE_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'for-url']
 
 export const TeachersFormValidation = z.object({
-  name: z
+  name_ua: z
     .string({ required_error: 'Поле повинно бути заповнене' })
     .trim()
     .min(4, { message: 'Мінімум 4 символи' })
     .max(60, { message: 'Максимум 60 символів' })
-    .regex(/^[a-zA-Zа-яА-Яє-їЄ-Ї ]*$/, { message: 'Поле повинно містити тільки літери' }),
+    .regex(/^[а-яА-Яє-їЄ-Ї ]*$/, {
+      message: 'Вкажіть ім’я українською мовою'
+    }),
+  name_en: z
+    .string({ required_error: 'Поле повинно бути заповнене' })
+    .trim()
+    .min(4, { message: 'Мінімум 4 символи' })
+    .max(60, { message: 'Максимум 60 символів' })
+    .regex(/^[a-zA-Z ]*$/, { message: 'Вкажіть ім’я англійською мовою' }),
   speciality: z
     .string()
     .min(1, { message: 'Поле повинно бути заповнене' })
-    .max(52, { message: 'Ваша спеціалізація повинна містити максимум 52 символи' }),
+    .max(52, { message: 'Ваша спеціалізація повинна містити максимум 52 символи' })
+    .regex(/^[a-zA-Z ]*$/, { message: 'Спеціалізація має бути вказана англійською мовою' }),
   about_me: z
     .string()
     .min(1, { message: 'Поле повинно бути заповнене' })
     .max(200, { message: 'Максимум 200 символів' })
-    .refine((value) => /^[a-zA-Zа-яА-ЯҐґЄєІіЇї\s\d'’ʼ.,:;"()!?-]+$/.test(value), {
-      message: 'Введіть коректний текст українською мовою'
+    .refine((value) => /^[а-яА-ЯҐґЄєІіЇї\s\d'’ʼ.,:;"()!?—-—]+$/.test(value), {
+      message: 'Введіть коректний текст або символ українською мовою'
     }),
   about_help: z
     .string()
     .min(1, { message: 'Поле повинно бути заповнене' })
     .max(200, { message: 'Максимум 200 символів' })
-    .refine((value) => /^[a-zA-Zа-яА-ЯҐґЄєІіЇї\s\d'’ʼ.,:;"()!?-]+$/.test(value), {
-      message: 'Введіть коректний текст українською мовою'
+    .refine((value) => /^[а-яА-ЯҐґЄєІіЇї\s\d'’ʼ.,:;"()!?—-—]+$/.test(value), {
+      message: 'Введіть коректний текст або символ українською мовою'
     }),
   about_me_en: z
     .string()
     .min(1, { message: 'Поле повинно бути заповнене' })
     .max(200, { message: 'Максимум 200 символів' })
-    .refine((value) => /^[a-zA-Z\s\d'’.,-:;"()!?-]+$/.test(value), {
-      message: 'Введіть коректний текст англійською мовою'
+    .refine((value) => /^[a-zA-Z\s\d'’.,-:;"()!?—-—&]+$/.test(value), {
+      message: 'Введіть коректний текст або символ англійською мовою'
     }),
   about_help_en: z
     .string()
     .min(1, { message: 'Поле повинно бути заповнене' })
     .max(200, { message: 'Максимум 200 символів' })
-    .refine((value) => /^[a-zA-Z\s\d'’.,-:;"()!?-]+$/.test(value), {
-      message: 'Введіть коректний текст англійською мовою'
+    .refine((value) => /^[a-zA-Z\s\d'’.,-:;"()!?—-—&]+$/.test(value), {
+      message: 'Введіть коректний текст або символ англійською мовою'
     }),
   image: z
     .any()

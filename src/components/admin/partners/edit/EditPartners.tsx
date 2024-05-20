@@ -74,9 +74,8 @@ const EditPartners = ({ id }: { id: string }) => {
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
 
     setIsProcessing(true)
-   const response =  await updatePartner(id, data)
-   console.log(response)
-   if(response){
+   await updatePartner(id, data)
+  
     setIsProcessing(false)
     Swal.fire({
       title: 'Дані успішно оновленні',
@@ -86,11 +85,6 @@ const EditPartners = ({ id }: { id: string }) => {
         router.push('/admin/partners')
       }
     })
-   } 
-   Swal.fire({
-    title: 'Щось пішло не так. Спробуйте знову.',
-    icon: 'error'
-  })
   }
 
   return (

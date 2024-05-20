@@ -81,7 +81,7 @@ const AddPage = () => {
                         width={280}
                         height={300}
                         src={image}
-                        alt={currentValues.name}
+                        alt={currentValues.name_ua}
                         className={styles.image}
                       />
                       <Image
@@ -102,13 +102,25 @@ const AddPage = () => {
             </div>
             <div className={styles.input_group}>
               <Controller
-                name="name"
+                name="name_ua"
                 control={control}
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
                     title="Введіть ім'я та прізвище:"
-                    errorText={errors.name?.message}
+                    errorText={errors.name_ua?.message}
+                    placeholder="Марко Федоренко"
+                  />
+                )}
+              />
+              <Controller
+                name="name_en"
+                control={control}
+                render={({ field }) => (
+                  <Admin_TextInput
+                    {...field}
+                    title="Введіть ім'я та прізвище англійською мовою:"
+                    errorText={errors.name_en?.message}
                     placeholder="Марко Федоренко"
                   />
                 )}
@@ -121,7 +133,7 @@ const AddPage = () => {
                     {...field}
                     title="Спеціалізація (max 52 символи)"
                     errorText={errors.speciality?.message}
-                    placeholder="Політичний радник..."
+                    placeholder="Leadership"
                   />
                 )}
               />

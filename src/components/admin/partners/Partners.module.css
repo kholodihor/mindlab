@@ -11,9 +11,7 @@
     width: 317px;
     height: 317px;
     border-radius: 16px;
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: center; */
+    box-shadow: 2px 0 8px rgba(167, 129, 247, 0.2);
 }
 
 .partner__logo {

@@ -2,15 +2,8 @@ import Avatar from 'react-avatar'
 import { getRandomColor } from '@/helpers/getRandomColor'
 import styles from './TestimonialCard.module.css'
 
-type TestimonialCardProps = {
-  review: {
-    image: string
-    name: string
-    text: string
-  }
-}
-
-const TestimonialCard = ({ review }: TestimonialCardProps) => {
+const TestimonialCard = ({ review }: any) => {
+ 
   return (
     <div className={styles.review_card}>
       <div className={styles.review_card_header}>
@@ -18,7 +11,7 @@ const TestimonialCard = ({ review }: TestimonialCardProps) => {
         <span className={styles.review_card_name}>{review.name}</span>
       </div>
       <div className={styles.review_card_body}>
-        <p className={styles.review_card_body_paragraph}>{review.text}</p>
+        <p className={styles.review_card_body_paragraph}>{review.message}</p>
       </div>
     </div>
   )
