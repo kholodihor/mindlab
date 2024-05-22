@@ -8,6 +8,7 @@ import Footer from '@/components/footer/Footer'
 import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import './globals.css'
+import { unstable_setRequestLocale } from 'next-intl/server'
 
 const fixelDisplay = localFont({
   src: [
@@ -73,6 +74,7 @@ export default async function RootLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
+  unstable_setRequestLocale(locale)
   const session = await getServerSession()
   let messages: any
   try {
