@@ -10,6 +10,7 @@ import PhoneIcon from '../icons/PhoneIcon'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { useDocuments } from '@/hooks/swr/useDocuments'
+import { useContacts } from '@/hooks/swr/useContacts'
 
 const Footer = () => {
   const t = useTranslations()
@@ -17,6 +18,7 @@ const Footer = () => {
   const pathname = usePathname()
   const isAdminPage = pathname.split('/').includes('admin') || pathname.split('/').includes('login')
   const { documents } = useDocuments()
+  const { contacts } = useContacts()
 
   if (isAdminPage) return null
 
@@ -36,7 +38,7 @@ const Footer = () => {
           <ul className={css.social__list}>
             <li>
               <Link
-                href="https://www.instagram.com/mind.lab_hub?igsh=bWl3dGt5Njdwd3Fk&utm_source=qr"
+                href={contacts[0].instagram}
                 className={css.social__link}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -51,7 +53,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="https://www.facebook.com/"
+                href={contacts[0].facebook}
                 className={css.social__link}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -64,7 +66,7 @@ const Footer = () => {
             <ul className={css.contact__list}>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.help')}</p>
-                <Link href="mailto:mind.lab.hub@gmail.com" className={css.contact__link}>
+                <Link href={contacts[0].email} className={css.contact__link}>
                   <MailIcon />
                   <p>{t('Footer.mail')}</p>
                 </Link>
@@ -72,7 +74,7 @@ const Footer = () => {
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.answer')}</p>
                 <Link
-                  href="https://t.me/+Q8t3dkMH84hiYmNi"
+                  href={contacts[0].telegram}
                   className={css.contact__link}
                   rel="noopener noreferrer"
                   target="_blank"
@@ -83,7 +85,7 @@ const Footer = () => {
               </li>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.talk')}</p>
-                <Link href="tel:6031112298" className={css.contact__link}>
+                <Link href={contacts[0].phone} className={css.contact__link}>
                   <PhoneIcon />
                   <p>{t('Footer.phone')}</p>
                 </Link>
