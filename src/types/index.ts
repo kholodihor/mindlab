@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export type CoursesList = {
   title: string
   description: string

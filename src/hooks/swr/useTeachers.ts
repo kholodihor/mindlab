@@ -1,5 +1,3 @@
-'use client'
-
 import useSWR from 'swr'
 import { AxiosError } from 'axios'
 import * as teachersApi from '@/utils/api/teachers'
