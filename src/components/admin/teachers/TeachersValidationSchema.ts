@@ -30,14 +30,14 @@ export const TeachersFormValidation = z.object({
     .string()
     .min(1, { message: 'Поле повинно бути заповнене' })
     .max(200, { message: 'Максимум 200 символів' })
-    .refine((value) => /^[а-яА-ЯҐґЄєІіЇї\s\d'’ʼ.,:;"()!?—-—]+$/.test(value), {
+    .refine((value) => /^[а-яА-ЯҐґЄєІіЇї\s\d'’ʼ.,:;"()!?—-—-]+$/.test(value), {
       message: 'Введіть коректний текст або символ українською мовою'
     }),
   about_help: z
     .string()
     .min(1, { message: 'Поле повинно бути заповнене' })
     .max(200, { message: 'Максимум 200 символів' })
-    .refine((value) => /^[а-яА-ЯҐґЄєІіЇї\s\d'’ʼ.,:;"()!?—-—]+$/.test(value), {
+    .refine((value) => /^[а-яА-ЯҐґЄєІіЇї\s\d'’ʼ.,:;"()!?—-—-]+$/.test(value), {
       message: 'Введіть коректний текст або символ українською мовою'
     }),
   about_me_en: z
