@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
-import { ForwardedRef, InputHTMLAttributes, forwardRef, useState } from 'react'
+import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react'
 
 import styles from './Admin_TextInput.module.css'
 
@@ -28,7 +28,6 @@ const Admin_TextInput = forwardRef(function TextInput(
         value={value}
         className={`${styles.input} ${isWhite && styles.white}`}
         autoComplete="new-off"
-        onChange={(e) => console.log(e.target.value)}
       />
       {errorText && errorText !== undefined && <span className={styles.error}>{errorText}</span>}
     </div>
