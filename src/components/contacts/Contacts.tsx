@@ -1,8 +1,10 @@
+'use client'
+
 import React from 'react'
-import styles from './Contacts.module.css'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { useContacts } from '@/hooks/swr/useContacts'
+import styles from './Contacts.module.css'
 
 const Contacts = () => {
   const t = useTranslations('Contacts')
@@ -15,7 +17,7 @@ const Contacts = () => {
       <p className={styles.paragraph}>
         {t('follow')}{' '}
         <a
-          href={contacts[0].instagram}
+          href={contacts ? contacts?.[0].instagram : ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.link}
@@ -30,7 +32,7 @@ const Contacts = () => {
         </a>
         {t('join')}{' '}
         <a
-          href={contacts[0].facebook}
+          href={contacts ? contacts?.[0].facebook : ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.link}
@@ -45,7 +47,7 @@ const Contacts = () => {
         </a>
         {t('write')}{' '}
         <a
-          href={contacts[0].telegram}
+          href={contacts ? contacts?.[0].telegram : ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.link}
@@ -60,7 +62,7 @@ const Contacts = () => {
           />
         </a>
         {t('and')}{' '}
-        <a href={contacts[0].email} className={styles.link}>
+        <a href={contacts ? contacts?.[0].email : ''} className={styles.link}>
           {' '}
           <Image
             className={styles.image}

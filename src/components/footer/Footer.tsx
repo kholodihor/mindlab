@@ -38,7 +38,7 @@ const Footer = () => {
           <ul className={css.social__list}>
             <li>
               <Link
-                href={contacts[0].instagram}
+                href={contacts ? contacts?.[0].instagram : ''}
                 className={css.social__link}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -53,7 +53,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href={contacts[0].facebook}
+                href={contacts ? contacts?.[0].facebook : ''}
                 className={css.social__link}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -66,7 +66,7 @@ const Footer = () => {
             <ul className={css.contact__list}>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.help')}</p>
-                <Link href={contacts[0].email} className={css.contact__link}>
+                <Link href={contacts ? contacts?.[0].email : ''} className={css.contact__link}>
                   <MailIcon />
                   <p>{t('Footer.mail')}</p>
                 </Link>
@@ -74,7 +74,7 @@ const Footer = () => {
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.answer')}</p>
                 <Link
-                  href={contacts[0].telegram}
+                  href={contacts ? contacts?.[0].telegram : ''}
                   className={css.contact__link}
                   rel="noopener noreferrer"
                   target="_blank"
@@ -85,7 +85,7 @@ const Footer = () => {
               </li>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.talk')}</p>
-                <Link href={contacts[0].phone} className={css.contact__link}>
+                <Link href={contacts ? contacts?.[0].phone : ''} className={css.contact__link}>
                   <PhoneIcon />
                   <p>{t('Footer.phone')}</p>
                 </Link>
@@ -112,14 +112,18 @@ const Footer = () => {
               <span className={css.spanCopyright}>{t('Footer.rights')}</span>
             </p>
             <div className={css.rules__site}>
-              {documents && documents.map((document) => (
-                <Link target="_blank"
-                      rel="noopener noreferrer"
-                      href={document.fileUrl}
-                      className={css.rule__item}
-                      key={document.fileId}
-                >{locale === 'en' ? document.fileName_en: document.fileName_ua}</Link>
-              ))}
+              {documents &&
+                documents.map((document) => (
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={document.fileUrl}
+                    className={css.rule__item}
+                    key={document.fileId}
+                  >
+                    {locale === 'en' ? document.fileName_en : document.fileName_ua}
+                  </Link>
+                ))}
             </div>
           </div>
         </div>

@@ -12,7 +12,7 @@ import { useTranslations } from 'next-intl'
 const Hero = () => {
   const { closeModal } = useModal()
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
-  const alertType = useAlert((state)=>state.alertType)
+  const alertType = useAlert((state) => state.alertType)
   const modalType = useModal((state) => state.modalType)
   const isModalOpen = useModal((state) => state.isModalOpen)
 
@@ -28,7 +28,7 @@ const Hero = () => {
           <FeedBackForm />
         </FormModal>
       )}
-      {isAlertOpen && alertType === 'feedback' &&   <SuccessAlert />}
+      {isAlertOpen && alertType === 'feedback' && <SuccessAlert />}
     </section>
   )
 }

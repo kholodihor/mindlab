@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import styles from './DocumentCard.module.css'
 import PdfIcon from '@/components/icons/PdfIcon'
@@ -17,7 +18,9 @@ const DocumentCard = ({ document, deleteDocument }: DocumentProps) => {
     <div className={styles.card}>
       <div className={styles.document_info}>
         <PdfIcon />
-        <h3 className={styles.name}>{locale === 'en' ? document.fileName_en : document.fileName_ua}</h3>
+        <h3 className={styles.name}>
+          {locale === 'en' ? document.fileName_en : document.fileName_ua}
+        </h3>
       </div>
       <button
         className={styles.btn_delete}
