@@ -1,3 +1,4 @@
+'use client'
 
 import useSWR from 'swr'
 import { AxiosError } from 'axios'
@@ -43,7 +44,7 @@ export const usePartners = () => {
 
   const deletePartner = async (id: string, imageId: string) => {
     try {
-     const response =  await partnersApi.deletePartner(id, imageId)
+      const response = await partnersApi.deletePartner(id, imageId)
       const updatedPartners = data?.filter((item) => item.id !== id)
       mutate(updatedPartners)
       return response

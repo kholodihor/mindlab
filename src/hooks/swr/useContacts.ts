@@ -1,3 +1,5 @@
+'use client'
+
 import useSWR from 'swr'
 import { AxiosError } from 'axios'
 import * as contactsApi from '@/utils/api/contacts'

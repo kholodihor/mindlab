@@ -121,7 +121,7 @@ const AddPage = () => {
                     {...field}
                     title="Введіть ім'я та прізвище англійською мовою:"
                     errorText={errors.name_en?.message}
-                    placeholder="Марко Федоренко"
+                    placeholder="Marko Fedorenko"
                   />
                 )}
               />
@@ -240,7 +240,7 @@ const AddPage = () => {
                       {...field}
                       title="Про викладача англійською (max 200 символів):"
                       errorText={errors.about_me_en?.message}
-                      placeholder="Опис англійською"
+                      placeholder="Brief summary"
                     />
                   )}
                 />
@@ -254,7 +254,7 @@ const AddPage = () => {
                       {...field}
                       title="З чим може допомогти викладач англійською? (max 200 символів):"
                       errorText={errors.about_help_en?.message}
-                      placeholder="Опис англійською"
+                      placeholder="Brief summary"
                     />
                   )}
                 />
