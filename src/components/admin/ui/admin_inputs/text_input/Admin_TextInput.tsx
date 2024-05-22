@@ -15,7 +15,6 @@ const Admin_TextInput = forwardRef(function TextInput(
   { title, errorText, isWhite, value, ...rest }: TextInputProps,
   _ref: ForwardedRef<HTMLInputElement>
 ) {
-
   return (
     <div className={styles.wrapper}>
       {!!title && (
