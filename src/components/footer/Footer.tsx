@@ -112,18 +112,14 @@ const Footer = () => {
               <span className={css.spanCopyright}>{t('Footer.rights')}</span>
             </p>
             <div className={css.rules__site}>
-              {documents &&
-                documents.map((document) => (
-                  <Link
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href={document.fileUrl}
-                    className={css.rule__item}
-                    key={document.fileId}
-                  >
-                    {locale === 'en' ? document.fileName_en : document.fileName_ua}
-                  </Link>
-                ))}
+              {documents && documents.map((document) => (
+                <Link target="_blank"
+                      rel="noopener noreferrer"
+                      href={document.fileUrl}
+                      className={css.rule__item}
+                      key={document.fileId}
+                >{locale === 'en' ? document.fileName_en: document.fileName_ua}</Link>
+              ))}
             </div>
           </div>
         </div>
