@@ -81,7 +81,7 @@ const AddPage = () => {
                       {...field}
                       title="Введіть назву документу англійською мовою:"
                       errorText={errors.fileName_en?.message}
-                      placeholder="Назва документу"
+                      placeholder="Document title"
                     />
                   )}
                 />
