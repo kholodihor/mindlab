@@ -1,15 +1,15 @@
 import prisma from '@/lib/prisma'
-import { IDocument } from '@/types/documents'
+// import { IDocument } from '@/types/documents'
 import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
   try {
     await prismaConnect()
-    const documents = await prisma.document.findMany()
-    return NextResponse.json(documents, { status: 200 })
+    const forms = await prisma.form.findMany()
+    return NextResponse.json(forms, { status: 200 })
   } catch (error) {
-    console.log('[GET DOCUMENTS]', error)
+    console.log('[GET FORMS]', error)
     return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
   }
 }
@@ -17,18 +17,17 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     await prismaConnect()
-    const data: IDocument = await request.json()
-    const response = await prisma.document.create({
+    const data = await request.json()
+    const response = await prisma.form.create({
       data: {
-        fileName_ua: data.fileName_ua,
-        fileName_en: data.fileName_en,
-        fileUrl: data.fileUrl,
-        fileId: data.fileId
+        name: data.name,
+        formLink: data.formLink,
+        excelLink: data.excelLink
       }
     })
     return NextResponse.json(response, { status: 200 })
   } catch (error) {
-    console.log(error)
+    console.log('CREATE FORM', error)
     return NextResponse.json({ message: 'Cannot post' }, { status: 500 })
   }
 }
