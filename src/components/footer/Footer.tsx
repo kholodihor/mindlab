@@ -9,12 +9,14 @@ import TelegramIcon from '../icons/TelegramIcon'
 import PhoneIcon from '../icons/PhoneIcon'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
+import { useDocuments } from '@/hooks/swr/useDocuments'
 
 const Footer = () => {
   const t = useTranslations()
   const locale = useLocale()
   const pathname = usePathname()
   const isAdminPage = pathname.split('/').includes('admin') || pathname.split('/').includes('login')
+  const { documents } = useDocuments()
 
   if (isAdminPage) return null
 
@@ -108,22 +110,14 @@ const Footer = () => {
               <span className={css.spanCopyright}>{t('Footer.rights')}</span>
             </p>
             <div className={css.rules__site}>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/documents/політика_конфіденційності.pdf"
-                className={css.rule__item}
-              >
-                {t('Footer.policy')}{' '}
-              </a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/documents/правила_користування_сайтом.pdf"
-                className={css.rule__item}
-              >
-                {t('Footer.terms')}
-              </a>
+              {documents && documents.map((document) => (
+                <Link target="_blank"
+                      rel="noopener noreferrer"
+                      href={document.fileUrl}
+                      className={css.rule__item}
+                      key={document.fileId}
+                >{locale === 'en' ? document.fileName_en: document.fileName_ua}</Link>
+              ))}
             </div>
           </div>
         </div>

@@ -20,7 +20,8 @@ export async function POST(request: Request) {
     const data: IDocument = await request.json()
     const response = await prisma.document.create({
       data: {
-        fileName: data.fileName,
+        fileName_ua: data.fileName_ua,
+        fileName_en: data.fileName_en,
         fileUrl: data.fileUrl,
         fileId: data.fileId
       }
