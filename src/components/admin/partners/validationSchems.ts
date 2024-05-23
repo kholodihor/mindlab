@@ -16,7 +16,10 @@ export const PartnersValidation = z.object({
     .string()
     .nonempty('Поле повинно бути заповнене')
     .min(2, 'Текст має містити мінімум 2 символи')
-    .max(125, 'Текст має містити максимум 125 символи'),
+    .max(125, 'Текст має містити максимум 125 символи')
+    .regex(/^[A-Za-z\s]*$/, {
+      message: "Введіть текст англійською мовою"
+    }),
     color: z
     .string()
     .nonempty('Виберіть колір'),
@@ -50,6 +53,9 @@ export const PartnersValidation = z.object({
     .nonempty('Поле повинно бути заповнене')
     .min(2, 'Текст має містити мінімум 2 символи')
     .max(500, 'Текст має містити максимум 500 символи')
+    .regex(/^[A-Za-z\s.,-?!:;]*$/, {
+      message: "Введіть текст коректно англійською мовою"
+    })
         })
 
         export type FormFields = z.infer<typeof PartnersValidation>

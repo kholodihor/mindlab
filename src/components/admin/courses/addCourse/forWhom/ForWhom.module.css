@@ -16,7 +16,7 @@
     gap: 20px;
     width: 318px;
     min-height: 200px;
-    padding: 20px;
+    padding: 40px 20px;
     background-color: var(--white);
     border-radius: 16px;
     box-shadow: 2px 0 8px rgba(167, 129, 247, 0.2);

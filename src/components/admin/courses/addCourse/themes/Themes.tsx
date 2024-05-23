@@ -18,7 +18,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
           render={({ field }) => (
             <Admin_TextArea
               {...field}
-              title="Заголовок до тем курсу (max 200 символів):"
+              title="Заголовок до тем курсу (max 500 символів):"
               errorText={
                 errors.themeTitleUa?.message && errors.themeTitleUa?.message
               }
@@ -32,11 +32,11 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
           render={({ field }) => (
             <Admin_TextArea
               {...field}
-              title="Заголовок до тем курсу англійською (max 200 символів):"
+              title="Заголовок до тем курсу англійською (max 500 символів):"
               errorText={
                 errors.themeTitleEn?.message && errors.themeTitleEn?.message
               }
-              placeholder="Заголовок"
+              placeholder="Title"
             />
           )}
         />

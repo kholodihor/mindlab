@@ -106,7 +106,7 @@ try {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис (max 400 символів):"
+                    title="Введіть опис (max 500 символів):"
                     errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
                     placeholder="Опис"
                     className={css.textarea}
@@ -119,9 +119,9 @@ try {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис англійською (max 400 символів):"
+                    title="Введіть опис англійською (max 500 символів):"
                     errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
-                    placeholder="Опис"
+                    placeholder="Description"
                   />
                 )}
               />
@@ -254,7 +254,7 @@ try {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис англійською (max 300 символів):"
+                    title="Введіть опис українською (max 900 символів):"
                     errorText={errors.courseDescriptionUa1?.message && errors.courseDescriptionUa1?.message}
                     placeholder="Опис"
                   />
@@ -305,7 +305,7 @@ try {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис англійською (max 300 символів):"
+                    title="Введіть опис англійською (max 900 символів):"
                     errorText={errors.courseDescriptionEn1?.message && errors.courseDescriptionEn1?.message}
                     placeholder="Description"
                   />

@@ -19,6 +19,7 @@
   width: 32%;
   display: flex;
   flex-wrap: wrap;
+  gap: 15px;
   align-content: space-between;
   padding: 40px 20px;
   background-color: var(--white);
