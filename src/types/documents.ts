@@ -1,11 +1,13 @@
 export interface IDocument {
   id: string
-  fileName?: string
+  fileName_ua?: string
+  fileName_en?: string
   fileUrl?: string
   fileId?: string
 }
 
 export type DocumentFormData = {
-  fileName?: string
+  fileName_ua?: string
+  fileName_en?: string
   file?: FileList
 }

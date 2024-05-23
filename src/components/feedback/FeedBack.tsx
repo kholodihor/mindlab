@@ -10,6 +10,7 @@ import { FeedBackFormInput } from '@/types'
 import { defaultValues } from './defaultValues'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { feedbackValidation } from './validationSchema'
+import { useDocuments } from '@/hooks/swr/useDocuments'
 import { useBodyScrollLock } from '@/hooks/useBodyScrollLock'
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
 import TextInput from '@/components/ui/inputs/text_input/TextInput'
@@ -20,8 +21,13 @@ const FeedBack = () => {
   const [checked, setChecked] = useState(false)
   const [isProcessing, setIsProcessing] = useState(false)
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
-    const alertType = useAlert((state)=>state.alertType)
+  const alertType = useAlert((state) => state.alertType)
   const t = useTranslations()
+
+  const { documents } = useDocuments()
+
+  const rules = documents?.find((item) => item.fileName_ua === 'Правила користування сайтом')
+  const policy = documents?.find((item) => item.fileName_ua === 'Політика конфіденційності')
 
   useBodyScrollLock(isAlertOpen)
 
@@ -135,7 +141,7 @@ const FeedBack = () => {
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
-              href="/documents/правила_користування_сайтом.pdf"
+              href={rules ? rules.fileUrl : ''}
             >
               {t('Feedback.checkbox.public')}
             </a>{' '}
@@ -144,7 +150,7 @@ const FeedBack = () => {
               className={styles.check_link}
               target="_blank"
               rel="noopener noreferrer"
-              href="/documents/політика_конфіденційності.pdf"
+              href={policy ? policy.fileUrl : ''}
             >
               {t('Feedback.checkbox.policy')}
             </a>

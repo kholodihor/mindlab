@@ -57,20 +57,37 @@ const AddPage = () => {
       <div className={styles.add_container}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.add_detail}>
-            <div className={styles.input_group}>
-              <Controller
-                name="fileName"
-                control={control}
-                render={({ field }) => (
-                  <Admin_TextInput
-                    {...field}
-                    title="Введіть назву документу:"
-                    errorText={errors.fileName?.message}
-                    placeholder="Назва документу"
-                  />
-                )}
-              />
+            <div className={styles.add_detailName}>
+              <div className={styles.input_group}>
+                <Controller
+                  name="fileName_ua"
+                  control={control}
+                  render={({ field }) => (
+                    <Admin_TextInput
+                      {...field}
+                      title="Введіть назву документу українською мовою:"
+                      errorText={errors.fileName_ua?.message}
+                      placeholder="Назва документу"
+                    />
+                  )}
+                />
+              </div>
+              <div className={styles.input_group}>
+                <Controller
+                  name="fileName_en"
+                  control={control}
+                  render={({ field }) => (
+                    <Admin_TextInput
+                      {...field}
+                      title="Введіть назву документу англійською мовою:"
+                      errorText={errors.fileName_en?.message}
+                      placeholder="Document title"
+                    />
+                  )}
+                />
+              </div>
             </div>
+            
             <div className={styles.input_group}>
               <Admin_TextInput title="Завантажте файл PDF" value={fileName?.name} />
               <FileInput

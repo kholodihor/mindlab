@@ -11,6 +11,7 @@ import TestimonialsIcon from './icons/TestimonialsIcon'
 import ContactsIcon from './icons/ContactsIcon'
 import DocumentsIcon from './icons/DocumentsIcon'
 import LogoutIcon from './icons/LogoutIcon'
+import { FaWpforms } from 'react-icons/fa'
 
 const Sidebar = () => {
   const pathname = usePathname()
@@ -95,6 +96,19 @@ const Sidebar = () => {
           <Link href="/admin/documents" className={styles.item_link}>
             <DocumentsIcon isActive={isLinkActive('documents')} isHovered={isHovered} />
             <span className={styles.item_name}>Документи</span>
+          </Link>
+        </li>
+
+        <li
+          className={`${isLinkActive('forms') ? styles.active : ''} ${styles.item}`}
+          onMouseEnter={() => setIsHovered('forms')}
+          onMouseLeave={() => setIsHovered('')}
+        >
+          <Link href="/admin/forms" className={styles.item_link}>
+            <FaWpforms
+              className={isLinkActive('forms') || isHovered === 'forms' ? styles.activeIcon : styles.icon}
+            />
+            <span className={styles.item_name}>Форми</span>
           </Link>
         </li>
       </ul>

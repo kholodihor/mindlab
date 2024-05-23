@@ -1,5 +1,6 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
+import { useDocuments } from '@/hooks/swr/useDocuments'
 import styles from './Chekbox.module.css'
 
 interface ChecboxProps {
@@ -8,6 +9,11 @@ interface ChecboxProps {
 
 const Checkbox = ({ handleAction }: ChecboxProps) => {
   const t = useTranslations('Feedback')
+  const { documents } = useDocuments()
+
+  const rules = documents?.find((item) => item.fileName_ua === 'Правила користування сайтом')
+  const policy = documents?.find((item) => item.fileName_ua === 'Політика конфіденційності')
+
   return (
     <div className={styles.check_wrapper}>
       <label className={styles.checkbox_container}>
@@ -20,7 +26,7 @@ const Checkbox = ({ handleAction }: ChecboxProps) => {
           className={styles.check_link}
           target="_blank"
           rel="noopener noreferrer"
-          href="/documents/правила_користування_сайтом.pdf"
+          href={rules ? rules.fileUrl : ''}
         >
           {t('checkbox.public')}
         </a>
@@ -29,7 +35,7 @@ const Checkbox = ({ handleAction }: ChecboxProps) => {
           className={styles.check_link}
           target="_blank"
           rel="noopener noreferrer"
-          href="/documents/політика_конфіденційності.pdf"
+          href={policy ? policy.fileUrl : ''}
         >
           {t('checkbox.policy')}
         </a>

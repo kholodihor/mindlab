@@ -35,11 +35,20 @@ model Teacher{
 }
 
 model Document{
-  id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  fileName    String
-  fileUrl     String
-  fileId      String
-  createdAt   DateTime  @default(now()) 
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  fileName_ua    String
+  fileName_en    String
+  fileUrl        String
+  fileId         String
+  createdAt      DateTime  @default(now()) 
+}
+
+model Form{
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  formLink       String
+  excelLink      String
+  createdAt      DateTime  @default(now()) 
 }
 
 model Contacts{
