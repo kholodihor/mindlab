@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
-import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react'
+import { ForwardedRef, InputHTMLAttributes, forwardRef, useState } from 'react'
 
 import styles from './Admin_TextInput.module.css'
 
@@ -15,6 +15,16 @@ const Admin_TextInput = forwardRef(function TextInput(
   { title, errorText, isWhite, value, ...rest }: TextInputProps,
   _ref: ForwardedRef<HTMLInputElement>
 ) {
+  // Initialize with empty string if value is undefined to ensure controlled input
+  const [inputValue, setInputValue] = useState(value ?? '')
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value)
+    if (rest.onChange) {
+      rest.onChange(event)
+    }
+  }
+
   return (
     <div className={styles.wrapper}>
       {!!title && (
@@ -25,7 +35,8 @@ const Admin_TextInput = forwardRef(function TextInput(
       <input
         {...rest}
         id={title}
-        value={value}
+        value={inputValue}
+        onChange={handleChange}
         className={`${styles.input} ${isWhite && styles.white}`}
         autoComplete="new-off"
       />
