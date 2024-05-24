@@ -5,9 +5,14 @@ import Card from '../card/Card'
 import Lottie from 'lottie-react'
 import pulse from '@/animations/puls.json'
 import { useTranslations } from 'next-intl'
+import { IForm } from '@/types/forms'
 
-const BoostEngCard = () => {
-  const ENG_TEST_URL = 'https://forms.gle/HSFhoc82HunVTQxZ8'
+interface BoostEngCardProps {
+  placementTestForm: IForm
+}
+
+const BoostEngCard = ({ placementTestForm }: BoostEngCardProps) => {
+  // const ENG_TEST_URL = 'https://forms.gle/HSFhoc82HunVTQxZ8'
   const [isPulseHovered, setIsPulseHovered] = useState(false)
 
   const t = useTranslations('About')
@@ -30,7 +35,7 @@ const BoostEngCard = () => {
     <Card
       title={t('english.title')}
       description={boostEngCardDesc}
-      url={ENG_TEST_URL}
+      url={placementTestForm ? placementTestForm.formLink : ''}
       text={t('english.btn')}
       hoverHandler={hoverPulseHandler}
     >
