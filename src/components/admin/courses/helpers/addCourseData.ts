@@ -3,10 +3,10 @@ import { addCourseValidation } from '../addCourse/validationSchema'
 
 export const addCourseData = (data: z.infer<typeof addCourseValidation>) => {
   const tagsUa = [data.tagsUa1, data.tagsUa2, data.tagsUa3, data.tagsUa4].filter(
-    (item) => item !== ''
+    (item) => item !== '#'
   )
   const tagsEn = [data.tagsEn1, data.tagsEn2, data.tagsEn3, data.tagsEn4].filter(
-    (item) => item !== ''
+    (item) => item !== '#'
   )
   const themesUa = [
     data.themesUa1,

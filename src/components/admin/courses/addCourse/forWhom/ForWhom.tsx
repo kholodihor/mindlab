@@ -71,7 +71,7 @@ const ForWhom = ({ control, errors }: { control: any; errors: any }) => {
             render={({ field }) => (
               <Admin_TextArea
                 {...field}
-                title="Введіть опис (max 120 символів):"
+                title="Введіть опис (max 160 символів):"
                 errorText={errors.forWhomDescriptionUa1?.message && errors.forWhomDescriptionUa1?.message}
                 placeholder="Опис"
               />
@@ -97,7 +97,7 @@ const ForWhom = ({ control, errors }: { control: any; errors: any }) => {
             render={({ field }) => (
               <Admin_TextArea
                 {...field}
-                title="Введіть опис (max 120 символів):"
+                title="Введіть опис (max 160 символів):"
                 errorText={errors.forWhomDescriptionUa2?.message && errors.forWhomDescriptionUa2?.message}
                 placeholder="Опис"
               />
@@ -170,7 +170,7 @@ const ForWhom = ({ control, errors }: { control: any; errors: any }) => {
             render={({ field }) => (
               <Admin_TextArea
                 {...field}
-                title="Введіть опис (max 120 символів):"
+                title="Введіть опис (max 160 символів):"
                 errorText={errors.forWhomDescriptionEn1?.message && errors.forWhomDescriptionEn1?.message}
                 placeholder="Description"
               />
@@ -196,7 +196,7 @@ const ForWhom = ({ control, errors }: { control: any; errors: any }) => {
             render={({ field }) => (
               <Admin_TextArea
                 {...field}
-                title="Введіть опис (max 120 символів):"
+                title="Введіть опис (max 160 символів):"
                 errorText={errors.forWhomDescriptionEn2?.message && errors.forWhomDescriptionEn2?.message}
                 placeholder="Description"
               />
