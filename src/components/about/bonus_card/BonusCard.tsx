@@ -4,32 +4,31 @@ import Card from '../card/Card'
 import Wow from '@/components/shared/wow/Wow'
 import styles from '../About.module.css'
 import { useTranslations } from 'next-intl'
+import { IForm } from '@/types/forms'
 
-const BonusCard = () => {
+interface BonusCardProps {
+  registrationForm: IForm
+}
+
+const BonusCard = ({ registrationForm }: BonusCardProps) => {
   const [isWowHovered, setIsWowHovered] = useState(false)
-  const REGISTER_URL = 'https://forms.gle/wxX5LyYEsLupyKg68'
+  // const REGISTER_URL = 'https://forms.gle/wxX5LyYEsLupyKg68'
 
-  const t = useTranslations("About");
+  const t = useTranslations('About')
 
   const bonusCardDesc = (
     <ul className={styles.description}>
       <li className={styles.description_item}>
-        {t("bonuses.discount")}{' '}
-        <span className={styles.description_text}>{t("bonuses.preRegistration")}</span>
+        {t('bonuses.discount')}{' '}
+        <span className={styles.description_text}>{t('bonuses.preRegistration')}</span>
       </li>
       <li className={styles.description_item}>
-      {t("bonuses.freelesson")}
-        <span className={styles.description_text}>
-          {' '}
-          {t("bonuses.choice")}
-        </span>
+        {t('bonuses.freelesson')}
+        <span className={styles.description_text}> {t('bonuses.choice')}</span>
       </li>
       <li className={styles.description_item}>
-      {t("bonuses.support")}
-        <span className={styles.description_text}>
-          {' '}
-          {t("bonuses.portfolio")}
-        </span>
+        {t('bonuses.support')}
+        <span className={styles.description_text}> {t('bonuses.portfolio')}</span>
       </li>
     </ul>
   )
@@ -40,10 +39,10 @@ const BonusCard = () => {
 
   return (
     <Card
-      title={t("bonuses.title")}
+      title={t('bonuses.title')}
       description={bonusCardDesc}
-      url={REGISTER_URL}
-      text={t("bonuses.btn")}
+      url={registrationForm ? registrationForm.formLink : ''}
+      text={t('bonuses.btn')}
       hoverHandler={hoverWowHandler}
     >
       {isWowHovered ? (
