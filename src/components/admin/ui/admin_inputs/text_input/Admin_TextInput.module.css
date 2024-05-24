@@ -28,14 +28,17 @@
     color: var(--white);
     border-bottom: 1px solid var(--gray-light);
   }
+  .infoContainer {
+    color: #818182;
+    font-size: 14px;
+    display: flex;
+    font-weight: normal;
+    justify-content: space-between;
+  }
 
   .error {
-    position: absolute;
-    top: 100%;
-    left: 0;
     font-size: 12px;
     color: #da3c3c;
-    font-weight: normal;
   }
 
   .input_title {

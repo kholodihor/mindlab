@@ -23,6 +23,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
                 errors.themeTitleUa?.message && errors.themeTitleUa?.message
               }
               placeholder="Заголовок"
+              maxCharQuantity="200"
             />
           )}
         />
@@ -37,6 +38,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
                 errors.themeTitleEn?.message && errors.themeTitleEn?.message
               }
               placeholder="Заголовок"
+              maxCharQuantity="200"
             />
           )}
         />
@@ -57,6 +59,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
               errorText={index === 0 ?
                 errors.themesUa1?.message && errors.themesUa1?.message : errors.themesUa2?.message && errors.themesUa2?.message}
               placeholder="Що таке політика"
+              maxCharQuantity="60"
             />
           )}
         />
@@ -79,6 +82,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
                 errors.themesEn1?.message && errors.themesEn1?.message : errors.themesEn2?.message && errors.themesEn2?.messag
               }
               placeholder="What is politics?"
+              maxCharQuantity="60"
             />
           )}
         />)}

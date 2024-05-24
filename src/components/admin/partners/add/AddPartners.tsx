@@ -154,6 +154,7 @@ const AddPartners = () => {
                   title="Введіть опис (max 500 символів):"
                   placeholder="Опис"
                   errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
+                  maxCharQuantity="500"
                 />
               )}
             />
@@ -166,6 +167,7 @@ const AddPartners = () => {
                   title="Введіть опис англійською (max 500 символів):"
                   placeholder="Опис"
                   errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
+                  maxCharQuantity="500"
                 />
               )}
             />
