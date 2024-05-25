@@ -17,6 +17,7 @@ const Footer = () => {
   const locale = useLocale()
   const pathname = usePathname()
   const isAdminPage = pathname.split('/').includes('admin') || pathname.split('/').includes('login')
+
   const { documents } = useDocuments()
   const { contacts } = useContacts()
 

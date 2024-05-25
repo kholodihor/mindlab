@@ -51,19 +51,13 @@ const Login = () => {
         router.replace('/admin')
         router.refresh()
       }
-    } catch (error) {
-      const errors = error.response.data
-
-      if (errors.login) {
-        setError('email', {
-          message: 'Неіснуючий логін'
-        })
-      }
-      if (errors.password) {
+      if (callback.error === 'CredentialsSignin') {
         setError('password', {
-          message: 'Невірний пароль'
+          message: 'Невірний логін або пароль'
         })
       }
+    } catch (error) {
+      console.log(error)
     }
   }
 

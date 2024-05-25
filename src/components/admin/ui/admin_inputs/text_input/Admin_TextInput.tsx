@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
-import { ForwardedRef, InputHTMLAttributes, forwardRef, useState } from 'react'
+import { ForwardedRef, InputHTMLAttributes, forwardRef, useEffect, useState } from 'react'
 
 import styles from './Admin_TextInput.module.css'
 import CharCounter from '../char_counter/CharCounter'
@@ -17,8 +17,11 @@ const Admin_TextInput = forwardRef(function TextInput(
   { title, errorText, isWhite, value, maxCharQuantity, ...rest }: TextInputProps,
   _ref: ForwardedRef<HTMLInputElement>
 ) {
-  // Initialize with empty string if value is undefined to ensure controlled input
   const [inputValue, setInputValue] = useState(value ?? '')
+
+  useEffect(() => {
+    setInputValue(value)
+  }, [value])
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value)
