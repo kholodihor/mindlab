@@ -266,10 +266,12 @@ const AddCourse = () => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис українською (max 900 символів):"
-                    errorText={errors.courseDescriptionUa1?.message && errors.courseDescriptionUa1?.message}
+                    title="Введіть опис англійською (max 300 символів):"
+                    errorText={
+                      errors.courseDescriptionUa1?.message && errors.courseDescriptionUa1?.message
+                    }
                     placeholder="Опис"
-                    maxCharQuantity="900"
+                    maxCharQuantity="300"
                   />
                 )}
               />
@@ -339,10 +341,9 @@ const AddCourse = () => {
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
-                    title="Введіть опис англійською (max 900 символів):"
-                    errorText={errors.courseDescriptionEn1?.message && errors.courseDescriptionEn1?.message}
-                    placeholder="Description"
-                    maxCharQuantity="900"
+                    title="Повна вартість курсу:"
+                    placeholder="1200 грн"
+                    errorText={errors.fullpriceUa?.message && errors.fullpriceUa?.message}
                   />
                 )}
               />
