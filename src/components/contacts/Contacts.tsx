@@ -1,20 +1,26 @@
+'use client'
+
 import React from 'react'
-import styles from './Contacts.module.css'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
+import { useContacts } from '@/hooks/swr/useContacts'
+import styles from './Contacts.module.css'
 
 const Contacts = () => {
-  const t = useTranslations("Contacts")
+  const t = useTranslations('Contacts')
+  const { contacts } = useContacts()
+
   return (
     <section id="contacts" className={styles.wrapper}>
-      <h2 className={`${styles.title} title`}>{t("title")}</h2>
-     
+      <h2 className={`${styles.title} title`}>{t('title')}</h2>
+
       <p className={styles.paragraph}>
-      {t("follow")}{' '}
+        {t('follow')}{' '}
         <a
-          href="https://www.instagram.com/mind.lab_hub?igsh=bWl3dGt5Njdwd3Fk&utm_source=qr"
+          href={contacts ? contacts?.[0].instagram : ''}
           rel="noopener noreferrer"
-          target="_blank" className={styles.link}
+          target="_blank"
+          className={styles.link}
         >
           <Image
             className={styles.image}
@@ -24,8 +30,13 @@ const Contacts = () => {
             height={50}
           />
         </a>
-        {t("join")}{' '}
-        <a href="https://www.facebook.com/" rel="noopener noreferrer" target="_blank" className={styles.link}>
+        {t('join')}{' '}
+        <a
+          href={contacts ? contacts?.[0].facebook : ''}
+          rel="noopener noreferrer"
+          target="_blank"
+          className={styles.link}
+        >
           <Image
             className={styles.image}
             src="/contacts/facebook.svg"
@@ -34,9 +45,13 @@ const Contacts = () => {
             height={50}
           />
         </a>
-   
-        {t("write")}{' '}
-        <a href="https://t.me/+Q8t3dkMH84hiYmNi" rel="noopener noreferrer" target="_blank" className={styles.link}>
+        {t('write')}{' '}
+        <a
+          href={contacts ? contacts?.[0].telegram : ''}
+          rel="noopener noreferrer"
+          target="_blank"
+          className={styles.link}
+        >
           {' '}
           <Image
             className={styles.image}
@@ -46,18 +61,18 @@ const Contacts = () => {
             height={50}
           />
         </a>
-        {t("and")}{' '}
-        <a href="mailto:mind.lab.hub@gmail.com" className={styles.link}>
+        {t('and')}{' '}
+        <a href={contacts ? contacts?.[0].email : ''} className={styles.link}>
           {' '}
           <Image
             className={styles.image}
             src="/contacts/mail.svg"
-            alt="instagram"
+            alt="email"
             width={50}
             height={50}
           />
         </a>{' '}
-        {t("answer")}
+        {t('answer')}
       </p>
     </section>
   )

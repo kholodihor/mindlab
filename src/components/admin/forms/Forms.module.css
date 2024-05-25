@@ -1,0 +1,85 @@
+.page {
+  position: relative;
+}
+
+.container {
+  padding: 40px 64px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.testimonials__list {
+  padding: 40px 64px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.testimonials__item {
+  width: 230px;
+  height: 205px;
+  font-size: 16px;
+  padding: 20px;
+  background-color: var(--white);
+  border-radius: 16px;
+  box-shadow: 2px 0 8px rgba(167, 129, 247, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonials__thumb {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.icon {
+  font-size: 60px;
+  color: var(--gray-light);
+  margin: 1rem auto;
+}
+
+.name {
+  font-weight: 500;
+  text-align: center;
+}
+
+.message {
+  height: 105px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  color: var(--white);
+  background-color: var(--red);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.editBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  color: var(--white);
+  background-color: var(--blue);
+}

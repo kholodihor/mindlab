@@ -128,7 +128,7 @@ const EditPartners = ({ id }: { id: string }) => {
                 <Admin_TextInput
                   {...field}
                   title="Назва партнера англійською:"
-                  placeholder="Назва"
+                  placeholder="Name"
                   errorText={errors.nameEn?.message && errors.nameEn?.message}
                 />
               )}
@@ -170,6 +170,7 @@ const EditPartners = ({ id }: { id: string }) => {
                   title="Введіть опис (max 500 символів):"
                   placeholder="Опис"
                   errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
+                  maxCharQuantity="500"
                 />
               )}
             />
@@ -180,8 +181,9 @@ const EditPartners = ({ id }: { id: string }) => {
                 <Admin_TextArea
                   {...field}
                   title="Введіть опис англійською (max 500 символів):"
-                  placeholder="Опис"
+                  placeholder="Description"
                   errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
+                  maxCharQuantity="500"
                 />
               )}
             />

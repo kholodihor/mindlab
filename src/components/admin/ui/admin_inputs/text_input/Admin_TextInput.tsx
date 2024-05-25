@@ -1,20 +1,34 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client'
 
-import { ForwardedRef, InputHTMLAttributes, forwardRef } from 'react'
+import { ForwardedRef, InputHTMLAttributes, forwardRef, useEffect, useState } from 'react'
 
 import styles from './Admin_TextInput.module.css'
+import CharCounter from '../char_counter/CharCounter'
 
 interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   title?: string
   isWhite?: boolean
   errorText?: string
+  maxCharQuantity?: string
 }
 
 const Admin_TextInput = forwardRef(function TextInput(
-  { title, errorText, isWhite, value, ...rest }: TextInputProps,
+  { title, errorText, isWhite, value, maxCharQuantity, ...rest }: TextInputProps,
   _ref: ForwardedRef<HTMLInputElement>
 ) {
+  const [inputValue, setInputValue] = useState(value ?? '')
+
+  useEffect(() => {
+    setInputValue(value)
+  }, [value])
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(event.target.value)
+    if (rest.onChange) {
+      rest.onChange(event)
+    }
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -26,11 +40,19 @@ const Admin_TextInput = forwardRef(function TextInput(
       <input
         {...rest}
         id={title}
-        value={value}
+        value={inputValue}
+        onChange={handleChange}
         className={`${styles.input} ${isWhite && styles.white}`}
         autoComplete="new-off"
       />
-      {errorText && errorText !== undefined && <span className={styles.error}>{errorText}</span>}
+      <div className={styles.infoContainer}>
+        <p>
+          {errorText && errorText !== undefined && (
+            <span className={styles.error}>{errorText}</span>
+          )}
+        </p>
+        <CharCounter text={`${inputValue}`} maxCharQuantity={maxCharQuantity} />
+      </div>
     </div>
   )
 })

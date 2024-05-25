@@ -34,8 +34,7 @@ const EditCourse = ({ id }: { id: string }) => {
   const {
     handleSubmit,
     control,
-    // watch,
-    formState: { errors }
+    formState: { errors, isDirty, isValid }
   } = useForm<z.infer<typeof editCourseValidation>>({
     resolver: zodResolver(editCourseValidation),
     mode: 'onChange',
@@ -115,10 +114,11 @@ const EditCourse = ({ id }: { id: string }) => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис (max 300 символів):"
+                    title="Введіть опис (max 500 символів):"
                     errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
                     placeholder="Опис"
                     className={css.textarea}
+                    maxCharQuantity="300"
                   />
                 )}
               />
@@ -128,9 +128,10 @@ const EditCourse = ({ id }: { id: string }) => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис англійською (max 300 символів):"
+                    title="Введіть опис англійською (max 500 символів):"
                     errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
-                    placeholder="Опис"
+                    maxCharQuantity="300"
+                    placeholder="Description"
                   />
                 )}
               />
@@ -263,9 +264,10 @@ const EditCourse = ({ id }: { id: string }) => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис англійською (max 300 символів):"
+                    title="Введіть опис англійською (max 900 символів):"
                     errorText={errors.courseDescriptionUa1?.message && errors.courseDescriptionUa1?.message}
                     placeholder="Опис"
+                    maxCharQuantity="300"
                   />
                 )}
               />
@@ -314,9 +316,10 @@ const EditCourse = ({ id }: { id: string }) => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис англійською (max 300 символів):"
+                    title="Введіть опис англійською (max 900 символів):"
                     errorText={errors.courseDescriptionEn1?.message && errors.courseDescriptionEn1?.message}
                     placeholder="Description"
+                    maxCharQuantity="300"
                   />
                 )}
               />
@@ -359,7 +362,7 @@ const EditCourse = ({ id }: { id: string }) => {
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />
-            <SubmitButton text='Застосувати зміни' />
+            <SubmitButton text='Застосувати зміни' disabled={!isDirty || !isValid}/>
           </div>
         </form>
       </div>

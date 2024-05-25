@@ -6,6 +6,22 @@ type UploadResponse =
   | { success: true; result?: UploadApiResponse }
   | { success: false; error: UploadApiErrorResponse }
 
+// function fixCyrillicEncoding(str: string) {
+//   // Create a buffer from the string with wrong encoding
+//   const bytes = new Uint8Array([...str].map((c) => c.charCodeAt(0)))
+//   // Decode using TextDecoder assuming the input was incorrectly encoded as ISO-8859-1
+//   const decodedStr = new TextDecoder('utf-8').decode(bytes)
+//   return decodedStr
+// }
+
+// function fixCyrillicEncoding(str: string) {
+//   // Create a buffer from the string with wrong encoding
+//   const bytes = new Uint8Array(Array.prototype.map.call(str, (c: string) => c.charCodeAt(0)))
+//   // Decode using TextDecoder assuming the input was incorrectly encoded as ISO-8859-1
+//   const decodedStr = new TextDecoder('utf-8').decode(bytes)
+//   return decodedStr
+// }
+
 const uploadToCloudinary = (fileUri: string, fileName: string): Promise<UploadResponse> => {
   return new Promise((resolve, reject) => {
     cloudinary.uploader
@@ -13,8 +29,9 @@ const uploadToCloudinary = (fileUri: string, fileName: string): Promise<UploadRe
         invalidate: true,
         resource_type: 'auto',
         filename_override: fileName,
-        folder: 'mindlab', // any sub-folder name in your cloud
-        use_filename: true
+        unique_filename: false,
+        use_filename: true,
+        folder: 'mindlab' // any sub-folder name in your cloud
       })
       .then((result) => {
         resolve({ success: true, result })

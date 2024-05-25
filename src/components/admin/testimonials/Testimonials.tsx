@@ -30,7 +30,7 @@ const Testimonials = () => {
       })
     }
     Swal.fire({
-      title: 'Курс успішно видалено',
+      title: 'Відгук успішно видалено',
       icon: 'success'
     }).then((result) => {
       if (result.isConfirmed) {
@@ -41,13 +41,13 @@ const Testimonials = () => {
 
   const handleDelete = (id: string) => {
     Swal.fire({
-      title: 'Ви впевнені, що хочете видалити курс?',
+      title: 'Ви впевнені, що хочете видалити відгук?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       cancelButtonText: 'Відмінити',
-      confirmButtonText: 'Видалити курс'
+      confirmButtonText: 'Видалити відгук'
     }).then((result) => {
       if (result.isConfirmed) {
         handleDeleteTestimonial(id)

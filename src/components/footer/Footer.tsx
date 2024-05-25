@@ -9,12 +9,17 @@ import TelegramIcon from '../icons/TelegramIcon'
 import PhoneIcon from '../icons/PhoneIcon'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
+import { useDocuments } from '@/hooks/swr/useDocuments'
+import { useContacts } from '@/hooks/swr/useContacts'
 
 const Footer = () => {
   const t = useTranslations()
   const locale = useLocale()
   const pathname = usePathname()
   const isAdminPage = pathname.split('/').includes('admin') || pathname.split('/').includes('login')
+
+  const { documents } = useDocuments()
+  const { contacts } = useContacts()
 
   if (isAdminPage) return null
 
@@ -34,7 +39,7 @@ const Footer = () => {
           <ul className={css.social__list}>
             <li>
               <Link
-                href="https://www.instagram.com/mind.lab_hub?igsh=bWl3dGt5Njdwd3Fk&utm_source=qr"
+                href={contacts ? contacts?.[0].instagram : ''}
                 className={css.social__link}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -49,7 +54,7 @@ const Footer = () => {
             </li>
             <li>
               <Link
-                href="https://www.facebook.com/"
+                href={contacts ? contacts?.[0].facebook : ''}
                 className={css.social__link}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -62,7 +67,7 @@ const Footer = () => {
             <ul className={css.contact__list}>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.help')}</p>
-                <Link href="mailto:mind.lab.hub@gmail.com" className={css.contact__link}>
+                <Link href={contacts ? contacts?.[0].email : ''} className={css.contact__link}>
                   <MailIcon />
                   <p>{t('Footer.mail')}</p>
                 </Link>
@@ -70,7 +75,7 @@ const Footer = () => {
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.answer')}</p>
                 <Link
-                  href="https://t.me/+Q8t3dkMH84hiYmNi"
+                  href={contacts ? contacts?.[0].telegram : ''}
                   className={css.contact__link}
                   rel="noopener noreferrer"
                   target="_blank"
@@ -81,7 +86,7 @@ const Footer = () => {
               </li>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.talk')}</p>
-                <Link href="tel:6031112298" className={css.contact__link}>
+                <Link href={contacts ? contacts?.[0].phone : ''} className={css.contact__link}>
                   <PhoneIcon />
                   <p>{t('Footer.phone')}</p>
                 </Link>
@@ -108,22 +113,18 @@ const Footer = () => {
               <span className={css.spanCopyright}>{t('Footer.rights')}</span>
             </p>
             <div className={css.rules__site}>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/documents/політика_конфіденційності.pdf"
-                className={css.rule__item}
-              >
-                {t('Footer.policy')}{' '}
-              </a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="/documents/правила_користування_сайтом.pdf"
-                className={css.rule__item}
-              >
-                {t('Footer.terms')}
-              </a>
+              {documents &&
+                documents.map((document) => (
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={document.fileUrl}
+                    className={css.rule__item}
+                    key={document.fileId}
+                  >
+                    {locale === 'en' ? document.fileName_en : document.fileName_ua}
+                  </Link>
+                ))}
             </div>
           </div>
         </div>

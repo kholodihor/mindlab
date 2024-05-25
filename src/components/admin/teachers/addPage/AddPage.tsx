@@ -121,7 +121,7 @@ const AddPage = () => {
                     {...field}
                     title="Введіть ім'я та прізвище англійською мовою:"
                     errorText={errors.name_en?.message}
-                    placeholder="Марко Федоренко"
+                    placeholder="Marko Fedorenko"
                   />
                 )}
               />
@@ -134,6 +134,7 @@ const AddPage = () => {
                     title="Спеціалізація (max 52 символи)"
                     errorText={errors.speciality?.message}
                     placeholder="Leadership"
+                    maxCharQuantity="52"
                   />
                 )}
               />
@@ -208,6 +209,7 @@ const AddPage = () => {
                       title="Про викладача (max 200 символів):"
                       errorText={errors.about_me?.message}
                       placeholder="Опис"
+                      maxCharQuantity="200"
                     />
                   )}
                 />
@@ -222,6 +224,7 @@ const AddPage = () => {
                       title="З чим може допомогти викладач? (max 200 символів):"
                       errorText={errors.about_help?.message}
                       placeholder="Опис"
+                      maxCharQuantity="200"
                     />
                   )}
                 />
@@ -240,7 +243,8 @@ const AddPage = () => {
                       {...field}
                       title="Про викладача англійською (max 200 символів):"
                       errorText={errors.about_me_en?.message}
-                      placeholder="Опис англійською"
+                      placeholder="Brief summary"
+                      maxCharQuantity="200"
                     />
                   )}
                 />
@@ -254,7 +258,8 @@ const AddPage = () => {
                       {...field}
                       title="З чим може допомогти викладач англійською? (max 200 символів):"
                       errorText={errors.about_help_en?.message}
-                      placeholder="Опис англійською"
+                      placeholder="Brief summary"
+                      maxCharQuantity="200"
                     />
                   )}
                 />

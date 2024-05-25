@@ -20,7 +20,8 @@ export async function POST(request: Request) {
     const data: IDocument = await request.json()
     const response = await prisma.document.create({
       data: {
-        fileName: data.fileName,
+        fileName_ua: data.fileName_ua,
+        fileName_en: data.fileName_en,
         fileUrl: data.fileUrl,
         fileId: data.fileId
       }
@@ -31,22 +32,3 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: 'Cannot post' }, { status: 500 })
   }
 }
-
-// export async function DELETE(request: Request, { params }: { params: { id: string } }) {
-//   if (!params.id) {
-//     return new NextResponse('Not found', { status: 404 })
-//   }
-//   try {
-//     await prismaConnect()
-//     await prisma.document.delete({
-//       where: {
-//         id: params.id
-//       }
-//     })
-
-//     return NextResponse.json({ message: 'document deleted successfully' }, { status: 200 })
-//   } catch (error) {
-//     console.log('[DELETE DOCUMENT', error)
-//     return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
-//   }
-// }

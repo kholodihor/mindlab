@@ -6,12 +6,18 @@ const MAX_FILE_SIZE = 1024 * 1024 * 5
 const ACCEPTED_FILE_TYPES = ['application/pdf', 'for-url']
 
 export const DocumentsFormValidation = z.object({
-  fileName: z
+  fileName_ua: z
     .string({ required_error: 'Поле повинно бути заповнене' })
     .trim()
     .min(4, { message: 'Мінімум 4 символи' })
     .max(60, { message: 'Максимум 60 символів' })
-    .regex(/^[A-Za-zа-яА-ЯҐґЄєІіЇї\s]*$/, { message: 'Поле повинно містити тільки літери' }),
+    .regex(/^[а-яА-ЯҐґЄєІіЇї\s]*$/, { message: 'Вкажіть назву файлу українською мовою' }),
+  fileName_en: z
+    .string({ required_error: 'Поле повинно бути заповнене' })
+    .trim()
+    .min(4, { message: 'Мінімум 4 символи' })
+    .max(60, { message: 'Максимум 60 символів' })
+    .regex(/^[a-zA-Z ]*$/, { message: 'Вкажіть назву файлу англійською мовою' }),
   file: z
     .any()
     .refine((value) => value?.length > 0, 'Додайте файл')

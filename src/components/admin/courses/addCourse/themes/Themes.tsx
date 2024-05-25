@@ -18,11 +18,12 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
           render={({ field }) => (
             <Admin_TextArea
               {...field}
-              title="Заголовок до тем курсу (max 200 символів):"
+              title="Заголовок до тем курсу (max 500 символів):"
               errorText={
                 errors.themeTitleUa?.message && errors.themeTitleUa?.message
               }
               placeholder="Заголовок"
+              maxCharQuantity="200"
             />
           )}
         />
@@ -32,11 +33,12 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
           render={({ field }) => (
             <Admin_TextArea
               {...field}
-              title="Заголовок до тем курсу англійською (max 200 символів):"
+              title="Заголовок до тем курсу англійською (max 500 символів):"
               errorText={
                 errors.themeTitleEn?.message && errors.themeTitleEn?.message
               }
-              placeholder="Заголовок"
+              maxCharQuantity="200"
+              placeholder="Title"
             />
           )}
         />
@@ -57,6 +59,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
               errorText={index === 0 ?
                 errors.themesUa1?.message && errors.themesUa1?.message : errors.themesUa2?.message && errors.themesUa2?.message}
               placeholder="Що таке політика"
+              maxCharQuantity="60"
             />
           )}
         />
@@ -79,6 +82,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
                 errors.themesEn1?.message && errors.themesEn1?.message : errors.themesEn2?.message && errors.themesEn2?.messag
               }
               placeholder="What is politics?"
+              maxCharQuantity="60"
             />
           )}
         />)}

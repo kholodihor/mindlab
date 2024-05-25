@@ -14,15 +14,17 @@ import PasswordInput from '../ui/inputs/password-input/PasswordInput'
 import styles from './Login.module.css'
 
 const Login = () => {
-  const router = useRouter();
-  const session = useSession();
-  const [isProcessing, setIsProcessing] = useState(false);
+  const router = useRouter()
+  const session = useSession()
+  const [isProcessing, setIsProcessing] = useState(false)
 
   useEffect(() => {
     if (session?.status === 'authenticated') {
-      router.replace('/admin');
+      router.replace('/admin/courses')
     }
-  }, [session, router]);
+  }, [session, router])
+
+  console.log(session)
 
   const {
     handleSubmit,
@@ -33,45 +35,42 @@ const Login = () => {
     resolver: zodResolver(loginScheme),
     mode: 'onChange',
     defaultValues: defaultValues
-  });
+  })
 
   const onSubmit: SubmitHandler<z.infer<typeof loginScheme>> = async (
     values: z.infer<typeof loginScheme>
   ) => {
     try {
-      setIsProcessing(true);
+      setIsProcessing(true)
       const callback = await signIn('credentials', {
         ...values,
         redirect: false
-      });
-      setIsProcessing(false);
+      })
+      setIsProcessing(false)
       if (callback?.ok) {
-        router.replace('/admin');
-        router.refresh();
+        router.replace('/admin')
+        router.refresh()
+      }
+      if (callback.error === 'CredentialsSignin') {
+        setError('password', {
+          message: 'Невірний логін або пароль'
+        })
       }
     } catch (error) {
-      const errors = error.response.data;
-
-      if (errors.login) {
-        setError('email', {
-          message: 'Неіснуючий логін'
-        });
-      }
-      if (errors.password) {
-        setError('password', {
-          message: 'Невірний пароль'
-        });
-      }
+      console.log(error)
     }
-  };
+  }
 
   return (
     <section className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.title_wrapper}>
           <h1 className={styles.title}>Адміністрування сайту</h1>
-          <p className={styles.subtitle}>Для входу на панель адміністратора<br />
-            підтвердіть свій акаунт</p>
+          <p className={styles.subtitle}>
+            Для входу на панель адміністратора
+            <br />
+            підтвердіть свій акаунт
+          </p>
         </div>
         <div className={styles.form_wrapper}>
           <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" className={styles.form}>

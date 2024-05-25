@@ -3,30 +3,33 @@
 
 import { ForwardedRef, InputHTMLAttributes, forwardRef, useRef, useEffect } from 'react'
 import styles from './Admin_TextArea.module.css'
+import CharCounter from '../char_counter/CharCounter'
 
 interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   title?: string
   isWhite?: boolean
   errorText?: string
+  maxCharQuantity?: string
 }
 
 const Admin_TextArea = forwardRef(function TextInput(
-  { title, errorText, isWhite, value = '', ...rest }: TextAreaProps,
+  { title, errorText, isWhite, maxCharQuantity, value = '', ...rest }: TextAreaProps,
   _ref: ForwardedRef<HTMLTextAreaElement>
 ) {
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
 
   useEffect(() => {
-    autoResize();
-  }, [value]);
+    autoResize()
+  }, [value])
 
   const autoResize = () => {
-    const textarea = textareaRef.current;
+    const textarea = textareaRef.current
     if (textarea) {
-      textarea.style.height = "0";
-      textarea.style.height = textarea.scrollHeight + "px";
+      textarea.style.height = '0'
+      textarea.style.height = textarea.scrollHeight + 'px'
     }
-  };
+  }
+
   return (
     <div className={styles.wrapper}>
       {!!title && (
@@ -45,7 +48,10 @@ const Admin_TextArea = forwardRef(function TextInput(
         className={`${styles.input} ${isWhite && styles.white}`}
         autoComplete="new-off"
       />
-      {errorText && <span className={styles.error}>{errorText}</span>}
+      <div className={styles.infoContainer}>
+        <p>{errorText && <span className={styles.error}>{errorText}</span>}</p>
+        <CharCounter text={`${value}`} maxCharQuantity={maxCharQuantity} />
+      </div>
     </div>
   )
 })

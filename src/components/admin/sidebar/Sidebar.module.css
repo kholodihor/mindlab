@@ -95,3 +95,13 @@
     }
   }
 }
+
+.icon {
+  font-size: 33px;
+  color: #f9f9fa;
+}
+
+.activeIcon {
+  font-size: 33px;
+  color: #09090a;
+}
