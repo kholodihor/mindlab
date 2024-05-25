@@ -344,7 +344,6 @@ const AddCourse = () => {
                     title="Повна вартість курсу:"
                     placeholder="1200 грн"
                     errorText={errors.fullpriceUa?.message && errors.fullpriceUa?.message}
-                    placeholder="Description"
                   />
                 )}
               />
