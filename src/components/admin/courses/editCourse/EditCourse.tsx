@@ -118,6 +118,7 @@ const EditCourse = ({ id }: { id: string }) => {
                     errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
                     placeholder="Опис"
                     className={css.textarea}
+                    maxCharQuantity="300"
                   />
                 )}
               />
@@ -129,6 +130,7 @@ const EditCourse = ({ id }: { id: string }) => {
                     {...field}
                     title="Введіть опис англійською (max 500 символів):"
                     errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
+                    maxCharQuantity="300"
                     placeholder="Description"
                   />
                 )}
@@ -265,6 +267,7 @@ const EditCourse = ({ id }: { id: string }) => {
                     title="Введіть опис англійською (max 900 символів):"
                     errorText={errors.courseDescriptionUa1?.message && errors.courseDescriptionUa1?.message}
                     placeholder="Опис"
+                    maxCharQuantity="300"
                   />
                 )}
               />
@@ -316,6 +319,7 @@ const EditCourse = ({ id }: { id: string }) => {
                     title="Введіть опис англійською (max 900 символів):"
                     errorText={errors.courseDescriptionEn1?.message && errors.courseDescriptionEn1?.message}
                     placeholder="Description"
+                    maxCharQuantity="300"
                   />
                 )}
               />

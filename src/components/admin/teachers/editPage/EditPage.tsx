@@ -145,6 +145,7 @@ const EditPage = ({ id }: { id: string }) => {
                     {...field}
                     title="Спеціалізація (max 52 символи)"
                     errorText={errors.speciality?.message}
+                    maxCharQuantity="52"
                   />
                 )}
               />
@@ -214,6 +215,7 @@ const EditPage = ({ id }: { id: string }) => {
                       {...field}
                       title="Про викладача (max 200 символів):"
                       errorText={errors.about_me?.message}
+                      maxCharQuantity="200"
                     />
                   )}
                 />
@@ -227,6 +229,7 @@ const EditPage = ({ id }: { id: string }) => {
                       {...field}
                       title="З чим може допомогти викладач? (max 200 символів):"
                       errorText={errors.about_help?.message}
+                      maxCharQuantity="200"
                     />
                   )}
                 />
@@ -245,6 +248,7 @@ const EditPage = ({ id }: { id: string }) => {
                       {...field}
                       title="Про викладача англійською (max 200 символів):"
                       errorText={errors.about_me_en?.message}
+                      maxCharQuantity="200"
                     />
                   )}
                 />
@@ -258,6 +262,7 @@ const EditPage = ({ id }: { id: string }) => {
                       {...field}
                       title="З чим може допомогти викладач англійською? (max 200 символів):"
                       errorText={errors.about_help_en?.message}
+                      maxCharQuantity="200"
                     />
                   )}
                 />

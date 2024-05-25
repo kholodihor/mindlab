@@ -170,6 +170,7 @@ const EditPartners = ({ id }: { id: string }) => {
                   title="Введіть опис (max 500 символів):"
                   placeholder="Опис"
                   errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
+                  maxCharQuantity="500"
                 />
               )}
             />
@@ -182,6 +183,7 @@ const EditPartners = ({ id }: { id: string }) => {
                   title="Введіть опис англійською (max 500 символів):"
                   placeholder="Description"
                   errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
+                  maxCharQuantity="500"
                 />
               )}
             />

@@ -134,6 +134,7 @@ const AddPage = () => {
                     title="Спеціалізація (max 52 символи)"
                     errorText={errors.speciality?.message}
                     placeholder="Leadership"
+                    maxCharQuantity="52"
                   />
                 )}
               />
@@ -208,6 +209,7 @@ const AddPage = () => {
                       title="Про викладача (max 200 символів):"
                       errorText={errors.about_me?.message}
                       placeholder="Опис"
+                      maxCharQuantity="200"
                     />
                   )}
                 />
@@ -222,6 +224,7 @@ const AddPage = () => {
                       title="З чим може допомогти викладач? (max 200 символів):"
                       errorText={errors.about_help?.message}
                       placeholder="Опис"
+                      maxCharQuantity="200"
                     />
                   )}
                 />
@@ -241,6 +244,7 @@ const AddPage = () => {
                       title="Про викладача англійською (max 200 символів):"
                       errorText={errors.about_me_en?.message}
                       placeholder="Brief summary"
+                      maxCharQuantity="200"
                     />
                   )}
                 />
@@ -255,6 +259,7 @@ const AddPage = () => {
                       title="З чим може допомогти викладач англійською? (max 200 символів):"
                       errorText={errors.about_help_en?.message}
                       placeholder="Brief summary"
+                      maxCharQuantity="200"
                     />
                   )}
                 />
