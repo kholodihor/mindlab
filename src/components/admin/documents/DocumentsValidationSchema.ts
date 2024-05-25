@@ -11,7 +11,7 @@ export const DocumentsFormValidation = z.object({
     .trim()
     .min(4, { message: 'Мінімум 4 символи' })
     .max(60, { message: 'Максимум 60 символів' })
-    .regex(/^[A-Za-zа-яА-ЯҐґЄєІіЇї\s]*$/, { message: 'Вкажіть назву файлу українською мовою' }),
+    .regex(/^[а-яА-ЯҐґЄєІіЇї\s]*$/, { message: 'Вкажіть назву файлу українською мовою' }),
   fileName_en: z
     .string({ required_error: 'Поле повинно бути заповнене' })
     .trim()
