@@ -19,6 +19,7 @@
   width: 32%;
   display: flex;
   flex-wrap: wrap;
+  gap: 15px;
   align-content: space-between;
   padding: 40px 20px;
   background-color: var(--white);
@@ -81,7 +82,9 @@
   width: 317px;
   height: 243px;
 }
-
+.wrapper__price:last-child {
+  height: 273px;
+}
 .wrapper__date {
   margin-bottom: 20px;
 }
