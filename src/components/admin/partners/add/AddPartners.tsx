@@ -49,7 +49,6 @@ const AddPartners = () => {
     setImagePreview(file)
   }, [currentValues.image])
 
-  console.log(currentValues.image)
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsProcessing(true)
@@ -112,7 +111,7 @@ const AddPartners = () => {
                 <Admin_TextInput
                   {...field}
                   title="Назва партнера англійською:"
-                  placeholder="Назва"
+                  placeholder="Name"
                   errorText={errors.nameEn?.message && errors.nameEn?.message}
                 />
               )}
@@ -165,7 +164,7 @@ const AddPartners = () => {
                 <Admin_TextArea
                   {...field}
                   title="Введіть опис англійською (max 500 символів):"
-                  placeholder="Опис"
+                  placeholder="Description"
                   errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
                   maxCharQuantity="500"
                 />

@@ -27,7 +27,7 @@ const Partners = () => {
   const t = useTranslations('Partners')
   return (
     <section className={`${css.partners} container`} id="partners">
-      <div className={css.part__left}>
+      <div className={`${css.part__left} `}>
         <Lottie className={css.icon__eye} animationData={eye} />
         <motion.h2
           viewport={{ once: true }}
@@ -63,6 +63,7 @@ const Partners = () => {
           mousewheel={true}
           loop={true}
           modules={[Navigation, Mousewheel, Scrollbar]}
+          // className={css.swiper}
         >
           {partners?.map(({ nameUa, nameEn, websiteLink, descriptionEn, descriptionUa, color, id, imageUrl}) => (
             <SwiperSlide key={id} className={css.swiperSlide} style={{ background: `${color}` }}>

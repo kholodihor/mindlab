@@ -108,7 +108,7 @@ const AddCourse = () => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис (max 400 символів):"
+                    title="Введіть опис (max 500 символів):"
                     errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
                     placeholder="Опис"
                     className={css.textarea}
@@ -122,10 +122,10 @@ const AddCourse = () => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис англійською (max 400 символів):"
+                    title="Введіть опис англійською (max 500 символів):"
                     errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
-                    placeholder="Опис"
                     maxCharQuantity="400"
+                    placeholder="Description"
                   />
                 )}
               />
@@ -344,6 +344,7 @@ const AddCourse = () => {
                     title="Повна вартість курсу:"
                     placeholder="1200 грн"
                     errorText={errors.fullpriceUa?.message && errors.fullpriceUa?.message}
+                    placeholder="Description"
                   />
                 )}
               />
