@@ -7,7 +7,7 @@ export const FormValidation = z.object({
     .trim()
     .min(4, { message: 'Мінімум 4 символи' })
     .max(60, { message: 'Максимум 60 символів' })
-    .regex(/^[a-zA-Z0-9 ]*$/, { message: 'Вкажіть коректну назву англійською мовою' }),
+    .regex(/^[a-zA-Z0-9\s\d'’.,-:;"/|\\()!?—-—&_]+$/, { message: 'Вкажіть коректну назву англійською мовою' }),
   formLink: z.string().refine((value) => value === '' || isURL(value), {
     message: 'Невалідний формат URL'
   }),
