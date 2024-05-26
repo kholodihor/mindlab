@@ -1,11 +1,10 @@
 'use client'
 import React, { useState } from 'react'
-import styles from '../About.module.css'
 import Card from '../card/Card'
-import Lottie from 'lottie-react'
-import pulse from '@/animations/puls.json'
 import { useTranslations } from 'next-intl'
 import { IForm } from '@/types/forms'
+import { LazyLottie } from '@/components/LazyLottie'
+import styles from '../About.module.css'
 
 interface BoostEngCardProps {
   placementTestForm: IForm
@@ -41,7 +40,11 @@ const BoostEngCard = ({ placementTestForm }: BoostEngCardProps) => {
     >
       {isPulseHovered ? (
         <div className={styles.pulse}>
-          <Lottie animationData={pulse} />
+          <LazyLottie
+            getAnimationData={() => import('@/animations/puls.json')}
+            loop={true}
+            id="pulse"
+          />
         </div>
       ) : null}
     </Card>

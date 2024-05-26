@@ -1,39 +1,29 @@
 'use client'
 
 import { useState } from 'react'
-import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Burger from '../icons/Burger'
 import styles from './Header.module.css'
 import Lottie from 'lottie-react'
-// import { useMediaQuery } from '@react-hook/media-query'
 import { useLocale, useTranslations } from 'next-intl'
 import { useWidth } from '@/hooks/useWidth'
 import chatbot_default from '@/animations/сhatbot_default.json'
 import chatbot_hover from '@/animations/chatbot_hover.json'
-// import MobileMenu from './mobile_menu/MobileMenu'
 import Logo from './logo/Logo'
 import LanguageSwitcher from './LocalSwitcher'
 import { useModal } from '@/stores/useModal'
 import MenuModal from '../modals/menuModal/MenuModal'
 
 const Header = () => {
-  const pathname = usePathname()
-  // const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
-  // const isSmallScreen = useMediaQuery('(max-width: 1024px)')
   const currentWidth = useWidth()
   const locale = useLocale()
-
-  const isAdminPage = pathname.split('/').includes('admin') || pathname.split('/').includes('login')
 
   const t = useTranslations('Menu')
   const { openModal, closeModal } = useModal()
 
   const isModalOpen = useModal((state) => state.isModalOpen)
   const modalType = useModal((state) => state.modalType)
-
-  if (isAdminPage) return null
 
   return (
     <header className={`${styles.header}`}>
@@ -74,7 +64,6 @@ const Header = () => {
           </div>
         </nav>
         {isModalOpen && modalType === 'mobmenu' && <MenuModal handleClose={closeModal} />}
-        {/* {isMenuOpen && isSmallScreen && <MobileMenu onClose={() => setIsMenuOpen(false)} />} */}
       </div>
     </header>
   )

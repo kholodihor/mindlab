@@ -72,7 +72,9 @@ const Testimonials = () => {
               <Avatar round={true} size={'50px'} color={'#AAAEDF'} name={name} />
               <p className={css.name}>{name}</p>
             </div>
-            <p className={css.message}>{message}</p>
+            <div className={css.message_wrapper}>
+              <p className={css.message}>{message}</p>
+            </div>
             <div className={css.wrapper}>
               <button
                 className={css.deleteBtn}

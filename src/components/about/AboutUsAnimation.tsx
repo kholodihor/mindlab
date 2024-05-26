@@ -1,11 +1,9 @@
 'use client'
 
 import React, { FC } from 'react'
-import Lottie from 'lottie-react'
-import aboutUsUa from '@/animations/about_us.json'
-import aboutUsEng from '@/animations/about_us_eng.json'
 import { useLocale } from 'next-intl'
 import { useWindowScrollY } from './useWindowScrollY'
+import { LazyLottie } from '@/components/LazyLottie'
 
 interface AboutUsAnimationProps {
   aboutRef: React.RefObject<HTMLDivElement>
@@ -24,9 +22,17 @@ const AboutUsAnimation: FC<AboutUsAnimationProps> = ({ aboutRef }) => {
     <>
       {scrollY >= startPlayPosition &&
         (currentLanguage === DEFAULT_LANGUAGE ? (
-          <Lottie animationData={aboutUsUa} loop={false} />
+          <LazyLottie
+            getAnimationData={() => import('@/animations/about_us.json')}
+            loop={false}
+            id="about_us"
+          />
         ) : (
-          <Lottie animationData={aboutUsEng} loop={false} />
+          <LazyLottie
+            getAnimationData={() => import('@/animations/about_us_eng.json')}
+            loop={false}
+            id="about_us_eng"
+          />
         ))}
     </>
   )

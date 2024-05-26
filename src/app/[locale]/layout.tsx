@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SWRProvider } from '../swr-provider'
 import { getServerSession } from 'next-auth'
-import SessionWrapper from '../session-provider'
-import Header from '@/components/header/Header'
-import Footer from '@/components/footer/Footer'
 import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
+import SessionWrapper from '../session-provider'
+import LayoutProvider from './providers/LayoutProvider'
+
 import './globals.css'
 
 const fixelDisplay = localFont({
@@ -84,11 +84,9 @@ export default async function RootLayout({
         <SWRProvider>
           <body>
             <NextIntlClientProvider locale={locale} messages={messages}>
-              <Header />
-              <main>{children}</main>
-              <footer>
-                <Footer />
-              </footer>
+              <LayoutProvider>
+                <main>{children}</main>
+              </LayoutProvider>
             </NextIntlClientProvider>
           </body>
         </SWRProvider>

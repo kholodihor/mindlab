@@ -100,10 +100,10 @@ const AddTestimonials = () => {
               render={({ field }) => (
                 <Admin_TextArea
                   {...field}
-                  title="Введіть відгук (max 350 символів):"
+                  title="Введіть відгук (max 300 символів):"
                   errorText={errors.message?.message && errors.message?.message}
                   placeholder="Відгук"
-                  maxCharQuantity="350"
+                  maxCharQuantity="300"
                 />
               )}
             />

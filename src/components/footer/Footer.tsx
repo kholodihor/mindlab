@@ -1,27 +1,22 @@
 'use client'
 
 import Image from 'next/image'
-import { menuList } from '@/data/data'
-import { usePathname } from 'next/navigation'
-import css from '../footer/Footer.module.css'
-import MailIcon from '../icons/MailIcon'
-import TelegramIcon from '../icons/TelegramIcon'
-import PhoneIcon from '../icons/PhoneIcon'
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { useDocuments } from '@/hooks/swr/useDocuments'
 import { useContacts } from '@/hooks/swr/useContacts'
+import { menuList } from '@/data/data'
+import css from '../footer/Footer.module.css'
+import MailIcon from '../icons/MailIcon'
+import TelegramIcon from '../icons/TelegramIcon'
+import PhoneIcon from '../icons/PhoneIcon'
 
 const Footer = () => {
   const t = useTranslations()
   const locale = useLocale()
-  const pathname = usePathname()
-  const isAdminPage = pathname.split('/').includes('admin') || pathname.split('/').includes('login')
 
   const { documents } = useDocuments()
   const { contacts } = useContacts()
-
-  if (isAdminPage) return null
 
   return (
     <footer className={css.footer}>

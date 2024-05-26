@@ -3,12 +3,13 @@
 import React from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { useContacts } from '@/hooks/swr/useContacts'
+// import { useContacts } from '@/hooks/swr/useContacts'
 import styles from './Contacts.module.css'
+import { IContact } from '@/types/contacts'
 
-const Contacts = () => {
+const Contacts = ({ contacts }: { contacts: IContact[] }) => {
   const t = useTranslations('Contacts')
-  const { contacts } = useContacts()
+  // const { contacts } = useContacts()
 
   return (
     <section id="contacts" className={styles.wrapper}>
@@ -62,7 +63,7 @@ const Contacts = () => {
           />
         </a>
         {t('and')}{' '}
-        <a href={contacts ? contacts?.[0].email : ''} className={styles.link}>
+        <a href={`mailto:${contacts ? contacts?.[0].email : ''}`} className={styles.link}>
           {' '}
           <Image
             className={styles.image}

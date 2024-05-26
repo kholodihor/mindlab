@@ -1,9 +1,8 @@
 .container {
-    padding: 40px 64px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-
+  padding: 40px 64px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .testimonials__list {
@@ -20,6 +19,7 @@
   background-color: var(--white);
   border-radius: 16px;
   box-shadow: 2px 0 8px rgba(167, 129, 247, 0.2);
+  overflow: hidden;
 }
 
 .testimonials__thumb {
@@ -33,12 +33,15 @@
   font-weight: 500;
 }
 
-.message {
+.message_wrapper {
   height: 105px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.message {
   font-size: 14px;
   margin-bottom: 15px;
 }
-
 .wrapper {
   display: flex;
   justify-content: space-between;

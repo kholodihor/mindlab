@@ -20,7 +20,8 @@
 }
 
 .rightPart {
-  width: 655px;
+  width: 100%;
+  max-width: 655px;
   padding: 40px 20px;
   display: flex;
   flex-wrap: wrap;

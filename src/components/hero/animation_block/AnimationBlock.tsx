@@ -1,6 +1,5 @@
-import Lottie from 'lottie-react'
 import { useModal } from '@/stores/useModal'
-import contentAnimation from '@/animations/hero.json'
+import { LazyLottie } from '@/components/LazyLottie'
 import RotatingStar from '@/components/shared/rotating_star/RotatingStar'
 import styles from './AnimationBlock.module.css'
 
@@ -9,7 +8,12 @@ const AnimationBlock = () => {
 
   return (
     <div>
-      <Lottie animationData={contentAnimation} loop={false} className={styles.lottie} />
+      <LazyLottie
+        getAnimationData={() => import('@/animations/hero.json')}
+        id="hero_animation"
+        loop={false}
+        className={styles.lottie}
+      />
       <div className={styles.rotating_star} onClick={() => openModal('feedback')}>
         <RotatingStar />
       </div>
