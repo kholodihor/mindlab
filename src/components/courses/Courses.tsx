@@ -1,16 +1,15 @@
 'use client'
 
-import Lottie from 'lottie-react'
 import ArrowRight from '../icons/ArrowRight'
 import ArrowTop from '../icons/ArrowTop'
-import eyeCourses from '@/animations/eyesCourses.json'
-import css from '../courses/Courses.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCourses } from '@/hooks/swr/useCourses'
+import { LazyLottie } from '@/components/LazyLottie'
+import css from '../courses/Courses.module.css'
 
 const Courses = () => {
   const { courses } = useCourses()
@@ -41,7 +40,12 @@ const Courses = () => {
         </motion.h2>
 
         <div className={css.animation}>
-          <Lottie className={css.eye} animationData={eyeCourses} />
+          <LazyLottie
+            getAnimationData={() => import('@/animations/eyesCourses.json')}
+            id="cources_animation"
+            loop={true}
+            className={css.eye}
+          />
         </div>
       </div>
       <ul className={css.courses}>
@@ -76,7 +80,9 @@ const Courses = () => {
                             ? { backgroundColor: color, color: '#09090A', border: 'none' }
                             : { backgroundColor: '', color: '' }
                         }
-                      >{item}</li>
+                      >
+                        {item}
+                      </li>
                     ))
                   : tagsEn.map((item, index) => (
                       <li
@@ -87,7 +93,9 @@ const Courses = () => {
                             ? { backgroundColor: color, color: '#09090A', border: 'none' }
                             : { backgroundColor: '', color: '' }
                         }
-                      >{item}</li>
+                      >
+                        {item}
+                      </li>
                     ))}
               </ul>
             </Link>

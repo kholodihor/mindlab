@@ -12,20 +12,20 @@ import { iconParents, questionList } from '@/data/parents'
 import MinusIcon from '../icons/MinusIcon'
 import PlusIcon from '../icons/PlusIcon'
 import Link from 'next/link'
-import { motion } from "framer-motion";
-
+import { motion } from 'framer-motion'
 
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
 import { useTranslations } from 'next-intl'
+import { IContact } from '@/types/contacts'
 
 type Answer = Array<string>
 
-const Parents = () => {
+const Parents = ({ contacts }: { contacts: IContact[] }) => {
   const { openModal } = useModal()
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
-  const alertType = useAlert((state)=>state.alertType)
+  const alertType = useAlert((state) => state.alertType)
   const [answer, setAnswer] = useState<Answer>([])
-const t = useTranslations()
+  const t = useTranslations()
 
   const currentAnswer = (color: string) => answer.find((item) => item === color)
 
@@ -39,7 +39,6 @@ const t = useTranslations()
 
   return (
     <section className={`container ${css.parents} `} id="parents">
-     
       <motion.h2
         viewport={{ once: true }}
         initial={{ translateY: 100, opacity: 0 }}
@@ -47,47 +46,46 @@ const t = useTranslations()
         transition={{ ease: 'easeOut', duration: 0.75 }}
         className={`title ${css.parents__title}`}
       >
-     {t("Parents.title")}
+        {t('Parents.title')}
       </motion.h2>
       <div className={css.parents__container}>
         <div className={css.thumb}>
-         
-            <div className={css.wrapper}>
-              <p className={css.parents__text}>
-               {t("Parents.information")}
-              </p>
-              <ul className={` ${css.contacts}`}>
-                <li className={`${css.contact__item}`}>
-                  <p className={css.contact__text}>{t("Footer.help")}</p>
-                  <Link href="mailto:mind.lab.hub@gmail.com" className={css.contact__link}>
-                    <MailIcon />
-                    <p>{t("Footer.mail")}</p>
-                  </Link>
-                </li>
-                <li className={css.contact__item}>
-                  <p className={css.contact__text}>{t("Footer.answer")}</p>
-                  <Link
-                    href="https://t.me/+Q8t3dkMH84hiYmNi"
-                    className={css.contact__link}
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <TelegramIcon />
-                    <p>{t("Footer.telegram")}</p>
-                  </Link>
-                </li>
-              </ul>
-              {iconParents.map(({ src, width, height, className }) => (
-                <Image
-                  key={className}
-                  src={src}
-                  width={width}
-                  height={height}
-                  alt={'svg'}
-                  className={`${css[`${className}`]}`}
-                />
-              ))}
-           
+          <div className={css.wrapper}>
+            <p className={css.parents__text}>{t('Parents.information')}</p>
+            <ul className={` ${css.contacts}`}>
+              <li className={`${css.contact__item}`}>
+                <p className={css.contact__text}>{t('Footer.help')}</p>
+                <Link
+                  href={`mailto:${contacts ? contacts?.[0].email : ''}`}
+                  className={css.contact__link}
+                >
+                  <MailIcon />
+                  <p>{t('Footer.mail')}</p>
+                </Link>
+              </li>
+              <li className={css.contact__item}>
+                <p className={css.contact__text}>{t('Footer.answer')}</p>
+                <Link
+                  href={contacts ? contacts?.[0].telegram : ''}
+                  className={css.contact__link}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <TelegramIcon />
+                  <p>{t('Footer.telegram')}</p>
+                </Link>
+              </li>
+            </ul>
+            {iconParents.map(({ src, width, height, className }) => (
+              <Image
+                key={className}
+                src={src}
+                width={width}
+                height={height}
+                alt={'svg'}
+                className={`${css[`${className}`]}`}
+              />
+            ))}
           </div>
           <ul className={css.question__list}>
             {questionList.map(({ color, question, answer }) => (
@@ -130,14 +128,17 @@ const t = useTranslations()
           </ul>
         </div>
       </div>
-      <motion.div  viewport={{ once: true }}
-       initial={{ translateX:'-146%', rotate: -360, opacity: 0 }}
-       whileInView={{ translateX: '-50%', rotate: 0, opacity:1 }}
+      <motion.div
+        viewport={{ once: true }}
+        initial={{ translateX: '-146%', rotate: -360, opacity: 0 }}
+        whileInView={{ translateX: '-50%', rotate: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 120, damping: 60 }}
-        className={css.wrapper__rotatingStar} onClick={() => openModal('feedback')}>
+        className={css.wrapper__rotatingStar}
+        onClick={() => openModal('feedback')}
+      >
         <RotatingStar />
-     </motion.div>
-      {isAlertOpen && alertType === 'feedback' &&  <SuccessAlert />}
+      </motion.div>
+      {isAlertOpen && alertType === 'feedback' && <SuccessAlert />}
     </section>
   )
 }

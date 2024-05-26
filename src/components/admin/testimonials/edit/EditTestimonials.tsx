@@ -23,11 +23,6 @@ const EditTestimonials = ({ id }: { id: string }) => {
   const router = useRouter()
   const testimon = getTestimonialById(id)
 
-  // useEffect(()=> {console.log(testimon)
-  //   console.log('isError=>', isError)
-  //   console.log(id)
-  // },[testimon, isError, id])
-
   const {
     handleSubmit,
     control,
@@ -113,10 +108,10 @@ const EditTestimonials = ({ id }: { id: string }) => {
               render={({ field }) => (
                 <Admin_TextArea
                   {...field}
-                  title="Введіть відгук (max 350 символів):"
+                  title="Введіть відгук (max 300 символів):"
                   errorText={errors.message?.message && errors.message?.message}
                   placeholder="Відгук"
-                  maxCharQuantity="350"
+                  maxCharQuantity="300"
                 />
               )}
             />

@@ -1,3 +1,6 @@
+'use client'
+
+import { useContacts } from '@/hooks/swr/useContacts'
 import Hero from '@/components/hero/Hero'
 import Courses from '@/components/courses/Courses'
 import Partners from '@/components/partners/Partners'
@@ -11,6 +14,7 @@ import Contacts from '@/components/contacts/Contacts'
 import styles from './page.module.css'
 
 const HomePage = () => {
+  const { contacts } = useContacts()
   return (
     <div className={styles.page}>
       <Hero />
@@ -19,9 +23,9 @@ const HomePage = () => {
       <Teachers />
       <Partners />
       <Certificate />
-      <Parents />
+      <Parents contacts={contacts} />
       <FeedBack />
-      <Contacts />
+      <Contacts contacts={contacts} />
       <Testimonials />
     </div>
   )

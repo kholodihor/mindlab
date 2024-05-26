@@ -1,10 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import eye from '@/animations/eye.json'
-import Lottie from 'lottie-react'
 import ArrowPartners from '../icons/ArrowPartners'
 import ArrowSliderPartners from '../icons/ArrowSliderPartners'
+import { usePartners } from '@/hooks/swr/usePartners'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Mousewheel, Scrollbar } from 'swiper/modules'
 import Link from 'next/link'
@@ -12,23 +11,28 @@ import ArrowPartnersTablet from '../icons/ArrowPartnersTablet'
 import { motion } from 'framer-motion'
 import { useWidth } from '@/hooks/useWidth'
 import { useLocale, useTranslations } from 'next-intl'
+import { LazyLottie } from '@/components/LazyLottie'
 
-import css from '../partners/Partners.module.css'
 import 'swiper/css'
 import 'swiper/css/free-mode'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
-import { usePartners } from '@/hooks/swr/usePartners'
+import css from '../partners/Partners.module.css'
 
 const Partners = () => {
-  const {partners} = usePartners()
+  const { partners } = usePartners()
   const locale = useLocale()
   const currentWidth = useWidth()
   const t = useTranslations('Partners')
   return (
     <section className={`${css.partners} container`} id="partners">
       <div className={`${css.part__left} `}>
-        <Lottie className={css.icon__eye} animationData={eye} />
+        <LazyLottie
+          getAnimationData={() => import('@/animations/eye.json')}
+          id="partners_animation"
+          loop={true}
+          className={css.icon__eye}
+        />
         <motion.h2
           viewport={{ once: true }}
           initial={{ translateY: 100, opacity: 0 }}
@@ -65,24 +69,37 @@ const Partners = () => {
           modules={[Navigation, Mousewheel, Scrollbar]}
           // className={css.swiper}
         >
-          {partners?.map(({ nameUa, nameEn, websiteLink, descriptionEn, descriptionUa, color, id, imageUrl}) => (
-            <SwiperSlide key={id} className={css.swiperSlide} style={{ background: `${color}` }}>
-              <Image
-                width={105}
-                height={105}
-                src={imageUrl}
-                alt="logo"
-                className={css.partners__logo}
-              />
-              <p className={css.partners__description}>{locale === 'ua' ? descriptionUa : descriptionEn}</p>
-              <Link href={websiteLink} className={css.swiper__link}>
-                <p className={css.partners__name}>{locale === 'ua' ? nameUa : nameEn}</p>
-                <div className={css.link__icon}>
-                  <ArrowSliderPartners />
-                </div>
-              </Link>
-            </SwiperSlide>
-          ))}
+          {partners?.map(
+            ({
+              nameUa,
+              nameEn,
+              websiteLink,
+              descriptionEn,
+              descriptionUa,
+              color,
+              id,
+              imageUrl
+            }) => (
+              <SwiperSlide key={id} className={css.swiperSlide} style={{ background: `${color}` }}>
+                <Image
+                  width={105}
+                  height={105}
+                  src={imageUrl}
+                  alt="logo"
+                  className={css.partners__logo}
+                />
+                <p className={css.partners__description}>
+                  {locale === 'ua' ? descriptionUa : descriptionEn}
+                </p>
+                <Link href={websiteLink} className={css.swiper__link}>
+                  <p className={css.partners__name}>{locale === 'ua' ? nameUa : nameEn}</p>
+                  <div className={css.link__icon}>
+                    <ArrowSliderPartners />
+                  </div>
+                </Link>
+              </SwiperSlide>
+            )
+          )}
         </Swiper>
       </div>
     </section>
