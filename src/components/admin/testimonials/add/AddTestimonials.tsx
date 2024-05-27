@@ -1,7 +1,7 @@
 'use client'
 
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
-import { testimonialScheme } from '@/components/testimonials/testimonial_form/validationSchema'
+import { testimonialScheme } from '../validationShema'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'

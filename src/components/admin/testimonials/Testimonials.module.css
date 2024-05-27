@@ -36,11 +36,15 @@
 .message_wrapper {
   height: 105px;
   overflow: hidden;
+  margin-bottom: 5px;
   text-overflow: ellipsis;
 }
 .message {
   font-size: 14px;
-  margin-bottom: 15px;
+  word-break: break-all;
+  height: 105px;
+  overflow-y: hidden;
+  padding: 10px;
 }
 .wrapper {
   display: flex;

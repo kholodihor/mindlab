@@ -112,7 +112,7 @@ const AddCourse = () => {
                     errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
                     placeholder="Опис"
                     className={css.textarea}
-                    maxCharQuantity="400"
+                    maxCharQuantity="500"
                   />
                 )}
               />
@@ -124,7 +124,7 @@ const AddCourse = () => {
                     {...field}
                     title="Введіть опис англійською (max 500 символів):"
                     errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
-                    maxCharQuantity="400"
+                    maxCharQuantity="500"
                     placeholder="Description"
                   />
                 )}
@@ -266,12 +266,12 @@ const AddCourse = () => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис англійською (max 300 символів):"
+                    title="Введіть опис українською (max 900 символів):"
                     errorText={
                       errors.courseDescriptionUa1?.message && errors.courseDescriptionUa1?.message
                     }
                     placeholder="Опис"
-                    maxCharQuantity="300"
+                    maxCharQuantity="900"
                   />
                 )}
               />
@@ -359,12 +359,12 @@ const AddCourse = () => {
                   render={({ field }) => (
                     <Admin_TextArea
                       {...field}
-                      title="Введіть опис англійською (max 300 символів):"
+                      title="Введіть опис англійською (max 900 символів):"
                       errorText={
                         errors.courseDescriptionEn1?.message && errors.courseDescriptionEn1?.message
                       }
                       placeholder="Description"
-                      maxCharQuantity="300"
+                      maxCharQuantity="900"
                     />
                   )}
                 />

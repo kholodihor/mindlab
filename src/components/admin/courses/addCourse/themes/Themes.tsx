@@ -23,7 +23,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
                 errors.themeTitleUa?.message && errors.themeTitleUa?.message
               }
               placeholder="Заголовок"
-              maxCharQuantity="200"
+              maxCharQuantity="500"
             />
           )}
         />
@@ -37,7 +37,7 @@ const Themes = ({ control, errors, themeList }: { control: any; errors: any, the
               errorText={
                 errors.themeTitleEn?.message && errors.themeTitleEn?.message
               }
-              maxCharQuantity="200"
+              maxCharQuantity="500"
               placeholder="Title"
             />
           )}

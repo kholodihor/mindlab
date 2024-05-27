@@ -20,5 +20,5 @@ export const testimonialScheme = z.object({
     .string()
     .nonempty('Errors.testimonials')
     .min(2, 'Errors.mintestimonial')
-    .max(300, 'Errors.maxtestimonial')
+    .max(150, 'Errors.maxtestimonial')
 })
