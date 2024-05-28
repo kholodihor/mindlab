@@ -21,7 +21,7 @@ export const defaultValue = (course: ICourse) => {
         startDateUa: course ? course.startDateUa : '',
         startDateEn: course ? course.startDateEn : '',
         courseDurationUa: course ? course.courseDurationUa : '',
-        courseDurationEn: course ? course.courseDurationUa : '',
+        courseDurationEn: course ? course.courseDurationEn : '',
         priceUa: course ? course.priceUa : '',
         priceEn: course ? course.priceEn : '',
         fullpriceUa: course ? course.fullpriceUa : '',

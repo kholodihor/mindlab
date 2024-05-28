@@ -42,13 +42,13 @@ const Question = ({
               render={({ field }) => (
                 <Admin_TextInput
                   {...field}
-                  title="Часте питання:"
+                  title="Часте питання англійською:"
                   errorText={
                     index === 0
                       ? errors.faqEn1?.message && errors.faqEn1?.message
                       : errors.faqEn2?.message && errors.faqEn2?.message
                   }
-                  placeholder="Які навички необхідні для вступу?"
+                  placeholder="What skills are required for entry?"
                 />
               )}
             />
@@ -60,14 +60,14 @@ const Question = ({
               render={({ field }) => (
                 <Admin_TextArea
                   {...field}
-                  title="Швидка відповідь (max 100 символів)"
+                  title="Швидка відповідь (max 120 символів)"
                   errorText={
                     index === 0
                       ? errors.answerUa1?.message && errors.answerUa1?.message
                       : errors.answerUa2?.message && errors.answerUa2?.message
                   }
                   placeholder="Для вступу необхідно базово знати інтерфейс Adobe After Effects та основи графічного дизайну."
-                  maxCharQuantity="100"
+                  maxCharQuantity="120"
                 />
               )}
             />
@@ -77,14 +77,14 @@ const Question = ({
               render={({ field }) => (
                 <Admin_TextArea
                   {...field}
-                  title="Швидка відповідь англійською (max 100 символів)"
+                  title="Швидка відповідь англійською (max 120 символів)"
                   errorText={
                     index === 0
                       ? errors.answerEn1?.message && errors.answerEn1?.message
                       : errors.answerEn2?.message && errors.answerEn2?.message
                   }
                   placeholder="To get started, you need a basic knowledge of the Adobe After Effects interface and the basics of graphic design."
-                  maxCharQuantity="100"
+                  maxCharQuantity="120"
                 />
               )}
             />

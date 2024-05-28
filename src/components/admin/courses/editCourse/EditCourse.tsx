@@ -16,7 +16,7 @@ import Question from '../addCourse/question/Question'
 import ResetButton from '../../shared/resetButton/ResetButton'
 import SubmitButton from '../../shared/submitButton/SubmitButton'
 import { useEffect, useState } from 'react'
-import { editCourseValidation } from './validationShema'
+import { addCourseValidation } from '../addCourse/validationSchema'
 import { defaultValue } from './defaultValues'
 import { useCourses } from '@/hooks/swr/useCourses'
 import Loader from '../../shared/loader/Loader'
@@ -34,9 +34,9 @@ const EditCourse = ({ id }: { id: string }) => {
   const {
     handleSubmit,
     control,
-    formState: { errors, isDirty, isValid }
-  } = useForm<z.infer<typeof editCourseValidation>>({
-    resolver: zodResolver(editCourseValidation),
+    formState: { errors, isDirty}
+  } = useForm<z.infer<typeof addCourseValidation>>({
+    resolver: zodResolver(addCourseValidation),
     mode: 'onChange',
     values: defaultValue(course)
   })
@@ -47,8 +47,8 @@ const EditCourse = ({ id }: { id: string }) => {
   }, [id, course])
   const colorList = ['#AAAEDF', '#8D83FF', '#2928E3', '#03AA89', '#FED1CE', '#FFECD0']
 
-  const onSubmit: SubmitHandler<z.infer<typeof editCourseValidation>> = async (
-    data: z.infer<typeof editCourseValidation>
+  const onSubmit: SubmitHandler<z.infer<typeof addCourseValidation>> = async (
+    data: z.infer<typeof addCourseValidation>
   ) => {
     console.log(data)
    
@@ -118,7 +118,7 @@ const EditCourse = ({ id }: { id: string }) => {
                     errorText={errors.descriptionUa?.message && errors.descriptionUa?.message}
                     placeholder="Опис"
                     className={css.textarea}
-                    maxCharQuantity="300"
+                    maxCharQuantity="500"
                   />
                 )}
               />
@@ -130,7 +130,7 @@ const EditCourse = ({ id }: { id: string }) => {
                     {...field}
                     title="Введіть опис англійською (max 500 символів):"
                     errorText={errors.descriptionEn?.message && errors.descriptionEn?.message}
-                    maxCharQuantity="300"
+                    maxCharQuantity="500"
                     placeholder="Description"
                   />
                 )}
@@ -264,10 +264,10 @@ const EditCourse = ({ id }: { id: string }) => {
                 render={({ field }) => (
                   <Admin_TextArea
                     {...field}
-                    title="Введіть опис англійською (max 900 символів):"
+                    title="Введіть опис українською (max 900 символів):"
                     errorText={errors.courseDescriptionUa1?.message && errors.courseDescriptionUa1?.message}
                     placeholder="Опис"
-                    maxCharQuantity="300"
+                    maxCharQuantity="900"
                   />
                 )}
               />
@@ -319,7 +319,7 @@ const EditCourse = ({ id }: { id: string }) => {
                     title="Введіть опис англійською (max 900 символів):"
                     errorText={errors.courseDescriptionEn1?.message && errors.courseDescriptionEn1?.message}
                     placeholder="Description"
-                    maxCharQuantity="300"
+                    maxCharQuantity="900"
                   />
                 )}
               />
@@ -362,7 +362,7 @@ const EditCourse = ({ id }: { id: string }) => {
           </div>
           <div className={css.btt__form}>
             <ResetButton text='Скасувати' />
-            <SubmitButton text='Застосувати зміни' disabled={!isDirty || !isValid}/>
+            <SubmitButton text='Застосувати зміни' disabled={!isDirty}/>
           </div>
         </form>
       </div>
