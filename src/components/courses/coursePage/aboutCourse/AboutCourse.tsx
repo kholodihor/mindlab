@@ -1,21 +1,25 @@
 'use client'
 
-import Lottie from 'lottie-react'
-import racket from '@/animations/rocket.json'
-import css from '../aboutCourse/AboutCourse.module.css'
-import TimeIcon from '@/components/icons/TimeIcon'
-import PriceIcon from '@/components/icons/PriceIcon'
-import SeatIcon from '@/components/icons/SeatIcon'
+// import Lottie from 'lottie-react'
+// import racket from '@/animations/rocket.json'
+
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCourses } from '@/hooks/swr/useCourses'
 import { useForms } from '@/hooks/swr/useForms'
+import { LazyLottie } from '@/components/LazyLottie'
+import TimeIcon from '@/components/icons/TimeIcon'
+import PriceIcon from '@/components/icons/PriceIcon'
+import SeatIcon from '@/components/icons/SeatIcon'
+
+import css from '../aboutCourse/AboutCourse.module.css'
 
 const AboutCourse = ({ params }: { params: { course: string } }) => {
   const { getCourseById } = useCourses()
   const { forms } = useForms()
 
-  const registrationForm = forms && forms?.find((form) => form.name === 'Registration form')
+  const registrationForm =
+    forms && forms?.find((form) => form.name.toLowerCase() === 'registration form')
 
   const currentCourse = getCourseById(params.course)
   const locale = useLocale()
@@ -73,7 +77,12 @@ const AboutCourse = ({ params }: { params: { course: string } }) => {
           </div>
         </div>
       </div>
-      <Lottie animationData={racket} loop={false} />
+      {/* <Lottie animationData={racket} loop={false} /> */}
+      <LazyLottie
+        getAnimationData={() => import('@/animations/rocket.json')}
+        id="rocket_animation"
+        loop={false}
+      />
     </section>
   )
 }

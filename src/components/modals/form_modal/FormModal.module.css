@@ -30,13 +30,18 @@
       border: none;
       outline: none;
       background: none;
-      top: 0.5rem;
-      right: 0.5rem;
+      top: 0.3rem;
+      right: 0.3rem;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
       z-index: 9998;
+
+      @media screen and (min-width: 650px) {
+        top: 0.5rem;
+        right: 0.5rem;
+      }
     }
   }
 

@@ -1,5 +1,4 @@
 .wrapper {
-  /* width: 100%; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -33,15 +32,10 @@
   }
   .tab:hover {
     background: var(--black);
-    /* border: 1px solid var(--white); */
     color: var(--white);
   }
   .active {
     background: var(--violet-light);
     color: var(--black);
   }
-  /* .active:hover {
-    color: var(--white);
-    border: 1px solid var(--white);
-  } */
 }

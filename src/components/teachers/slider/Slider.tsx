@@ -5,13 +5,13 @@ import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import { ITeacherResponse } from '@/types/teachers'
+import { useLocale } from 'next-intl'
+import ArrowSpeakers from '@/components/icons/ArrowSpeakers'
 import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
 
 import styles from './Slider.module.css'
 import 'swiper/css/navigation'
 import 'swiper/css'
-import { useLocale } from 'next-intl'
-import ArrowSpeakers from '@/components/icons/ArrowSpeakers'
 
 interface SliderProps {
   teachers: ITeacherResponse[]
@@ -19,7 +19,7 @@ interface SliderProps {
 
 const Slider = ({ teachers }: SliderProps) => {
   const sliderRef = useRef(null)
-  
+
   const locale = useLocale()
 
   const handlePrev = () => {
@@ -38,7 +38,7 @@ const Slider = ({ teachers }: SliderProps) => {
       <div className={styles.swiper}>
         <Swiper
           spaceBetween={20}
-          slidesPerView={"auto"}
+          slidesPerView={'auto'}
           loop={true}
           modules={[Navigation]}
           onSwiper={(swiper) => {
@@ -61,7 +61,7 @@ const Slider = ({ teachers }: SliderProps) => {
           <ArrowSpeakers />
         </button>
         <button onClick={handleNext} className={`${styles.navbtn} ${styles.navbtn} `}>
-        <ArrowSpeakers />
+          <ArrowSpeakers />
         </button>
       </div>
     </div>
