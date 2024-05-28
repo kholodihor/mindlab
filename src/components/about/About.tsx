@@ -13,8 +13,10 @@ const About: FC = () => {
   const { forms } = useForms()
   const aboutRef = useRef<HTMLDivElement>(null)
 
-  const registrationForm = forms && forms?.find((form) => form.name === 'Registration form')
-  const placementTestForm = forms && forms?.find((form) => form.name === 'Placement test')
+  const registrationForm =
+    forms && forms?.find((form) => form.name.toLowerCase() === 'registration form')
+  const placementTestForm =
+    forms && forms?.find((form) => form.name.toLowerCase() === 'placement test')
 
   return (
     <section className={`${styles.about} container`} ref={aboutRef}>

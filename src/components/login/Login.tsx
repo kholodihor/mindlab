@@ -51,13 +51,20 @@ const Login = () => {
         router.replace('/admin')
         router.refresh()
       }
-      if (callback.error === 'CredentialsSignin') {
+      if (callback.error && callback.error === 'CredentialsSignin') {
         setError('password', {
           message: 'Невірний логін або пароль'
+        })
+      } else {
+        setError('password', {
+          message: 'Щось пійшло не так, спробуйте пізніше'
         })
       }
     } catch (error) {
       console.log(error)
+      setError('password', {
+        message: 'Щось пійшло не так, спробуйте пізніше'
+      })
     }
   }
 
