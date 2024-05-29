@@ -81,7 +81,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           </li>
           <li className={styles.header_nav_item}>
             <a
-              href={contacts ? contacts.telegram : ''}
+              href={contacts ? contacts[0].telegram : ''}
               rel="noopener noreferrer"
               target="_blank"
               onMouseEnter={() => setIsHovered(true)}
@@ -102,7 +102,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       </nav>
       <div className={styles.social}>
         <a
-          href={contacts ? contacts.instagram : ''}
+          href={contacts ? contacts[0].instagram : ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.social_link}
@@ -110,7 +110,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           <Image src="/svg/footer/instagram.svg" alt="instagram" width={40} height={40} />
         </a>
         <a
-          href={contacts ? contacts.facebook : ''}
+          href={contacts ? contacts[0].facebook : ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.social_link}
@@ -124,7 +124,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
             <h4 className={styles.contacts_item_title}>{t('Footer.help')}</h4>
             <a
               className={styles.contacts_item_link}
-              href={`mailto:${contacts ? contacts.instagram : ''}`}
+              href={`mailto:${contacts ? contacts[0].email : ''}`}
             >
               {currentWidth < 430 ? <MailIconXL /> : <MailIcon />}
               <span className={styles.contacts_item_link_span}>{t('Footer.mail')}</span>
@@ -134,7 +134,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
             <h4 className={styles.contacts_item_title}>{t('Footer.answer')}</h4>
             <a
               className={styles.contacts_item_link}
-              href={contacts ? contacts.telegram : ''}
+              href={contacts ? contacts[0].telegram : ''}
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -144,7 +144,10 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           </li>
           <li className={styles.contacts_item}>
             <h4 className={styles.contacts_item_title}>{t('Footer.talk')}</h4>
-            <a className={styles.contacts_item_link} href={`tel:${contacts ? contacts.phone : ''}`}>
+            <a
+              className={styles.contacts_item_link}
+              href={`tel:${contacts ? contacts[0].phone : ''}`}
+            >
               {currentWidth < 430 ? <PhoneIconXL /> : <PhoneIcon />}
               <span className={styles.contacts_item_link_span}>{t('Footer.phone')}</span>
             </a>
