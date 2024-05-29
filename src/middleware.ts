@@ -16,6 +16,10 @@ export default function (req: NextRequest): NextResponse {
 }
 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(ua|en)/:path*', '/((?!_next|_vercel|.*\\..*).*)']
+  // Match only internationalized pathnames but exclude API routes
+  matcher: [
+    '/',
+    '/(ua|en)/:path*',
+    '/((?!api|_next|_vercel|image|public|images|icons|meta|favicon.ico|.*\\..*).*)'
+  ]
 }

@@ -6,7 +6,7 @@ import Header from '@/components/header/Header'
 
 export default function LayoutProvider({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const isAdminPage = pathname.split('/').includes('admin' || 'login')
+  const isAdminPage = pathname.split('/').includes('admin') || pathname.split('/').includes('login')
   return (
     <>
       {!isAdminPage ? <Header /> : null}
