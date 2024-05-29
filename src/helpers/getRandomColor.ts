@@ -1,6 +1,8 @@
-const colors = ['#aaaedf', '#ffecd0', '#8d83ff', '#03aa89', '#2928e3', '#fed1ce']
+'use client'
 
-export const getRandomColor = () => {
-  const randomColor = colors[Math.floor(Math.random() * colors.length)]
-  return randomColor
+const colors: string[] = ['#aaaedf', '#ffecd0', '#8d83ff', '#03aa89', '#2928e3', '#fed1ce']
+
+export const getRandomColor = (colorArray: string[] = colors): string => {
+  const randomIndex = Math.floor(Math.random() * colorArray.length)
+  return colorArray[randomIndex]
 }

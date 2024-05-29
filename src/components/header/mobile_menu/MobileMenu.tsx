@@ -13,6 +13,7 @@ import TelegramIconXL from '@/components/icons/TelegramIconXL'
 import LanguageSwitcher from '../LocalSwitcher'
 import { useLocale, useTranslations } from 'next-intl'
 import { useWidth } from '@/hooks/useWidth'
+import { useContacts } from '@/hooks/swr/useContacts'
 import TelegramIcon from '@/components/icons/TelegramIcon'
 import MailIconXL from '@/components/icons/MailIconXL'
 import PhoneIconXL from '@/components/icons/PhoneIconXL'
@@ -23,9 +24,12 @@ type MobileMenuProps = {
 
 const MobileMenu = ({ onClose }: MobileMenuProps) => {
   const [isHovered, setIsHovered] = useState(false)
+  const { contacts } = useContacts()
   const t = useTranslations()
-  const currentWidth = useWidth();
+  const currentWidth = useWidth()
   const locale = useLocale()
+
+  console.log(contacts)
   return (
     <div className={styles.wrapper}>
       <div className={styles.menu_header}>
@@ -36,23 +40,39 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       </div>
       <nav className={styles.menu_nav}>
         <ul className={styles.menu_list}>
-          <li  className={styles.header_nav_item}>
-            <a href={`/${locale}#courses`} onClick={onClose} className={styles.header_nav_item_link}>
+          <li className={styles.header_nav_item}>
+            <a
+              href={`/${locale}#courses`}
+              onClick={onClose}
+              className={styles.header_nav_item_link}
+            >
               {t('Menu.courses')}
             </a>
           </li>
-          <li  className={styles.header_nav_item}>
-            <a href={`/${locale}#teachers`} onClick={onClose} className={styles.header_nav_item_link}>
+          <li className={styles.header_nav_item}>
+            <a
+              href={`/${locale}#teachers`}
+              onClick={onClose}
+              className={styles.header_nav_item_link}
+            >
               {t('Menu.speakers')}
             </a>
           </li>
-          <li  className={styles.header_nav_item}>
-            <a href={`/${locale}#partners`} onClick={onClose} className={styles.header_nav_item_link}>
+          <li className={styles.header_nav_item}>
+            <a
+              href={`/${locale}#partners`}
+              onClick={onClose}
+              className={styles.header_nav_item_link}
+            >
               {t('Menu.partners')}
             </a>
           </li>
           <li className={styles.header_nav_item}>
-            <a href={`/${locale}#parents`} onClick={onClose} className={styles.header_nav_item_link}>
+            <a
+              href={`/${locale}#parents`}
+              onClick={onClose}
+              className={styles.header_nav_item_link}
+            >
               {t('Menu.parents')}
             </a>
           </li>
@@ -61,7 +81,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           </li>
           <li className={styles.header_nav_item}>
             <a
-              href="https://t.me/honeyhell_bot"
+              href={contacts ? contacts[0].telegram : ''}
               rel="noopener noreferrer"
               target="_blank"
               onMouseEnter={() => setIsHovered(true)}
@@ -82,7 +102,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       </nav>
       <div className={styles.social}>
         <a
-          href="https://www.instagram.com/mind.lab_hub?igsh=bWl3dGt5Njdwd3Fk&utm_source=qr"
+          href={contacts ? contacts[0].instagram : ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.social_link}
@@ -90,7 +110,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           <Image src="/svg/footer/instagram.svg" alt="instagram" width={40} height={40} />
         </a>
         <a
-          href="https://www.facebook.com/"
+          href={contacts ? contacts[0].facebook : ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.social_link}
@@ -102,8 +122,11 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
         <ul className={styles.contacts_list}>
           <li className={styles.contacts_item}>
             <h4 className={styles.contacts_item_title}>{t('Footer.help')}</h4>
-            <a className={styles.contacts_item_link} href="mailto:mind.lab.hub@gmail.com">
-              {currentWidth <430 ? <MailIconXL /> : <MailIcon/>}
+            <a
+              className={styles.contacts_item_link}
+              href={`mailto:${contacts ? contacts[0].email : ''}`}
+            >
+              {currentWidth < 430 ? <MailIconXL /> : <MailIcon />}
               <span className={styles.contacts_item_link_span}>{t('Footer.mail')}</span>
             </a>
           </li>
@@ -111,18 +134,21 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
             <h4 className={styles.contacts_item_title}>{t('Footer.answer')}</h4>
             <a
               className={styles.contacts_item_link}
-              href="https://t.me/+Q8t3dkMH84hiYmNi"
+              href={contacts ? contacts[0].telegram : ''}
               rel="noopener noreferrer"
               target="_blank"
             >
-             {currentWidth <430 ? <TelegramIconXL /> : <TelegramIcon />}
+              {currentWidth < 430 ? <TelegramIconXL /> : <TelegramIcon />}
               <span className={styles.contacts_item_link_span}>{t('Footer.telegram')}</span>
             </a>
           </li>
           <li className={styles.contacts_item}>
             <h4 className={styles.contacts_item_title}>{t('Footer.talk')}</h4>
-            <a className={styles.contacts_item_link} href="tel:6031112298">
-            {currentWidth <430 ? <PhoneIconXL /> : <PhoneIcon />}
+            <a
+              className={styles.contacts_item_link}
+              href={`tel:${contacts ? contacts[0].phone : ''}`}
+            >
+              {currentWidth < 430 ? <PhoneIconXL /> : <PhoneIcon />}
               <span className={styles.contacts_item_link_span}>{t('Footer.phone')}</span>
             </a>
           </li>

@@ -23,15 +23,14 @@ const Testimonials = () => {
   const isModalOpen = useModal((state) => state.isModalOpen)
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
   const modalType = useModal((state) => state.modalType)
-  const alertType = useAlert((state)=>state.alertType)
+  const alertType = useAlert((state) => state.alertType)
   const t = useTranslations('Testimonials')
-
-  console.log(testimonials)
 
   return (
     <section id="testimonials" className={styles.reviews_container}>
       <h1 className={`${styles.reviews_title} container`}>
-        {t('title')} <Image width={46} height={40} src="/reviews/look.svg" alt="eyes" className={styles.img}/>
+        {t('title')}{' '}
+        <Image width={46} height={40} src="/reviews/look.svg" alt="eyes" className={styles.img} />
         <span className={styles.spanTitle}>{t('spanTitle')}</span>
       </h1>
       <Swiper
@@ -66,7 +65,7 @@ const Testimonials = () => {
           <TestimonialForm />
         </FormModal>
       )}
-      {isAlertOpen && alertType === 'testimonial' && <TestimonialsAlert/>}
+      {isAlertOpen && alertType === 'testimonial' && <TestimonialsAlert />}
       <Image width={200} height={200} src="/reviews/comet.svg" alt="" className={styles.comet} />
     </section>
   )
