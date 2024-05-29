@@ -129,7 +129,7 @@
 
 .components__list {
   display: flex;
-  gap: 12px;
+  gap: 15px;
   max-height: 40px;
   flex-wrap: wrap;
   overflow-y: hidden;
