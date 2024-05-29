@@ -66,7 +66,7 @@ const Courses = () => {
             {courses?.map(({ title, courseDescriptionUa1, id }) => (
               <li className={styles.courses_card} key={title}>
                 <div className={styles.course_content}>
-                  <h3 className={styles.course_title}>{title}</h3>
+                  <h3 className={styles.course_title} style={{marginBottom: title.length > 30 ? '10px' : '5px'}}>{title}</h3>
                   <p className={styles.courses_description}>{courseDescriptionUa1}</p>
                 </div>
                 <div className={styles.button_block}>
