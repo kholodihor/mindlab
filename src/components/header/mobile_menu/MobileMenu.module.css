@@ -9,10 +9,11 @@
   align-items: center !important;
   flex-direction: column !important;
   background: var(--graphite);
-  padding: 10px 40px 150px 20px;
+  padding: 10px 20px 150px 20px;
   z-index: 9999;
   overflow-y: scroll;
 }
+
 .menu_header {
   width: 100%;
   display: flex;
