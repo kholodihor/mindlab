@@ -55,10 +55,6 @@ const Login = () => {
         setError('password', {
           message: 'Невірний логін або пароль'
         })
-      } else {
-        setError('password', {
-          message: 'Щось пійшло не так, спробуйте пізніше'
-        })
       }
     } catch (error) {
       console.log(error)
