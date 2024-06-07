@@ -9,8 +9,6 @@
   width: 100%;
   background: var(--black);
   z-index: 999;
-
-  
 }
 .header_nav {
   display: flex;
@@ -18,11 +16,10 @@
   gap: 28px;
   align-items: center;
   flex: 1;
-   /* margin: 0 auto; */
+  /* margin: 0 auto; */
   @media screen and (min-width: 1024px) {
     gap: 40px;
   }
- 
 }
 
 .header_burger {
@@ -71,13 +68,13 @@
   }
   @media screen and (min-width: 1440px) {
     width: 1440px;
-   margin: 0 auto;
+    margin: 0 auto;
     padding: 0 130px;
     justify-content: center;
   }
 }
 
-.btmSwitcher {
+.btnSwitcher {
   font-size: 16px;
   color: var(--gray);
   background-color: inherit;
@@ -86,12 +83,12 @@
   transition: all 0.5s ease-in-out;
 }
 
-.btmSwitcher:hover,
-.btmSwitcher:focus {
+.btnSwitcher:hover,
+.btnSwitcher:focus {
   color: var(--lime);
 }
 
-.btmSwitcher__active {
+.btnSwitcher__active {
   color: var(--violet-light);
 }
 

@@ -1,22 +1,22 @@
 'use client'
+
+import { useTranslations } from 'next-intl'
 import { useModal } from '@/stores/useModal'
 import { useAlert } from '@/stores/useAlert'
 import TitleBlock from './title_block/TitleBlock'
 import AnimationBlock from './animation_block/AnimationBlock'
-import FormModal from '../modals/form_modal/FormModal'
+import FormModal from '../modals/formModal/FormModal'
 import FeedBackForm from '../feedback/feedback_form/FeedBackForm'
-import styles from './Hero.module.css'
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
-import { useTranslations } from 'next-intl'
+import styles from './Hero.module.css'
 
 const Hero = () => {
+  const t = useTranslations('Hero')
   const { closeModal } = useModal()
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
   const alertType = useAlert((state) => state.alertType)
   const modalType = useModal((state) => state.modalType)
   const isModalOpen = useModal((state) => state.isModalOpen)
-
-  const t = useTranslations('Hero')
 
   return (
     <section className={`${styles.hero} container`}>

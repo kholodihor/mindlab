@@ -1,27 +1,28 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
-import Burger from '../icons/Burger'
-import styles from './Header.module.css'
-import Lottie from 'lottie-react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useWidth } from '@/hooks/useWidth'
+import { useContacts } from '@/hooks/swr/useContacts'
+import { useModal } from '@/stores/useModal'
+import Link from 'next/link'
+import Burger from '../icons/Burger'
+import Lottie from 'lottie-react'
 import chatbot_default from '@/animations/сhatbot_default.json'
 import chatbot_hover from '@/animations/chatbot_hover.json'
 import Logo from './logo/Logo'
-import LanguageSwitcher from './LocalSwitcher'
-import { useModal } from '@/stores/useModal'
+import LanguageSwitcher from './LocaleSwitcher'
 import MenuModal from '../modals/menuModal/MenuModal'
+import styles from './Header.module.css'
 
 const Header = () => {
+  const t = useTranslations('Menu')
   const [isHovered, setIsHovered] = useState(false)
   const currentWidth = useWidth()
+  const { contacts } = useContacts()
   const locale = useLocale()
 
-  const t = useTranslations('Menu')
   const { openModal, closeModal } = useModal()
-
   const isModalOpen = useModal((state) => state.isModalOpen)
   const modalType = useModal((state) => state.modalType)
 
@@ -50,7 +51,7 @@ const Header = () => {
             </li>
           </ul>
           {currentWidth >= 1024 && <LanguageSwitcher />}
-          <a href="https://t.me/+Q8t3dkMH84hiYmNi" target="_blank">
+          <a href={contacts ? contacts[0].telegram : ''} target="_blank">
             <Lottie
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}

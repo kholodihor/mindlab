@@ -1,8 +1,5 @@
 'use client'
 
-// import Lottie from 'lottie-react'
-// import racket from '@/animations/rocket.json'
-
 import Link from 'next/link'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCourses } from '@/hooks/swr/useCourses'
@@ -11,7 +8,6 @@ import { LazyLottie } from '@/components/LazyLottie'
 import TimeIcon from '@/components/icons/TimeIcon'
 import PriceIcon from '@/components/icons/PriceIcon'
 import SeatIcon from '@/components/icons/SeatIcon'
-
 import css from '../aboutCourse/AboutCourse.module.css'
 
 const AboutCourse = ({ params }: { params: { course: string } }) => {

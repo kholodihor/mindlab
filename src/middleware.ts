@@ -1,25 +1,51 @@
-/* eslint-disable import/no-anonymous-default-export */
+import { withAuth } from 'next-auth/middleware'
+import { NextRequest } from 'next/server'
 import createMiddleware from 'next-intl/middleware'
-import { NextRequest, NextResponse } from 'next/server'
+
+const publicPages = ['/', '/login']
+const locales = ['ua', 'en']
 
 const nextIntlMiddleware = createMiddleware({
-  // A list of all locales that are supported
-  locales: ['ua', 'en'],
-
-  // Used when no locale matches
+  locales,
   defaultLocale: 'ua',
-  localeDetection: false
+  localeDetection: false,
+  localePrefix: 'as-needed'
 })
 
-export default function (req: NextRequest): NextResponse {
-  return nextIntlMiddleware(req)
+const authMiddleware = withAuth(
+  function onSuccess(req) {
+    return nextIntlMiddleware(req)
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => token != null
+    },
+    pages: {
+      signIn: '/login'
+    }
+  }
+)
+
+export default function middleware(req: NextRequest) {
+  const publicPathnameRegex = RegExp(
+    `^(/(${locales.join('|')}))?(${publicPages
+      .flatMap((p) => (p === '/' ? ['', '/'] : p))
+      .join('|')})/?$`,
+    'i'
+  )
+  const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname)
+
+  if (isPublicPage) {
+    return nextIntlMiddleware(req)
+  } else {
+    return (authMiddleware as any)(req)
+  }
 }
 
 export const config = {
-  // Match only internationalized pathnames but exclude API routes
   matcher: [
     '/',
     '/(ua|en)/:path*',
-    '/((?!api|_next|_vercel|image|public|images|icons|meta|favicon.ico|.*\\..*).*)'
+    '/((?!api|_next|_vercel|public|images|icons|favicon.ico|.*\\..*).*)'
   ]
 }

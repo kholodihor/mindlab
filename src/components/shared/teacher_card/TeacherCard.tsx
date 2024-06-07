@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'next/image'
-import styles from './TeacherCard.module.css'
 import { ITeacherResponse } from '@/types/teachers'
 import { useLocale } from 'next-intl'
+import styles from './TeacherCard.module.css'
 
 const TeacherCard = ({ teacher }: { teacher: ITeacherResponse }) => {
   const locale = useLocale()

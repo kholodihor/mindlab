@@ -1,7 +1,9 @@
-import Admin from '@/components/admin/Admin'
+'use client'
+import { useEffect } from 'react'
+import { redirect } from 'next/navigation'
 
-const page = () => {
-  return <Admin />
+export default function AdminPage() {
+  useEffect(() => {
+    redirect('/admin/courses')
+  }, [])
 }
-
-export default page

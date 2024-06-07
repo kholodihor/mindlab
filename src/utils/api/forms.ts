@@ -1,3 +1,5 @@
+'use client'
+
 import axios from '@/config/axios'
 import { IForm, IFormResponse } from '@/types/forms'
 

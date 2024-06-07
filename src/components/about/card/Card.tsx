@@ -2,7 +2,7 @@ import { FC, ReactNode } from 'react'
 import ButtonLink from '@/components/ui/link_button/LinkButton'
 import styles from './Card.module.css'
 
-interface CardProps {
+type CardProps = {
   title: string
   description: ReactNode
   url: string

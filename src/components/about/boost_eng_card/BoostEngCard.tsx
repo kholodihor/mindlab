@@ -1,17 +1,16 @@
 'use client'
 import React, { useState } from 'react'
-import Card from '../card/Card'
 import { useTranslations } from 'next-intl'
 import { IForm } from '@/types/forms'
 import { LazyLottie } from '@/components/LazyLottie'
+import Card from '../card/Card'
 import styles from '../About.module.css'
 
-interface BoostEngCardProps {
+type BoostEngCardProps = {
   placementTestForm: IForm
 }
 
 const BoostEngCard = ({ placementTestForm }: BoostEngCardProps) => {
-  // const ENG_TEST_URL = 'https://forms.gle/HSFhoc82HunVTQxZ8'
   const [isPulseHovered, setIsPulseHovered] = useState(false)
 
   const t = useTranslations('About')

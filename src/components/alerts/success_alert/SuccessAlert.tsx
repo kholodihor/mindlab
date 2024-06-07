@@ -1,10 +1,10 @@
 'use client'
-import React from 'react'
+
 import { createPortal } from 'react-dom'
 import { useAlert } from '@/stores/useAlert'
+import { useTranslations } from 'next-intl'
 import CloseIcon from '@/components/icons/CloseIcon'
 import styles from './SuccessAlert.module.css'
-import { useTranslations } from 'next-intl'
 
 const SuccessAlert = () => {
   const { closeAlert } = useAlert()

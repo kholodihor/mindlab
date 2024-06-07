@@ -3,33 +3,32 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Lottie from 'lottie-react'
+import { useLocale, useTranslations } from 'next-intl'
+import { useWidth } from '@/hooks/useWidth'
+import { useContacts } from '@/hooks/swr/useContacts'
 import chatbot_default from '@/animations/сhatbot_default.json'
 import chatbot_hover from '@/animations/chatbot_hover.json'
-import styles from './MobileMenu.module.css'
 import CloseIconXL from '@/components/icons/CloseIconXL'
 import MailIcon from '@/components/icons/MailIcon'
 import PhoneIcon from '@/components/icons/PhoneIcon'
 import TelegramIconXL from '@/components/icons/TelegramIconXL'
-import LanguageSwitcher from '../LocalSwitcher'
-import { useLocale, useTranslations } from 'next-intl'
-import { useWidth } from '@/hooks/useWidth'
-import { useContacts } from '@/hooks/swr/useContacts'
+import LanguageSwitcher from '../LocaleSwitcher'
 import TelegramIcon from '@/components/icons/TelegramIcon'
 import MailIconXL from '@/components/icons/MailIconXL'
 import PhoneIconXL from '@/components/icons/PhoneIconXL'
+import styles from './MobileMenu.module.css'
 
 type MobileMenuProps = {
   onClose: () => void
 }
 
 const MobileMenu = ({ onClose }: MobileMenuProps) => {
+  const t = useTranslations()
+  const locale = useLocale()
   const [isHovered, setIsHovered] = useState(false)
   const { contacts } = useContacts()
-  const t = useTranslations()
   const currentWidth = useWidth()
-  const locale = useLocale()
 
-  console.log(contacts)
   return (
     <div className={styles.wrapper}>
       <div className={styles.menu_header}>

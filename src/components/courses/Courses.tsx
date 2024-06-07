@@ -1,14 +1,14 @@
 'use client'
 
-import ArrowRight from '../icons/ArrowRight'
-import ArrowTop from '../icons/ArrowTop'
-import Link from 'next/link'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCourses } from '@/hooks/swr/useCourses'
 import { LazyLottie } from '@/components/LazyLottie'
+import Link from 'next/link'
+import Image from 'next/image'
+import ArrowRight from '../icons/ArrowRight'
+import ArrowTop from '../icons/ArrowTop'
 import css from '../courses/Courses.module.css'
 
 const Courses = () => {

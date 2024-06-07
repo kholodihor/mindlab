@@ -1,5 +1,4 @@
 import prisma from '@/lib/prisma'
-// import { IDocument } from '@/types/documents'
 import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
 

@@ -1,22 +1,22 @@
 'use client'
 
-import css from './Parents.module.css'
+import Link from 'next/link'
 import { useState } from 'react'
 import { useModal } from '@/stores/useModal'
 import { useAlert } from '@/stores/useAlert'
+import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
+import { IContact } from '@/types/contacts'
+import { iconParents, questionList } from '@/data/parents'
 import MailIcon from '../icons/MailIcon'
 import TelegramIcon from '../icons/TelegramIcon'
 import Image from 'next/image'
 import RotatingStar from '../shared/rotating_star/RotatingStar'
-import { iconParents, questionList } from '@/data/parents'
 import MinusIcon from '../icons/MinusIcon'
 import PlusIcon from '../icons/PlusIcon'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-
 import SuccessAlert from '../alerts/success_alert/SuccessAlert'
-import { useTranslations } from 'next-intl'
-import { IContact } from '@/types/contacts'
+
+import css from './Parents.module.css'
 
 type Answer = Array<string>
 
