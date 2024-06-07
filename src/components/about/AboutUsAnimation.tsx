@@ -2,10 +2,10 @@
 
 import React, { FC } from 'react'
 import { useLocale } from 'next-intl'
-import { useWindowScrollY } from './useWindowScrollY'
 import { LazyLottie } from '@/components/LazyLottie'
+import { useWindowScrollY } from './useWindowScrollY'
 
-interface AboutUsAnimationProps {
+type AboutUsAnimationProps = {
   aboutRef: React.RefObject<HTMLDivElement>
 }
 

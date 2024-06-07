@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import * as z from 'zod'
+import { useTranslations } from 'next-intl'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { defaultValues } from './defaultValues'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -12,7 +13,6 @@ import TextInput from '@/components/ui/inputs/text_input/TextInput'
 import TextArea from '@/components/ui/inputs/text_area/TextArea'
 import Checkbox from '@/components/ui/inputs/checkbox/Checkbox'
 import styles from './TestimonialForm.module.css'
-import { useTranslations } from 'next-intl'
 
 const TestimonialForm = () => {
   const [checked, setChecked] = useState(false)
@@ -20,9 +20,7 @@ const TestimonialForm = () => {
   const { addNewTestimonial } = useTestimonials()
   const { closeModal } = useModal()
   const t = useTranslations()
-  const {openAlert} = useAlert()
-
-  
+  const { openAlert } = useAlert()
 
   const {
     handleSubmit,
@@ -45,15 +43,15 @@ const TestimonialForm = () => {
   ) => {
     try {
       setIsProcessing(true)
-      const response  = await addNewTestimonial(values)
+      const response = await addNewTestimonial(values)
       setIsProcessing(false)
       closeModal()
-      if(response.status === 200){
+      if (response.status === 200) {
         openAlert('testimonial')
       }
     } catch (error: any) {
       alert(error)
-    } finally{
+    } finally {
       setIsProcessing(false)
     }
   }
@@ -77,7 +75,11 @@ const TestimonialForm = () => {
           name="email"
           control={control}
           render={({ field }) => (
-            <TextInput {...field} errorText={errors.email?.message && t(errors.email?.message)} placeholder="Email" />
+            <TextInput
+              {...field}
+              errorText={errors.email?.message && t(errors.email?.message)}
+              placeholder="Email"
+            />
           )}
         />
         <Controller

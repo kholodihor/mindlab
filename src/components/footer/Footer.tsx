@@ -6,10 +6,10 @@ import { useLocale, useTranslations } from 'next-intl'
 import { useDocuments } from '@/hooks/swr/useDocuments'
 import { useContacts } from '@/hooks/swr/useContacts'
 import { menuList } from '@/data/data'
-import css from '../footer/Footer.module.css'
 import MailIcon from '../icons/MailIcon'
 import TelegramIcon from '../icons/TelegramIcon'
 import PhoneIcon from '../icons/PhoneIcon'
+import css from '../footer/Footer.module.css'
 
 const Footer = () => {
   const t = useTranslations()

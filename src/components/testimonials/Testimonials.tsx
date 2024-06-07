@@ -10,7 +10,7 @@ import { useTestimonials } from '@/hooks/swr/useTestimonials'
 
 import TestimonialCard from './testimonial_card/TestimonialCard'
 import MainButton from '../ui/main_button/MainButton'
-import FormModal from '../modals/form_modal/FormModal'
+import FormModal from '../modals/formModal/FormModal'
 import TestimonialForm from './testimonial_form/TestimonialForm'
 import styles from './Testimonials.module.css'
 import { useTranslations } from 'next-intl'

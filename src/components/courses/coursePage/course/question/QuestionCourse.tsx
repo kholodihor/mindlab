@@ -1,9 +1,9 @@
-import css from './QuestionCourse.module.css'
 import { useState } from 'react'
-import MinusIcon from '@/components/icons/MinusIcon'
-import PlusIcon from '@/components/icons/PlusIcon'
 import { useLocale, useTranslations } from 'next-intl'
 import { ICourseResponse } from '@/types/courses'
+import MinusIcon from '@/components/icons/MinusIcon'
+import PlusIcon from '@/components/icons/PlusIcon'
+import css from './QuestionCourse.module.css'
 
 type Answer = Array<number>
 const QuestionCourse = ({ currentCourse }: { currentCourse: ICourseResponse }) => {

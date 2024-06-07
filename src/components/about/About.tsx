@@ -1,13 +1,12 @@
 'use client'
 
 import { FC, useRef } from 'react'
-import styles from './About.module.css'
-
-import AboutUsAnimation from './AboutUsAnimation'
+import { useForms } from '@/hooks/swr/useForms'
+import AboutUs from './about_us/AboutUs'
 import BonusCard from './bonus_card/BonusCard'
 import BoostEngCard from './boost_eng_card/BoostEngCard'
-import AboutUs from './about_us/AboutUs'
-import { useForms } from '@/hooks/swr/useForms'
+import AboutUsAnimation from './AboutUsAnimation'
+import styles from './About.module.css'
 
 const About: FC = () => {
   const { forms } = useForms()

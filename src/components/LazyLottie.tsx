@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-
 import useSWR from 'swr'
-import { type LottieComponentProps } from 'lottie-react'
-import { Suspense, lazy } from 'react'
+import { lazy, Suspense } from 'react'
+import type { LottieComponentProps } from 'lottie-react'
 
 const LazyLottieComponent = lazy(() => import('lottie-react'))
 

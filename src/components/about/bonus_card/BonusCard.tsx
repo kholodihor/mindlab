@@ -1,19 +1,17 @@
 'use client'
 import React, { useState } from 'react'
+import { useTranslations } from 'next-intl'
+import { IForm } from '@/types/forms'
 import Card from '../card/Card'
 import Wow from '@/components/shared/wow/Wow'
 import styles from '../About.module.css'
-import { useTranslations } from 'next-intl'
-import { IForm } from '@/types/forms'
 
-interface BonusCardProps {
+type BonusCardProps = {
   registrationForm: IForm
 }
 
 const BonusCard = ({ registrationForm }: BonusCardProps) => {
   const [isWowHovered, setIsWowHovered] = useState(false)
-  // const REGISTER_URL = 'https://forms.gle/wxX5LyYEsLupyKg68'
-
   const t = useTranslations('About')
 
   const bonusCardDesc = (

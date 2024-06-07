@@ -3,13 +3,11 @@
 import React from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-// import { useContacts } from '@/hooks/swr/useContacts'
-import styles from './Contacts.module.css'
 import { IContact } from '@/types/contacts'
+import styles from './Contacts.module.css'
 
 const Contacts = ({ contacts }: { contacts: IContact[] }) => {
   const t = useTranslations('Contacts')
-  // const { contacts } = useContacts()
 
   return (
     <section id="contacts" className={styles.wrapper}>
