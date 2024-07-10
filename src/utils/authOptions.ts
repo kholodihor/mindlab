@@ -5,6 +5,7 @@ import bcrypt from 'bcrypt'
 import prisma from '@/lib/prisma'
 
 export const authOptions: AuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       id: 'credentials',
@@ -55,6 +56,5 @@ export const authOptions: AuthOptions = {
   // debug: process.env.NODE_ENV === 'development',
   session: {
     strategy: 'jwt'
-  },
-  secret: process.env.NEXTAUTH_SECRET
+  }
 }

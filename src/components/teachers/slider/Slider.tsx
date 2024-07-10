@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import { ITeacherResponse } from '@/types/teachers'
-import { useLocale } from 'next-intl'
 import ArrowSpeakers from '@/components/icons/ArrowSpeakers'
 import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
 
@@ -19,8 +18,6 @@ interface SliderProps {
 
 const Slider = ({ teachers }: SliderProps) => {
   const sliderRef = useRef(null)
-
-  const locale = useLocale()
 
   const handlePrev = () => {
     if (sliderRef && sliderRef.current) {
@@ -49,7 +46,7 @@ const Slider = ({ teachers }: SliderProps) => {
             Array.isArray(teachers) &&
             teachers.map((teacher, index) => (
               <SwiperSlide key={index} className={styles.slide}>
-                <Link href={`${locale}/teachers/${teacher.id}`}>
+                <Link href={`teachers/${teacher.id}`}>
                   <TeacherCard teacher={teacher} />
                 </Link>
               </SwiperSlide>
