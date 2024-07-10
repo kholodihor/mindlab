@@ -71,14 +71,3 @@ export async function POST(req: NextRequest) {
     console.log(error)
   }
 }
-
-// export async function DELETE(req: Request) {
-//   try {
-//     const data = await req.json()
-//     console.log(data)
-//     // await cloudinary.uploader.destroy(data.imageId)
-//     return { success: true }
-//   } catch (error) {
-//     console.log(error)
-//   }
-// }

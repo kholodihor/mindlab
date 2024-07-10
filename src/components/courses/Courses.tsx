@@ -52,7 +52,7 @@ const Courses = () => {
         {courses?.map(({ title, descriptionUa, descriptionEn, tagsUa, tagsEn, color, id }) => (
           <li className={css.courses__item} key={id}>
             <Link
-              href={`${locale}/courses/${id}`}
+              href={`courses/${id}`}
               className={css.courses__link}
               onMouseEnter={() => handleMouseEnter(color)}
               onMouseLeave={handleMouseLeave}

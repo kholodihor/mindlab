@@ -2,7 +2,7 @@ import { withAuth } from 'next-auth/middleware'
 import { NextRequest } from 'next/server'
 import createMiddleware from 'next-intl/middleware'
 
-const publicPages = ['/', '/login']
+const nonPublicPages = ['/admin']
 const locales = ['ua', 'en']
 
 const nextIntlMiddleware = createMiddleware({
@@ -27,25 +27,25 @@ const authMiddleware = withAuth(
 )
 
 export default function middleware(req: NextRequest) {
-  const publicPathnameRegex = RegExp(
-    `^(/(${locales.join('|')}))?(${publicPages
+  const noPublicPathnameRegex = RegExp(
+    `^(/(${locales.join('|')}))?(${nonPublicPages
       .flatMap((p) => (p === '/' ? ['', '/'] : p))
       .join('|')})/?$`,
     'i'
   )
-  const isPublicPage = publicPathnameRegex.test(req.nextUrl.pathname)
+  const isNonPublicPage = noPublicPathnameRegex.test(req.nextUrl.pathname)
 
-  if (isPublicPage) {
-    return nextIntlMiddleware(req)
-  } else {
+  if (isNonPublicPage) {
     return (authMiddleware as any)(req)
+  } else {
+    return nextIntlMiddleware(req)
   }
 }
 
 export const config = {
   matcher: [
     '/',
-    '/(ua|en)/:path*',
+    '/:locale(ua|en)/:path*',
     '/((?!api|_next|_vercel|public|images|icons|favicon.ico|.*\\..*).*)'
   ]
 }
