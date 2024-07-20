@@ -44,7 +44,7 @@ const Testimonials = () => {
         loop={true}
         modules={[Navigation, Autoplay]}
         autoplay={{
-          delay: 500,
+          delay: 1500,
           disableOnInteraction: false,
           pauseOnMouseEnter: true
         }}
