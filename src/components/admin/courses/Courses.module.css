@@ -15,7 +15,6 @@
 .courses {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
   gap: 20px;
 }
 
@@ -31,12 +30,13 @@
 }
 
 .course_content {
+  position: relative;
   height: 116px;
   overflow: hidden;
 }
 
 .course_title {
-  margin: 0;
+  margin: 5px;
   padding: 0;
   font-size: 24px;
   line-height: 111%;
@@ -47,11 +47,20 @@
   position: relative;
   max-height: 83px;
   font-size: 14px;
-  /* line-height: 150%; */
+  word-break: break-all;
 }
 
-.courses_description::after {
+.course_content::after {
   content: '...';
+  display: block;
+  position: absolute;
+  background-color: var(--white);
+  height: 18px;
+  padding-bottom: 3px;
+  bottom: 1px;
+  right: 0px;
+
+
 }
 
 .button_block button {
