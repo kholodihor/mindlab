@@ -23,60 +23,67 @@ import Loader from '../../shared/loader/Loader'
 import Swal from 'sweetalert2'
 import { addCourseData } from '../helpers/addCourseData'
 import { useRouter } from 'next/navigation'
-
+import { useTeachers } from '@/hooks/swr/useTeachers'
 
 const EditCourse = ({ id }: { id: string }) => {
-  const { isLoading, getCourseById, updateCourse } = useCourses();
+  const { isLoading, getCourseById, updateCourse } = useCourses()
   const [isProcessing, setIsProcessing] = useState(false)
-  const course = getCourseById(id);
+  const course = getCourseById(id)
   const router = useRouter()
+  const { teachers } = useTeachers()
 
   const {
     handleSubmit,
     control,
-    formState: { errors, isDirty}
+    setValue,
+    formState: { errors, isDirty }
   } = useForm<z.infer<typeof addCourseValidation>>({
     resolver: zodResolver(addCourseValidation),
     mode: 'onChange',
     values: defaultValue(course)
   })
 
-  useEffect(()=> {
-    console.log('id=>', id)
-    console.log(course)
-  }, [id, course])
+  useEffect(() => {
+    if (!course) return
+    const foundTeacher = teachers?.find((teacher) => teacher.id === course.teacherIds[0])
+    const teachersName = foundTeacher?.name_en
+    setValue('teacherId', { value: course.teacherIds[0], label: teachersName })
+  }, [course, teachers])
+
   const colorList = ['#AAAEDF', '#8D83FF', '#2928E3', '#03AA89', '#FED1CE', '#FFECD0']
 
   const onSubmit: SubmitHandler<z.infer<typeof addCourseValidation>> = async (
     data: z.infer<typeof addCourseValidation>
   ) => {
     console.log(data)
-   
-      const dataCourse = addCourseData(data);
+    const dataCourse = addCourseData(data)
     console.log(dataCourse)
-    try{
+    try {
       setIsProcessing(true)
-       await updateCourse(dataCourse, id)
-       setIsProcessing(false)
-         Swal.fire({
-           title: 'Курс успішно оновлено',
-           icon: 'success'
-         }).then((result) => {
-           if (result.isConfirmed) {
-             router.push('/admin')
-           }
-         })
-    } catch (error){
+      await updateCourse(dataCourse, id)
+      setIsProcessing(false)
+      Swal.fire({
+        title: 'Курс успішно оновлено',
+        icon: 'success'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router.push('/admin')
+        }
+      })
+    } catch (error) {
       Swal.fire({
         title: 'Щось пішло не так. Спробуйте знову',
         icon: 'error'
       })
     }
-     
   }
   return (
-    <div >
-      <PageTitle title="редагування курсу" isAddButtonDisplayed={false} isSettingsButtonDisplayed={false}/>
+    <div>
+      <PageTitle
+        title="редагування курсу"
+        isAddButtonDisplayed={false}
+        isSettingsButtonDisplayed={false}
+      />
       <div className={css.container}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h3 className={css.title}>Інформація для головної сторінки</h3>
@@ -265,7 +272,9 @@ const EditCourse = ({ id }: { id: string }) => {
                   <Admin_TextArea
                     {...field}
                     title="Введіть опис українською (max 900 символів):"
-                    errorText={errors.courseDescriptionUa1?.message && errors.courseDescriptionUa1?.message}
+                    errorText={
+                      errors.courseDescriptionUa1?.message && errors.courseDescriptionUa1?.message
+                    }
                     placeholder="Опис"
                     maxCharQuantity="900"
                   />
@@ -275,21 +284,46 @@ const EditCourse = ({ id }: { id: string }) => {
             <div className={css.container3}>
               <div className={`${css.flex__element} ${css.wrapper__date} ${css.wrapper__price}`}>
                 <Controller
-                name="startDateUa"
-                control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Дата початку курсу:' placeholder='23 березня 2024' errorText={errors.startDateUa?.message && errors.startDateUa?.message} />}
+                  name="startDateUa"
+                  control={control}
+                  render={({ field }) => (
+                    <Admin_TextInput
+                      {...field}
+                      title="Дата початку курсу:"
+                      placeholder="23 березня 2024"
+                      errorText={errors.startDateUa?.message && errors.startDateUa?.message}
+                    />
+                  )}
                 />
                 <Controller
-                name="courseDurationUa"
-                control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Тривалість курсу:' placeholder='2 місяці' errorText={errors.courseDurationUa?.message && errors.courseDurationUa?.message} />}
+                  name="courseDurationUa"
+                  control={control}
+                  render={({ field }) => (
+                    <Admin_TextInput
+                      {...field}
+                      title="Тривалість курсу:"
+                      placeholder="2 місяці"
+                      errorText={
+                        errors.courseDurationUa?.message && errors.courseDurationUa?.message
+                      }
+                    />
+                  )}
                 />
               </div>
               <div className={`${css.flex__element} ${css.wrapper__price}`}>
                 <Controller
-                name="numberOfPlacesUa"
-                control={control}
-                render={({field})=> <Admin_TextInput {...field} title='К-ть місць на курсі:' placeholder='15 місць' errorText={errors.numberOfPlacesUa?.message && errors.numberOfPlacesUa?.message} />}
+                  name="numberOfPlacesUa"
+                  control={control}
+                  render={({ field }) => (
+                    <Admin_TextInput
+                      {...field}
+                      title="К-ть місць на курсі:"
+                      placeholder="15 місць"
+                      errorText={
+                        errors.numberOfPlacesUa?.message && errors.numberOfPlacesUa?.message
+                      }
+                    />
+                  )}
                 />
               </div>
             </div>
@@ -297,72 +331,155 @@ const EditCourse = ({ id }: { id: string }) => {
               <Controller
                 name="priceUa"
                 control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Вартість курсу:' placeholder='700 грн/міс.' errorText={errors.priceUa?.message && errors.priceUa?.message} />}
-                />
-                <Controller
+                render={({ field }) => (
+                  <Admin_TextInput
+                    {...field}
+                    title="Вартість курсу:"
+                    placeholder="700 грн/міс."
+                    errorText={errors.priceUa?.message && errors.priceUa?.message}
+                  />
+                )}
+              />
+              <Controller
                 name="fullpriceUa"
                 control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Повна вартість курсу:' placeholder='1200 грн' errorText={errors.fullpriceUa?.message && errors.fullpriceUa?.message} />}
-                />
-              </div>
-          </div>
-          <div >
-            <h3 className={css.title}>Сторінка курсу англійською</h3>
-            <div className={css.container2}>
-            <div className={`${css.flex__element} ${css.wrapper__description}`}>
-              <Controller
-                name="courseDescriptionEn1"
-                control={control}
                 render={({ field }) => (
-                  <Admin_TextArea
+                  <Admin_TextInput
                     {...field}
-                    title="Введіть опис англійською (max 900 символів):"
-                    errorText={errors.courseDescriptionEn1?.message && errors.courseDescriptionEn1?.message}
-                    placeholder="Description"
-                    maxCharQuantity="900"
+                    title="Повна вартість курсу:"
+                    placeholder="1200 грн"
+                    errorText={errors.fullpriceUa?.message && errors.fullpriceUa?.message}
                   />
                 )}
               />
             </div>
-            <div className={css.container3}>
-              <div className={`${css.flex__element} ${css.wrapper__date} ${css.wrapper__price}`}>
+          </div>
+          <div>
+            <h3 className={css.title}>Сторінка курсу англійською</h3>
+            <div className={css.container2}>
+              <div className={`${css.flex__element} ${css.wrapper__description}`}>
                 <Controller
-                name="startDateEn"
-                control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Дата початку курсу:' placeholder='23 March 2024' errorText={errors.startDateEn?.message && errors.startDateEn?.message} />}
-                />
-                 <Controller
-                name="courseDurationEn"
-                control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Тривалість курсу:' placeholder='2 months' errorText={errors.courseDurationEn?.message && errors.courseDurationEn?.message} />}
+                  name="courseDescriptionEn1"
+                  control={control}
+                  render={({ field }) => (
+                    <Admin_TextArea
+                      {...field}
+                      title="Введіть опис англійською (max 900 символів):"
+                      errorText={
+                        errors.courseDescriptionEn1?.message && errors.courseDescriptionEn1?.message
+                      }
+                      placeholder="Description"
+                      maxCharQuantity="900"
+                    />
+                  )}
                 />
               </div>
-              <div className={`${css.flex__element} ${css.wrapper__places}`}>
+              <div className={css.container3}>
+                <div className={`${css.flex__element} ${css.wrapper__date} ${css.wrapper__price}`}>
+                  <Controller
+                    name="startDateEn"
+                    control={control}
+                    render={({ field }) => (
+                      <Admin_TextInput
+                        {...field}
+                        title="Дата початку курсу:"
+                        placeholder="23 March 2024"
+                        errorText={errors.startDateEn?.message && errors.startDateEn?.message}
+                      />
+                    )}
+                  />
+                  <Controller
+                    name="courseDurationEn"
+                    control={control}
+                    render={({ field }) => (
+                      <Admin_TextInput
+                        {...field}
+                        title="Тривалість курсу:"
+                        placeholder="2 months"
+                        errorText={
+                          errors.courseDurationEn?.message && errors.courseDurationEn?.message
+                        }
+                      />
+                    )}
+                  />
+                </div>
+                <div className={`${css.flex__element} ${css.wrapper__places}`}>
+                  <Controller
+                    name="numberOfPlacesEn"
+                    control={control}
+                    render={({ field }) => (
+                      <Admin_TextInput
+                        {...field}
+                        title="К-ть місць на курсі:"
+                        placeholder="15 places"
+                        errorText={
+                          errors.numberOfPlacesEn?.message && errors.numberOfPlacesEn?.message
+                        }
+                      />
+                    )}
+                  />
+                </div>
+              </div>
+              <div className={`${css.flex__element} ${css.wrapper__price}`}>
                 <Controller
-                name="numberOfPlacesEn"
-                control={control}
-                render={({field})=> <Admin_TextInput {...field} title='К-ть місць на курсі:' placeholder='15 places' errorText={errors.numberOfPlacesEn?.message && errors.numberOfPlacesEn?.message} />}
+                  name="priceEn"
+                  control={control}
+                  render={({ field }) => (
+                    <Admin_TextInput
+                      {...field}
+                      title="Вартість курсу:"
+                      placeholder="UAH 700/month"
+                      errorText={errors.priceEn?.message && errors.priceEn?.message}
+                    />
+                  )}
+                />
+                <Controller
+                  name="fullpriceEn"
+                  control={control}
+                  render={({ field }) => (
+                    <Admin_TextInput
+                      {...field}
+                      title="Повна вартість курсу:"
+                      placeholder="UAH 1200"
+                      errorText={errors.fullpriceEn?.message && errors.fullpriceEn?.message}
+                    />
+                  )}
                 />
               </div>
             </div>
-            <div className={`${css.flex__element} ${css.wrapper__price}`}>
-              <Controller
-                name="priceEn"
-                control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Вартість курсу:' placeholder='UAH 700/month' errorText={errors.priceEn?.message && errors.priceEn?.message} />}
-                />
-                 <Controller
-                name="fullpriceEn"
-                control={control}
-                render={({field})=> <Admin_TextInput {...field} title='Повна вартість курсу:' placeholder='UAH 1200' errorText={errors.fullpriceEn?.message && errors.fullpriceEn?.message} />}
-                />
-              </div>
-          </div>
-          <TabPanel  tabList={[{id: 1, title: "Теми", control: control, errors: errors, themeList: course?.themesUa , Component: Themes}, {id: 2, title: "Викладачі",  control: control, errors: errors, speciality: course?.title, Component: Teacher}, {id: 3, title: "Для кого",  control: control, errors: errors, Component: ForWhom}, {id: 4, title: "Питання",  control: control, errors: errors, themeList: course?.faqUa, Component: Question}]}/>
+            <TabPanel
+              tabList={[
+                {
+                  id: 1,
+                  title: 'Теми',
+                  control: control,
+                  errors: errors,
+                  themeList: course?.themesUa,
+                  Component: Themes
+                },
+                {
+                  id: 2,
+                  title: 'Викладачі',
+                  control: control,
+                  errors: errors,
+                  speciality: course?.title,
+                  Component: Teacher
+                },
+                { id: 3, title: 'Для кого', control: control, errors: errors, Component: ForWhom },
+                {
+                  id: 4,
+                  title: 'Питання',
+                  control: control,
+                  errors: errors,
+                  themeList: course?.faqUa,
+                  Component: Question
+                }
+              ]}
+            />
           </div>
           <div className={css.btt__form}>
-            <ResetButton text='Скасувати' />
-            <SubmitButton text='Застосувати зміни' disabled={!isDirty}/>
+            <ResetButton text="Скасувати" />
+            <SubmitButton text="Застосувати зміни" disabled={!isDirty} />
           </div>
         </form>
       </div>
@@ -370,4 +487,4 @@ const EditCourse = ({ id }: { id: string }) => {
     </div>
   )
 }
-export default EditCourse;
+export default EditCourse
