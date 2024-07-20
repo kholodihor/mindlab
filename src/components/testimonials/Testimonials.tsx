@@ -1,20 +1,23 @@
 'use client'
 
 import Image from 'next/image'
-import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Autoplay } from 'swiper/modules'
 import { useModal } from '@/stores/useModal'
 import { useAlert } from '@/stores/useAlert'
 import { useTestimonials } from '@/hooks/swr/useTestimonials'
+import { useTranslations } from 'next-intl'
 
 import TestimonialCard from './testimonial_card/TestimonialCard'
 import MainButton from '../ui/main_button/MainButton'
 import FormModal from '../modals/formModal/FormModal'
 import TestimonialForm from './testimonial_form/TestimonialForm'
-import styles from './Testimonials.module.css'
-import { useTranslations } from 'next-intl'
 import TestimonialsAlert from '../alerts/testimonials_alert/TestimonialsAlert'
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import styles from './Testimonials.module.css'
 
 const Testimonials = () => {
   const { testimonials } = useTestimonials()
@@ -36,11 +39,12 @@ const Testimonials = () => {
       <Swiper
         speed={4000}
         spaceBetween={20}
-        slidesPerView={'auto'}
+        slidesPerView="auto"
         mousewheel={true}
         loop={true}
         modules={[Navigation, Autoplay]}
         autoplay={{
+          delay: 500,
           disableOnInteraction: false,
           pauseOnMouseEnter: true
         }}
