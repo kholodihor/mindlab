@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { IForm } from '@/types/forms'
 import { LazyLottie } from '@/components/LazyLottie'
@@ -11,9 +11,8 @@ type BoostEngCardProps = {
 }
 
 const BoostEngCard = ({ placementTestForm }: BoostEngCardProps) => {
-  const [isPulseHovered, setIsPulseHovered] = useState(false)
-
   const t = useTranslations('About')
+  const [isPulseHovered, setIsPulseHovered] = useState(false)
 
   const boostEngCardDesc = (
     <p className={styles.description}>

@@ -1,9 +1,8 @@
 'use client'
 
-import React, { FC } from 'react'
 import { useLocale } from 'next-intl'
+import { useWindowScrollY } from '@/hooks/useWindowScrollY'
 import { LazyLottie } from '@/components/LazyLottie'
-import { useWindowScrollY } from './useWindowScrollY'
 
 type AboutUsAnimationProps = {
   aboutRef: React.RefObject<HTMLDivElement>
@@ -11,17 +10,16 @@ type AboutUsAnimationProps = {
 
 const divisionFactor = 4
 
-const AboutUsAnimation: FC<AboutUsAnimationProps> = ({ aboutRef }) => {
+const AboutUsAnimation: React.FC<AboutUsAnimationProps> = ({ aboutRef }) => {
+  const currentLanguage = useLocale()
   const { scrollY } = useWindowScrollY()
   const aboutPosition = aboutRef.current
   const startPlayPosition = (aboutPosition?.offsetTop ?? 0) / divisionFactor
-  const DEFAULT_LANGUAGE = 'ua'
-  const currentLanguage = useLocale()
 
   return (
     <>
       {scrollY >= startPlayPosition &&
-        (currentLanguage === DEFAULT_LANGUAGE ? (
+        (currentLanguage === 'ua' ? (
           <LazyLottie
             getAnimationData={() => import('@/animations/about_us.json')}
             loop={false}

@@ -33,7 +33,12 @@ const Courses = () => {
           viewport={{ once: true }}
           initial={{ translateY: 150, opacity: 0 }}
           whileInView={{ translateY: 0, opacity: 1 }}
-          transition={{ ease: 'easeOut', duration: 0.75 }}
+          transition={{
+            type: 'spring',
+            stiffness: 100,
+            damping: 20,
+            duration: 1
+          }}
           className={`title ${css.titleCourses}`}
         >
           {t('title')}
