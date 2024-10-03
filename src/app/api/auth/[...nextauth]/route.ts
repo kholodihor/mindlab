@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import CredentialsProvider from 'next-auth/providers/credentials'
+
 import bcrypt from 'bcrypt'
 import prisma from '@/lib/prisma'
 import NextAuth from 'next-auth'
+import CredentialsProvider from 'next-auth/providers/credentials'
 
 const handler = NextAuth({
-  secret: process.env.NEXTAUTH_SECRET,
   providers: [
     CredentialsProvider({
       id: 'credentials',
@@ -53,7 +53,10 @@ const handler = NextAuth({
   pages: {
     signIn: '/login'
   },
-  // debug: process.env.NODE_ENV === 'development',
+  secret: process.env.NEXTAUTH_SECRET,
+  jwt: {
+    secret: process.env.NEXTAUTH_SECRET
+  },
   session: {
     strategy: 'jwt'
   }

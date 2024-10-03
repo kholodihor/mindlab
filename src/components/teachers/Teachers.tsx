@@ -56,7 +56,12 @@ const Teachers = () => {
         viewport={{ once: true }}
         initial={{ translateY: 100, opacity: 0 }}
         whileInView={{ translateY: 0, opacity: 1 }}
-        transition={{ ease: 'easeIn', duration: 0.75 }}
+        transition={{
+          type: 'spring',
+          stiffness: 100,
+          damping: 20,
+          duration: 1
+        }}
       >
         {t('title')}
       </motion.h2>

@@ -15,7 +15,6 @@ export const createTestimonial = async (testimonial: TTestimonial) => {
     const response = await axios.post<TTestimonialResponse>('/testimonials', testimonial, {
       headers: { 'Content-Type': 'application/json' }
     })
-    console.log(response)
     return response
   } catch (error) {
     console.log(error)
@@ -42,12 +41,15 @@ export const deleteTestimonial = async (id: string) => {
 
 export const updateTestimonial = async (testimonialData: TTestimonial, id: string) => {
   try {
-    const response = await axios.patch<TTestimonialResponse>(`/testimonials/${id}`, testimonialData, {
-      headers: { 'Content-Type': 'application/json' }
-    })
+    const response = await axios.patch<TTestimonialResponse>(
+      `/testimonials/${id}`,
+      testimonialData,
+      {
+        headers: { 'Content-Type': 'application/json' }
+      }
+    )
     return response.data
   } catch (error) {
     console.log(error)
   }
 }
-

@@ -141,6 +141,7 @@ type FAQUA  {
   questionUa String
   answerUa String
 }
+
 type FAQEN  {
   questionEn String
   answerEn String

@@ -14,12 +14,13 @@ import FormModal from '../modals/formModal/FormModal'
 import TestimonialForm from './testimonial_form/TestimonialForm'
 import TestimonialsAlert from '../alerts/testimonials_alert/TestimonialsAlert'
 
-import 'swiper/css'
+import styles from './Testimonials.module.css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import styles from './Testimonials.module.css'
+import 'swiper/css'
 
 const Testimonials = () => {
+  const t = useTranslations('Testimonials')
   const { testimonials } = useTestimonials()
   const { openModal, closeModal } = useModal()
 
@@ -27,7 +28,6 @@ const Testimonials = () => {
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
   const modalType = useModal((state) => state.modalType)
   const alertType = useAlert((state) => state.alertType)
-  const t = useTranslations('Testimonials')
 
   return (
     <section id="testimonials" className={styles.reviews_container}>
@@ -58,7 +58,7 @@ const Testimonials = () => {
       <div className={`${styles.comments_block} container`}>
         <p className={styles.comments_block_paragraph}>
           {t('text')}
-          <br /> {t('comenth')}
+          <br /> {t('comment')}
           <br /> {t('feedback')}
         </p>
         <MainButton title={t('btn')} handleAction={() => openModal('testimonial')} />

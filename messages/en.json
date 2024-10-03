@@ -351,7 +351,7 @@
     "title": "Guys, look",
     "spanTitle": "what they write about us:",
     "text": "Are you excited about our platform?",
-    "comenth": "Do you have your comments?",
+    "comment": "Do you have your comments?",
     "feedback": "Write a review, don't be shy! We always welcome feedback!",
     "btn": "Leave a review",
     "testimonialTitle": "We will be glad to hear from you!",
@@ -422,6 +422,6 @@
     "greeting": "Congratulations!",
     "confirmation": "We have received your message",
     "adminResponse": "Our administrator will respond to you as soon as possible",
-    "testimonial":"Your feedback has been sent successfully"
+    "testimonial": "Your feedback has been sent successfully"
   }
 }

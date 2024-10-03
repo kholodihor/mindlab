@@ -1,10 +1,9 @@
-import React, { FC } from 'react'
 import { useTranslations } from 'next-intl'
 import Image from 'next/image'
 import Hands from '@/components/icons/Hands'
 import styles from '../About.module.css'
 
-const AboutUs: FC = () => {
+const AboutUs: React.FC = () => {
   const t = useTranslations('About')
 
   return (

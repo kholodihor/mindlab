@@ -1,17 +1,16 @@
-import { FC, ReactNode } from 'react'
 import ButtonLink from '@/components/ui/link_button/LinkButton'
 import styles from './Card.module.css'
 
 type CardProps = {
   title: string
-  description: ReactNode
+  description: React.ReactNode
   url: string
   text: string
-  children?: ReactNode
+  children?: React.ReactNode
   hoverHandler?: () => void
 }
 
-const Card: FC<CardProps> = ({ title, description, url, text, children, hoverHandler }) => {
+const Card: React.FC<CardProps> = ({ title, description, url, text, children, hoverHandler }) => {
   return (
     <div className={styles.card} onMouseEnter={hoverHandler} onMouseLeave={hoverHandler}>
       <div className={styles.card_title_container}>

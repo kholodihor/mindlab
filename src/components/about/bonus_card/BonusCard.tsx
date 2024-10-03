@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { IForm } from '@/types/forms'
 import Card from '../card/Card'
@@ -11,8 +11,8 @@ type BonusCardProps = {
 }
 
 const BonusCard = ({ registrationForm }: BonusCardProps) => {
-  const [isWowHovered, setIsWowHovered] = useState(false)
   const t = useTranslations('About')
+  const [isWowHovered, setIsWowHovered] = useState(false)
 
   const bonusCardDesc = (
     <ul className={styles.description}>
