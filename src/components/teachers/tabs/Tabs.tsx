@@ -1,38 +1,48 @@
+/* eslint-disable no-unused-vars */
 'use client'
-import styles from './Tabs.module.css'
-import { Dispatch, SetStateAction } from 'react'
-import { ITeacherResponse } from '@/types/teachers'
+import { useMemo } from 'react'
 import { useTranslations } from 'next-intl'
+import { Teacher } from '@/types/teacher'
+import styles from './Tabs.module.css'
 
 interface TabsProps {
-  teachers: ITeacherResponse[]
-  speciality: string
-  query: string
-  setSpeciality: Dispatch<SetStateAction<string>>
+  teachers: Teacher[] | undefined
+  selectedSpeciality: string
+  onSpecialityChange: (speciality: string) => void
 }
 
-const Tabs = ({ teachers, query, speciality, setSpeciality }: TabsProps) => {
-  const specialities = Array.from(new Set(teachers?.map((teacher) => teacher.speciality)))
+const Tabs = ({ teachers, selectedSpeciality, onSpecialityChange }: TabsProps) => {
   const t = useTranslations('Speakers')
+
+  const specialities = useMemo(() => {
+    if (!teachers) return []
+
+    const uniqueSpecialities = new Set(
+      teachers.map((teacher) => teacher.speciality)
+    )
+    return ['', ...Array.from(uniqueSpecialities)].filter(Boolean)
+  }, [teachers])
+
   return (
     <div className={styles.wrapper}>
       <div
-        className={`${styles.tab} ${speciality === '' && !query && styles.active}`}
-        onClick={() => setSpeciality('')}
+        className={`${styles.tab} ${selectedSpeciality === '' ? styles.active : ''}`}
+        onClick={() => onSpecialityChange('')}
       >
-        {t('title')}
+        {t('all')}
       </div>
-      {specialities &&
-        Array.isArray(specialities) &&
-        specialities.map((item, index) => (
-          <div
-            key={index}
-            className={`${styles.tab} ${(item === speciality || item?.toLowerCase() === query.toLowerCase()) && styles.active}`}
-            onClick={() => setSpeciality(item)}
-          >
-            {item}
-          </div>
-        ))}
+      
+      {specialities.map((speciality) => (
+        <div
+          key={speciality}
+          className={`${styles.tab} ${
+            selectedSpeciality === speciality ? styles.active : ''
+          }`}
+          onClick={() => onSpecialityChange(speciality)}
+        >
+          {speciality}
+        </div>
+      ))}
     </div>
   )
 }

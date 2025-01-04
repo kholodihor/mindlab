@@ -1,52 +1,39 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import { useTeachers } from '@/hooks/swr/useTeachers'
+import { useTeacherFilter } from '@/hooks/useTeacherFilter'
+import { useDebounce } from '@/hooks/useDebounce'
 import Search from './search/Search'
 import Tabs from './tabs/Tabs'
 import Slider from './slider/Slider'
 import styles from './Teachers.module.css'
-import { useTranslations } from 'next-intl'
 
 const Teachers = () => {
   const { teachers, isLoading } = useTeachers()
   const [query, setQuery] = useState('')
-  const [selectedQuery, setSelectedQuery] = useState('')
   const [speciality, setSpeciality] = useState('')
-  const [filteredTeachers, setFilteredTeachers] = useState([])
-
   const t = useTranslations('Speakers')
 
-  useEffect(() => {
-    setQuery('')
-    setSelectedQuery('')
-    if (speciality === '') {
-      setFilteredTeachers(teachers)
-    } else {
-      setFilteredTeachers(
-        teachers?.filter(
-          (teacher) => teacher?.speciality?.toLowerCase() === speciality.toLowerCase()
-        )
-      )
-    }
-  }, [speciality, teachers])
+  // Debounce the search query to avoid excessive filtering
+  const debouncedQuery = useDebounce(query, 300)
 
-  const filterByQuery = () => {
-    setSpeciality('')
-    setSelectedQuery(query)
-    if (query === '') {
-      setFilteredTeachers(teachers)
-    } else {
-      setFilteredTeachers(
-        teachers?.filter(
-          (teacher) =>
-            teacher?.speciality?.toLowerCase().includes(query.toLowerCase()) ||
-            teacher?.name_en?.toLowerCase().includes(query.toLowerCase()) ||
-            teacher?.name_ua?.toLowerCase().includes(query.toLowerCase())
-        )
-      )
-    }
+  // Use our custom hook for filtering
+  const filteredTeachers = useTeacherFilter(teachers, {
+    query: debouncedQuery,
+    speciality
+  })
+
+  const handleSearch = (newQuery: string) => {
+    setQuery(newQuery)
+    setSpeciality('') // Reset speciality when searching
+  }
+
+  const handleSpecialityChange = (newSpeciality: string) => {
+    setSpeciality(newSpeciality)
+    setQuery('') // Reset query when changing speciality
   }
 
   return (
@@ -66,17 +53,24 @@ const Teachers = () => {
         {t('title')}
       </motion.h2>
 
-      <Search setQuery={setQuery} query={query} handleClick={filterByQuery} />
+      <Search
+        value={query}
+        onChange={handleSearch}
+        placeholder={t('placeholder')}
+      />
+
       <Tabs
         teachers={teachers}
-        setSpeciality={setSpeciality}
-        speciality={speciality}
-        query={selectedQuery}
+        onSpecialityChange={handleSpecialityChange}
+        selectedSpeciality={speciality}
       />
-      {filteredTeachers && filteredTeachers.length ? (
+
+      {filteredTeachers.length > 0 ? (
         <Slider teachers={filteredTeachers} />
       ) : (
-        <p className={styles.not_found}>{isLoading ? t('loading') : t('notFound')}</p>
+        <p className={styles.not_found}>
+          {isLoading ? t('loading') : t('notFound')}
+        </p>
       )}
     </section>
   )
