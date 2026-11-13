@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import { useLocale, useTranslations } from 'next-intl'
 import { useDocuments } from '@/hooks/swr/useDocuments'
 import { useContacts } from '@/hooks/swr/useContacts'
@@ -22,7 +22,7 @@ const Footer = () => {
     <footer className={css.footer}>
       <div className={`${css.footer_container} `}>
         <div className={css.footer__wrapper}>
-          <Link href={`/${locale}`} className={css.logo}>
+          <Link href="/" className={css.logo}>
             <Image
               src="/svg/footer/footer-logo.svg"
               width={118}
@@ -33,8 +33,8 @@ const Footer = () => {
           </Link>
           <ul className={css.social__list}>
             <li>
-              <Link
-                href={contacts ? contacts?.[0].instagram : ''}
+              <a
+                href={contacts?.[0]?.instagram ?? ''}
                 className={css.social__link}
                 rel="noopener noreferrer"
                 target="_blank"
@@ -45,49 +45,52 @@ const Footer = () => {
                   width={40}
                   height={40}
                 />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link
-                href={contacts ? contacts?.[0].facebook : ''}
+              <a
+                href={contacts?.[0]?.facebook ?? ''}
                 className={css.social__link}
                 rel="noopener noreferrer"
                 target="_blank"
               >
                 <Image src="/svg/footer/facebook.svg" alt="icon facebook" width={40} height={40} />
-              </Link>
+              </a>
             </li>
           </ul>
           <div className={css.wrapper__contacts}>
             <ul className={css.contact__list}>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.help')}</p>
-                <Link href={contacts ? contacts?.[0].email : ''} className={css.contact__link}>
+                <a href={`mailto:${contacts?.[0]?.email ?? ''}`} className={css.contact__link}>
                   <MailIcon />
                   <p>{t('Footer.mail')}</p>
-                </Link>
+                </a>
               </li>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.answer')}</p>
-                <Link
-                  href={contacts ? contacts?.[0].telegram : ''}
+                <a
+                  href={contacts?.[0]?.telegram ?? ''}
                   className={css.contact__link}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   <TelegramIcon />
                   <p>{t('Footer.telegram')}</p>
-                </Link>
+                </a>
               </li>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.talk')}</p>
-                <Link href={contacts ? contacts?.[0].phone : ''} className={css.contact__link}>
+                <a
+                  href={`tel:${(contacts?.[0]?.phone ?? '').replace(/[^\d+]/g, '')}`}
+                  className={css.contact__link}
+                >
                   <PhoneIcon />
                   <p>{t('Footer.phone')}</p>
-                </Link>
+                </a>
               </li>
             </ul>
-            <Link href={`/${locale}#feedback`} className={css.link__advice}>
+            <Link href="/#feedback" className={css.link__advice}>
               {t('Footer.btn')}
             </Link>
           </div>
@@ -96,7 +99,7 @@ const Footer = () => {
           <ul className={css.menu__list}>
             {menuList.map(({ link, menu }) => (
               <li key={menu} className={css.menu__item}>
-                <Link href={`/${locale}${link}`} className={css.menu__link}>
+                <Link href={`/${link}`} className={css.menu__link}>
                   {t(menu)}
                 </Link>
               </li>
@@ -110,7 +113,7 @@ const Footer = () => {
             <div className={css.rules__site}>
               {documents &&
                 documents.map((document) => (
-                  <Link
+                  <a
                     target="_blank"
                     rel="noopener noreferrer"
                     href={document.fileUrl}
@@ -118,7 +121,7 @@ const Footer = () => {
                     key={document.fileId}
                   >
                     {locale === 'en' ? document.fileName_en : document.fileName_ua}
-                  </Link>
+                  </a>
                 ))}
             </div>
           </div>

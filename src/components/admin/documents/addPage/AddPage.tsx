@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
+import Swal from 'sweetalert2'
 import styles from './AddPage.module.css'
 import { zodResolver } from '@hookform/resolvers/zod'
 import PageTitle from '../../shared/pageTitle/PageTitle'
@@ -37,14 +38,21 @@ const AddPage = () => {
     if (!currentValues.file?.length) return
     const file = currentValues.file[0]
     setFileName(file)
-    console.log(file)
   }, [currentValues.file])
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsProcessing(true)
-    await addDocument(data)
-    setIsProcessing(false)
-    router.back()
+    try {
+      await addDocument(data)
+      router.back()
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setIsProcessing(false)
+    }
   }
 
   return (
@@ -87,7 +95,7 @@ const AddPage = () => {
                 />
               </div>
             </div>
-            
+
             <div className={styles.input_group}>
               <Admin_TextInput title="Завантажте файл PDF" value={fileName?.name} />
               <FileInput

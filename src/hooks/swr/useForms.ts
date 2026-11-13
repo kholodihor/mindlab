@@ -17,38 +17,21 @@ export const useForms = () => {
   }
 
   const addForm = async (item: IForm) => {
-    try {
-      const response = await formsApi.createForm(item)
-      if (response && data) {
-        mutate([response.data, ...data])
-      }
-      return response
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const response = await formsApi.createForm(item)
+    mutate((current) => [response.data, ...(current ?? [])], { revalidate: false })
+    return response
   }
 
   const updateForm = async (id: string, item: IForm) => {
-    try {
-      const response = await formsApi.updateForm(id, item)
-      if (response && data) {
-        mutate()
-      }
-      return response
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const response = await formsApi.updateForm(id, item)
+    await mutate()
+    return response
   }
 
   const deleteForm = async (id: string) => {
-    try {
-      const response = await formsApi.deleteForm(id)
-      const updatedDocuments = data?.filter((item) => item.id !== id)
-      mutate(updatedDocuments)
-      return response
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const response = await formsApi.deleteForm(id)
+    mutate((current) => current?.filter((item) => item.id !== id), { revalidate: false })
+    return response
   }
 
   return {

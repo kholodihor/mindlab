@@ -11,7 +11,9 @@ const SuccessAlert = () => {
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
   const t = useTranslations('SuccessAlert')
 
-  const ModalLayout = () => (
+  if (!isAlertOpen) return null
+
+  return createPortal(
     <div className={styles.wrapper}>
       <div className={styles.modal}>
         <div className={styles.close} onClick={closeAlert}>
@@ -21,9 +23,9 @@ const SuccessAlert = () => {
         <h5 className={styles.second_title}>{t('confirmation')}</h5>
         <p className={styles.paragraph}>{t('adminResponse')}</p>
       </div>
-    </div>
+    </div>,
+    document.body
   )
-  return <>{isAlertOpen && createPortal(<ModalLayout />, document.body)}</>
 }
 
 export default SuccessAlert

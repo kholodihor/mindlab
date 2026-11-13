@@ -12,7 +12,7 @@ export const TeachersFormValidation = z.object({
     .trim()
     .min(4, { message: 'Мінімум 4 символи' })
     .max(60, { message: 'Максимум 60 символів' })
-    .regex(/^[а-яА-Яє-їЄ-Ї ]*$/, {
+    .regex(/^[а-яА-ЯҐґЄєІіЇї'’ʼ\- ]*$/, {
       message: 'Вкажіть ім’я українською мовою'
     }),
   name_en: z

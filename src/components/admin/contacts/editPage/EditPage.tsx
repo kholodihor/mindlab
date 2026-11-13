@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Swal from 'sweetalert2'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { ContactsFormValidation, FormFields } from '../ContactValidation'
@@ -31,10 +32,20 @@ const EditPage = ({ name }: { name: string }) => {
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsProcessing(true)
-    await updateContact(contacts[0].id, data)
-    setIsProcessing(false)
-    router.push('/admin/contacts')
+    try {
+      await updateContact(contacts[0].id, data)
+      router.push('/admin/contacts')
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setIsProcessing(false)
+    }
   }
+
+  if (!contacts?.length) return <Loader />
 
   return (
     <section className={styles.wrapper}>

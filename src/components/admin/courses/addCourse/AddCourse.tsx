@@ -42,13 +42,10 @@ const AddCourse = () => {
   const onSubmit: SubmitHandler<z.infer<typeof addCourseValidation>> = async (
     data: z.infer<typeof addCourseValidation>
   ) => {
-    console.log(data)
-
+    setIsProcessing(true)
     try {
       const dataCourse = addCourseData(data)
-      setIsProcessing(true)
       await addCourse(dataCourse)
-      setIsProcessing(false)
       Swal.fire({
         title: 'Курс успішно додано',
         icon: 'success'
@@ -57,11 +54,13 @@ const AddCourse = () => {
           router.push('/admin')
         }
       })
-    } catch {
+    } catch (error) {
       Swal.fire({
-        title: 'Щось пішло не так. Спробуйту знову',
+        title: 'Щось пішло не так',
         icon: 'error'
       })
+    } finally {
+      setIsProcessing(false)
     }
   }
   return (

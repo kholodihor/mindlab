@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import { ITeacherResponse } from '@/types/teachers'
@@ -46,7 +46,7 @@ const Slider = ({ teachers }: SliderProps) => {
             Array.isArray(teachers) &&
             teachers.map((teacher, index) => (
               <SwiperSlide key={index} className={styles.slide}>
-                <Link href={`teachers/${teacher.id}`}>
+                <Link href={`/teachers/${teacher.id}`}>
                   <TeacherCard teacher={teacher} />
                 </Link>
               </SwiperSlide>

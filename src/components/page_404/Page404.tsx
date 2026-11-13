@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import Lottie from 'lottie-react'
 import not_found from '@/animations/not_found.json'
 import { useTranslations } from 'next-intl'
@@ -14,8 +14,7 @@ const Page404 = () => {
         <Lottie animationData={not_found} loop={false} className={styles.lottie} />
         <h1 className={styles.title}>{t('message')}</h1>
         <Link href="/" className={styles.button}>
-        {t('button')}
-        
+          {t('button')}
         </Link>
       </div>
     </div>

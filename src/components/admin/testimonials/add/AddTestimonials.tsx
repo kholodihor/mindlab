@@ -11,7 +11,7 @@ import css from './AddTestimonials.module.css'
 import PageTitle from '../../shared/pageTitle/PageTitle'
 import ResetButton from '../../shared/resetButton/ResetButton'
 import SubmitButton from '../../shared/submitButton/SubmitButton'
-import { defaultValues } from '../../../testimonials/testimonial_form/defaultValues'
+import { defaultValue } from './defaultValue'
 import Admin_TextArea from '../../ui/admin_inputs/text_area/Admin_TextArea'
 import { useTestimonials } from '@/hooks/swr/useTestimonials'
 import { useRouter } from 'next/navigation'
@@ -29,32 +29,32 @@ const AddTestimonials = () => {
   } = useForm<z.infer<typeof testimonialScheme>>({
     resolver: zodResolver(testimonialScheme),
     mode: 'onChange',
-    defaultValues: defaultValues
+    defaultValues: defaultValue
   })
 
   const onSubmit: SubmitHandler<z.infer<typeof testimonialScheme>> = async (
     data: z.infer<typeof testimonialScheme>
   ) => {
-    console.log(data)
-
     setIsProcessing(true)
-    const response = await addNewTestimonial(data)
-    setIsProcessing(false)
-    if (!response) {
-      return Swal.fire({
-        title: 'Щось пішдо не так. Спробуйте знову',
+    try {
+      const response = await addNewTestimonial(data)
+      if (response?.status === 200) {
+        Swal.fire({
+          title: 'Відгук успішно додано',
+          icon: 'success'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            router.push('/admin/testimonials')
+          }
+        })
+      }
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
         icon: 'error'
       })
-    }
-    if (response.status === 200) {
-      Swal.fire({
-        title: 'Відгук успішно додано',
-        icon: 'success'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          router.push('/admin/testimonials')
-        }
-      })
+    } finally {
+      setIsProcessing(false)
     }
   }
   return (

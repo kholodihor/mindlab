@@ -10,7 +10,7 @@ const QuestionCourse = ({ currentCourse }: { currentCourse: ICourseResponse }) =
   const locale = useLocale()
   const [answer, setAnswer] = useState<Answer>([])
   const t = useTranslations('Courses')
-  const currentAnswer = (id: number) => answer.find((item) => item === id)
+  const isOpen = (id: number) => answer.includes(id)
 
   const showAnswer = (id: number) => {
     setAnswer((prev) => [...prev, id])
@@ -27,7 +27,7 @@ const QuestionCourse = ({ currentCourse }: { currentCourse: ICourseResponse }) =
           ? currentCourse.faqUa.map(({ questionUa, answerUa }, index) => (
               <li key={index} className={css.question__item}>
                 <div className={css.wrapper}>
-                  {currentAnswer(index) ? (
+                  {isOpen(index) ? (
                     <button type="button" className={css.btn} onClick={() => closeAnswer(index)}>
                       <MinusIcon color={'#aaaedf'} />
                     </button>
@@ -38,13 +38,13 @@ const QuestionCourse = ({ currentCourse }: { currentCourse: ICourseResponse }) =
                   )}
                   <p>{questionUa}</p>
                 </div>
-                {currentAnswer(index) && <p className={css.answer}>{answerUa}</p>}
+                {isOpen(index) && <p className={css.answer}>{answerUa}</p>}
               </li>
             ))
           : currentCourse.faqEn.map(({ questionEn, answerEn }, index) => (
               <li key={index} className={css.question__item}>
                 <div className={css.wrapper}>
-                  {currentAnswer(index) ? (
+                  {isOpen(index) ? (
                     <button type="button" className={css.btn} onClick={() => closeAnswer(index)}>
                       <MinusIcon color={'#aaaedf'} />
                     </button>
@@ -55,7 +55,7 @@ const QuestionCourse = ({ currentCourse }: { currentCourse: ICourseResponse }) =
                   )}
                   <p>{questionEn}</p>
                 </div>
-                {currentAnswer(index) && <p className={css.answer}>{answerEn}</p>}
+                {isOpen(index) && <p className={css.answer}>{answerEn}</p>}
               </li>
             ))}
       </ul>

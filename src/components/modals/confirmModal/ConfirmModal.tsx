@@ -17,7 +17,9 @@ const ConfirmModal = ({ confirmText, handleClose, onConfirm }: ConfirmModalProps
 
   useBodyScrollLock(isModalOpen)
 
-  const ModalLayout = () => (
+  if (!isModalOpen) return null
+
+  return createPortal(
     <div className={styles.wrapper}>
       <div className={styles.modal}>
         <div className={styles.text}>{confirmText}</div>
@@ -30,9 +32,9 @@ const ConfirmModal = ({ confirmText, handleClose, onConfirm }: ConfirmModalProps
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
-  return <>{isModalOpen && createPortal(<ModalLayout />, document.body)}</>
 }
 
 export default ConfirmModal

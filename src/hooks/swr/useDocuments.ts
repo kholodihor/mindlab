@@ -11,24 +11,13 @@ export const useDocuments = () => {
   )
 
   const addDocument = async (item: DocumentFormData) => {
-    try {
-      const newDocument = await documentsApi.createDocument(item)
-      if (newDocument && data) {
-        mutate([newDocument, ...data])
-      }
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const newDocument = await documentsApi.createDocument(item)
+    mutate((current) => [newDocument, ...(current ?? [])], { revalidate: false })
   }
 
-  const deleteDocument = async (id: string, fileId: string) => {
-    try {
-      await documentsApi.deleteDocument(id, fileId)
-      const updatedDocuments = data?.filter((item) => item.id !== id)
-      mutate(updatedDocuments)
-    } catch (error) {
-      throw Promise.reject()
-    }
+  const deleteDocument = async (id: string) => {
+    await documentsApi.deleteDocument(id)
+    mutate((current) => current?.filter((item) => item.id !== id), { revalidate: false })
   }
 
   return {

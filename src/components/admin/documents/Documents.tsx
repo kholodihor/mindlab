@@ -12,7 +12,7 @@ const Documents = () => {
   const [isProcessing, setisProcessing] = useState(false)
   const { documents, deleteDocument, isLoading } = useDocuments()
 
-  const handleDelete = (id: string, fileId: string) => {
+  const handleDelete = (id: string) => {
     Swal.fire({
       title: 'Ви впевнені, що хочете видалити документ?',
       icon: 'warning',
@@ -23,19 +23,27 @@ const Documents = () => {
       confirmButtonText: 'Видалити документ'
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteDoc(id, fileId)
+        deleteDoc(id)
       }
     })
   }
 
-  const deleteDoc = async (id: string, fileId: string) => {
+  const deleteDoc = async (id: string) => {
     setisProcessing(true)
-    await deleteDocument(id, fileId)
-    setisProcessing(false)
-    Swal.fire({
-      title: 'Документ успішно видалено',
-      icon: 'success'
-    })
+    try {
+      await deleteDocument(id)
+      Swal.fire({
+        title: 'Документ успішно видалено',
+        icon: 'success'
+      })
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setisProcessing(false)
+    }
   }
 
   return (

@@ -1,11 +1,11 @@
 'use client'
 
 import { useState } from 'react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { useWidth } from '@/hooks/useWidth'
 import { useContacts } from '@/hooks/swr/useContacts'
 import { useModal } from '@/stores/useModal'
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import Burger from '../icons/Burger'
 import Lottie from 'lottie-react'
 import chatbot_default from '@/animations/сhatbot_default.json'
@@ -20,7 +20,6 @@ const Header = () => {
   const [isHovered, setIsHovered] = useState(false)
   const currentWidth = useWidth()
   const { contacts } = useContacts()
-  const locale = useLocale()
 
   const { openModal, closeModal } = useModal()
   const isModalOpen = useModal((state) => state.isModalOpen)
@@ -35,23 +34,23 @@ const Header = () => {
         <nav className={styles.header_nav}>
           <ul>
             <li className={styles.header_nav_item}>
-              <Link href={`/${locale}#courses`}>{t('courses')}</Link>
+              <Link href={`/#courses`}>{t('courses')}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href={`/${locale}#teachers`}>{t('speakers')}</Link>
+              <Link href={`/#teachers`}>{t('speakers')}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href={`/${locale}#partners`}>{t('partners')}</Link>
+              <Link href={`/#partners`}>{t('partners')}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href={`/${locale}#parents`}>{t('parents')}</Link>
+              <Link href={`/#parents`}>{t('parents')}</Link>
             </li>
             <li className={styles.header_nav_item}>
-              <Link href={`/${locale}#contacts`}>{t('contacts')}</Link>
+              <Link href={`/#contacts`}>{t('contacts')}</Link>
             </li>
           </ul>
           {currentWidth >= 1024 && <LanguageSwitcher />}
-          <a href={contacts ? contacts[0].telegram : ''} target="_blank">
+          <a href={contacts?.[0]?.telegram ?? ''} target="_blank">
             <Lottie
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}

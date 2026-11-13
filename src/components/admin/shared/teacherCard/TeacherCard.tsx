@@ -10,7 +10,7 @@ import { useLocale } from 'next-intl'
 
 type TeacherProps = {
   teacher: ITeacherResponse
-  deleteTeacher: (id: string, public_id: string) => void
+  deleteTeacher: (id: string) => void
 }
 
 const TeacherCard = ({ teacher, deleteTeacher }: TeacherProps) => {
@@ -31,7 +31,7 @@ const TeacherCard = ({ teacher, deleteTeacher }: TeacherProps) => {
           <button
             className={`${styles.btn} ${styles.btn_delete}`}
             onClick={() => {
-              deleteTeacher(teacher.id, teacher.imageId)
+              deleteTeacher(teacher.id)
             }}
           >
             <DeleteIcon />

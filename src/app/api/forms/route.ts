@@ -1,11 +1,14 @@
 import prisma from '@/lib/prisma'
-import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
+import { getSession, requireAuth } from '@/lib/auth'
 
 export async function GET() {
   try {
-    await prismaConnect()
-    const forms = await prisma.form.findMany()
+    // excelLink points at the response spreadsheet: admins only
+    const session = await getSession()
+    const forms = session
+      ? await prisma.form.findMany()
+      : await prisma.form.findMany({ select: { id: true, name: true, formLink: true } })
     return NextResponse.json(forms, { status: 200 })
   } catch (error) {
     console.log('[GET FORMS]', error)
@@ -14,8 +17,9 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   try {
-    await prismaConnect()
     const data = await request.json()
     const response = await prisma.form.create({
       data: {

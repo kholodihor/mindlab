@@ -27,11 +27,7 @@ const Question = ({
                 <Admin_TextInput
                   {...field}
                   title="Часте питання:"
-                  errorText={
-                    index === 0
-                      ? errors.faqUa1?.message && errors.faqUa1?.message
-                      : errors.faqUa2?.message && errors.faqUa2?.message
-                  }
+                  errorText={errors[`faqUa${index + 1}`]?.message}
                   placeholder="Які навички необхідні для вступу?"
                 />
               )}
@@ -43,11 +39,7 @@ const Question = ({
                 <Admin_TextInput
                   {...field}
                   title="Часте питання англійською:"
-                  errorText={
-                    index === 0
-                      ? errors.faqEn1?.message && errors.faqEn1?.message
-                      : errors.faqEn2?.message && errors.faqEn2?.message
-                  }
+                  errorText={errors[`faqEn${index + 1}`]?.message}
                   placeholder="What skills are required for entry?"
                 />
               )}
@@ -61,11 +53,7 @@ const Question = ({
                 <Admin_TextArea
                   {...field}
                   title="Швидка відповідь (max 120 символів)"
-                  errorText={
-                    index === 0
-                      ? errors.answerUa1?.message && errors.answerUa1?.message
-                      : errors.answerUa2?.message && errors.answerUa2?.message
-                  }
+                  errorText={errors[`answerUa${index + 1}`]?.message}
                   placeholder="Для вступу необхідно базово знати інтерфейс Adobe After Effects та основи графічного дизайну."
                   maxCharQuantity="120"
                 />
@@ -78,11 +66,7 @@ const Question = ({
                 <Admin_TextArea
                   {...field}
                   title="Швидка відповідь англійською (max 120 символів)"
-                  errorText={
-                    index === 0
-                      ? errors.answerEn1?.message && errors.answerEn1?.message
-                      : errors.answerEn2?.message && errors.answerEn2?.message
-                  }
+                  errorText={errors[`answerEn${index + 1}`]?.message}
                   placeholder="To get started, you need a basic knowledge of the Adobe After Effects interface and the basics of graphic design."
                   maxCharQuantity="120"
                 />

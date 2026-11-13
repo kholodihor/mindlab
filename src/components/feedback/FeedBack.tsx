@@ -58,13 +58,12 @@ const FeedBack = () => {
       formData.append('Message', values.message)
       const response = await axios.post(googleSheetsUrl, formData)
       if (response.status === 200 && response.data === 'Success') {
-        console.log(response)
+        openAlert('feedback')
       }
-      openAlert('feedback')
       setChecked(false)
       reset()
-    } catch (error: any) {
-      console.log(error)
+    } catch {
+      window.alert('Error. Please try again later.')
     } finally {
       setIsProcessing(false)
     }

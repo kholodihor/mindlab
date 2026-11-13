@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import Swal from 'sweetalert2'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { TeachersFormValidation, FormFields } from '../TeachersValidationSchema'
 import styles from './EditPage.module.css'
@@ -15,6 +16,7 @@ import Admin_TextArea from '../../ui/admin_inputs/text_area/Admin_TextArea'
 import Image from 'next/image'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { defaultValues } from '../defaultValues'
+import { useFilePreview } from '@/hooks/useFilePreview'
 
 const EditPage = ({ id }: { id: string }) => {
   const router = useRouter()
@@ -35,9 +37,9 @@ const EditPage = ({ id }: { id: string }) => {
 
   const [image, setImage] = useState('')
 
-  useEffect(() => {
-    const teacherData = getTeacherById(id)
+  const teacherData = getTeacherById(id)
 
+  useEffect(() => {
     if (teacherData) {
       setValue('name_ua', teacherData.name_ua)
       setValue('name_en', teacherData.name_en)
@@ -53,27 +55,25 @@ const EditPage = ({ id }: { id: string }) => {
       setValue('image', [new File([], teacherData?.imageUrl, { type: 'for-url' })])
       setImage(teacherData?.imageUrl)
     }
-  }, [id])
+  }, [teacherData])
 
   const currentValues = watch()
-  console.log(currentValues)
 
-  const setImagePreview = (file: File) => {
-    const img = URL.createObjectURL(file)
-    setImage(img)
-  }
-
-  useEffect(() => {
-    if (!currentValues.image[0]?.size) return
-    const file = currentValues.image[0]
-    setImagePreview(file)
-  }, [currentValues.image])
+  useFilePreview(currentValues.image?.[0], setImage)
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsProcessing(true)
-    await updateTeacher(id, data)
-    setIsProcessing(false)
-    router.push('/admin/teachers')
+    try {
+      await updateTeacher(id, data)
+      router.push('/admin/teachers')
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setIsProcessing(false)
+    }
   }
 
   return (

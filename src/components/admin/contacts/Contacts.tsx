@@ -39,13 +39,20 @@ const Contacts = () => {
 
   const handleDeleteContact = async (id: string, name: string, item: IContact) => {
     setisProcessing(true)
-    setisProcessing(false)
-    await deleteContact(id, name, item)
-    setisProcessing(false)
-    Swal.fire({
-      title: 'Документ успішно видалено',
-      icon: 'success'
-    })
+    try {
+      await deleteContact(id, name, item)
+      Swal.fire({
+        title: 'Контакт успішно видалено',
+        icon: 'success'
+      })
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setisProcessing(false)
+    }
   }
 
   return (
@@ -53,7 +60,7 @@ const Contacts = () => {
       <PageTitle title="контакти" isSettingsButtonDisplayed isAddButtonDisplayed={false} />
       <div className={styles.contacts}>
         <div className={styles.contact_list}>
-          {contacts &&
+          {!!contacts?.length &&
             Array.isArray(contacts) &&
             Object.keys(contacts[0])
               .filter((name) => name !== 'id' && name !== 'createdAt')

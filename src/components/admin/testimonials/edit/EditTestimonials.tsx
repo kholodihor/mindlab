@@ -14,7 +14,7 @@ import { useTestimonials } from '@/hooks/swr/useTestimonials'
 import { useRouter } from 'next/navigation'
 import Loader from '../../shared/loader/Loader'
 import { defaultValue } from './defaultValue'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Swal from 'sweetalert2'
 
 const EditTestimonials = ({ id }: { id: string }) => {
@@ -26,6 +26,7 @@ const EditTestimonials = ({ id }: { id: string }) => {
   const {
     handleSubmit,
     control,
+    reset,
     formState: { errors, isDirty, isValid }
   } = useForm<z.infer<typeof testimonialScheme>>({
     resolver: zodResolver(testimonialScheme),
@@ -33,20 +34,16 @@ const EditTestimonials = ({ id }: { id: string }) => {
     defaultValues: defaultValue(testimon)
   })
 
+  useEffect(() => {
+    if (testimon) reset(defaultValue(testimon))
+  }, [testimon])
+
   const onSubmit: SubmitHandler<z.infer<typeof testimonialScheme>> = async (
     data: z.infer<typeof testimonialScheme>
   ) => {
-    console.log(data, id)
+    setIsProcessing(true)
     try {
-      setIsProcessing(true)
-      const response = await updateTestimonial(data, id)
-      console.log('response=>', response)
-      if (!response) {
-        Swal.fire({
-          title: 'Щось пішло не так',
-          icon: 'success'
-        })
-      }
+      await updateTestimonial(data, id)
       Swal.fire({
         title: 'Відгук успішно відредаговано',
         icon: 'success'
@@ -55,10 +52,9 @@ const EditTestimonials = ({ id }: { id: string }) => {
           router.push('/admin/testimonials')
         }
       })
-    } catch (error: any) {
-      console.log('error catch=>', error)
+    } catch (error) {
       Swal.fire({
-        title: error,
+        title: 'Щось пішло не так',
         icon: 'error'
       })
     } finally {

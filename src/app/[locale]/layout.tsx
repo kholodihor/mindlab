@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import { SWRProvider } from '../swr-provider'
-import { getServerSession } from 'next-auth'
 import { NextIntlClientProvider } from 'next-intl'
 import { notFound } from 'next/navigation'
 import SessionWrapper from '../session-provider'
@@ -69,7 +68,6 @@ export default async function RootLayout({
   children: React.ReactNode
   params: { locale: string }
 }) {
-  const session = await getServerSession()
   let messages: any
   try {
     messages = (await import(`../../../messages/${locale}.json`)).default
@@ -79,8 +77,8 @@ export default async function RootLayout({
   const isValidLocale = locales.some((cur) => cur === locale)
   if (!isValidLocale) notFound()
   return (
-    <html lang={locale} className={fixelDisplay.className}>
-      <SessionWrapper session={session}>
+    <html lang={locale === 'ua' ? 'uk' : locale} className={fixelDisplay.className}>
+      <SessionWrapper>
         <SWRProvider>
           <body>
             <NextIntlClientProvider locale={locale} messages={messages}>

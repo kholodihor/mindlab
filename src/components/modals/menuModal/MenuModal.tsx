@@ -15,14 +15,16 @@ const MenuModal = ({ handleClose }: MenuModalProps) => {
 
   useBodyScrollLock(isModalOpen)
 
-  const ModalLayout = () => (
+  if (!isModalOpen) return null
+
+  return createPortal(
     <div className={styles.wrapper} onClick={handleClose}>
       <div className={styles.modal}>
         <MobileMenu onClose={handleClose} />
       </div>
-    </div>
+    </div>,
+    document.body
   )
-  return <>{isModalOpen && createPortal(<ModalLayout />, document.body)}</>
 }
 
 export default MenuModal

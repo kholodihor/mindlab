@@ -23,7 +23,6 @@ const EditForms = ({ id }: { id: string }) => {
     handleSubmit,
     control,
     setValue,
-    watch,
     formState: { errors, isDirty, isValid }
   } = useForm<FormFields>({
     resolver: zodResolver(FormValidation),
@@ -36,10 +35,6 @@ const EditForms = ({ id }: { id: string }) => {
   })
 
   const form = getFormById(id)
-  console.log(form)
-
-  const currentValues = watch()
-  console.log(currentValues)
 
   useEffect(() => {
     if (form) {
@@ -47,20 +42,12 @@ const EditForms = ({ id }: { id: string }) => {
       setValue('formLink', form.formLink)
       setValue('excelLink', form.excelLink)
     }
-  }, [id])
+  }, [form])
 
   const onSubmit: SubmitHandler<FormFields> = async (values: FormFields) => {
-    console.log(values)
+    setIsProcessing(true)
     try {
-      setIsProcessing(true)
-      const response = await updateForm(id, values)
-      console.log('response=>', response)
-      if (!response) {
-        Swal.fire({
-          title: 'Щось пішло не так',
-          icon: 'success'
-        })
-      }
+      await updateForm(id, values)
       Swal.fire({
         title: 'Форму успішно відредаговано',
         icon: 'success'
@@ -69,10 +56,9 @@ const EditForms = ({ id }: { id: string }) => {
           router.push('/admin/forms')
         }
       })
-    } catch (error: any) {
-      console.log('error catch=>', error)
+    } catch (error) {
       Swal.fire({
-        title: error,
+        title: 'Щось пішло не так',
         icon: 'error'
       })
     } finally {

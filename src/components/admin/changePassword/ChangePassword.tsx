@@ -14,6 +14,7 @@ import { useSession } from 'next-auth/react'
 import ConfirmModal from '@/components/modals/confirmModal/ConfirmModal'
 import { changePassword } from '@/utils/api/password'
 import { signOut } from 'next-auth/react'
+import Swal from 'sweetalert2'
 
 const ChangePassword = () => {
   const [isProcessing, setIsProcessing] = useState(false)
@@ -47,20 +48,24 @@ const ChangePassword = () => {
   }, [openModal])
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
+    if (!session?.user?.email) return
+    setIsProcessing(true)
     try {
-      setIsProcessing(true)
       const values = {
-        email: session.user.email,
         password: data.password
       }
       const response = await changePassword(values)
-      setIsProcessing(false)
-      if (response.status === 200) {
+      if (response?.status === 200) {
         signOut({ callbackUrl: '/login' })
         router.push('/login')
       }
     } catch (error) {
-      console.log(error)
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setIsProcessing(false)
     }
   }
 
@@ -75,9 +80,7 @@ const ChangePassword = () => {
         <div className={styles.password_info}>
           <div className={styles.password_detail}>
             <h5 className={styles.password_title}>Логін:</h5>
-            <p className={styles.password_subtitle}>
-              {session.user.email ? session.user.email : 'example@mail.ua'}
-            </p>
+            <p className={styles.password_subtitle}>{session?.user?.email ?? 'example@mail.ua'}</p>
           </div>
         </div>
         <div className={styles.change_password}>
@@ -89,6 +92,7 @@ const ChangePassword = () => {
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
+                    type="password"
                     title="Введіть новий пароль (max 12 символів)"
                     placeholder="Новий пароль"
                     errorText={errors.password?.message}
@@ -103,6 +107,7 @@ const ChangePassword = () => {
                 render={({ field }) => (
                   <Admin_TextInput
                     {...field}
+                    type="password"
                     title="Підтвердіть новий пароль:"
                     placeholder="Новий пароль"
                     errorText={errors.confirmPassword?.message}

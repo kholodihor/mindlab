@@ -17,13 +17,14 @@ import Image from 'next/image'
 import ResetButton from '../../shared/resetButton/ResetButton'
 import SubmitButton from '../../shared/submitButton/SubmitButton'
 import Loader from '../../shared/loader/Loader'
+import { useFilePreview } from '@/hooks/useFilePreview'
 
 const EditPartners = ({ id }: { id: string }) => {
   const router = useRouter()
   const [isProcessing, setIsProcessing] = useState(false)
-  const { getPartnerById, updatePartner, isLoading, } = usePartners()
+  const { getPartnerById, updatePartner, isLoading } = usePartners()
 
-  const colorList= ['#E6EAFF', '#AAAEDF', '#8D83FF', '#FED1CE', '#FFECD0']
+  const colorList = ['#E6EAFF', '#AAAEDF', '#8D83FF', '#FED1CE', '#FFECD0']
 
   const {
     control,
@@ -40,51 +41,45 @@ const EditPartners = ({ id }: { id: string }) => {
 
   const [image, setImage] = useState('')
 
-  useEffect(() => {
-    const patrnerData = getPartnerById(id)
-   
+  const partnerData = getPartnerById(id)
 
-    if (patrnerData) {
-      setValue('nameUa', patrnerData.nameUa)
-      setValue('nameEn', patrnerData.nameEn)
-      setValue('color', patrnerData.color)
-      setValue('descriptionUa', patrnerData.descriptionUa)
-      setValue('descriptionEn', patrnerData.descriptionEn)
-      setValue('websiteLink', patrnerData.websiteLink)
-      setValue('image', [new File([], patrnerData?.imageUrl, { type: 'for-url' })])
-      setImage(patrnerData?.imageUrl)
+  useEffect(() => {
+    if (partnerData) {
+      setValue('nameUa', partnerData.nameUa)
+      setValue('nameEn', partnerData.nameEn)
+      setValue('color', partnerData.color)
+      setValue('descriptionUa', partnerData.descriptionUa)
+      setValue('descriptionEn', partnerData.descriptionEn)
+      setValue('websiteLink', partnerData.websiteLink)
+      setValue('image', [new File([], partnerData?.imageUrl, { type: 'for-url' })])
+      setImage(partnerData?.imageUrl)
     }
-    console.log(image)
-  }, [id])
+  }, [partnerData])
 
   const currentValues = watch()
-  console.log(currentValues)
 
-  const setImagePreview = (file: File) => {
-    const img = URL.createObjectURL(file)
-    setImage(img)
-  }
-
-  useEffect(() => {
-    if (!currentValues.image[0]?.size) return
-    const file = currentValues.image[0]
-    setImagePreview(file)
-  }, [currentValues.image])
+  useFilePreview(currentValues.image?.[0], setImage)
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
-
     setIsProcessing(true)
-   await updatePartner(id, data)
-  
-    setIsProcessing(false)
-    Swal.fire({
-      title: 'Дані успішно оновленні',
-      icon: 'success'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        router.push('/admin/partners')
-      }
-    })
+    try {
+      await updatePartner(id, data)
+      Swal.fire({
+        title: 'Дані успішно оновленні',
+        icon: 'success'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router.push('/admin/partners')
+        }
+      })
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setIsProcessing(false)
+    }
   }
 
   return (
@@ -201,13 +196,7 @@ const EditPartners = ({ id }: { id: string }) => {
               className={css.preview__wrapper}
               style={{ backgroundColor: getValues('color') || '' }}
             >
-           {image !== '' &&  <Image
-                  src={image}
-                  width={150}
-                  height={170}
-                  alt={'logo'}
-                /> }
-               
+              {image !== '' && <Image src={image} width={150} height={170} alt={'logo'} />}
             </div>
           </div>
         </div>

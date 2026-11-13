@@ -19,21 +19,29 @@ const Partners = () => {
 
   const router = useRouter()
 
-  const handleDeletePartner = async (id: string, imageId: string) => {
+  const handleDeletePartner = async (id: string) => {
     setIsProcessing(true)
-    await deletePartner(id, imageId)
-    setIsProcessing(false)
-    Swal.fire({
-      title: 'Партнер успішно видалено',
-      icon: 'success'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        router.refresh()
-      }
-    })
+    try {
+      await deletePartner(id)
+      Swal.fire({
+        title: 'Партнер успішно видалено',
+        icon: 'success'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router.refresh()
+        }
+      })
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setIsProcessing(false)
+    }
   }
 
-  const handleDelete = (id: string, imageId: string) => {
+  const handleDelete = (id: string) => {
     Swal.fire({
       title: 'Ви впевнені, що хочете видалити партнера?',
       icon: 'warning',
@@ -44,7 +52,7 @@ const Partners = () => {
       confirmButtonText: 'Видалити партнера'
     }).then((result) => {
       if (result.isConfirmed) {
-        handleDeletePartner(id, imageId)
+        handleDeletePartner(id)
       }
     })
   }
@@ -58,7 +66,7 @@ const Partners = () => {
         href={'/partners/add'}
       />
       <ul className={css.container}>
-        {partners?.map(({ id, color, nameEn, imageUrl, descriptionUa, websiteLink, imageId }) => (
+        {partners?.map(({ id, color, nameEn, imageUrl, descriptionUa, websiteLink }) => (
           <li key={id} className={css.partner__item} style={{ backgroundColor: color }}>
             <Image
               src={imageUrl}
@@ -76,15 +84,11 @@ const Partners = () => {
                 </div>
               </Link>
               <div className={css.wrapper}>
-                <button className={css.deleteBtn} onClick={() => handleDelete(id, imageId)}>
+                <button className={css.deleteBtn} onClick={() => handleDelete(id)}>
                   <DeleteIcon />
                 </button>
 
-                <Link
-                  href={`/admin/partners/edit/${id}`}
-                  onClick={() => console.log(id)}
-                  className={css.editBtn}
-                >
+                <Link href={`/admin/partners/edit/${id}`} className={css.editBtn}>
                   <EditIcon />
                 </Link>
               </div>

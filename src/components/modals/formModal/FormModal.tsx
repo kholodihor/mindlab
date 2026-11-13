@@ -16,7 +16,9 @@ const FormModal = ({ children, handleClose }: FormModalProps) => {
 
   useBodyScrollLock(isModalOpen)
 
-  const ModalLayout = () => (
+  if (!isModalOpen) return null
+
+  return createPortal(
     <div className={styles.wrapper}>
       <div className={styles.modal}>
         <button className={styles.close} onClick={handleClose}>
@@ -24,9 +26,9 @@ const FormModal = ({ children, handleClose }: FormModalProps) => {
         </button>
         {children}
       </div>
-    </div>
+    </div>,
+    document.body
   )
-  return <>{isModalOpen && createPortal(<ModalLayout />, document.body)}</>
 }
 
 export default FormModal

@@ -49,11 +49,13 @@ const Testimonials = () => {
         }}
         className={styles.swiper}
       >
-        {testimonials?.map((item, index) => (
-          <SwiperSlide key={index} className={styles.slide}>
-            <TestimonialCard review={item} />
-          </SwiperSlide>
-        ))}
+        {testimonials
+          ?.filter((item) => item.isPublished)
+          .map((item, index) => (
+            <SwiperSlide key={index} className={styles.slide}>
+              <TestimonialCard review={item} />
+            </SwiperSlide>
+          ))}
       </Swiper>
       <div className={`${styles.comments_block} container`}>
         <p className={styles.comments_block_paragraph}>
