@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import Lottie from 'lottie-react'
 import logo_open from '@/animations/logo_open.json'
 import logo_close from '@/animations/logo_close.json'

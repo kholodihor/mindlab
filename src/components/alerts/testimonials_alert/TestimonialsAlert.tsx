@@ -11,7 +11,9 @@ const TestimonialsAlert = () => {
   const isAlertOpen = useAlert((state) => state.isAlertOpen)
   const t = useTranslations('SuccessAlert')
 
-  const ModalLayout = () => (
+  if (!isAlertOpen) return null
+
+  return createPortal(
     <div className={styles.wrapper}>
       <div className={styles.modal}>
         <div className={styles.close} onClick={closeAlert}>
@@ -20,8 +22,8 @@ const TestimonialsAlert = () => {
         <h2>{t('greeting')}</h2>
         <h5 className={styles.second_title}>{t('testimonial')}</h5>
       </div>
-    </div>
+    </div>,
+    document.body
   )
-  return <>{isAlertOpen && createPortal(<ModalLayout />, document.body)}</>
 }
 export default TestimonialsAlert

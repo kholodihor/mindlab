@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styles from './Courses.module.css'
 import PageTitle from '../shared/pageTitle/PageTitle'
 import EditIcon from './icons/EditIcon'
@@ -17,16 +17,24 @@ const Courses = () => {
 
   const handleDeleteCourse = async (id: string) => {
     setIsProcessing(true)
-    await deleteCourse(id)
-    setIsProcessing(false)
-    Swal.fire({
-      title: 'Курс успішно видалено',
-      icon: 'success'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        router.refresh()
-      }
-    })
+    try {
+      await deleteCourse(id)
+      Swal.fire({
+        title: 'Курс успішно видалено',
+        icon: 'success'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router.refresh()
+        }
+      })
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setIsProcessing(false)
+    }
   }
 
   const handleDelete = (id: string) => {
@@ -45,11 +53,6 @@ const Courses = () => {
     })
   }
 
-  useEffect(() => {
-    console.log('courses=>', courses)
-    console.log('isLoading=>', isLoading)
-  }, [courses, isLoading])
-
   return (
     <section className={styles.section}>
       <PageTitle
@@ -64,9 +67,14 @@ const Courses = () => {
         <div className={styles.wrapper}>
           <ul className={styles.courses}>
             {courses?.map(({ title, courseDescriptionUa1, id }) => (
-              <li className={styles.courses_card} key={title}>
+              <li className={styles.courses_card} key={id}>
                 <div className={styles.course_content}>
-                  <h3 className={styles.course_title} style={{marginBottom: title.length > 30 ? '10px' : '5px'}}>{title}</h3>
+                  <h3
+                    className={styles.course_title}
+                    style={{ marginBottom: title.length > 30 ? '10px' : '5px' }}
+                  >
+                    {title}
+                  </h3>
                   <p className={styles.courses_description}>{courseDescriptionUa1}</p>
                 </div>
                 <div className={styles.button_block}>

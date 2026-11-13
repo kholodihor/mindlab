@@ -17,23 +17,13 @@ export const useContacts = () => {
   }
 
   const updateContact = async (id: string, item: ContactFormData) => {
-    try {
-      const updatedContact = await contactsApi.updateContact(id, item)
-      if (updatedContact && data) {
-        mutate()
-      }
-    } catch (error) {
-      throw Promise.reject()
-    }
+    await contactsApi.updateContact(id, item)
+    await mutate()
   }
 
   const deleteContact = async (id: string, name: string, item: IContact) => {
-    try {
-      await contactsApi.deleteContact(id, name, item)
-      mutate()
-    } catch (error) {
-      throw Promise.reject()
-    }
+    await contactsApi.deleteContact(id, name, item)
+    mutate()
   }
 
   return {

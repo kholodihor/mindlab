@@ -1,14 +1,14 @@
 import prisma from '@/lib/prisma'
 import { ITeacher } from '@/types/teachers'
-import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
+import { requireAuth } from '@/lib/auth'
+import { destroyFile } from '@/config/cloudinary'
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   if (!params.id) {
     return new NextResponse('Not found', { status: 404 })
   }
   try {
-    await prismaConnect()
     const teacher = await prisma.teacher.findUnique({
       where: {
         id: params.id
@@ -25,12 +25,17 @@ export async function GET(request: Request, { params }: { params: { id: string }
 }
 
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   try {
     if (!params.id) {
       return new NextResponse('Teacher Not found', { status: 404 })
     }
-    await prismaConnect()
     const data: ITeacher = await request.json()
+    // Only look up the current image when the request saves a new one
+    const existing = data.imageId
+      ? await prisma.teacher.findUnique({ where: { id: params.id }, select: { imageId: true } })
+      : null
     const updatedTeacher = await prisma.teacher.update({
       where: {
         id: params.id
@@ -51,6 +56,10 @@ export async function PATCH(request: Request, { params }: { params: { id: string
         instagramLink: data.instagramLink
       }
     })
+    // A new image was uploaded: remove the replaced one from Cloudinary
+    if (existing && existing.imageId !== data.imageId) {
+      await destroyFile(existing.imageId, 'DELETE OLD IMAGE')
+    }
     return NextResponse.json(updatedTeacher, { status: 200 })
   } catch (error) {
     console.log('[UPDATE TEACHER]', error)
@@ -59,20 +68,22 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 }
 
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   if (!params.id) {
     return new NextResponse('Not found', { status: 404 })
   }
   try {
-    await prismaConnect()
-    await prisma.teacher.delete({
+    const deleted = await prisma.teacher.delete({
       where: {
         id: params.id
       }
     })
+    await destroyFile(deleted.imageId, 'DELETE TEACHER FILE')
 
     return NextResponse.json({ message: 'teacher deleted successfully' }, { status: 200 })
   } catch (error) {
-    console.log('[DELETE COURSE', error)
+    console.log('[DELETE TEACHER]', error)
     return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
   }
 }

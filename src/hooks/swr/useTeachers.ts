@@ -17,35 +17,18 @@ export const useTeachers = () => {
   }
 
   const addTeacher = async (item: TeacherFormData) => {
-    try {
-      const newTeacher = await teachersApi.createTeacher(item)
-      if (newTeacher && data) {
-        mutate([newTeacher, ...data])
-      }
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const newTeacher = await teachersApi.createTeacher(item)
+    mutate((current) => [newTeacher, ...(current ?? [])], { revalidate: false })
   }
 
   const updateTeacher = async (courseId: string, item: TeacherFormData) => {
-    try {
-      const updatedTeacher = await teachersApi.updateTeacher(courseId, item)
-      if (updatedTeacher && data) {
-        mutate()
-      }
-    } catch (error) {
-      throw Promise.reject()
-    }
+    await teachersApi.updateTeacher(courseId, item)
+    await mutate()
   }
 
-  const deleteTeacher = async (id: string, imageId: string) => {
-    try {
-      await teachersApi.deleteTeacher(id, imageId)
-      const updatedTeachers = data?.filter((item) => item.id !== id)
-      mutate(updatedTeachers)
-    } catch (error) {
-      throw Promise.reject()
-    }
+  const deleteTeacher = async (id: string) => {
+    await teachersApi.deleteTeacher(id)
+    mutate((current) => current?.filter((item) => item.id !== id), { revalidate: false })
   }
 
   return {

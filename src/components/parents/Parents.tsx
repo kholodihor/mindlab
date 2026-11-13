@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import { useState } from 'react'
 import { useModal } from '@/stores/useModal'
 import { useAlert } from '@/stores/useAlert'
@@ -60,25 +59,22 @@ const Parents = ({ contacts }: { contacts: IContact[] }) => {
             <ul className={` ${css.contacts}`}>
               <li className={`${css.contact__item}`}>
                 <p className={css.contact__text}>{t('Footer.help')}</p>
-                <Link
-                  href={`mailto:${contacts ? contacts?.[0].email : ''}`}
-                  className={css.contact__link}
-                >
+                <a href={`mailto:${contacts?.[0]?.email ?? ''}`} className={css.contact__link}>
                   <MailIcon />
                   <p>{t('Footer.mail')}</p>
-                </Link>
+                </a>
               </li>
               <li className={css.contact__item}>
                 <p className={css.contact__text}>{t('Footer.answer')}</p>
-                <Link
-                  href={contacts ? contacts?.[0].telegram : ''}
+                <a
+                  href={contacts?.[0]?.telegram ?? ''}
                   className={css.contact__link}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   <TelegramIcon />
                   <p>{t('Footer.telegram')}</p>
-                </Link>
+                </a>
               </li>
             </ul>
             {iconParents.map(({ src, width, height, className }) => (

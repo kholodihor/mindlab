@@ -8,7 +8,7 @@ import { useLocale } from 'next-intl'
 
 type DocumentProps = {
   document: IDocument
-  deleteDocument: (id: string, public_id: string) => void
+  deleteDocument: (id: string) => void
 }
 
 const DocumentCard = ({ document, deleteDocument }: DocumentProps) => {
@@ -22,10 +22,7 @@ const DocumentCard = ({ document, deleteDocument }: DocumentProps) => {
           {locale === 'en' ? document.fileName_en : document.fileName_ua}
         </h3>
       </div>
-      <button
-        className={styles.btn_delete}
-        onClick={() => deleteDocument(document.id, document.fileId)}
-      >
+      <button className={styles.btn_delete} onClick={() => deleteDocument(document.id)}>
         <DeleteIcon />
       </button>
     </div>

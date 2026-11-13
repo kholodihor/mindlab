@@ -1,11 +1,10 @@
 import prisma from '@/lib/prisma'
 import { IDocument } from '@/types/documents'
-import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
+import { requireAuth } from '@/lib/auth'
 
 export async function GET() {
   try {
-    await prismaConnect()
     const documents = await prisma.document.findMany()
     return NextResponse.json(documents, { status: 200 })
   } catch (error) {
@@ -15,8 +14,9 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   try {
-    await prismaConnect()
     const data: IDocument = await request.json()
     const response = await prisma.document.create({
       data: {

@@ -17,35 +17,18 @@ export const useCourses = () => {
   }
 
   const addCourse = async (item: ICourse) => {
-    try {
-      const newCourse = await coursesApi.createCourse(item)
-      if (newCourse && data) {
-        mutate([newCourse, ...data])
-      }
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const newCourse = await coursesApi.createCourse(item)
+    mutate((current) => [newCourse, ...(current ?? [])], { revalidate: false })
   }
 
   const updateCourse = async (item: ICourse, courseId: string) => {
-    try {
-      const updatedCourse = await coursesApi.updateCourse(item, courseId)
-      if (updatedCourse && data) {
-        mutate()
-      }
-    } catch (error) {
-      throw Promise.reject()
-    }
+    await coursesApi.updateCourse(item, courseId)
+    await mutate()
   }
 
   const deleteCourse = async (id: string) => {
-    try {
-      const updatedCourses = data?.filter((item) => item.id !== id)
-      mutate(updatedCourses)
-      await coursesApi.deleteCourse(id)
-    } catch (error) {
-      throw Promise.reject()
-    }
+    await coursesApi.deleteCourse(id)
+    mutate((current) => current?.filter((item) => item.id !== id), { revalidate: false })
   }
 
   return {

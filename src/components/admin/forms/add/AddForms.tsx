@@ -35,23 +35,25 @@ const AddForms = () => {
 
   const onSubmit: SubmitHandler<FormFields> = async (values: FormFields) => {
     setIsProcessing(true)
-    const response = await addForm(values)
-    setIsProcessing(false)
-    if (!response) {
-      return Swal.fire({
-        title: 'Щось пішдо не так. Спробуйте знову',
+    try {
+      const response = await addForm(values)
+      if (response?.status === 200) {
+        Swal.fire({
+          title: 'Форму успішно додано',
+          icon: 'success'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            router.push('/admin/forms')
+          }
+        })
+      }
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
         icon: 'error'
       })
-    }
-    if (response.status === 200) {
-      Swal.fire({
-        title: 'Форму успішно додано',
-        icon: 'success'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          router.push('/admin/forms')
-        }
-      })
+    } finally {
+      setIsProcessing(false)
     }
   }
   return (

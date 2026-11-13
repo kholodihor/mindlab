@@ -2,8 +2,8 @@ import { withAuth } from 'next-auth/middleware'
 import { NextRequest } from 'next/server'
 import createMiddleware from 'next-intl/middleware'
 
-const nonPublicPages = ['/admin']
 const locales = ['ua', 'en']
+const adminPathRegex = new RegExp(`^(/(${locales.join('|')}))?/admin(/.*)?$`, 'i')
 
 const nextIntlMiddleware = createMiddleware({
   locales,
@@ -27,19 +27,10 @@ const authMiddleware = withAuth(
 )
 
 export default function middleware(req: NextRequest) {
-  const noPublicPathnameRegex = RegExp(
-    `^(/(${locales.join('|')}))?(${nonPublicPages
-      .flatMap((p) => (p === '/' ? ['', '/'] : p))
-      .join('|')})/?$`,
-    'i'
-  )
-  const isNonPublicPage = noPublicPathnameRegex.test(req.nextUrl.pathname)
-
-  if (isNonPublicPage) {
+  if (adminPathRegex.test(req.nextUrl.pathname)) {
     return (authMiddleware as any)(req)
-  } else {
-    return nextIntlMiddleware(req)
   }
+  return nextIntlMiddleware(req)
 }
 
 export const config = {

@@ -20,8 +20,6 @@ const TeacherPage = ({ id }: { id: string }) => {
   const t = useTranslations('Speakers')
   const locale = useLocale()
 
-  console.log(teacher)
-
   return (
     <div className={styles.page}>
       <a href={`/${locale}#teachers`} className={styles.link}>

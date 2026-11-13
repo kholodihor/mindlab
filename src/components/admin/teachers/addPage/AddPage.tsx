@@ -1,7 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Swal from 'sweetalert2'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormFields, TeachersFormValidation } from '../TeachersValidationSchema'
 import styles from './AddPage.module.css'
@@ -16,6 +17,7 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import PreviewIcon from './icons/PreviewIcon'
 import { defaultValues } from '../defaultValues'
 import { useTeachers } from '@/hooks/swr/useTeachers'
+import { useFilePreview } from '@/hooks/useFilePreview'
 
 const AddPage = () => {
   const router = useRouter()
@@ -36,22 +38,21 @@ const AddPage = () => {
 
   const currentValues = watch()
 
-  const setImagePreview = (file: File) => {
-    const img = URL.createObjectURL(file)
-    setImage(img)
-  }
-
-  useEffect(() => {
-    if (!currentValues.image?.length) return
-    const file = currentValues.image[0]
-    setImagePreview(file)
-  }, [currentValues.image])
+  useFilePreview(currentValues.image?.[0], setImage)
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsProcessing(true)
-    await addTeacher(data)
-    setIsProcessing(false)
-    router.back()
+    try {
+      await addTeacher(data)
+      router.back()
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setIsProcessing(false)
+    }
   }
 
   return (

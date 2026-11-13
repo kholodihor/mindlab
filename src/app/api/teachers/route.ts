@@ -1,11 +1,10 @@
 import prisma from '@/lib/prisma'
 import { ITeacher } from '@/types/teachers'
-import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
+import { requireAuth } from '@/lib/auth'
 
 export async function GET() {
   try {
-    await prismaConnect()
     const teachers = await prisma.teacher.findMany()
     return NextResponse.json(teachers, { status: 200 })
   } catch (error) {
@@ -15,8 +14,9 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   try {
-    await prismaConnect()
     const data: ITeacher = await request.json()
     const response = await prisma.teacher.create({
       data: {

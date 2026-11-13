@@ -1,14 +1,15 @@
 import prisma from '@/lib/prisma'
-import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
 import { IContact } from '@/types/contacts'
+import { requireAuth } from '@/lib/auth'
 
 export async function PATCH(
   request: Request,
   { params }: { params: { id: string; name: string } }
 ) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   try {
-    await prismaConnect()
     const data: IContact = await request.json()
     const updatedContact: IContact = await prisma.contacts.update({
       where: {

@@ -16,29 +16,28 @@ const Forms = () => {
   const { forms, deleteForm, isLoading } = useForms()
   const [isProcessing, setIsProcessing] = useState(false)
 
-  console.log(forms)
-
   const router = useRouter()
 
   const handleDeleteTestimonial = async (id: string) => {
     setIsProcessing(true)
-    const response = await deleteForm(id)
-    setIsProcessing(false)
-
-    if (!response) {
-      return Swal.fire({
-        title: 'щось пішло не так',
+    try {
+      await deleteForm(id)
+      Swal.fire({
+        title: 'Форму успішно видалено',
+        icon: 'success'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router.refresh()
+        }
+      })
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
         icon: 'error'
       })
+    } finally {
+      setIsProcessing(false)
     }
-    Swal.fire({
-      title: 'Форму успішно видалено',
-      icon: 'success'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        router.refresh()
-      }
-    })
   }
 
   const handleDelete = (id: string) => {

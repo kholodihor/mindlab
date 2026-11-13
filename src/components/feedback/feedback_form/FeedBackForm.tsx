@@ -50,14 +50,14 @@ const FeedBackForm = () => {
       formData.append('Message', values.message)
       const response = await axios.post(googleSheetsUrl, formData)
       if (response.status === 200 && response.data === 'Success') {
-        console.log(response)
+        openAlert('feedback')
       }
-      setIsProcessing(false)
       setChecked(false)
       closeModal()
-      openAlert('feedback')
-    } catch (error: any) {
-      console.log(error)
+    } catch {
+      window.alert('Error. Please try again later.')
+    } finally {
+      setIsProcessing(false)
     }
   }
 
@@ -80,7 +80,11 @@ const FeedBackForm = () => {
           name="email"
           control={control}
           render={({ field }) => (
-            <TextInput {...field} errorText={errors.email?.message && t( errors.email?.message)} placeholder="Email" />
+            <TextInput
+              {...field}
+              errorText={errors.email?.message && t(errors.email?.message)}
+              placeholder="Email"
+            />
           )}
         />
         <Controller

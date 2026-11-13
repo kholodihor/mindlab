@@ -1,74 +1,38 @@
 import axios from '@/config/axios'
-import { UploadResponse } from '@/types'
+import { withUploadedFile } from './upload'
 import { IPartnersResponse, PartnersFormData } from '@/types/partners'
 
 export const getPartner = async () => {
-  try {
-    const response = await axios.get<IPartnersResponse[]>('/partners')
-    return response.data
-  } catch (error) {
-    console.log(error)
-  }
+  const response = await axios.get<IPartnersResponse[]>('/partners')
+  return response.data
 }
 
-export const getPartnerById = async (id: string) => {
-  try {
-    const response = await axios.get<IPartnersResponse>(`/partners/${id}`)
-    return response.data
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-export const createPartner = async (partnerData: PartnersFormData) => {
-  console.log(partnerData)
-  try {
-    const formData = new FormData()
-    formData.append('file', partnerData.image[0])
-    const res: UploadResponse = await axios.post('/upload', formData)
-    const newPartner = { ...partnerData, imageId: res.data.fileId, imageUrl: res.data.fileUrl }
-    console.log(newPartner)
-    const response = await axios.post<IPartnersResponse>('/partners', newPartner, {
-      headers: { 'Content-Type': 'application/json' }
+export const createPartner = (data: PartnersFormData) =>
+  withUploadedFile(data.image[0], async ({ fileId, fileUrl }) => {
+    const response = await axios.post<IPartnersResponse>('/partners', {
+      ...data,
+      imageId: fileId,
+      imageUrl: fileUrl
     })
     return response.data
-  } catch (error) {
-    console.log(error)
+  })
+
+export const updatePartner = async (id: string, data: PartnersFormData) => {
+  const patch = async (body: object) => {
+    const response = await axios.patch<IPartnersResponse>(`/partners/${id}`, body)
+    return response.data
   }
+
+  // A zero-size placeholder file means the image wasn't changed
+  if (data.image[0].size > 0) {
+    return withUploadedFile(data.image[0], ({ fileId, fileUrl }) =>
+      patch({ ...data, imageId: fileId, imageUrl: fileUrl })
+    )
+  }
+  return patch(data)
 }
 
-export const updatePartner = async (id: string, partnerData: PartnersFormData) => {
-  try {
-    if (partnerData.image[0].size > 0) {
-      const formData = new FormData()
-      formData.append('file', partnerData.image[0])
-      const res: UploadResponse = await axios.post('/upload', formData)
-      const updatedPartner = {
-        ...partnerData,
-        imageId: res.data.fileId,
-        imageUrl: res.data.fileUrl
-      }
-      const response = await axios.patch<IPartnersResponse>(`/partners/${id}`, updatedPartner, {
-        headers: { 'Content-Type': 'application/json' }
-      })
-      return response.data
-    }
-
-    const response = await axios.patch<IPartnersResponse>(`/partners/${id}`, partnerData, {
-      headers: { 'Content-Type': 'application/json' }
-    })
-    return response.data
-  } catch (error) {
-    console.log(error)
-  }
-}
-
-export const deletePartner = async (id: string, imageId: string) => {
-  try {
-    const response = await axios.delete(`/partners/${id}`)
-    await axios.delete(`/upload/${encodeURIComponent(imageId)}`)
-    return response.data
-  } catch (error) {
-    console.log(error)
-  }
+export const deletePartner = async (id: string) => {
+  const response = await axios.delete(`/partners/${id}`)
+  return response.data
 }

@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Lottie from 'lottie-react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 import { useWidth } from '@/hooks/useWidth'
 import { useContacts } from '@/hooks/swr/useContacts'
 import chatbot_default from '@/animations/сhatbot_default.json'
@@ -17,7 +17,7 @@ import TelegramIcon from '@/components/icons/TelegramIcon'
 import MailIconXL from '@/components/icons/MailIconXL'
 import PhoneIconXL from '@/components/icons/PhoneIconXL'
 import styles from './MobileMenu.module.css'
-import Link from 'next/link'
+import { Link } from '@/navigation'
 
 type MobileMenuProps = {
   onClose: () => void
@@ -25,7 +25,6 @@ type MobileMenuProps = {
 
 const MobileMenu = ({ onClose }: MobileMenuProps) => {
   const t = useTranslations()
-  const locale = useLocale()
   const [isHovered, setIsHovered] = useState(false)
   const { contacts } = useContacts()
   const currentWidth = useWidth()
@@ -41,38 +40,22 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       <nav className={styles.menu_nav}>
         <ul className={styles.menu_list}>
           <li className={styles.header_nav_item}>
-            <Link
-              href={`/${locale}#courses`}
-              onClick={onClose}
-              className={styles.header_nav_item_link}
-            >
+            <Link href={`/#courses`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.courses')}
             </Link>
           </li>
           <li className={styles.header_nav_item}>
-            <Link
-              href={`/${locale}#teachers`}
-              onClick={onClose}
-              className={styles.header_nav_item_link}
-            >
+            <Link href={`/#teachers`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.speakers')}
             </Link>
           </li>
           <li className={styles.header_nav_item}>
-            <Link
-              href={`/${locale}#partners`}
-              onClick={onClose}
-              className={styles.header_nav_item_link}
-            >
+            <Link href={`/#partners`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.partners')}
             </Link>
           </li>
           <li className={styles.header_nav_item}>
-            <Link
-              href={`/${locale}#parents`}
-              onClick={onClose}
-              className={styles.header_nav_item_link}
-            >
+            <Link href={`/#parents`} onClick={onClose} className={styles.header_nav_item_link}>
               {t('Menu.parents')}
             </Link>
           </li>
@@ -81,7 +64,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           </li>
           <li className={styles.header_nav_item}>
             <a
-              href={contacts ? contacts[0].telegram : ''}
+              href={contacts?.[0]?.telegram ?? ''}
               rel="noopener noreferrer"
               target="_blank"
               onMouseEnter={() => setIsHovered(true)}
@@ -102,7 +85,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
       </nav>
       <div className={styles.social}>
         <a
-          href={contacts ? contacts[0].instagram : ''}
+          href={contacts?.[0]?.instagram ?? ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.social_link}
@@ -110,7 +93,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
           <Image src="/svg/footer/instagram.svg" alt="instagram" width={40} height={40} />
         </a>
         <a
-          href={contacts ? contacts[0].facebook : ''}
+          href={contacts?.[0]?.facebook ?? ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.social_link}
@@ -122,10 +105,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
         <ul className={styles.contacts_list}>
           <li className={styles.contacts_item}>
             <h4 className={styles.contacts_item_title}>{t('Footer.help')}</h4>
-            <a
-              className={styles.contacts_item_link}
-              href={`mailto:${contacts ? contacts[0].email : ''}`}
-            >
+            <a className={styles.contacts_item_link} href={`mailto:${contacts?.[0]?.email ?? ''}`}>
               {currentWidth < 430 ? <MailIconXL /> : <MailIcon />}
               <span className={styles.contacts_item_link_span}>{t('Footer.mail')}</span>
             </a>
@@ -134,7 +114,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
             <h4 className={styles.contacts_item_title}>{t('Footer.answer')}</h4>
             <a
               className={styles.contacts_item_link}
-              href={contacts ? contacts[0].telegram : ''}
+              href={contacts?.[0]?.telegram ?? ''}
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -146,7 +126,7 @@ const MobileMenu = ({ onClose }: MobileMenuProps) => {
             <h4 className={styles.contacts_item_title}>{t('Footer.talk')}</h4>
             <a
               className={styles.contacts_item_link}
-              href={`tel:${contacts ? contacts[0].phone : ''}`}
+              href={`tel:${(contacts?.[0]?.phone ?? '').replace(/[^\d+]/g, '')}`}
             >
               {currentWidth < 430 ? <PhoneIconXL /> : <PhoneIcon />}
               <span className={styles.contacts_item_link_span}>{t('Footer.phone')}</span>

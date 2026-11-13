@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useCourses } from '@/hooks/swr/useCourses'
 import { LazyLottie } from '@/components/LazyLottie'
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import Image from 'next/image'
 import ArrowRight from '../icons/ArrowRight'
 import ArrowTop from '../icons/ArrowTop'
@@ -57,7 +57,7 @@ const Courses = () => {
         {courses?.map(({ title, descriptionUa, descriptionEn, tagsUa, tagsEn, color, id }) => (
           <li className={css.courses__item} key={id}>
             <Link
-              href={`courses/${id}`}
+              href={`/courses/${id}`}
               className={css.courses__link}
               onMouseEnter={() => handleMouseEnter(color)}
               onMouseLeave={handleMouseLeave}
@@ -111,7 +111,7 @@ const Courses = () => {
         <h4 className={css.test}>{t('profTest.question')}</h4>
         <div className={css.wrapper__test}>
           <p className={css.text}>{t('profTest.answer')}</p>
-          <Link
+          <a
             href="https://www.16personalities.com/free-personality-test"
             rel="noopener noreferrer"
             target="_blank"
@@ -119,7 +119,7 @@ const Courses = () => {
           >
             <p>{t('profTest.test')}</p>
             <ArrowRight />
-          </Link>
+          </a>
         </div>
         <Image
           src="/parents/linelcon-3.svg"

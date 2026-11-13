@@ -6,9 +6,13 @@ type AddButtonProps = {
   href: string
 }
 
-const AddButton = ({text, href}: AddButtonProps) => {
+const AddButton = ({ text, href }: AddButtonProps) => {
   return (
-    <Link href={`/admin/${href}`}><button className={styles.add_btn} type="button">{text}</button></Link>
+    <Link href={`/admin/${href.replace(/^\//, '')}`}>
+      <button className={styles.add_btn} type="button">
+        {text}
+      </button>
+    </Link>
   )
 }
 

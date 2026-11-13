@@ -27,8 +27,7 @@ export function LazyLottie<T extends Record<string, unknown>>({
   const { data, error } = useSWR<T>(id, fetcher, {
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
-    dedupingInterval: 3600000, // Cache for 1 hour
-    suspense: true
+    dedupingInterval: 3600000 // Cache for 1 hour
   })
 
   if (error) {

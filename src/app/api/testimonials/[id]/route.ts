@@ -1,14 +1,13 @@
 import prisma from '@/lib/prisma'
-import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
 import { TTestimonialResponse } from '@/types/testimonials'
+import { requireAuth } from '@/lib/auth'
 
 export async function GET(request: Request, { params }: { params: { id: string } }) {
   if (!params.id) {
     return new NextResponse('Not found', { status: 404 })
   }
   try {
-    await prismaConnect()
     const review = await prisma.testimonial.findUnique({
       where: {
         id: params.id
@@ -25,11 +24,12 @@ export async function GET(request: Request, { params }: { params: { id: string }
 }
 
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   try {
     if (!params.id) {
-      return new NextResponse('Teacher Not found', { status: 404 })
+      return new NextResponse('Testimonial Not found', { status: 404 })
     }
-    await prismaConnect()
     const { name, email, message } = await request.json()
     const updatedTestimonial: TTestimonialResponse = await prisma.testimonial.update({
       where: {
@@ -50,11 +50,12 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 }
 
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   if (!params.id) {
     return new NextResponse('Not found', { status: 404 })
   }
   try {
-    await prismaConnect()
     await prisma.testimonial.delete({
       where: {
         id: params.id
@@ -63,7 +64,7 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
 
     return NextResponse.json({ message: 'review deleted successfully' }, { status: 200 })
   } catch (error) {
-    console.log('[DELETE TESTIMONIAL', error)
+    console.log('[DELETE TESTIMONIAL]', error)
     return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
   }
 }

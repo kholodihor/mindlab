@@ -1,14 +1,15 @@
 import prisma from '@/lib/prisma'
 import { IForm } from '@/types/forms'
-import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
+import { requireAuth } from '@/lib/auth'
 
 export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   try {
     if (!params.id) {
       return new NextResponse('Form Not found', { status: 404 })
     }
-    await prismaConnect()
     const data: IForm = await request.json()
     const updatedForm = await prisma.form.update({
       where: {
@@ -28,11 +29,12 @@ export async function PATCH(request: Request, { params }: { params: { id: string
 }
 
 export async function DELETE(request: Request, { params }: { params: { id: string } }) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   if (!params.id) {
     return new NextResponse('Not found', { status: 404 })
   }
   try {
-    await prismaConnect()
     await prisma.form.delete({
       where: {
         id: params.id
@@ -40,7 +42,7 @@ export async function DELETE(request: Request, { params }: { params: { id: strin
     })
     return NextResponse.json({ message: 'form deleted successfully' }, { status: 200 })
   } catch (error) {
-    console.log('[DELETE FORM', error)
+    console.log('[DELETE FORM]', error)
     return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
   }
 }

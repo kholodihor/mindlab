@@ -47,11 +47,11 @@ const TestimonialForm = () => {
       const response = await addNewTestimonial(values)
       setIsProcessing(false)
       closeModal()
-      if (response.status === 200) {
+      if (response?.status === 200) {
         openAlert('testimonial')
       }
-    } catch (error: any) {
-      alert(error)
+    } catch {
+      window.alert('Error. Please try again later.')
     } finally {
       setIsProcessing(false)
     }

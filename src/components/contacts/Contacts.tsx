@@ -16,7 +16,7 @@ const Contacts = ({ contacts }: { contacts: IContact[] }) => {
       <p className={styles.paragraph}>
         {t('follow')}{' '}
         <a
-          href={contacts ? contacts?.[0].instagram : ''}
+          href={contacts?.[0]?.instagram ?? ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.link}
@@ -31,7 +31,7 @@ const Contacts = ({ contacts }: { contacts: IContact[] }) => {
         </a>
         {t('join')}{' '}
         <a
-          href={contacts ? contacts?.[0].facebook : ''}
+          href={contacts?.[0]?.facebook ?? ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.link}
@@ -39,14 +39,14 @@ const Contacts = ({ contacts }: { contacts: IContact[] }) => {
           <Image
             className={styles.image}
             src="/contacts/facebook.svg"
-            alt="instagram"
+            alt="facebook"
             width={50}
             height={50}
           />
         </a>
         {t('write')}{' '}
         <a
-          href={contacts ? contacts?.[0].telegram : ''}
+          href={contacts?.[0]?.telegram ?? ''}
           rel="noopener noreferrer"
           target="_blank"
           className={styles.link}
@@ -55,13 +55,13 @@ const Contacts = ({ contacts }: { contacts: IContact[] }) => {
           <Image
             className={styles.image}
             src="/contacts/telegram.svg"
-            alt="instagram"
+            alt="telegram"
             width={50}
             height={50}
           />
         </a>
         {t('and')}{' '}
-        <a href={`mailto:${contacts ? contacts?.[0].email : ''}`} className={styles.link}>
+        <a href={`mailto:${contacts?.[0]?.email ?? ''}`} className={styles.link}>
           {' '}
           <Image
             className={styles.image}

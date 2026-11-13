@@ -1,4 +1,5 @@
 export const defaultValues = {
-  fileName: '',
-  file: [],
+  fileName_ua: '',
+  fileName_en: '',
+  file: []
 }

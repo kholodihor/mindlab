@@ -1,23 +1,22 @@
 import prisma from '@/lib/prisma'
 import { IPartners } from '@/types/partners'
-import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
-// import { json } from 'stream/consumers'
+import { requireAuth } from '@/lib/auth'
 
 export async function GET() {
   try {
-    await prismaConnect()
     const partners = await prisma.partners.findMany()
     return NextResponse.json(partners, { status: 200 })
   } catch (error) {
-    console.log('[GET TEACHERS]', error)
+    console.log('[GET PARTNERS]', error)
     return NextResponse.json({ message: 'Cannot fetch' }, { status: 500 })
   }
 }
 
 export async function POST(request: Request) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   try {
-    await prismaConnect()
     const data: IPartners = await request.json()
     const response = await prisma.partners.create({
       data: {

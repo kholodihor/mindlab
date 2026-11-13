@@ -1,5 +1,5 @@
 import { useTeachers } from '@/hooks/swr/useTeachers'
-import Link from 'next/link'
+import { Link } from '@/navigation'
 import TeacherCard from '@/components/shared/teacher_card/TeacherCard'
 import css from '../course/Course.module.css'
 
@@ -14,10 +14,12 @@ const TeacherCourse = ({ course }: Prop) => {
   return (
     <>
       <ul className={css.teachers__list}>
-        {currentTeatchers?.map((teacher, index) => (
-          <Link href={`/teachers/${teacher.id}`} key={index}>
-            <TeacherCard teacher={teacher} />
-          </Link>
+        {currentTeatchers?.map((teacher) => (
+          <li key={teacher.id}>
+            <Link href={`/teachers/${teacher.id}`}>
+              <TeacherCard teacher={teacher} />
+            </Link>
+          </li>
         ))}
       </ul>
       {currentTeatchers?.length === 0 && <p>Щось пішло не так. Спробуйте будь ласка знову.</p>}

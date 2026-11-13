@@ -17,38 +17,21 @@ export const usePartners = () => {
   }
 
   const addPartner = async (item: PartnersFormData) => {
-    try {
-      const newPartner = await partnersApi.createPartner(item)
-      if (newPartner && data) {
-        mutate([newPartner, ...data])
-      }
-      return newPartner
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const newPartner = await partnersApi.createPartner(item)
+    mutate((current) => [newPartner, ...(current ?? [])], { revalidate: false })
+    return newPartner
   }
 
   const updatePartner = async (partnerId: string, item: PartnersFormData) => {
-    try {
-      const updatedPartners = await partnersApi.updatePartner(partnerId, item)
-      if (updatedPartners && data) {
-        mutate()
-      }
-      return updatedPartners
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const updatedPartners = await partnersApi.updatePartner(partnerId, item)
+    await mutate()
+    return updatedPartners
   }
 
-  const deletePartner = async (id: string, imageId: string) => {
-    try {
-      const response = await partnersApi.deletePartner(id, imageId)
-      const updatedPartners = data?.filter((item) => item.id !== id)
-      mutate(updatedPartners)
-      return response
-    } catch (error) {
-      throw Promise.reject()
-    }
+  const deletePartner = async (id: string) => {
+    const response = await partnersApi.deletePartner(id)
+    mutate((current) => current?.filter((item) => item.id !== id), { revalidate: false })
+    return response
   }
 
   return {

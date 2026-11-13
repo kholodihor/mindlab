@@ -1,7 +1,7 @@
 'use client'
 import { usePartners } from '@/hooks/swr/usePartners'
 import Swal from 'sweetalert2'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { Controller, SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -17,6 +17,7 @@ import Image from 'next/image'
 import ResetButton from '../../shared/resetButton/ResetButton'
 import SubmitButton from '../../shared/submitButton/SubmitButton'
 import Loader from '../../shared/loader/Loader'
+import { useFilePreview } from '@/hooks/useFilePreview'
 
 const AddPartners = () => {
   const { addPartner, isLoading } = usePartners()
@@ -38,23 +39,12 @@ const AddPartners = () => {
 
   const currentValues = watch()
 
-  const setImagePreview = (file: File) => {
-    const img = URL.createObjectURL(file)
-    setImage(img)
-  }
-
-  useEffect(() => {
-    if (!currentValues.image?.length) return
-    const file = currentValues.image[0]
-    setImagePreview(file)
-  }, [currentValues.image])
-
+  useFilePreview(currentValues.image?.[0], setImage)
 
   const onSubmit: SubmitHandler<FormFields> = async (data) => {
     setIsProcessing(true)
-    const response = await addPartner(data)
-    setIsProcessing(false)
-    if (response) {
+    try {
+      await addPartner(data)
       Swal.fire({
         title: 'Партнера успішно додано',
         icon: 'success'
@@ -63,11 +53,13 @@ const AddPartners = () => {
           router.push('/admin/partners')
         }
       })
-    } else {
+    } catch (error) {
       Swal.fire({
-        title: 'Щось пішло не так. Спробуйту знову',
+        title: 'Щось пішло не так',
         icon: 'error'
       })
+    } finally {
+      setIsProcessing(false)
     }
   }
   return (

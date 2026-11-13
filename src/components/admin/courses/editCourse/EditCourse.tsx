@@ -55,13 +55,10 @@ const EditCourse = ({ id }: { id: string }) => {
   const onSubmit: SubmitHandler<z.infer<typeof addCourseValidation>> = async (
     data: z.infer<typeof addCourseValidation>
   ) => {
-    console.log(data)
     const dataCourse = addCourseData(data)
-    console.log(dataCourse)
+    setIsProcessing(true)
     try {
-      setIsProcessing(true)
       await updateCourse(dataCourse, id)
-      setIsProcessing(false)
       Swal.fire({
         title: 'Курс успішно оновлено',
         icon: 'success'
@@ -72,9 +69,11 @@ const EditCourse = ({ id }: { id: string }) => {
       })
     } catch (error) {
       Swal.fire({
-        title: 'Щось пішло не так. Спробуйте знову',
+        title: 'Щось пішло не так',
         icon: 'error'
       })
+    } finally {
+      setIsProcessing(false)
     }
   }
   return (

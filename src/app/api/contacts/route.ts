@@ -1,11 +1,10 @@
 import prisma from '@/lib/prisma'
 import { IContact } from '@/types/contacts'
-import { prismaConnect } from '@/utils/prismaConnect'
 import { NextResponse } from 'next/server'
+import { requireAuth } from '@/lib/auth'
 
 export async function GET() {
   try {
-    await prismaConnect()
     const contacts = await prisma.contacts.findMany()
     return NextResponse.json(contacts, { status: 200 })
   } catch (error) {
@@ -15,8 +14,9 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const unauthorized = await requireAuth()
+  if (unauthorized) return unauthorized
   try {
-    await prismaConnect()
     const data: IContact = await request.json()
     const response = await prisma.contacts.create({
       data: {

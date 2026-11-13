@@ -62,6 +62,7 @@
     }
   },
   "Speakers": {
+    "all": "All",
     "title": "Leading teachers",
     "placeholder": "Direction, name",
     "notFound": "We did not find any registered teachers for your request.",

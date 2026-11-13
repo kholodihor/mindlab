@@ -20,6 +20,9 @@ const Course = ({ params }: { params: { course: string } }) => {
     setSideBarItem(index || 0)
   }
   const t = useTranslations('Courses')
+
+  if (!currentCourse) return null
+
   return (
     <section className={css.course__container}>
       <ul className={css.sideBar}>

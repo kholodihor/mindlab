@@ -11,15 +11,10 @@ export const useTestimonials = () => {
   )
 
   const addNewTestimonial = async (item: TTestimonial) => {
-    try {
-      const response = await testimonialsApi.createTestimonial(item)
-      if (response && data) {
-        mutate([response.data, ...data])
-      }
-      return response
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const response = await testimonialsApi.createTestimonial(item)
+    // New testimonials are unpublished; refetch instead of showing it before moderation
+    mutate()
+    return response
   }
 
   const getTestimonialById = (id: string) => {
@@ -29,26 +24,15 @@ export const useTestimonials = () => {
   }
 
   const deleteTestimonial = async (id: string) => {
-    try {
-      const updatedTestimonial = data?.filter((item) => item.id !== id)
-      mutate(updatedTestimonial)
-      const response = await testimonialsApi.deleteTestimonial(id)
-      return response
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const response = await testimonialsApi.deleteTestimonial(id)
+    mutate((current) => current?.filter((item) => item.id !== id), { revalidate: false })
+    return response
   }
 
   const updateTestimonial = async (item: TTestimonial, testimonialId: string) => {
-    try {
-      const updatedTestimonial = await testimonialsApi.updateTestimonial(item, testimonialId)
-      if (updatedTestimonial && data) {
-        mutate()
-      }
-      return updatedTestimonial
-    } catch (error) {
-      throw Promise.reject()
-    }
+    const updatedTestimonial = await testimonialsApi.updateTestimonial(item, testimonialId)
+    await mutate()
+    return updatedTestimonial
   }
 
   return {

@@ -24,8 +24,6 @@ const Login = () => {
     }
   }, [session, router])
 
-  console.log(session)
-
   const {
     handleSubmit,
     control,

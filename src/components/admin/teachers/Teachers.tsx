@@ -11,7 +11,7 @@ import styles from './Teachers.module.css'
 const Teachers = () => {
   const { teachers, deleteTeacher, isLoading } = useTeachers()
   const [isProcessing, setisProcessing] = useState(false)
-  const handleDelete = (id: string, imageId: string) => {
+  const handleDelete = (id: string) => {
     Swal.fire({
       title: 'Ви впевнені, що хочете видалити викладача?',
       icon: 'warning',
@@ -22,19 +22,27 @@ const Teachers = () => {
       confirmButtonText: 'Видалити викладача'
     }).then((result) => {
       if (result.isConfirmed) {
-        handleDeleteTeacher(id, imageId)
+        handleDeleteTeacher(id)
       }
     })
   }
 
-  const handleDeleteTeacher = async (id: string, imageId: string) => {
+  const handleDeleteTeacher = async (id: string) => {
     setisProcessing(true)
-    await deleteTeacher(id, imageId)
-    setisProcessing(false)
-    Swal.fire({
-      title: 'Викладача успішно видалено',
-      icon: 'success'
-    })
+    try {
+      await deleteTeacher(id)
+      Swal.fire({
+        title: 'Викладача успішно видалено',
+        icon: 'success'
+      })
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
+        icon: 'error'
+      })
+    } finally {
+      setisProcessing(false)
+    }
   }
 
   return (

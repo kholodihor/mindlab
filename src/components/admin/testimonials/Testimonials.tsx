@@ -20,23 +20,24 @@ const Testimonials = () => {
 
   const handleDeleteTestimonial = async (id: string) => {
     setIsProcessing(true)
-    const response = await deleteTestimonial(id)
-    setIsProcessing(false)
-
-    if (!response) {
-      return Swal.fire({
-        title: 'щось пішло не так',
+    try {
+      await deleteTestimonial(id)
+      Swal.fire({
+        title: 'Відгук успішно видалено',
+        icon: 'success'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router.refresh()
+        }
+      })
+    } catch (error) {
+      Swal.fire({
+        title: 'Щось пішло не так',
         icon: 'error'
       })
+    } finally {
+      setIsProcessing(false)
     }
-    Swal.fire({
-      title: 'Відгук успішно видалено',
-      icon: 'success'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        router.refresh()
-      }
-    })
   }
 
   const handleDelete = (id: string) => {
@@ -85,11 +86,7 @@ const Testimonials = () => {
                 <DeleteIcon />
               </button>
 
-              <Link
-                href={`/admin/testimonials/edit/${id}`}
-                onClick={() => console.log(id)}
-                className={css.editBtn}
-              >
+              <Link href={`/admin/testimonials/edit/${id}`} className={css.editBtn}>
                 <EditIcon />
               </Link>
             </div>
